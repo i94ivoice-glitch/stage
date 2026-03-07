@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12年國教升學完整說明指南 - Mermaid版</title>
+    
+    <!-- Mermaid.js 官方CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.7.0/dist/mermaid.min.js"></script>
+    <script>
+        // 設定 Mermaid 配置
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            fontFamily: '"Helvetica Neue", Helvetica, Arial, "PingFang TC", "Microsoft JhengHei", sans-serif'
+        });
+        
+        // 頁面載入完成後初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.init();
+        });
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .mermaid-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            border-left: 5px solid #3498db;
+            padding-left: 20px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 10px 0;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+        }
+        
+        /* Mermaid 容器樣式 */
+        .mermaid-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid #3498db;
+        }
+        
+        .mermaid-title {
+            color: #2c3e50;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .mermaid {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 0 auto;
+            display: inline-block;
+            min-width: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        /* Mermaid 圖表美化 */
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .mermaid .node {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+        }
+        
+        /* 表格樣式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            text-align: left;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        tr:hover {
+            background: #e3f2fd;
+            transform: translateX(2px);
+            transition: all 0.2s ease;
+        }
+        
+        /* 列表樣式 */
+        ul {
+            margin: 15px 0;
+            padding-left: 0;
+        }
+        
+        li {
+            list-style: none;
+            padding: 8px 0 8px 25px;
+            position: relative;
+            margin: 5px 0;
+        }
+        
+        li:before {
+            content: "📋";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* 強調樣式 */
+        strong {
+            color: #2980b9;
+            font-weight: 600;
+        }
+        
+        code {
+            background: #f1f2f6;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+        
+        /* 頁腳 */
+        .footer {
+            background: #f8f9fa;
+            border-top: 2px solid #ecf0f1;
+            padding: 30px 40px;
+            text-align: center;
+            color: #6c757d;
+        }
+        
+
+        
+        /* 連結樣式 */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #2980b9;
+            border-bottom: 1px solid #2980b9;
+            background: rgba(52, 152, 219, 0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        a:visited {
+            color: #8e44ad;
+            border-bottom-color: #8e44ad;
+        }
+        
+        /* 平滑滾動 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 目錄樣式 */
+        .table-of-contents {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #3498db;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .table-of-contents h2 {
+            color: #2c3e50;
+            margin: 0 0 20px 0;
+            padding: 0;
+            border: none;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        
+        .table-of-contents ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .table-of-contents li {
+            margin: 8px 0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .table-of-contents li:hover {
+            background: rgba(52, 152, 219, 0.1);
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .mermaid-container {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .mermaid-container {
+                padding: 15px;
+            }
+            
+            .mermaid {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 12年國教升學完整說明指南</h1>
+            <div class="subtitle">2026年完整版升學指南</div>
+            <div class="mermaid-badge">🎯 Mermaid.js 互動流程圖版</div>
+        </div>
+        
+        <div class="content">
+            <h2 id="目錄">📋 目錄</h2>
+<ul>
+<li><a href="#重要時程表" style="color: #2c3e50; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#2c3e50'">重要時程表</a></li>
+<li><a href="#升學博覽會資訊" style="color: #2c3e50; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#2c3e50'">升學博覽會資訊</a></li>
+<li><a href="#升學決策流程圖" style="color: #2c3e50; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#2c3e50'">升學決策流程圖</a></li>
+<li><a href="#各招生管道摘要表格" style="color: #2c3e50; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#2c3e50'">各招生管道摘要表格</a></li>
+<li><a href="#會考基本概念" style="color: #2c3e50; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#2c3e50'">會考基本概念</a></li>
+<li><a href="#主要升學管道詳解" style="color: #2c3e50; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#2c3e50'">主要升學管道詳解</a></li>
+<li><a href="#重要注意事項" style="color: #2c3e50; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#2c3e50'">重要注意事項</a></li>
+<li><a href="#官方參考資料" style="color: #2c3e50; text-decoration: none; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#2c3e50'">官方參考資料</a></li>
+</ul><p>---</p><h2 id="重要時程表">⏰ 重要時程表</h2><p><table>
+<thead><tr>
+<th>時間</th>
+<th>重要事項</th>
+<th>說明</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>3月1日-6月30日</strong></td>
+<td>新北市線上升學博覽會</td>
+<td><a href="https://se.ntpc.edu.tw/expo/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 500; border-bottom: 1px dotted #3498db;">https://se.ntpc.edu.tw/expo/</a></td>
+</tr>
+<tr>
+<td><strong>3月21日（六）</strong></td>
+<td><strong>升學博覽會</strong></td>
+<td><strong>新北市8-16時（市民廣場）、台北市9-16時（市貿B館）</strong></td>
+</tr>
+<tr>
+<td><strong>3月底/4月初</strong></td>
+<td>便當預訂</td>
+<td>會考期間統一訂便當</td>
+</tr>
+<tr>
+<td><strong>4月11日</strong></td>
+<td>專業群科術科考試</td>
+<td>新北區統一考試日</td>
+</tr>
+<tr>
+<td><strong>4月12日</strong></td>
+<td>臺北市專業群科考試</td>
+<td>與新北區錯開</td>
+</tr>
+<tr>
+<td><strong>4月17日</strong></td>
+<td>五專服務學習截止</td>
+<td>從七年級累計至此日</td>
+</tr>
+<tr>
+<td><strong>4月23-32日</strong></td>
+<td>跨區申請</td>
+<td>想回南部等其他區域就讀</td>
+</tr>
+<tr>
+<td><strong>5月16-17日</strong></td>
+<td><strong>會考日期</strong></td>
+<td>所有學生必考</td>
+</tr>
+<tr>
+<td><strong>6月4日</strong></td>
+<td>家長簽名繳費</td>
+<td>免試入學相關文件</td>
+</tr>
+<tr>
+<td><strong>6月5日</strong></td>
+<td>畢業證書發放</td>
+<td>確定就讀學校才交付</td>
+</tr>
+<tr>
+<td><strong>6月第一週後</strong></td>
+<td>畢業典禮</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>6月18日中午12點</strong></td>
+<td>確定招生名額</td>
+<td>各管道剩餘名額回流</td>
+</tr>
+<tr>
+<td><strong>6月18-23日</strong></td>
+<td><strong>志願選填期間</strong></td>
+<td>基本區免試入學正式選填</td>
+</tr>
+<tr>
+<td><strong>7月7日</strong></td>
+<td><strong>基本區免試放榜</strong></td>
+<td>大部分學生的主要管道</td>
+</tr>
+</tbody></table></p><p>---</p><h2 id="升學博覽會資訊">🎪 升學博覽會資訊</h2><h3 id="重要展覽活動">📅 重要展覽活動</h3><p>#### 🌟 3月21日（六）升學博覽會
+<strong>雙城同日舉辦，建議都參加！</strong></p><p><table>
+<thead><tr>
+<th>地區</th>
+<th>時間</th>
+<th>地點</th>
+<th>備註</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>新北市</strong></td>
+<td>8:00-16:00</td>
+<td>市民廣場</td>
+<td>建議加碼報名技高學校參觀</td>
+</tr>
+<tr>
+<td><strong>台北市</strong></td>
+<td>9:00-16:00</td>
+<td>市貿B館</td>
+<td>與新北同一天，盡量都去</td>
+</tr>
+</tbody></table></p><p>#### 💻 新北市線上升學博覽會
+<ul>
+<li><strong>時間</strong>：3月1日至6月30日</li>
+<li><strong>網址</strong>：<a href="https://se.ntpc.edu.tw/expo/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 500; border-bottom: 1px dotted #3498db;">https://se.ntpc.edu.tw/expo/</a></li>
+<li><strong>特色</strong>：全天候開放，詳細學校資訊</li>
+</ul><h3 id="參展建議">🎯 參展建議</h3><p><strong>📌 參觀重點</strong>：
+<ul>
+<li>✅ <strong>收集學校簡章</strong> - 了解各校特色與入學條件</li>
+<li>✅ <strong>諮詢升學管道</strong> - 詢問適合的入學方式</li>
+<li>✅ <strong>技高學校深度了解</strong> - 新北市特別建議加碼報名參觀</li>
+<li>✅ <strong>五專資訊蒐集</strong> - 了解專業科系與就業出路</li>
+<li>✅ <strong>與學校代表互動</strong> - 直接詢問關心的問題</li>
+</ul><p><strong>💡 參觀策略</strong>：
+<ul>
+<li>🚗 <strong>交通安排</strong> - 兩場地距離不遠，建議安排同日參觀</li>
+<li>📝 <strong>事前準備</strong> - 列出想了解的學校清單</li>
+<li>📱 <strong>線上預習</strong> - 先瀏覽線上博覽會內容</li>
+<li>🎒 <strong>攜帶物品</strong> - 準備袋子裝簡章，筆記本記錄重點</li>
+</ul><p>---</p><h2 id="升學決策流程圖">🔄 升學決策流程圖</h2><p>        <div class="mermaid-container">
+            <div class="mermaid-title">
+                🎯 升學決策流程圖 - Mermaid.js 互動版
+            </div>
+            <div class="mermaid">
+graph TD
+    A[九年級學生] --> A1[參加升學博覽會<br/>3/21新北市8-16時市民廣場<br/>3/21台北市9-16時市貿B館]
+    A1 --> A2[瀏覽線上博覽會<br/>se.ntpc.edu.tw/expo<br/>3/1-6/30]
+    A2 --> B{確定升學方向}
+    
+    B --> C[普通高中<br/>學術導向]
+    B --> D[技術高中/高職<br/>技術導向]
+    B --> E[五專<br/>專業導向]
+    B --> F[綜合高中<br/>多元試探]
+    
+    C --> G{會考成績預估}
+    D --> G
+    F --> G
+    
+    G --> H[30分以上<br/>建議聯合免試]
+    G --> I[25-30分<br/>可考慮優先免試]
+    G --> J[25分以下<br/>建議完全免試或專業群科]
+    
+    H --> K[基本區免試入學<br/>最多30個志願]
+    I --> L[優先免試<br/>一校一科]
+    I --> K
+    J --> M[完全免試<br/>一校一科]
+    J --> N[專業群科<br/>術科考試]
+    
+    E --> O[五專三管道]
+    O --> P[完全免試<br/>全國一區一校一科]
+    O --> Q[優先免試<br/>全國一區多志願]
+    O --> R[聯合免試<br/>北中南同報選一區]
+    
+    K --> S[6月18-23日志願選填]
+    L --> T[電腦分發]
+    M --> U[現場登記分發]
+    N --> V[4月11日術科考試]
+    P --> U
+    Q --> T
+    R --> U
+    
+    S --> W[7月7日放榜]
+    T --> X[較早放榜]
+    U --> Y[較早放榜]
+    V --> Z[專業群科放榜]
+            </div>
+        </div><p>---</p><h2 id="各招生管道摘要表格">📊 各招生管道摘要表格</h2><h3 id="高中職主要管道">🎯 高中職主要管道</h3><p><table>
+<thead><tr>
+<th>管道名稱</th>
+<th>適用範圍</th>
+<th>志願數</th>
+<th>採計會考</th>
+<th>總分</th>
+<th>報名時間</th>
+<th>特色</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>基本區免試入學</strong></td>
+<td>新北區為主</td>
+<td>最多30個</td>
+<td>是</td>
+<td>108分</td>
+<td>6/18-23</td>
+<td>大部分學生首選</td>
+</tr>
+<tr>
+<td><strong>完全免試入學</strong></td>
+<td>全區</td>
+<td>1校1科</td>
+<td>否</td>
+<td>-</td>
+<td>較早</td>
+<td>私校為主，不看會考</td>
+</tr>
+<tr>
+<td><strong>優先免試入學</strong></td>
+<td>指定學校</td>
+<td>1校1科</td>
+<td>部分採計</td>
+<td>72分</td>
+<td>較早</td>
+<td>公立學校，電腦分發</td>
+</tr>
+<tr>
+<td><strong>特色招生</strong></td>
+<td>4所指定學校</td>
+<td>1所</td>
+<td>是(門檻)</td>
+<td>-</td>
+<td>會考後</td>
+<td>需額外考試</td>
+</tr>
+<tr>
+<td><strong>專業群科</strong></td>
+<td>技術型學校</td>
+<td>依報名</td>
+<td>是</td>
+<td>-</td>
+<td>4/11術科</td>
+<td>適合技藝班學生</td>
+</tr>
+</tbody></table></p><h3 id="五專升學管道">🏥 五專升學管道</h3><p><table>
+<thead><tr>
+<th>管道名稱</th>
+<th>選擇範圍</th>
+<th>志願填寫</th>
+<th>現場登記</th>
+<th>採計會考</th>
+<th>特色</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>完全免試</strong></td>
+<td>全國一區</td>
+<td>一校一科</td>
+<td>需要</td>
+<td>部分不採計</td>
+<td>最早選擇</td>
+</tr>
+<tr>
+<td><strong>優先免試</strong></td>
+<td>全國一區</td>
+<td>多個志願</td>
+<td>電腦分發</td>
+<td>護理科採計</td>
+<td>電腦排序</td>
+</tr>
+<tr>
+<td><strong>聯合免試</strong></td>
+<td>北中南可同報</td>
+<td>該校所有科系</td>
+<td>需要</td>
+<td>大部分採計</td>
+<td>選校不選科</td>
+</tr>
+</tbody></table></p><h3 id="特殊管道">🎨 特殊管道</h3><p><table>
+<thead><tr>
+<th>管道名稱</th>
+<th>對象</th>
+<th>考試時間</th>
+<th>特殊要求</th>
+<th>備註</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>科學班</strong></td>
+<td>數理資優</td>
+<td>已結束</td>
+<td>筆試+面試</td>
+<td>建中、北一等四校</td>
+</tr>
+<tr>
+<td><strong>藝才班</strong></td>
+<td>藝術專長</td>
+<td>已結束</td>
+<td>術科測驗</td>
+<td>音樂、美術、戲劇、舞蹈</td>
+</tr>
+<tr>
+<td><strong>原住民單招</strong></td>
+<td>原住民學生</td>
+<td>4/11</td>
+<td>筆試</td>
+<td>慈濟大學等</td>
+</tr>
+<tr>
+<td><strong>原住民藝能專班</strong></td>
+<td>原住民+藝能</td>
+<td>-</td>
+<td>術科+體檢</td>
+<td>金山高中、樹林高中</td>
+</tr>
+</tbody></table></p><p>---</p><h2 id="會考基本概念">📚 會考基本概念</h2><h3 id="會考性質">🎯 會考性質</h3>
+<ul>
+<li><strong>定位</strong>：國中畢業能力檢測，類似英檢概念</li>
+<li><strong>強制性</strong>：所有九年級學生都必須參加</li>
+<li><strong>與升學關係</strong>：各校自行決定是否採用會考成績</li>
+</ul><h3 id="考試安排">📅 考試安排</h3>
+<ul>
+<li><strong>日期</strong>：5月16-17日</li>
+<li><strong>考場</strong>：原則上在新北高中</li>
+<li><strong>科目</strong>：國文、英文、數學、社會、自然 + 作文</li>
+</ul><h3 id="考試當天重點提醒">⚠️ 考試當天重點提醒</h3>
+<table>
+<thead><tr>
+<th>日期</th>
+<th>時間</th>
+<th>科目</th>
+<th>特別注意</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>第一天</strong></td>
+<td>1:40-5:00 PM</td>
+<td>國文(含作文)</td>
+<td><strong>中午務必讓孩子休息睡午覺</strong></td>
+</tr>
+<tr>
+<td><strong>第二天</strong></td>
+<td>至12:30 PM</td>
+<td>其他科目</td>
+<td>1:30結束，當天放成績到班群</td>
+</tr>
+</tbody></table></p><h3 id="成績計算-新北區">📊 成績計算 (新北區)</h3>
+<ul>
+<li><strong>等級制</strong>：A(精熟)、B(基礎)、C(待加強)</li>
+<li><strong>總分108分組成</strong>：</li>
+</ul>
+  - 會考成績：5科×7分 + 作文1分 = 36分
+  - 多元學習表現：36分 (均衡學習24分 + 服務學習12分)
+  - 志願序：36分 (每5個志願一區間，1-5志願36分，6-10志願35分，依此類推至最低32分)</p><p>---</p><h2 id="主要升學管道詳解">🚀 主要升學管道詳解</h2><h3 id="1-基本區免試入學-主要管道">1️⃣ 基本區免試入學 (主要管道)</h3><p><strong>適用對象</strong>：85%以上學生選擇此管道</p><p><strong>重要特色</strong>：
+<ul>
+<li>📅 <strong>關鍵時間</strong>：6月18日中午12點後確定名額</li>
+<li>🎯 <strong>志願數量</strong>：最多30個志願</li>
+<li>💯 <strong>建議策略</strong>：盡量30個志願填滿，前5個志願可獲滿分36分</li>
+</ul><p><strong>比序規則</strong> (同分時比較順序)：
+1. <strong>總積分</strong> (108分)
+2. <strong>會考成績</strong> (國、數、英三科優先比較)
+3. <strong>多元學習表現</strong>
+4. <strong>志願序</strong></p><p><strong>🎯 適合對象建議</strong>：
+<ul>
+<li><strong>30分以上</strong>：建議直接使用此管道，前三志願可選明星學校</li>
+<li><strong>25-30分</strong>：主要選擇，搭配優先免試</li>
+<li><strong>25分以下</strong>：可考慮，但建議搭配其他管道</li>
+</ul><p>---</p><h3 id="2-完全免試入學">2️⃣ 完全免試入學</h3><p><strong>核心特色</strong>：
+<ul>
+<li>🚫 <strong>不採計會考成績</strong></li>
+<li>🏫 <strong>一校一科限制</strong></li>
+<li>🏢 <strong>私立學校為主</strong></li>
+</ul><p><strong>比序方式</strong>：
+<ul>
+<li>主要看多元學習表現</li>
+<li>大部分學生都滿分</li>
+<li>最終可能需要抽籤</li>
+</ul><p><strong>鄰近學校選擇</strong>：
+<ul>
+<li>東海高中 (三重)</li>
+<li>林口高中</li>
+<li>永和高中</li>
+<li>新店高中等</li>
+</ul><p>---</p><h3 id="3-優先免試入學">3️⃣ 優先免試入學</h3><p><strong>適用學校</strong>：
+<ul>
+<li><strong>公立高中</strong>：板橋高中、海山高中、光復高中、清水高中</li>
+<li><strong>公立高職</strong>：新北高工、新北高商</li>
+</ul><p><strong>特色</strong>：
+<ul>
+<li>📊 <strong>總分</strong>：72分</li>
+<li>💻 <strong>電腦分發</strong>：不需現場登記</li>
+<li>🎯 <strong>一校一科</strong>：每校只能選一科</li>
+</ul><p><strong>建議</strong>：會考成績30分以上較不建議使用此管道</p><p>---</p><h3 id="4-五專升學-三種管道">4️⃣ 五專升學 (三種管道)</h3><p>#### 完全免試
+<ul>
+<li><strong>範圍</strong>：全國一區</li>
+<li><strong>限制</strong>：一校一科</li>
+<li><strong>現場</strong>：需要現場登記</li>
+</ul><p>#### 優先免試  
+<ul>
+<li><strong>範圍</strong>：全國一區</li>
+<li><strong>志願</strong>：多個志願</li>
+<li><strong>分發</strong>：電腦分發</li>
+</ul><p>#### 聯合免試
+<ul>
+<li><strong>範圍</strong>：北中南可同時報名</li>
+<li><strong>選擇</strong>：最後選一區一校</li>
+<li><strong>彈性</strong>：該校所有科系都可選</li>
+</ul><p><strong>💡 特別提醒</strong>：
+<ul>
+<li>護理科只有五專有，高中沒有</li>
+<li>服務學習從七年級累計至4月17日</li>
+<li>國立學校護理科要採計會考成績</li>
+</ul><p>---</p><h3 id="5-特色招生">5️⃣ 特色招生</h3><p><strong>四所學校限選一所</strong>：
+1. <strong>中正高中</strong>：國際移動力課程 IB/TCP 實驗班
+2. <strong>育成高中</strong>：國際文憑 IB/DCP 班  
+3. <strong>海山高中</strong>：海洋科技班
+4. <strong>麗山高中</strong>：科學班</p><p><strong>考試特色</strong>：
+<ul>
+<li>🚪 <strong>會考門檻</strong>：必須達到門檻才能報考</li>
+<li>📝 <strong>額外考試</strong>：創意思考、邏輯分析等</li>
+<li>🎯 <strong>培養目標</strong>：出國深造或專業領域發展</li>
+<li>📊 <strong>錄取分數</strong>：約30-40分左右</li>
+</ul><p>---</p><h3 id="6-專業群科-技藝班重要管道">6️⃣ 專業群科 (技藝班重要管道)</h3><p><strong>📊 今年現況</strong>：20位同學報名參加</p><p><strong>適合對象</strong>：
+<ul>
+<li>✅ 技藝班學生</li>
+<li>✅ 學科成績不理想但有技術專長</li>
+<li>✅ 對技術操作有興趣的學生</li>
+</ul><p><strong>考試安排</strong>：
+<ul>
+<li>📅 <strong>術科考試</strong>：4月11日 (新北區統一)</li>
+<li>🏫 <strong>考試地點</strong>：在本校進行  </li>
+<li>📚 <strong>考試內容</strong>：七、八年級技術課程</li>
+</ul><p><strong>重要提醒</strong>：
+<ul>
+<li>⚠️ 已完成報名，無法補報</li>
+<li>✅ 必須參加術科考試</li>
+<li>🔍 確認有想要的科系再參加</li>
+</ul><p>---</p><h2 id="重要注意事項">⚠️ 重要注意事項</h2><h3 id="報名與錄取鐵則">🔒 報名與錄取鐵則</h3><p>#### 一人一校原則
+<ul>
+<li>🚫 錄取報到後就不能再報其他學校</li>
+<li>❌ 不想就讀：錄取後不報到即可</li>
+<li>⏰ 報到後反悔：只有半天時間到該校簽署放棄書</li>
+<li>🔐 系統鎖定：未放棄就無法參加後續階段</li>
+</ul><p>#### 重要文件提醒
+<ul>
+<li>✍️ <strong>所有報名表需家長雙方簽名</strong></li>
+<li>📄 <strong>使用學校專用紙張</strong>：不可自行列印</li>
+<li>📋 <strong>資料錯誤</strong>：務必向註冊組更正</li>
+<li>🎓 <strong>畢業證書</strong>：確定就讀學校才交付</li>
+</ul><h3 id="防範不當招生">🛡️ 防範不當招生</h3><p>#### 不要相信的招生話術
+<ul>
+<li>❌ 電話、傳真的非正式招生</li>
+<li>❌ "提早來有優惠"等話術  </li>
+<li>❌ 要求預繳任何費用</li>
+<li>❌ 「先交畢業證書保證錄取」</li>
+</ul><p>#### 正確作法
+<ul>
+<li>✅ 只相信正式招生簡章</li>
+<li>✅ 所有費用等正式錄取後再繳</li>
+<li>✅ 畢業證書確定就讀才交付</li>
+<li>✅ 有疑問找註冊組確認</li>
+</ul><h3 id="在地就學獎學金">💰 在地就學獎學金</h3><p>#### 申請條件
+<ul>
+<li><strong>成績要求</strong>：會考成績達到一定等級</li>
+<li><strong>地區限制</strong>：必須就讀新北市學校  </li>
+<li><strong>轉學限制</strong>：中途轉到其他縣市需繳回</li>
+</ul><p>#### 適用學校
+包含公立優免對應學校，詳細清單依當年度公告</p><p>---</p><h2 id="實用資源">🌐 實用資源</h2><h3 id="重要網站">📱 重要網站</h3>
+<ul>
+<li><strong>升學資訊查詢</strong>：「國中升高中、高中升大學」網站</li>
+<li><strong>功能</strong>：完整的選校、選科系資訊</li>
+<li><strong>建議</strong>：家長可多加利用查詢</li>
+</ul><h3 id="參考資料">📖 參考資料</h3>
+<ul>
+<li><strong>升學手冊</strong>：每位九年級學生都有一本</li>
+<li><strong>內容</strong>：詳細資料和網站連結</li>
+<li><strong>小卡片測驗</strong>：性向測驗參考</li>
+</ul><p>---</p><h2 id="給家長的最終建議">🎯 給家長的最終建議</h2><h3 id="決策重點">💭 決策重點</h3>
+1. <strong>與孩子充分討論</strong>：找最適合的升學管道
+2. <strong>避免跟風心態</strong>：不要因同學選擇而盲從  
+3. <strong>考慮長遠發展</strong>：避免暑假後想重讀的情況
+4. <strong>善用多元管道</strong>：不要只押寶一個管道</p><h3 id="策略建議">📈 策略建議</h3>
+<ul>
+<li><strong>高分學生</strong> (30分以上)：直接走聯合免試，志願填好填滿</li>
+<li><strong>中等學生</strong> (25-30分)：聯合免試為主，搭配優先免試  </li>
+<li><strong>需要協助學生</strong> (25分以下)：考慮完全免試或專業群科</li>
+</ul><h3 id="關鍵提醒">⚡ 關鍵提醒</h3>
+<ul>
+<li><strong>現在沒有重考班</strong>：選錯學校重讀困難</li>
+<li><strong>把握現有時間</strong>：好好規劃，避免倉促決定</li>
+<li><strong>保持彈性思考</strong>：多元管道提供不同可能性</li>
+</ul><p>---</p><h2 id="官方參考資料">🔗 官方參考資料</h2><h3 id="教育部官方網站">📚 教育部官方網站</h3><p>#### 國中畢業生適性入學宣導網站
+<ul>
+<li><strong>網址</strong>：<a href="https://shs.k12ea.gov.tw/site/adapt-k12ea/category?root=134&cid=134" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 500; border-bottom: 1px dotted #3498db;">https://shs.k12ea.gov.tw/site/adapt-k12ea/categ...</a></li>
+<li><strong>主辦</strong>：教育部國民及學前教育署</li>
+<li><strong>內容特色</strong>：</li>
+</ul>
+  - 📋 各縣市升學管道完整說明
+  - 📊 會考相關資訊與計分說明
+  - 🎯 適性輔導與職涯探索
+  - 📱 升學行事曆與重要日程
+  - 💡 常見問題Q&A解答</p><p>#### 其他重要資源
+<ul>
+<li><strong>新北市教育局</strong>：升學相關最新公告</li>
+<li><strong>國中教育會考網站</strong>：會考報名、成績查詢</li>
+<li><strong>技專校院招生委員會聯合會</strong>：五專相關資訊</li>
+<li><strong>各高中職官網</strong>：學校特色與招生簡章</li>
+</ul><h3 id="建議使用方式">📖 建議使用方式</h3>
+1. <strong>定期查看官網更新</strong>：掌握最新升學政策變動
+2. <strong>善用線上資源</strong>：多元資訊輔助決策
+3. <strong>結合學校輔導</strong>：與導師、輔導室討論
+4. <strong>家長學生共同參與</strong>：一起了解升學管道</p><h3 id="資訊更新提醒">⚠️ 資訊更新提醒</h3>
+<ul>
+<li>升學政策可能年度調整，請以官方最新公告為準</li>
+<li>各校招生名額與條件每年會有變動</li>
+<li>重要日期務必確認當年度正確資訊</li>
+</ul><p>---</p><p>*📝 最後更新：2026年3月7日*  
+*📧 如有疑問請洽註冊組或導師*  
+*🌐 官方資訊請參考：<a href="https://shs.k12ea.gov.tw/site/adapt-k12ea/category?root=134&cid=134*" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 500; border-bottom: 1px dotted #3498db;">https://shs.k12ea.gov.tw/site/adapt-k12ea/categ...</a></p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>📅 最後更新：2026年03月07日 22:26</strong></p>
+            <p>🤖 由 Javis (OpenClaw) 自動生成 | 🎨 Mermaid.js 專業圖表</p>
+            <p>⚡ 互動流程圖 | 🌐 GitHub Pages 部署</p>
+            <p>📧 技術支援：i94ivoice@gmail.com</p>
+        </div>
+    </div>
+</body>
+</html>
