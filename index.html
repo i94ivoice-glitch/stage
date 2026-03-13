@@ -13,14 +13,11 @@
       min-height: 100vh;
       padding: 40px 20px 60px;
     }
-    header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
+    header { text-align: center; margin-bottom: 48px; }
     header .badge {
       display: inline-block;
-      background: rgba(99, 179, 237, 0.15);
-      border: 1px solid rgba(99, 179, 237, 0.4);
+      background: rgba(99,179,237,0.15);
+      border: 1px solid rgba(99,179,237,0.4);
       color: #63b3ed;
       padding: 4px 14px;
       border-radius: 20px;
@@ -28,17 +25,8 @@
       letter-spacing: 1px;
       margin-bottom: 14px;
     }
-    header h1 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 700;
-      color: #fff;
-    }
-    header p {
-      margin-top: 8px;
-      color: #667;
-      font-size: 0.88rem;
-    }
-
+    header h1 { font-size: clamp(1.5rem,4vw,2rem); font-weight: 700; color: #fff; }
+    header p { margin-top: 8px; color: #667; font-size: 0.88rem; }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -46,7 +34,6 @@
       max-width: 960px;
       margin: 0 auto;
     }
-
     .card {
       background: #1a1a2e;
       border: 1px solid #2a2a4a;
@@ -59,27 +46,14 @@
       gap: 8px;
       transition: border-color 0.2s, transform 0.15s, background 0.2s;
     }
-    .card:hover {
-      border-color: #63b3ed;
-      background: #1e1e3a;
-      transform: translateY(-2px);
-    }
+    .card:hover { border-color: #63b3ed; background: #1e1e3a; transform: translateY(-2px); }
     .card .icon { font-size: 1.8rem; }
-    .card .title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.35;
-    }
-    .card .desc {
-      font-size: 0.84rem;
-      color: #8899bb;
-      line-height: 1.6;
-    }
+    .card .title { font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.35; }
+    .card .desc { font-size: 0.84rem; color: #8899bb; line-height: 1.6; }
     .card .tag {
       display: inline-block;
-      background: rgba(99, 179, 237, 0.12);
-      border: 1px solid rgba(99, 179, 237, 0.3);
+      background: rgba(99,179,237,0.12);
+      border: 1px solid rgba(99,179,237,0.3);
       color: #63b3ed;
       padding: 2px 10px;
       border-radius: 12px;
@@ -87,13 +61,12 @@
       margin-top: 4px;
       width: fit-content;
     }
-
-    footer {
-      text-align: center;
-      margin-top: 56px;
-      font-size: 0.78rem;
-      color: #333;
-    }
+    .card.featured { border-color: #a855f7; }
+    .card.featured:hover { border-color: #c084fc; }
+    .card.featured .tag { background: rgba(168,85,247,0.15); border-color: rgba(168,85,247,0.4); color: #c084fc; }
+    footer { text-align: center; margin-top: 56px; font-size: 0.78rem; color: #333; }
+    footer a { color: #555; text-decoration: none; }
+    footer a:hover { color: #63b3ed; }
   </style>
 </head>
 <body>
@@ -104,6 +77,13 @@
 </header>
 
 <div class="grid">
+
+  <a class="card featured" href="elon_podcast_script_zh.html">
+    <span class="icon">🎧</span>
+    <span class="title">Podcast 逐字稿｜Elon Musk 的 AI 豐盛時代<br>機會與風險全解析</span>
+    <span class="desc">20 分鐘雙主持人對談稿。解析 AGI 時程、SpaceX×xAI 合併、Optimus、全民收入、資產佈局建議。</span>
+    <span class="tag">★ NEW · Podcast 逐字稿</span>
+  </a>
 
   <a class="card" href="elon_abundance_summit_zh.html">
     <span class="icon">🎙️</span>
