@@ -7,161 +7,255 @@
 <style>
   * { box-sizing: border-box; }
   body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
-  .container { max-width: 900px; margin: 0 auto; }
-  h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #333; padding-bottom: 12px; }
-  .badge { font-size: 0.7em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
-  .badge.wip { background: #f4a261; color: #111; }
-  .badge.live { background: #e63946; color: white; }
-  .badge.private { background: #555; color: #ccc; }
+  .container { max-width: 960px; margin: 0 auto; }
 
-  .section { margin: 28px 0; }
-  .section-title { font-size: 0.82em; color: #666; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+  h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+  .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+  .badge.stage  { background: #e63946; color: white; }
+  .badge.wip    { background: #f4a261; color: #111; }
 
-  video { width: 100%; border-radius: 8px; margin: 12px 0; background: #000; }
+  .section { margin: 32px 0; }
+  .section-title {
+    font-size: 0.75em; color: #555; text-transform: uppercase;
+    letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
 
-  .source-card { background: #1a1a1a; border-radius: 8px; padding: 16px; }
-  .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; }
-  .info-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
-  .info-chip { background: #252525; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; color: #aaa; }
+  video { width: 100%; border-radius: 10px; background: #000; display: block; }
+  .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
 
-  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
-  .files a { display: block; padding: 10px 14px; background: #1a1a1a; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.88em; transition: background 0.15s; }
-  .files a:hover { background: #252525; }
+  .source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px; }
+  .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
+  .source-card a:hover { text-decoration: underline; }
 
-  /* YouTube Section */
-  .yt-section { background: #1a1a1a; border-radius: 12px; padding: 24px; border: 1px solid #2a2a2a; }
+  /* Chapter grid */
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 600px) { .chapter-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .chapter-card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .chapter-card:hover { border-color: #444; }
+  .chapter-card img {
+    width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
+  }
+  .chapter-info { padding: 10px 12px; }
+  .chapter-num { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; line-height: 1.4; }
+  .chapter-dur { font-size: 0.72em; color: #555; margin-top: 4px; }
+
+  /* Files */
+  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+  .files a {
+    display: block; padding: 10px 14px; background: #141414;
+    border: 1px solid #222; border-radius: 8px; color: #4ea8de;
+    text-decoration: none; font-size: 0.85em; transition: background 0.15s;
+  }
+  .files a:hover { background: #1e1e1e; }
+
+  /* YouTube */
+  .yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
   .yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  .yt-logo { color: #ff0000; font-size: 1.4em; }
-  .yt-header h2 { margin: 0; font-size: 1.05em; color: #fff; }
-  .yt-status { font-size: 0.8em; padding: 3px 10px; border-radius: 20px; background: #333; color: #aaa; }
-  .yt-status.private { background: #2a2520; color: #f4a261; border: 1px solid #3a3020; }
+  .yt-logo { color: #ff0000; font-size: 1.5em; }
+  .yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
+  .yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #2a2015; color: #f4a261; border: 1px solid #3a3020; margin-left: auto; }
 
   .yt-field { margin-bottom: 16px; }
-  .yt-field label { display: block; font-size: 0.78em; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
-  .yt-field .value { background: #111; border-radius: 6px; padding: 10px 14px; font-size: 0.9em; color: #ddd; line-height: 1.6; }
-  .yt-field .value.title { font-size: 1em; font-weight: 600; color: #fff; }
-  .yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #111; border-radius: 6px; }
-  .yt-tag { background: #2a2a2a; padding: 3px 10px; border-radius: 20px; font-size: 0.78em; color: #ccc; }
+  .yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
+  .yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+  .yt-field .val.title-val { font-size: 1em; font-weight: 600; color: #fff; }
+  .yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
+  .yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
 
-  .yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-  .yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.9em; cursor: default; font-weight: 600; }
+  .yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
+  .yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.88em; cursor: default; font-weight: 600; }
   .yt-btn.primary { background: #ff0000; color: white; }
-  .yt-btn.secondary { background: #252525; color: #aaa; border: 1px solid #333; }
-  .yt-note { font-size: 0.8em; color: #555; margin-top: 12px; }
+  .yt-btn.secondary { background: #1e1e1e; color: #888; border: 1px solid #2a2a2a; }
+  .yt-note { font-size: 0.76em; color: #444; margin-top: 10px; }
 
-  .meta { font-size: 0.8em; color: #555; margin-top: 32px; border-top: 1px solid #222; padding-top: 12px; }
+  .meta { font-size: 0.75em; color: #3a3a3a; margin-top: 40px; border-top: 1px solid #1a1a1a; padding-top: 12px; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>Anthropic vs 國防部：AI 與威權的邊界 <span class="badge live">Stage 審閱中</span></h1>
 
+  <h1>Anthropic vs 國防部：AI 與威權的邊界 <span class="badge stage">Stage 審閱中</span></h1>
+
+  <!-- VIDEO -->
+  <div class="section">
+    <div class="section-title">🎬 Stage 影片</div>
+    <video controls preload="metadata" poster="bg_00_opening.png">
+      <source src="94ivoice_anthropic_dod_stage.mp4" type="video/mp4">
+    </video>
+    <div class="video-meta">
+      <span class="chip">⏱ 8:25</span>
+      <span class="chip">🎙 YunjianNeural +10%</span>
+      <span class="chip">🖼 Ken Burns 1.0→1.2×</span>
+      <span class="chip">📝 FontSize 38 · 最多3行</span>
+      <span class="chip">🎬 Logo 片尾 10s</span>
+    </div>
+  </div>
+
+  <!-- SOURCE -->
   <div class="section">
     <div class="section-title">📺 原始影片</div>
     <div class="source-card">
       <a href="https://youtu.be/KBPOTklFTiU" target="_blank">
-        🔗 The Department of War is making a huge mistake. — Dwarkesh Patel
+        ▶ The Department of War is making a huge mistake — Dwarkesh Patel
       </a>
-      <div class="info-row">
-        <span class="info-chip">⏱ 24:38</span>
-        <span class="info-chip">🎙 Dwarkesh Patel</span>
-        <span class="info-chip">📅 2025</span>
+      <div class="video-meta" style="margin-top:10px;">
+        <span class="chip">⏱ 24:38</span>
+        <span class="chip">🎙 Dwarkesh Patel</span>
       </div>
     </div>
   </div>
 
+  <!-- CHAPTER BACKGROUNDS -->
   <div class="section">
-    <div class="section-title">🎬 Stage 影片 <span class="badge live">已完成</span></div>
-    <video controls preload="metadata" poster="bg_00_opening.png">
-      <source src="94ivoice_anthropic_dod_stage.mp4" type="video/mp4">
-    </video>
-    <div class="info-row">
-      <span class="info-chip">⏱ 8:25</span>
-      <span class="info-chip">🎙 YunjianNeural +10%</span>
-      <span class="info-chip">🖼 6 章節背景圖</span>
-      <span class="info-chip">📝 字幕已燒錄</span>
+    <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <img src="bg_00_opening.png" alt="開場" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">00 · 開場</div>
+          <div class="chapter-title">引言</div>
+          <div class="chapter-dur">0:00 → 0:21</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_01_anthropic.png" alt="Anthropic vs 國防部" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">01 · Chapter</div>
+          <div class="chapter-title">Anthropic vs 國防部</div>
+          <div class="chapter-dur">0:21 → 2:30</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_02_tyranny.png" alt="威權主義的危機" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">02 · Chapter</div>
+          <div class="chapter-title">威權主義的過剩危機</div>
+          <div class="chapter-dur">2:30 → 3:56</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_03_surveillance.png" alt="AI 與大規模監控" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">03 · Chapter</div>
+          <div class="chapter-title">AI 有利於大規模監控</div>
+          <div class="chapter-dur">3:56 → 5:12</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_04_alignment.png" alt="對齊——對齊誰？" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">04 · Chapter</div>
+          <div class="chapter-title">對齊——對齊誰？</div>
+          <div class="chapter-dur">5:12 → 6:27</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_05_democracy.png" alt="民主 vs 威權" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">05 · Chapter</div>
+          <div class="chapter-title">民主 vs 威權：AI 軍備競賽</div>
+          <div class="chapter-dur">6:27 → 8:15</div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- FILES -->
   <div class="section">
     <div class="section-title">📁 素材檔案</div>
     <div class="files">
-      <a href="script_zh.html">✍️ 播客腳本（改寫版）</a>
+      <a href="script_zh.html">✍️ 播客腳本</a>
       <a href="transcript_zh.txt">📄 逐字稿（繁中）</a>
       <a href="subtitles_zh.srt">📝 字幕 SRT（繁中）</a>
+      <a href="subtitles_split.srt">✂️ 字幕 SRT（斷句版）</a>
       <a href="subtitles_en.srt">📝 字幕 SRT（英文）</a>
       <a href="voice_preview.html">🎧 語音試聽</a>
+      <a href="youtube_meta.json">📋 YouTube 文案 JSON</a>
     </div>
   </div>
 
-  <!-- YouTube Publishing Section -->
+  <!-- YOUTUBE -->
   <div class="section">
     <div class="section-title">📺 YouTube 發布設定</div>
     <div class="yt-section">
       <div class="yt-header">
         <span class="yt-logo">▶</span>
         <h2>愛播客 — YouTube 發布文案</h2>
-        <span class="yt-status private">🔒 私人審閱</span>
+        <span class="yt-pill">🔒 私人審閱</span>
       </div>
 
       <div class="yt-field">
         <label>影片標題</label>
-        <div class="value title" id="yt-title">AI技術如何改變全球政治格局？監控與威權的挑戰</div>
+        <div class="val title-val">AI技術如何改變全球政治格局？監控與威權的挑戰</div>
       </div>
 
       <div class="yt-field">
         <label>影片描述</label>
-        <div class="value" id="yt-desc">在本集94iVoice播客中，我們深入探討AI技術的發展及其對全球政治格局的影響，特別是在民主與威權國家之間的較量中。本集重點包括：1. Anthropic拒絕與美國國防部合作的影響；2. AI如何助長威權主義及監控風險；3. 如何平衡企業自由與國家安全。
+        <div class="val">在本集94iVoice播客中，我們深入探討AI技術的發展及其對全球政治格局的影響，特別是在民主與威權國家之間的較量中。
+
+本集重點：
+1. Anthropic拒絕與美國國防部合作的影響
+2. AI如何助長威權主義及監控風險
+3. 如何平衡企業自由與國家安全
 
 📌 時間章節：
-00:00 Anthropic vs 國防部（五角大廈）
-04:00 威權主義的過剩危機
-07:00 AI 在結構上有利於大規模監控
-10:00 對齊——對齊誰？
-13:00 民主 vs 威權：AI 軍事能力的競賽
+00:00 開場
+00:21 Anthropic vs 國防部（五角大廈）
+02:30 威權主義的過剩危機
+03:56 AI 在結構上有利於大規模監控
+05:12 對齊——對齊誰？
+06:27 民主 vs 威權：AI 軍事能力的競賽
 
 🎙 94iVoice — AI 與科技深度解析
-歡迎訂閱，每週更新 → https://www.youtube.com/@94ivoice</div>
+歡迎訂閱 → https://www.youtube.com/@94ivoice</div>
       </div>
 
       <div class="yt-field">
         <label>標籤</label>
-        <div class="yt-tags" id="yt-tags">
-          <span class="yt-tag">AI</span>
-          <span class="yt-tag">人工智慧</span>
-          <span class="yt-tag">政治</span>
-          <span class="yt-tag">監控</span>
-          <span class="yt-tag">威權主義</span>
-          <span class="yt-tag">科技發展</span>
-          <span class="yt-tag">數位化</span>
-          <span class="yt-tag">Ethics</span>
-          <span class="yt-tag">國防</span>
-          <span class="yt-tag">國際關係</span>
-          <span class="yt-tag">94iVoice</span>
-          <span class="yt-tag">Podcast</span>
-          <span class="yt-tag">科技與社會</span>
-          <span class="yt-tag">Dwarkesh Patel</span>
+        <div class="yt-tags">
+          <span class="yt-tag">AI</span><span class="yt-tag">人工智慧</span>
+          <span class="yt-tag">政治</span><span class="yt-tag">監控</span>
+          <span class="yt-tag">威權主義</span><span class="yt-tag">科技發展</span>
+          <span class="yt-tag">數位化</span><span class="yt-tag">Ethics</span>
+          <span class="yt-tag">國防</span><span class="yt-tag">國際關係</span>
+          <span class="yt-tag">94iVoice</span><span class="yt-tag">Podcast</span>
+          <span class="yt-tag">科技與社會</span><span class="yt-tag">Dwarkesh Patel</span>
         </div>
       </div>
 
       <div class="yt-field">
-        <label>類別 / 隱私設定</label>
-        <div class="value">科技與科學（Science &amp; Technology）｜🔒 私人（審閱後改公開）</div>
+        <label>類別 / 隱私</label>
+        <div class="val">科技與科學（Science &amp; Technology）｜🔒 私人（審閱後改公開）</div>
       </div>
 
       <div class="yt-actions">
-        <div class="yt-btn primary">▶ 上傳私人影片（審閱用）</div>
-        <div class="yt-btn secondary">✏️ 編輯文案</div>
-        <div class="yt-btn secondary">🌐 改為公開發布</div>
+        <div class="yt-btn primary">▶ 上傳到 YouTube（私人）</div>
+        <div class="yt-btn secondary">🌐 審閱後改公開</div>
       </div>
-      <div class="yt-note">⚠️ 以上按鈕為預覽用途。實際發布請告知 Javis，自動上傳到「愛播客」頻道。</div>
+      <div class="yt-note">⚠️ 按鈕為預覽用途。實際發布請告知 Javis 執行上傳。</div>
     </div>
   </div>
 
   <div class="meta">
-    94iVoice Stage｜最後更新：<span id="ts"></span>
+    94iVoice Stage Preview ·
+    <span id="ts"></span>
     <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
   </div>
+
 </div>
 </body>
 </html>
