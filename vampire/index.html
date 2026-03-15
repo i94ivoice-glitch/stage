@@ -9,156 +9,288 @@
   body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
   .container { max-width: 960px; margin: 0 auto; }
   h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
-  .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; background: #e63946; color: white; }
+  .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+  .badge.stage  { background: #e63946; color: white; }
+  .badge.live   { background: #22c55e; color: #000; }
+
   .section { margin: 32px 0; }
-  .section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title {
+    font-size: 0.75em; color: #555; text-transform: uppercase;
+    letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+  }
   .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+
   video { width: 100%; border-radius: 10px; background: #000; display: block; }
-  .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
   .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+
+  .source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px; }
+  .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
+  .source-card a:hover { text-decoration: underline; }
+
   .chapter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .chapter-card { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+  @media (max-width: 600px) { .chapter-grid { grid-template-columns: repeat(2, 1fr); } }
+  .chapter-card { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
+  .chapter-card:hover { border-color: #444; }
   .chapter-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
   .chapter-info { padding: 10px 12px; }
-  .chapter-num { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-  .chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; }
-  .chapter-dur { font-size: 0.72em; color: #555; margin-top: 4px; }
+  .chapter-num   { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; line-height: 1.4; }
+  .chapter-dur   { font-size: 0.72em; color: #555; margin-top: 4px; }
+
   .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
-  .files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
+  .files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; transition: background 0.15s; }
+  .files a:hover { background: #1e1e1e; }
+
   .yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
   .yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
   .yt-logo { color: #ff0000; font-size: 1.5em; }
   .yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
-  .yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #2a2015; color: #f4a261; border: 1px solid #3a3020; margin-left: auto; }
+  .yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; margin-left: auto; }
   .yt-field { margin-bottom: 16px; }
   .yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
   .yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+  .yt-field .val.title-val { font-size: 1em; font-weight: 600; color: #fff; }
   .yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
   .yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
+  .yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
+  .yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.88em; cursor: pointer; font-weight: 600; }
+  .yt-btn.primary { background: #ff0000; color: white; }
+  .yt-btn.secondary { background: #1e1e1e; color: #888; border: 1px solid #2a2a2a; }
   .yt-note { font-size: 0.76em; color: #444; margin-top: 10px; }
+
+  .script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
+  .copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+  .copy-btn:hover { background: #2a2a2a; color: #eee; }
+
   .meta { font-size: 0.75em; color: #3a3a3a; margin-top: 40px; border-top: 1px solid #1a1a1a; padding-top: 12px; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>🧛 AI 吸血鬼效應 <span class="badge">Stage 審閱中</span></h1>
 
+  <h1>🧛 AI吸血鬼效應：正在改變你的工作與生活？ <span class="badge stage">Stage 審閱中</span></h1>
+
+  <!-- VIDEO -->
   <div class="section">
     <div class="section-title">🎬 Stage 影片</div>
-    <video controls preload="metadata" poster="bg_00_opening.png">
+    <video controls preload="metadata" poster="thumbnail.jpg">
       <source src="94ivoice_vampire_stage.mp4" type="video/mp4">
+      <track kind="subtitles" src="subtitles_split.srt" srclang="zh" label="中文字幕" default>
     </video>
     <div class="video-meta">
-      <span class="chip">⏱ 3:20</span>
+      <span class="chip">⏱ 3:21</span>
       <span class="chip">🎙 YunjianNeural +10%</span>
-      <span class="chip">🖼 Ken Burns 循環</span>
-      <span class="chip">📝 FontSize 38</span>
-      <span class="chip">🎬 Logo v2</span>
+      <span class="chip">🖼 DALL-E 3 × 6</span>
+      <span class="chip">📝 FontSize 44 · 90條字幕</span>
+      <span class="chip">🎬 Logo v2 片尾</span>
     </div>
   </div>
 
+  <!-- SOURCE -->
   <div class="section">
-    <div class="section-title">📺 原始文章</div>
-    <div style="background:#141414;border:1px solid #222;border-radius:10px;padding:16px;">
-      <a href="https://i94ivoice-glitch.github.io/share_pages/ai_vampire_zh.html" target="_blank"
-         style="color:#4ea8de;text-decoration:none;font-size:0.95em;font-weight:500;">
+    <div class="section-title">📄 原始文章</div>
+    <div class="source-card">
+      <a href="https://i94ivoice-glitch.github.io/share_pages/ai_vampire_zh.html" target="_blank">
         🔗 AI 吸血鬼效應：當人工智慧開始吸食養育它的人類
       </a>
+      <div class="video-meta" style="margin-top:10px;">
+        <span class="chip">✍️ 原創文章</span>
+        <span class="chip">📅 2026-03-12</span>
+        <span class="chip">💡 概念：Steve Yegge（2025）</span>
+      </div>
     </div>
   </div>
 
+  <!-- CHAPTER BACKGROUNDS -->
   <div class="section">
     <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
     <div class="chapter-grid">
       <div class="chapter-card">
-        <img src="bg_00_opening.png" loading="lazy">
-        <div class="chapter-info"><div class="chapter-num">00 · 開場</div><div class="chapter-title">引入現象</div><div class="chapter-dur">0:00 → 0:35</div></div>
+        <img src="bg_00_opening.png" alt="引入現象" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">00 · 開場</div>
+          <div class="chapter-title">引入現象</div>
+          <div class="chapter-dur">0:00 → 0:35</div>
+        </div>
       </div>
       <div class="chapter-card">
-        <img src="bg_01_definition.png" loading="lazy">
-        <div class="chapter-info"><div class="chapter-num">01</div><div class="chapter-title">什麼是吸血鬼效應</div><div class="chapter-dur">0:35 → 1:10</div></div>
+        <img src="bg_01_definition.png" alt="什麼是吸血鬼效應" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">01 · Chapter</div>
+          <div class="chapter-title">什麼是吸血鬼效應</div>
+          <div class="chapter-dur">0:35 → 1:05</div>
+        </div>
       </div>
       <div class="chapter-card">
-        <img src="bg_02_victims.png" loading="lazy">
-        <div class="chapter-info"><div class="chapter-num">02</div><div class="chapter-title">眼前的受害者</div><div class="chapter-dur">1:10 → 1:45</div></div>
+        <img src="bg_02_victims.png" alt="眼前的受害者" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">02 · Chapter</div>
+          <div class="chapter-title">眼前的受害者</div>
+          <div class="chapter-dur">1:05 → 1:40</div>
+        </div>
       </div>
       <div class="chapter-card">
-        <img src="bg_03_skills.png" loading="lazy">
-        <div class="chapter-info"><div class="chapter-num">03</div><div class="chapter-title">你的工作也在被吸</div><div class="chapter-dur">1:45 → 2:20</div></div>
+        <img src="bg_03_skills.png" alt="你的工作也在被吸" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">03 · Chapter</div>
+          <div class="chapter-title">你的工作也在被吸</div>
+          <div class="chapter-dur">1:40 → 2:10</div>
+        </div>
       </div>
       <div class="chapter-card">
-        <img src="bg_04_different.png" loading="lazy">
-        <div class="chapter-info"><div class="chapter-num">04</div><div class="chapter-title">為什麼這次不一樣</div><div class="chapter-dur">2:20 → 2:55</div></div>
+        <img src="bg_04_different.png" alt="為什麼這次不一樣" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">04 · Chapter</div>
+          <div class="chapter-title">為什麼這次不一樣</div>
+          <div class="chapter-dur">2:10 → 2:40</div>
+        </div>
       </div>
       <div class="chapter-card">
-        <img src="bg_05_conclusion.png" loading="lazy">
-        <div class="chapter-info"><div class="chapter-num">05</div><div class="chapter-title">總結這次的分享</div><div class="chapter-dur">2:55 → 3:14</div></div>
+        <img src="bg_05_conclusion.png" alt="總結與解決方案" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">05 · Chapter</div>
+          <div class="chapter-title">總結與解決方案</div>
+          <div class="chapter-dur">2:40 → 3:15</div>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- THUMBNAIL -->
   <div class="section">
     <div class="section-title">🖼 YouTube 封面</div>
     <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start;">
       <div>
         <a href="thumbnail.jpg" target="_blank">
-          <img src="thumbnail.jpg" style="width:100%;border-radius:8px;border:1px solid #2a2a2a;" alt="Thumbnail">
+          <img src="thumbnail.jpg" style="width:100%;border-radius:8px;display:block;border:1px solid #2a2a2a;" alt="Thumbnail">
         </a>
         <div class="video-meta" style="margin-top:8px;">
           <span class="chip">📐 1280×720</span>
-          <span class="chip">🎨 深紅漸層（吸血鬼主題）</span>
+          <span class="chip">🎨 深紫漸層</span>
+          <span class="chip">🤖 DALL-E 3（賽博龐克 AI 骷髏）</span>
         </div>
         <a href="thumbnail.jpg" download="94ivoice_vampire_thumbnail.jpg"
-           style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">⬇ 下載封面</a>
+           style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">
+          ⬇ 下載封面
+        </a>
       </div>
       <div style="background:#111;border:1px solid #222;border-radius:10px;padding:18px;font-size:0.82em;line-height:2;">
         <div style="color:#555;font-size:0.72em;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;">設計說明</div>
-        <div><span style="color:#555;">背景</span> 深紅→黑漸層</div>
-        <div><span style="color:#555;">大標</span> <span style="color:#fff;font-weight:700;">AI 吸血鬼</span>（白色）</div>
-        <div><span style="color:#555;">強調</span> <span style="color:#ff3c3c;font-weight:700;">正在吸走你的</span>（紅色）</div>
-        <div><span style="color:#555;">副標</span> 三個受害者案例</div>
-        <div><span style="color:#555;">Logo</span> 94iVoice 深紅徽章</div>
+        <div><span style="color:#555;">背景</span> 深紫→黑漸層</div>
+        <div><span style="color:#555;">照片</span> DALL-E 3（賽博龐克骷髏吸收數據流）</div>
+        <div><span style="color:#555;">大標</span> <span style="color:#fff;font-weight:700;">吸走你的收入</span></div>
+        <div><span style="color:#555;">強調</span> <span style="color:#FFD700;font-weight:700;">AI吸血鬼效應</span></div>
+        <div><span style="color:#555;">副標</span> 正在改變你的工作與生活</div>
+        <div><span style="color:#555;">Speaker</span> 無（概念型影片）</div>
       </div>
     </div>
   </div>
 
+  <!-- SCRIPT -->
+  <div class="section">
+    <div class="section-title">✍️ 中文腳本</div>
+    <div class="script-block" id="scriptContent">載入中...</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
+  </div>
+
+  <!-- FILES -->
   <div class="section">
     <div class="section-title">📁 素材檔案</div>
     <div class="files">
       <a href="script_zh.txt">✍️ 播客腳本</a>
-      <a href="subtitles_split.srt">✂️ 字幕 SRT（斷句版）</a>
-      <a href="youtube_meta.json">📋 YouTube 文案</a>
+      <a href="subtitles_split.srt">✂️ 字幕 SRT（斷句版，90條）</a>
+      <a href="youtube_meta.json">📋 YouTube 文案 JSON</a>
       <a href="thumbnail.jpg" download>🖼 封面圖</a>
+      <a href="94ivoice_vampire_stage.mp4">🎬 影片檔案</a>
     </div>
   </div>
 
+  <!-- YOUTUBE -->
   <div class="section">
     <div class="section-title">📺 YouTube 發布設定</div>
     <div class="yt-section">
       <div class="yt-header">
         <span class="yt-logo">▶</span>
         <h2>愛播客 — YouTube 發布文案</h2>
-        <span class="yt-pill">🔒 待審閱</span>
+        <span class="yt-pill" style="background:#0d2a0d;color:#4caf50;border:1px solid #1a4a1a;">🔒 已上傳（私人）</span>
       </div>
+
       <div class="yt-field">
         <label>影片標題</label>
-        <div class="val" style="font-size:1em;font-weight:600;color:#fff;">AI吸血鬼效應：正在改變你的工作與生活？</div>
+        <div class="val title-val" id="ytTitle">AI吸血鬼效應：正在改變你的工作與生活？</div>
       </div>
-      <div class="yt-field">
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ytTitle').innerText)">📋 複製標題</button>
+
+      <div class="yt-field" style="margin-top:16px;">
+        <label>影片描述</label>
+        <div class="val" id="ytDesc">在本集94iVoice播客中，我們探討了「AI吸血鬼效應」，這個現象正在悄然影響你的工作與生活。
+
+🔑 本集重點：
+1. 什麼是AI吸血鬼效應？（Steve Yegge 2025年提出）
+2. 具體受影響的領域：從Stack Overflow到新聞媒體
+3. 吸血鬼效應如何影響一般職場人士
+4. 這次科技革命為什麼不一樣
+5. 可行的解決方案與未來方向
+
+📌 時間章節：
+00:00 引入現象
+00:35 什麼是吸血鬼效應
+01:05 眼前的受害者
+01:40 你的工作也在被吸
+02:10 為什麼這次不一樣
+02:40 總結與解決方案
+
+🎙 94iVoice — AI 與科技深度解析
+歡迎訂閱 → https://www.youtube.com/@94ivoice
+
+#AI吸血鬼效應 #未來工作 #科技革命 #94iVoice #人工智慧</div>
+      </div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ytDesc').innerText)">📋 複製描述</button>
+
+      <div class="yt-field" style="margin-top:16px;">
         <label>標籤</label>
-        <div class="yt-tags" id="tags"></div>
+        <div class="yt-tags">
+          <span class="yt-tag">AI</span>
+          <span class="yt-tag">吸血鬼效應</span>
+          <span class="yt-tag">科技革命</span>
+          <span class="yt-tag">工作未來</span>
+          <span class="yt-tag">內容創作者</span>
+          <span class="yt-tag">94iVoice</span>
+          <span class="yt-tag">人工智慧</span>
+          <span class="yt-tag">Stack Overflow</span>
+          <span class="yt-tag">後勞動時代</span>
+          <span class="yt-tag">Steve Yegge</span>
+        </div>
       </div>
-      <div class="yt-note">⚠️ 完整描述請見 youtube_meta.json。實際發布請告知 Javis。</div>
+
+      <div class="yt-field">
+        <label>類別 / 隱私</label>
+        <div class="val">科技與科學（Science &amp; Technology）｜🔒 已上傳為私人，審閱後改公開</div>
+      </div>
+
+      <div class="yt-actions">
+        <a href="https://www.youtube.com/watch?v=fDyC_t4pKv0" target="_blank"
+           style="padding:10px 20px;border-radius:8px;background:#ff0000;color:white;font-weight:600;text-decoration:none;font-size:0.88em;">▶ 在 YouTube 觀看</a>
+        <a href="https://studio.youtube.com" target="_blank"
+           style="padding:10px 20px;border-radius:8px;background:#1e1e1e;color:#aaa;border:1px solid #333;font-weight:600;text-decoration:none;font-size:0.88em;">🎛 YouTube Studio</a>
+      </div>
+      <div class="yt-note">⚠️ 影片已上傳，請至 YouTube Studio 設定封面圖並確認隱私設定後改公開。</div>
     </div>
   </div>
 
-  <div class="meta">94iVoice Stage Preview · <span id="ts"></span></div>
+  <div class="meta">
+    94iVoice Stage Preview · 原始文章：<a href="https://i94ivoice-glitch.github.io/share_pages/ai_vampire_zh.html" style="color:#3a5a7a">AI 吸血鬼效應</a> ·
+    <span id="ts"></span>
+    <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
+  </div>
+
 </div>
 <script>
-document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW');
-fetch('youtube_meta.json').then(r=>r.json()).then(d=>{
-  const c = document.getElementById('tags');
-  d.tags.forEach(t=>{ const s=document.createElement('span'); s.className='yt-tag'; s.textContent=t; c.appendChild(s); });
+fetch('script_zh.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('scriptContent').textContent = t;
+}).catch(()=>{
+  document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
 });
 </script>
 </body>
