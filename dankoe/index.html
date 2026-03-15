@@ -3,115 +3,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>94iVoice｜AI時代的意義危機：如何在後AI時代創造屬於自己的護城河？</title>
+<title>94iVoice｜AI時代護城河 - Stage</title>
 <style>
-  body { font-family: 'Noto Sans TC', sans-serif; background: #0f0f1a; color: #e2e8f0; margin: 0; padding: 0; }
-  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-  .header { background: linear-gradient(135deg, #1e1b4b, #312e81); padding: 30px; border-radius: 12px; margin-bottom: 24px; }
-  .header h1 { color: #a78bfa; font-size: 1.6em; margin: 0 0 8px 0; }
-  .header .badge { background: #7c3aed; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85em; display: inline-block; }
-  .video-container { background: #000; border-radius: 12px; overflow: hidden; margin-bottom: 24px; position: relative; padding-top: 56.25%; }
-  .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-  .thumbnail-preview { margin-bottom: 24px; }
-  .thumbnail-preview img { width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(124,58,237,0.4); }
-  .section { background: #1a1a2e; border: 1px solid #312e81; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-  .section h2 { color: #7c3aed; margin-top: 0; font-size: 1.2em; }
-  .section h3 { color: #a78bfa; }
-  .section p { line-height: 1.8; color: #cbd5e1; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-  .copy-btn { background: #7c3aed; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.9em; margin-top: 10px; }
-  .copy-btn:hover { background: #6d28d9; }
-  .desc-text { white-space: pre-wrap; color: #cbd5e1; font-size: 0.9em; line-height: 1.7; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
+  .container { max-width: 960px; margin: 0 auto; }
+
+  h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+  .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+  .badge.stage { background: #e63946; color: white; }
+  .badge.wip   { background: #f4a261; color: #111; }
+
+  .section { margin: 32px 0; }
+  .section-title {
+    font-size: 0.75em; color: #555; text-transform: uppercase;
+    letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+
+  video { width: 100%; border-radius: 10px; background: #000; display: block; }
+  .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+
+  .source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px; }
+  .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
+  .source-card a:hover { text-decoration: underline; }
+
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 600px) { .chapter-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .chapter-card {
+    background: #141414; border: 1px solid #222; border-radius: 10px;
+    overflow: hidden; transition: border-color 0.2s;
+  }
+  .chapter-card:hover { border-color: #444; }
+  .chapter-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .chapter-info { padding: 10px 12px; }
+  .chapter-num   { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; line-height: 1.4; }
+  .chapter-dur   { font-size: 0.72em; color: #555; margin-top: 4px; }
+
+  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+  .files a {
+    display: block; padding: 10px 14px; background: #141414;
+    border: 1px solid #222; border-radius: 8px; color: #4ea8de;
+    text-decoration: none; font-size: 0.85em; transition: background 0.15s;
+  }
+  .files a:hover { background: #1e1e1e; }
+
+  .yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
+  .yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .yt-logo { color: #ff0000; font-size: 1.5em; }
+  .yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
+  .yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #2a2015; color: #f4a261; border: 1px solid #3a3020; margin-left: auto; }
+
+  .yt-field { margin-bottom: 16px; }
+  .yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
+  .yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+  .yt-field .val.title-val { font-size: 1em; font-weight: 600; color: #fff; }
+  .yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
+  .yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
+
+  .yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
+  .yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.88em; cursor: pointer; font-weight: 600; }
+  .yt-btn.primary { background: #ff0000; color: white; }
+  .yt-btn.secondary { background: #1e1e1e; color: #888; border: 1px solid #2a2a2a; }
+  .yt-note { font-size: 0.76em; color: #444; margin-top: 10px; }
+
+  .meta { font-size: 0.75em; color: #3a3a3a; margin-top: 40px; border-top: 1px solid #1a1a1a; padding-top: 12px; }
+
+  .script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
+  .copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+  .copy-btn:hover { background: #2a2a2a; color: #eee; }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="header">
-    <h1>🎬 94iVoice｜AI時代的意義危機：如何在後AI時代創造屬於自己的護城河？</h1>
-    <span class="badge">94iVoice Stage Preview</span>
-    <span class="badge" style="background:#5b21b6;margin-left:8px">約 4 分鐘</span>
-  </div>
 
+  <h1>AI時代，你唯一的護城河是「你自己」<span class="badge stage">Stage 審閱中</span></h1>
+
+  <!-- VIDEO -->
   <div class="section">
-    <h2>🎥 影片播放器</h2>
-    <div class="video-container">
-      <video controls poster="thumbnail.jpg">
-        <source src="dankoe_stage.mp4" type="video/mp4">
-        <track kind="subtitles" src="subtitles_split.srt" srclang="zh" label="中文字幕" default>
-        您的瀏覽器不支援影片播放。
-      </video>
+    <div class="section-title">🎬 Stage 影片</div>
+    <video controls preload="metadata" poster="thumbnail.jpg">
+      <source src="dankoe_stage.mp4" type="video/mp4">
+      <track kind="subtitles" src="subtitles_split.srt" srclang="zh" label="中文字幕" default>
+    </video>
+    <div class="video-meta">
+      <span class="chip">⏱ 約 4 分鐘</span>
+      <span class="chip">🎙 YunjianNeural +10%</span>
+      <span class="chip">🖼 DALL-E 3 × 6</span>
+      <span class="chip">📝 FontSize 44</span>
+      <span class="chip">🎬 Logo 片尾</span>
     </div>
   </div>
 
+  <!-- SOURCE -->
   <div class="section">
-    <h2>🖼️ YouTube 封面</h2>
-    <div class="thumbnail-preview">
-      <img src="thumbnail.jpg" alt="封面圖">
+    <div class="section-title">📺 原始影片</div>
+    <div class="source-card">
+      <a href="https://youtu.be/vCoGfisdS8Y" target="_blank">
+        ▶ The Future Of Work (& The New High-Income Skill Stack) — Dan Koe
+      </a>
+      <div class="video-meta" style="margin-top:10px;">
+        <span class="chip">⏱ 33:11</span>
+        <span class="chip">🎙 Dan Koe</span>
+        <span class="chip">📅 2026-02-12</span>
+        <span class="chip">👁 161K views</span>
+      </div>
     </div>
   </div>
 
+  <!-- CHAPTER BACKGROUNDS -->
   <div class="section">
-    <h2>📝 中文腳本</h2>
-    <h3 style="color:#a78bfa;margin-top:1.5em">開頭：AI時代的意義危機</h3>
-<p>你可以請AI幫你摘要這支影片——但你沒有。這個選擇本身就是今天的答案。你可能會想，為什麼在這個AI工具無所不在的時代，我還要花時間去看這些內容呢？我們早已經有了ChatGPT、Claude等一系列AI工具，它們被設計來消除資訊的繁瑣，使得創作者、作家甚至許多職業都顯得多餘。可你仍然選擇觀看，這個簡單的選擇透露了什麼？</p>
-<p>這不僅僅關乎資訊的獲取，更是關乎意義的探索。在AI時代，意義的來源變得模糊而複雜。這是個沒有絕對答案的時代，但正因如此，它更需要我們親自去探索，去發現屬於自己的意義。</p>
-<h3 style="color:#a78bfa;margin-top:1.5em">意義消失的歷史</h3>
-<p>人類歷史上的意義源泉經歷了多次轉變。首先，是宗教和君權時代，意義由神明、君王、長輩和經文賦予，個人不必去尋找，因為那是被指定的。隨著工業革命的到來，意義轉向了生產力和進步。人們開始透過自己的勞動獲得意義，一份穩定的工作即代表著社會價值。</p>
-<p>接著，後現代主義時代的來臨，打破了過去的框架，意義似乎無所不在，又無處不在，沒有什麼是絕對真實的，所有事物都能被質疑。這種虛無感迫使現代人從內在去創造屬於自己的意義，成為自己生命的主宰。</p>
-<h3 style="color:#a78bfa;margin-top:1.5em">後勞動經濟危機</h3>
-<p>在傳統的經濟循環裡，我們工作賺取工資，然後消費，公司獲利，經濟得以運轉。然而，AI的出現打破了這個循環。如果AI能完成大部分的工作，工資將大幅縮減，人們的消費能力下降，企業利益受損，整個經濟循環可能崩潰。</p>
-<p>在這個後勞動時代，哪些工作能存活下來？答案是那些需要「人」在迴路中的工作：體驗經濟、意義的製造者、依賴人際關係和信任的職業，例如顧問、心理諮商師、藝術家等，這些都是AI無法輕易取代的。</p>
-<h3 style="color:#a78bfa;margin-top:1.5em">換人測試</h3>
-<p>我們可以通過「換人測試」來理解AI的局限性。若創作者和作品可以被替換而不失去價值，那麼AI便可取代它。例如，一張通用的股票照片和一位知名攝影師的作品，前者可以輕易被AI生成，而後者則因其獨特的視角和情感而不可替代。同樣地，一篇生產力的通用文章，和一位你多年來追隨的創作者的深度文章，後者帶給你的共鳴和思考是AI無法模仿的。</p>
-<h3 style="color:#a78bfa;margin-top:1.5em">AI複製不了的五件事</h3>
-<p>那麼，有哪些是AI無法複製的呢？首先是觀點，AI可以分析你的觀點，但無法真正「從你的角度」思考。其次是知識簽名，這是人類選擇專注於什麼及為何重要的能力。接著是意義建構，這需要人類的直覺和深思熟慮，AI無法賦予資訊意義。</p>
-<p>然後是人生軌跡，我們的過去、現在和未來交織成的獨特生命故事，是AI無法模仿的。最後是進化的品味，即使AI可以模仿你的寫作風格，但當你讀到它的作品時，你可能已經不再想寫那樣的內容了。</p>
-<h3 style="color:#a78bfa;margin-top:1.5em">後AI技能組合 + 結尾</h3>
-<p>在後AI時代，我們需要什麼樣的技能組合呢？首先是Agency主動性，這是一種不需他人允許就能行動的能力。接著是品味，策展比創造更為重要。還有視角，這是擴展你人類能力的關鍵。說服力則是讓他人在乎的能力，最後是技術工具的操作能力，善用可用的工具。</p>
-<p>在這個變幻莫測的時代，我們需要主動去塑造自己的未來，擁有獨特的視角和品味，並能夠說服他人，這些才是我們不被取代的關鍵。希望你能以獨特的行動，開創一個屬於自己的意義世界。</p>
+    <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <img src="bg_00.png" alt="開場" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">00 · 開場</div>
+          <div class="chapter-title">AI時代的意義危機</div>
+          <div class="chapter-dur">0:00 → ~0:40</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_01.png" alt="意義的歷史" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">01 · Chapter</div>
+          <div class="chapter-title">意義消失的歷史</div>
+          <div class="chapter-dur">~0:40 → ~1:20</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_02.png" alt="後勞動經濟" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">02 · Chapter</div>
+          <div class="chapter-title">後勞動經濟危機</div>
+          <div class="chapter-dur">~1:20 → ~2:00</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_03.png" alt="換人測試" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">03 · Chapter</div>
+          <div class="chapter-title">換人測試</div>
+          <div class="chapter-dur">~2:00 → ~2:40</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_04.png" alt="AI複製不了的五件事" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">04 · Chapter</div>
+          <div class="chapter-title">AI複製不了的五件事</div>
+          <div class="chapter-dur">~2:40 → ~3:20</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_05.png" alt="後AI技能組合" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">05 · Chapter</div>
+          <div class="chapter-title">後AI技能組合</div>
+          <div class="chapter-dur">~3:20 → ~3:46</div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- THUMBNAIL -->
   <div class="section">
-    <h2>📺 YouTube 文案</h2>
-    <p><strong>標題：</strong></p>
-    <p style="color:#a78bfa;font-size:1.1em">94iVoice｜AI時代的意義危機：如何在後AI時代創造屬於自己的護城河？</p>
-    <button class="copy-btn" onclick="navigator.clipboard.writeText('94iVoice｜AI時代的意義危機：如何在後AI時代創造屬於自己的護城河？')">複製標題</button>
+    <div class="section-title">🖼 YouTube 封面</div>
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start;">
+      <div>
+        <a href="thumbnail.jpg" target="_blank">
+          <img src="thumbnail.jpg"
+               style="width:100%;border-radius:8px;display:block;border:1px solid #2a2a2a;"
+               alt="YouTube Thumbnail">
+        </a>
+        <div class="video-meta" style="margin-top:8px;">
+          <span class="chip">📐 1280×720</span>
+          <span class="chip">🎨 深紫漸層</span>
+          <span class="chip">🤖 DALL-E 3 概念圖</span>
+        </div>
+        <a href="thumbnail.jpg" download="94ivoice_dankoe_thumbnail.jpg"
+           style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">
+          ⬇ 下載封面
+        </a>
+      </div>
+      <div style="background:#111;border:1px solid #222;border-radius:10px;padding:18px;font-size:0.82em;line-height:2;">
+        <div style="color:#555;font-size:0.72em;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;">設計說明</div>
+        <div><span style="color:#555;">背景</span> 深紫→黑漸層</div>
+        <div><span style="color:#555;">照片</span> DALL-E 3（人物在光柱中，AI機器人無法觸及）</div>
+        <div><span style="color:#555;">大標</span> <span style="color:#fff;font-weight:700;">你的護城河</span></div>
+        <div><span style="color:#555;">強調</span> <span style="color:#FFD700;font-weight:700;">唯一解</span></div>
+        <div><span style="color:#555;">副標</span> 後AI高收入技能組合</div>
+        <div><span style="color:#555;">Speaker</span> 無（概念型影片）</div>
+      </div>
+    </div>
+  </div>
 
-    <p style="margin-top:20px"><strong>描述：</strong></p>
-    <div class="desc-text">在這段影片中，我們深入探討了AI時代帶來的意義危機，以及為何人類的獨特性在這個時代顯得尤為重要。
+  <!-- SCRIPT -->
+  <div class="section">
+    <div class="section-title">✍️ 中文腳本</div>
+    <div class="script-block" id="scriptContent">載入中...</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
+  </div>
 
-1. 影片摘要：
-在AI工具無所不在的時代，為何我們仍需要親自探索意義？我們追溯歷史上的意義源泉，從宗教到工業，再到後現代主義，並探討在AI可能取代大部分工作的未來，哪些職業和技能將能存活。
+  <!-- FILES -->
+  <div class="section">
+    <div class="section-title">📁 素材檔案</div>
+    <div class="files">
+      <a href="script_zh.txt">✍️ 播客腳本</a>
+      <a href="subtitles_split.srt">✂️ 字幕 SRT（斷句版）</a>
+      <a href="youtube_meta.json">📋 YouTube 文案 JSON</a>
+      <a href="thumbnail.jpg" download>🖼 封面圖</a>
+      <a href="dankoe_stage.mp4">🎬 影片檔案</a>
+    </div>
+  </div>
 
-2. 主要重點：
-- 意義的歷史演變
-- 後勞動經濟危機的挑戰
-- 換人測試揭示AI的局限
-- AI無法複製的人類特質
-- 後AI技能組合與未來的主動性
+  <!-- YOUTUBE -->
+  <div class="section">
+    <div class="section-title">📺 YouTube 發布設定</div>
+    <div class="yt-section">
+      <div class="yt-header">
+        <span class="yt-logo">▶</span>
+        <h2>愛播客 — YouTube 發布文案</h2>
+        <span class="yt-pill">⏳ 待審閱發布</span>
+      </div>
 
-3. 時間戳記：
+      <div class="yt-field">
+        <label>影片標題</label>
+        <div class="val title-val">AI時代，你唯一的護城河是「你自己」｜後AI高收入技能組合</div>
+      </div>
+
+      <div class="yt-field">
+        <label>影片描述</label>
+        <div class="val" id="ytDesc">在本集94iVoice播客中，我們探討AI時代的意義危機：當AI能做任何事，你的不可替代性從哪裡來？
+
+🔑 本集重點：
+1. AI搶走的不只是工作，還有「意義」——意義的四個歷史階段
+2. 後勞動經濟：AI如何讓整個經濟循環斷裂？哪些工作能存活？
+3. 「換人測試」——如果把你換掉，價值還在嗎？
+4. AI複製不了的五件事：觀點、知識簽名、意義建構、人生軌跡、進化的品味
+5. 後AI高收入技能組合：主動性 → 品味 → 視角 → 說服力 → 技術工具
+
+📌 時間章節：
 00:00 開頭：AI時代的意義危機
-02:30 意義消失的歷史
-06:15 後勞動經濟危機
-10:45 換人測試
-13:30 AI複製不了的五件事
-18:00 後AI技能組合 + 結尾
+00:40 意義消失的歷史
+01:20 後勞動經濟危機
+02:00 換人測試
+02:40 AI複製不了的五件事
+03:20 後AI技能組合
 
-4. 訂閱CTA：
-如果你對這樣的內容感興趣，請記得訂閱我們的頻道並打開通知鈴鐺，以獲取更多有關AI時代的深度分析！
+🎙 94iVoice — AI 與科技深度解析
+歡迎訂閱 → https://www.youtube.com/@94ivoice
 
-5. 相關hashtags：
-#AI時代 #意義危機 #94iVoice #人工智慧 #未來工作 #科技 #創作者經濟 #後AI時代 #換人測試 #獨特性 #人類價值 #經濟危機 #技能組合 #意義探索 #科技影響 #未來展望</div>
-    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.querySelector('.desc-text').innerText)">複製描述</button>
+#AI時代 #未來工作 #創作者經濟 #技能組合 #94iVoice</div>
+      </div>
 
-    <p style="margin-top:20px"><strong>標籤：</strong></p>
-    <div class="tags"><span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">94iVoice</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">AI</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">人工智慧</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">未來工作</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">科技</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">創作者經濟</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">後AI時代</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">換人測試</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">獨特性</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">人類價值</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">意義危機</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">經濟危機</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">技能組合</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">意義探索</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">科技影響</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">未來展望</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">宗教</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">工業革命</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">後現代主義</span> <span style="background:#312e81;color:#c4b5fd;padding:3px 8px;border-radius:12px;font-size:13px">意義建構</span></div>
+      <div class="yt-field">
+        <label>標籤</label>
+        <div class="yt-tags">
+          <span class="yt-tag">94iVoice</span>
+          <span class="yt-tag">AI</span>
+          <span class="yt-tag">未來工作</span>
+          <span class="yt-tag">創作者經濟</span>
+          <span class="yt-tag">後AI時代</span>
+          <span class="yt-tag">技能組合</span>
+          <span class="yt-tag">換人測試</span>
+          <span class="yt-tag">護城河</span>
+          <span class="yt-tag">意義危機</span>
+          <span class="yt-tag">人類價值</span>
+          <span class="yt-tag">主動性</span>
+          <span class="yt-tag">品味</span>
+          <span class="yt-tag">科技</span>
+          <span class="yt-tag">人工智慧</span>
+          <span class="yt-tag">播客</span>
+        </div>
+      </div>
+
+      <div class="yt-field">
+        <label>類別 / 隱私</label>
+        <div class="val">科技與科學（Science &amp; Technology）｜🔒 私人（審閱後改公開）</div>
+      </div>
+
+      <div class="yt-actions">
+        <button class="yt-btn primary" onclick="navigator.clipboard.writeText(document.getElementById('ytDesc').innerText)">📋 複製描述</button>
+        <div class="yt-btn secondary">🔒 發布前請先審閱</div>
+      </div>
+      <div class="yt-note">⚠️ 發布時請告知 Javis 執行上傳（記得設 --private）</div>
+    </div>
   </div>
 
-  <div style="text-align:center;color:#4c1d95;padding:20px;font-size:0.85em">
-    94iVoice Stage Preview · 由 Javis AI 自動生成
+  <div class="meta">
+    94iVoice Stage Preview · 原始影片：<a href="https://youtu.be/vCoGfisdS8Y" style="color:#3a5a7a">Dan Koe - The Future Of Work</a> ·
+    <span id="ts"></span>
+    <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
   </div>
+
 </div>
+<script>
+fetch('script_zh.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('scriptContent').textContent = t;
+}).catch(()=>{
+  document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
+});
+</script>
 </body>
 </html>
