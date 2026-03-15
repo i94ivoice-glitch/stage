@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>94iVoice｜AI 吸血鬼效應 - Stage</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+  .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; background: #e63946; color: white; }
+  .section { margin: 32px 0; }
+  .section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+  video { width: 100%; border-radius: 10px; background: #000; display: block; }
+  .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+  .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chapter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .chapter-card { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+  .chapter-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .chapter-info { padding: 10px 12px; }
+  .chapter-num { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; }
+  .chapter-dur { font-size: 0.72em; color: #555; margin-top: 4px; }
+  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+  .files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
+  .yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
+  .yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .yt-logo { color: #ff0000; font-size: 1.5em; }
+  .yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
+  .yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #2a2015; color: #f4a261; border: 1px solid #3a3020; margin-left: auto; }
+  .yt-field { margin-bottom: 16px; }
+  .yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
+  .yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+  .yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
+  .yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
+  .yt-note { font-size: 0.76em; color: #444; margin-top: 10px; }
+  .meta { font-size: 0.75em; color: #3a3a3a; margin-top: 40px; border-top: 1px solid #1a1a1a; padding-top: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🧛 AI 吸血鬼效應 <span class="badge">Stage 審閱中</span></h1>
+
+  <div class="section">
+    <div class="section-title">🎬 Stage 影片</div>
+    <video controls preload="metadata" poster="bg_00_opening.png">
+      <source src="94ivoice_vampire_stage.mp4" type="video/mp4">
+    </video>
+    <div class="video-meta">
+      <span class="chip">⏱ 3:20</span>
+      <span class="chip">🎙 YunjianNeural +10%</span>
+      <span class="chip">🖼 Ken Burns 循環</span>
+      <span class="chip">📝 FontSize 38</span>
+      <span class="chip">🎬 Logo v2</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📺 原始文章</div>
+    <div style="background:#141414;border:1px solid #222;border-radius:10px;padding:16px;">
+      <a href="https://i94ivoice-glitch.github.io/share_pages/ai_vampire_zh.html" target="_blank"
+         style="color:#4ea8de;text-decoration:none;font-size:0.95em;font-weight:500;">
+        🔗 AI 吸血鬼效應：當人工智慧開始吸食養育它的人類
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <img src="bg_00_opening.png" loading="lazy">
+        <div class="chapter-info"><div class="chapter-num">00 · 開場</div><div class="chapter-title">引入現象</div><div class="chapter-dur">0:00 → 0:35</div></div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_01_definition.png" loading="lazy">
+        <div class="chapter-info"><div class="chapter-num">01</div><div class="chapter-title">什麼是吸血鬼效應</div><div class="chapter-dur">0:35 → 1:10</div></div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_02_victims.png" loading="lazy">
+        <div class="chapter-info"><div class="chapter-num">02</div><div class="chapter-title">眼前的受害者</div><div class="chapter-dur">1:10 → 1:45</div></div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_03_skills.png" loading="lazy">
+        <div class="chapter-info"><div class="chapter-num">03</div><div class="chapter-title">你的工作也在被吸</div><div class="chapter-dur">1:45 → 2:20</div></div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_04_different.png" loading="lazy">
+        <div class="chapter-info"><div class="chapter-num">04</div><div class="chapter-title">為什麼這次不一樣</div><div class="chapter-dur">2:20 → 2:55</div></div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_05_conclusion.png" loading="lazy">
+        <div class="chapter-info"><div class="chapter-num">05</div><div class="chapter-title">總結這次的分享</div><div class="chapter-dur">2:55 → 3:14</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🖼 YouTube 封面</div>
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start;">
+      <div>
+        <a href="thumbnail.jpg" target="_blank">
+          <img src="thumbnail.jpg" style="width:100%;border-radius:8px;border:1px solid #2a2a2a;" alt="Thumbnail">
+        </a>
+        <div class="video-meta" style="margin-top:8px;">
+          <span class="chip">📐 1280×720</span>
+          <span class="chip">🎨 深紅漸層（吸血鬼主題）</span>
+        </div>
+        <a href="thumbnail.jpg" download="94ivoice_vampire_thumbnail.jpg"
+           style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">⬇ 下載封面</a>
+      </div>
+      <div style="background:#111;border:1px solid #222;border-radius:10px;padding:18px;font-size:0.82em;line-height:2;">
+        <div style="color:#555;font-size:0.72em;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;">設計說明</div>
+        <div><span style="color:#555;">背景</span> 深紅→黑漸層</div>
+        <div><span style="color:#555;">大標</span> <span style="color:#fff;font-weight:700;">AI 吸血鬼</span>（白色）</div>
+        <div><span style="color:#555;">強調</span> <span style="color:#ff3c3c;font-weight:700;">正在吸走你的</span>（紅色）</div>
+        <div><span style="color:#555;">副標</span> 三個受害者案例</div>
+        <div><span style="color:#555;">Logo</span> 94iVoice 深紅徽章</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📁 素材檔案</div>
+    <div class="files">
+      <a href="script_zh.txt">✍️ 播客腳本</a>
+      <a href="subtitles_split.srt">✂️ 字幕 SRT（斷句版）</a>
+      <a href="youtube_meta.json">📋 YouTube 文案</a>
+      <a href="thumbnail.jpg" download>🖼 封面圖</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📺 YouTube 發布設定</div>
+    <div class="yt-section">
+      <div class="yt-header">
+        <span class="yt-logo">▶</span>
+        <h2>愛播客 — YouTube 發布文案</h2>
+        <span class="yt-pill">🔒 待審閱</span>
+      </div>
+      <div class="yt-field">
+        <label>影片標題</label>
+        <div class="val" style="font-size:1em;font-weight:600;color:#fff;">AI吸血鬼效應：正在改變你的工作與生活？</div>
+      </div>
+      <div class="yt-field">
+        <label>標籤</label>
+        <div class="yt-tags" id="tags"></div>
+      </div>
+      <div class="yt-note">⚠️ 完整描述請見 youtube_meta.json。實際發布請告知 Javis。</div>
+    </div>
+  </div>
+
+  <div class="meta">94iVoice Stage Preview · <span id="ts"></span></div>
+</div>
+<script>
+document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW');
+fetch('youtube_meta.json').then(r=>r.json()).then(d=>{
+  const c = document.getElementById('tags');
+  d.tags.forEach(t=>{ const s=document.createElement('span'); s.className='yt-tag'; s.textContent=t; c.appendChild(s); });
+});
+</script>
+</body>
+</html>
