@@ -5,31 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>94iVoice｜語音試聽選擇</title>
 <style>
+  * { box-sizing: border-box; }
   body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
   .container { max-width: 700px; margin: 0 auto; }
   h1 { font-size: 1.3em; color: #fff; border-bottom: 2px solid #333; padding-bottom: 12px; }
-  .voice-card { background: #1a1a1a; border-radius: 10px; padding: 20px; margin: 16px 0; border: 1px solid #2a2a2a; }
+  .sample-text { background: #111; border-radius: 8px; padding: 14px; font-size: 0.9em; color: #999; line-height: 1.7; margin-bottom: 24px; border-left: 3px solid #444; }
+
+  .voice-card { background: #1a1a1a; border-radius: 12px; padding: 20px; margin: 16px 0; border: 1px solid #2a2a2a; transition: border-color 0.2s; }
   .voice-card:hover { border-color: #f4a261; }
-  .voice-num { font-size: 1.6em; font-weight: bold; color: #f4a261; }
-  .voice-name { color: #aaa; font-size: 0.85em; margin: 4px 0 12px; }
-  .voice-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
-  .tag { background: #2a2a2a; padding: 3px 10px; border-radius: 20px; font-size: 0.8em; color: #ccc; }
-  audio { width: 100%; margin-top: 12px; }
-  .sample-text { background: #111; border-radius: 6px; padding: 12px; font-size: 0.88em; color: #999; line-height: 1.6; margin: 12px 0; border-left: 3px solid #333; }
-  .info-box { background: #1a2a1a; border: 1px solid #2a4a2a; border-radius: 10px; padding: 20px; margin-top: 24px; }
+  .voice-num { font-size: 1.5em; font-weight: bold; color: #f4a261; }
+  .voice-name { color: #aaa; font-size: 0.85em; margin: 4px 0 10px; }
+  .voice-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tag { background: #2a2a2a; padding: 3px 10px; border-radius: 20px; font-size: 0.78em; color: #ccc; }
+
+  audio { width: 100%; margin-bottom: 12px; }
+
+  .speed-control { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .speed-label { font-size: 0.82em; color: #888; white-space: nowrap; }
+  .speed-display { font-size: 0.95em; font-weight: bold; color: #f4a261; min-width: 38px; text-align: center; }
+  .speed-slider { flex: 1; min-width: 120px; accent-color: #f4a261; cursor: pointer; }
+  .speed-btns { display: flex; gap: 6px; }
+  .speed-btn { background: #2a2a2a; border: none; color: #ccc; padding: 4px 10px; border-radius: 6px; font-size: 0.8em; cursor: pointer; transition: background 0.15s; }
+  .speed-btn:hover { background: #3a3a3a; color: #f4a261; }
+  .speed-btn.active { background: #f4a261; color: #111; font-weight: bold; }
+
+  .info-box { background: #1a2a1a; border: 1px solid #2a4a2a; border-radius: 10px; padding: 20px; margin-top: 28px; }
   .info-box h2 { color: #6fcf97; font-size: 1em; margin-top: 0; }
-  .info-box ul { margin: 0; padding-left: 20px; color: #aaa; font-size: 0.9em; line-height: 2; }
+  .info-box ul { margin: 0; padding-left: 20px; color: #aaa; font-size: 0.88em; line-height: 2.1; }
   code { background: #222; padding: 2px 6px; border-radius: 3px; font-size: 0.85em; color: #f4a261; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>🎙 語音試聽 — 請選擇一個聲音</h1>
+  <h1>🎙 語音試聽 — 請選擇聲音</h1>
 
   <div class="sample-text">
     「Anthropic 最近做了一個決定，讓很多人跌破眼鏡。他們拒絕了美國國防部的合作邀請。表面上看，這是一個關於 AI 倫理的選擇。但 Dwarkesh Patel 認為，這是一個巨大的錯誤——而且，錯的不是國防部，是 Anthropic。」
   </div>
 
+  <!-- Voice 1 -->
   <div class="voice-card">
     <div class="voice-num">聲音 1</div>
     <div class="voice-name">zh-TW-YunJheNeural｜台灣男聲</div>
@@ -38,31 +52,44 @@
       <span class="tag">親切自然</span>
       <span class="tag">中等音域</span>
     </div>
-    <audio controls src="voice1_tw.mp3"></audio>
+    <audio id="a1" controls src="voice1_tw.mp3"></audio>
+    <div class="speed-control">
+      <span class="speed-label">語速：</span>
+      <input class="speed-slider" type="range" min="0.5" max="2.0" step="0.05" value="1.0" oninput="setSpeed('a1', this.value, 'sp1')">
+      <span class="speed-display" id="sp1">1.0×</span>
+      <div class="speed-btns">
+        <button class="speed-btn" onclick="quickSpeed('a1','sp1',0.75)">0.75×</button>
+        <button class="speed-btn active" onclick="quickSpeed('a1','sp1',1.0)">1.0×</button>
+        <button class="speed-btn" onclick="quickSpeed('a1','sp1',1.25)">1.25×</button>
+        <button class="speed-btn" onclick="quickSpeed('a1','sp1',1.5)">1.5×</button>
+      </div>
+    </div>
   </div>
 
+  <!-- Voice 2 -->
   <div class="voice-card">
     <div class="voice-num">聲音 2</div>
-    <div class="voice-name">zh-CN-YunyangNeural｜新聞播報男聲（正常語速）</div>
+    <div class="voice-name">zh-CN-YunyangNeural｜新聞播報男聲</div>
     <div class="voice-tags">
       <span class="tag">🎙 新聞腔</span>
       <span class="tag">專業可靠</span>
       <span class="tag">低沉穩重</span>
     </div>
-    <audio controls src="voice2_news.mp3"></audio>
-  </div>
-
-  <div class="voice-card">
-    <div class="voice-num">聲音 2（慢）</div>
-    <div class="voice-name">zh-CN-YunyangNeural｜同聲音，語速 -15%</div>
-    <div class="voice-tags">
-      <span class="tag">🎙 新聞腔</span>
-      <span class="tag">慢速版</span>
-      <span class="tag">更沉穩</span>
+    <audio id="a2" controls src="voice2_news.mp3"></audio>
+    <div class="speed-control">
+      <span class="speed-label">語速：</span>
+      <input class="speed-slider" type="range" min="0.5" max="2.0" step="0.05" value="1.0" oninput="setSpeed('a2', this.value, 'sp2')">
+      <span class="speed-display" id="sp2">1.0×</span>
+      <div class="speed-btns">
+        <button class="speed-btn" onclick="quickSpeed('a2','sp2',0.75)">0.75×</button>
+        <button class="speed-btn active" onclick="quickSpeed('a2','sp2',1.0)">1.0×</button>
+        <button class="speed-btn" onclick="quickSpeed('a2','sp2',1.25)">1.25×</button>
+        <button class="speed-btn" onclick="quickSpeed('a2','sp2',1.5)">1.5×</button>
+      </div>
     </div>
-    <audio controls src="voice2_news_slow.mp3"></audio>
   </div>
 
+  <!-- Voice 3 -->
   <div class="voice-card">
     <div class="voice-num">聲音 3</div>
     <div class="voice-name">zh-CN-YunjianNeural｜激情感男聲</div>
@@ -71,19 +98,52 @@
       <span class="tag">較低沉</span>
       <span class="tag">運動/故事風</span>
     </div>
-    <audio controls src="voice3_deep.mp3"></audio>
+    <audio id="a3" controls src="voice3_deep.mp3"></audio>
+    <div class="speed-control">
+      <span class="speed-label">語速：</span>
+      <input class="speed-slider" type="range" min="0.5" max="2.0" step="0.05" value="1.0" oninput="setSpeed('a3', this.value, 'sp3')">
+      <span class="speed-display" id="sp3">1.0×</span>
+      <div class="speed-btns">
+        <button class="speed-btn" onclick="quickSpeed('a3','sp3',0.75)">0.75×</button>
+        <button class="speed-btn active" onclick="quickSpeed('a3','sp3',1.0)">1.0×</button>
+        <button class="speed-btn" onclick="quickSpeed('a3','sp3',1.25)">1.25×</button>
+        <button class="speed-btn" onclick="quickSpeed('a3','sp3',1.5)">1.5×</button>
+      </div>
+    </div>
   </div>
 
   <div class="info-box">
-    <h2>⚙️ 語速調整說明</h2>
+    <h2>⚙️ 語速技術說明</h2>
     <ul>
-      <li>Edge TTS 支援 <code>--rate</code> 參數調整語速</li>
-      <li>範圍：<code>-50%</code>（最慢）到 <code>+100%</code>（最快）</li>
-      <li>建議播客語速：<code>-10%</code> 到 <code>-20%</code>（更清晰好懂）</li>
-      <li>可搭配 <code>--pitch</code> 調整音調（如 <code>-5Hz</code> 讓聲音更低沉）</li>
-      <li>確定聲音後，可微調語速和音調再正式生成全集音訊</li>
+      <li>頁面滑桿：即時調整瀏覽器播放速度（0.5× ～ 2.0×），純試聽用</li>
+      <li>正式生成：使用 Edge TTS <code>--rate</code> 參數，範圍 <code>-50%</code> 到 <code>+100%</code></li>
+      <li>音調調整：加 <code>--pitch -5Hz</code> 讓聲音更低沉</li>
+      <li>建議播客語速：約 <code>-10% ~ -20%</code>（0.85× ～ 0.9×），清晰不拖沓</li>
+      <li>確定聲音＋語速後，告訴我，我生成完整 15 分鐘音訊</li>
     </ul>
   </div>
 </div>
+
+<script>
+function setSpeed(audioId, val, displayId) {
+  const audio = document.getElementById(audioId);
+  const display = document.getElementById(displayId);
+  const speed = parseFloat(val);
+  audio.playbackRate = speed;
+  display.textContent = speed.toFixed(2).replace(/\.?0+$/, '') + '×';
+  // Update active button
+  const card = audio.closest('.voice-card');
+  card.querySelectorAll('.speed-btn').forEach(btn => {
+    btn.classList.toggle('active', parseFloat(btn.textContent) === speed);
+  });
+  // Sync slider
+  const slider = card.querySelector('.speed-slider');
+  slider.value = speed;
+}
+
+function quickSpeed(audioId, displayId, speed) {
+  setSpeed(audioId, speed, displayId);
+}
+</script>
 </body>
 </html>
