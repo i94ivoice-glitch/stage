@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stage – 發布索引</title>
+  <title>94iVoice Stage – 影片索引</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; background: #0f0f13; color: #e0e0e0; min-height: 100vh; padding: 40px 20px 60px; }
@@ -11,16 +11,27 @@
     .badge { display: inline-block; background: rgba(99,179,237,0.15); border: 1px solid rgba(99,179,237,0.4); color: #63b3ed; padding: 4px 14px; border-radius: 20px; font-size: .78rem; letter-spacing: 1px; margin-bottom: 14px; }
     header h1 { font-size: clamp(1.5rem,4vw,2rem); font-weight: 700; color: #fff; }
     header p { margin-top: 8px; color: #667; font-size: .88rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 18px; max-width: 960px; margin: 0 auto; }
-    .card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 14px; padding: 22px 24px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; transition: border-color .2s,transform .15s,background .2s; }
-    .card:hover { border-color: #63b3ed; background: #1e1e3a; transform: translateY(-2px); }
-    .card .icon { font-size: 1.8rem; }
-    .card .title { font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.35; }
-    .card .desc { font-size: .84rem; color: #8899bb; line-height: 1.6; }
-    .card .tag { display: inline-block; background: rgba(99,179,237,0.12); border: 1px solid rgba(99,179,237,0.3); color: #63b3ed; padding: 2px 10px; border-radius: 12px; font-size: .72rem; margin-top: 4px; width: fit-content; }
-    .card.featured { border-color: #a855f7; }
-    .card.featured:hover { border-color: #c084fc; }
-    .card.featured .tag { background: rgba(168,85,247,0.15); border-color: rgba(168,85,247,0.4); color: #c084fc; }
+
+    .section-label { max-width: 960px; margin: 32px auto 12px; font-size: .72rem; color: #444; text-transform: uppercase; letter-spacing: 1.8px; display: flex; align-items: center; gap: 8px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: #222; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 16px; max-width: 960px; margin: 0 auto; }
+
+    .card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: border-color .2s,transform .15s; }
+    .card:hover { border-color: #63b3ed; transform: translateY(-2px); }
+    .card-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #111; }
+    .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .card .title { font-size: .92rem; font-weight: 700; color: #fff; line-height: 1.4; }
+    .card .desc  { font-size: .8rem; color: #7a8aaa; line-height: 1.6; flex: 1; }
+    .card-footer { display: flex; align-items: center; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .tag  { display: inline-block; padding: 2px 9px; border-radius: 12px; font-size: .7rem; }
+    .tag.stage  { background: rgba(230,57,70,0.15); border: 1px solid rgba(230,57,70,0.4); color: #e63946; }
+    .tag.private { background: rgba(244,162,97,0.15); border: 1px solid rgba(244,162,97,0.4); color: #f4a261; }
+    .tag.live   { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: #22c55e; }
+    .tag.wip    { background: rgba(100,100,100,0.15); border: 1px solid #333; color: #666; }
+    .tag.blue   { background: rgba(99,179,237,0.12); border: 1px solid rgba(99,179,237,0.3); color: #63b3ed; }
+    .dur { font-size: .72rem; color: #555; margin-left: auto; }
+
     footer { text-align: center; margin-top: 56px; font-size: .78rem; color: #333; }
     footer a { color: #555; text-decoration: none; }
     footer a:hover { color: #63b3ed; }
@@ -28,48 +39,87 @@
 </head>
 <body>
 <header>
-  <div class="badge">STAGE</div>
-  <h1>🚧 發布索引</h1>
-  <p>所有已發布頁面列表，自動維護</p>
+  <div class="badge">94iVoice · STAGE</div>
+  <h1>愛播客 影片索引</h1>
+  <p>Stage 預覽 + 已發布影片總覽</p>
 </header>
+
+<!-- 近期影片 -->
+<div class="section-label">🎬 近期影片</div>
 <div class="grid">
-  <a class="card featured" href="94ivoice_elon_final.mp4">
-    <span class="icon">📺</span>
-    <span class="title">【完整影片】Elon Musk：10年後經濟翻10倍<br>但金錢會失去意義｜9分鐘精華解析</span>
-    <span class="desc">每分鐘主題背景切換 · 繁中字幕 · 深沈男聲TTS · 94iVoice片尾 · 完整 17 分鐘（含片尾）</span>
-    <span class="tag">★ NEW · 完整影片 MP4</span>
+
+  <a class="card" href="dankoe/">
+    <img class="card-thumb" src="dankoe/thumbnail.jpg" alt="AI時代護城河" onerror="this.style.background='#1a1a2e'">
+    <div class="card-body">
+      <div class="title">AI時代，你唯一的護城河是「你自己」</div>
+      <div class="desc">後AI高收入技能組合：主動性→品味→視角→說服力→技術工具。換人測試揭示你的不可取代性。</div>
+      <div class="card-footer">
+        <span class="tag stage">Stage 審閱中</span>
+        <span class="dur">~4 分鐘</span>
+      </div>
+    </div>
   </a>
 
-
-  <a class="card featured" href="elon_podcast_v2_zh.html">
-    <span class="icon">🎙️</span>
-    <span class="title">Podcast（單人旁白）｜Elon Musk 在 Abundance Summit 說了什麼？</span>
-    <span class="desc">10 分鐘精華版。單人旁白帶你走過訪談重點，最後提出 5 個值得深思的核心問題。</span>
-    <span class="tag">★ NEW · 10 分鐘版</span>
+  <a class="card" href="vampire/">
+    <img class="card-thumb" src="vampire/thumbnail.jpg" alt="AI吸血鬼效應" onerror="this.style.background='#1a1a2e'">
+    <div class="card-body">
+      <div class="title">AI吸血鬼效應：正在改變你的工作與生活？</div>
+      <div class="desc">AI不只搶走工作，還在吸走意義。Stack Overflow、新聞媒體、職場人士都難逃吸血鬼效應。</div>
+      <div class="card-footer">
+        <span class="tag private">🔒 已上傳（私人）</span>
+        <span class="dur">3:21</span>
+      </div>
+    </div>
   </a>
 
-  <a class="card" href="elon_podcast_script_zh.html">
-    <span class="icon">🎧</span>
-    <span class="title">Podcast（雙主持人）｜Elon Musk 的 AI 豐盛時代</span>
-    <span class="desc">20 分鐘雙主持人對談稿，含資產佈局分析與機會風險表格。</span>
-    <span class="tag">20 分鐘版</span>
+  <a class="card" href="anthropic_dod/">
+    <img class="card-thumb" src="anthropic_dod/thumbnail.jpg" alt="Anthropic vs 國防部" onerror="this.style.background='#1a1a2e'">
+    <div class="card-body">
+      <div class="title">Anthropic vs 國防部：AI 與威權的邊界</div>
+      <div class="desc">當AI公司拒絕替軍方服務，威權主義的過剩危機正在浮現。民主 vs 威權的AI軍備競賽。</div>
+      <div class="card-footer">
+        <span class="tag live">✅ 已公開</span>
+        <a href="https://youtu.be/Q0LXBx1TxxY" target="_blank" onclick="event.stopPropagation()" style="font-size:.7rem;color:#4ea8de;text-decoration:none;">▶ YouTube</a>
+        <span class="dur">8:25</span>
+      </div>
+    </div>
   </a>
 
-  <a class="card" href="elon_abundance_summit_zh.html">
-    <span class="icon">📝</span>
-    <span class="title">Elon Musk × Abundance Summit<br>訪談逐字稿（繁體中文）</span>
-    <span class="desc">完整 24 分鐘逐字稿，可搜尋全文，依時間戳排列。</span>
-    <span class="tag">原始逐字稿</span>
-  </a>
-
-  <a class="card" href="12年國教升學指南_Mermaid互動版2026.html">
-    <span class="icon">🎓</span>
-    <span class="title">12 年國教升學指南<br>Mermaid 互動版 2026</span>
-    <span class="desc">國中升高中完整時程、志願選填說明、重要日期一覽，含互動式流程圖。</span>
-    <span class="tag">升學指南</span>
+  <a class="card" href="elon/">
+    <img class="card-thumb" src="elon/thumbnail.jpg" alt="Elon Musk 10年後" onerror="this.style.background='#1a1a2e'">
+    <div class="card-body">
+      <div class="title">Elon Musk：10年後經濟翻10倍，但金錢會失去意義</div>
+      <div class="desc">Abundance Summit 訪談精華。AI讓生產力爆炸，但我們準備好了嗎？9分鐘深度解析。</div>
+      <div class="card-footer">
+        <span class="tag live">✅ 已發布</span>
+        <span class="dur">9 分鐘</span>
+      </div>
+    </div>
   </a>
 
 </div>
-<footer>i94ivoice-glitch / stage &nbsp;·&nbsp; GitHub Pages</footer>
+
+<!-- 待製作 -->
+<div class="section-label">📋 待製作</div>
+<div class="grid">
+
+  <a class="card" href="palantir/" style="opacity:0.5;pointer-events:none;">
+    <div class="card-body" style="padding:24px 16px;">
+      <div class="title">Palantir：數據帝國的崛起</div>
+      <div class="desc">下一支影片</div>
+      <div class="card-footer">
+        <span class="tag wip">📋 待製作</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  <a href="https://github.com/i94ivoice-glitch/stage" target="_blank">i94ivoice-glitch / stage</a>
+  &nbsp;·&nbsp; GitHub Pages &nbsp;·&nbsp;
+  <span id="ts"></span>
+  <script>document.getElementById('ts').textContent = new Date().toLocaleDateString('zh-TW')</script>
+</footer>
 </body>
 </html>
