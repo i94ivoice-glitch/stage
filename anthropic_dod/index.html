@@ -5,60 +5,153 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>94iVoice｜Anthropic vs 國防部 - Stage</title>
 <style>
+  * { box-sizing: border-box; }
   body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
   .container { max-width: 900px; margin: 0 auto; }
   h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #333; padding-bottom: 12px; }
-  .badge { background: #f4a261; color: #111; font-size: 0.7em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
+  .badge { font-size: 0.7em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
+  .badge.wip { background: #f4a261; color: #111; }
   .badge.live { background: #e63946; color: white; }
-  video { width: 100%; border-radius: 8px; margin: 16px 0; background: #000; }
-  .section { margin: 24px 0; }
-  .section h2 { font-size: 1em; color: #aaa; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
-  .source { background: #1a1a1a; border-radius: 8px; padding: 16px; }
-  .source a { color: #4ea8de; text-decoration: none; font-size: 0.95em; }
-  .info { background: #1a1a1a; border-radius: 8px; padding: 16px; font-size: 0.9em; color: #aaa; line-height: 1.6; }
-  .files a { display: block; padding: 8px 12px; background: #1a1a1a; border-radius: 6px; color: #4ea8de; text-decoration: none; margin: 6px 0; font-size: 0.9em; }
+  .badge.private { background: #555; color: #ccc; }
+
+  .section { margin: 28px 0; }
+  .section-title { font-size: 0.82em; color: #666; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+
+  video { width: 100%; border-radius: 8px; margin: 12px 0; background: #000; }
+
+  .source-card { background: #1a1a1a; border-radius: 8px; padding: 16px; }
+  .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; }
+  .info-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+  .info-chip { background: #252525; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; color: #aaa; }
+
+  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+  .files a { display: block; padding: 10px 14px; background: #1a1a1a; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.88em; transition: background 0.15s; }
   .files a:hover { background: #252525; }
+
+  /* YouTube Section */
+  .yt-section { background: #1a1a1a; border-radius: 12px; padding: 24px; border: 1px solid #2a2a2a; }
+  .yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .yt-logo { color: #ff0000; font-size: 1.4em; }
+  .yt-header h2 { margin: 0; font-size: 1.05em; color: #fff; }
+  .yt-status { font-size: 0.8em; padding: 3px 10px; border-radius: 20px; background: #333; color: #aaa; }
+  .yt-status.private { background: #2a2520; color: #f4a261; border: 1px solid #3a3020; }
+
+  .yt-field { margin-bottom: 16px; }
+  .yt-field label { display: block; font-size: 0.78em; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+  .yt-field .value { background: #111; border-radius: 6px; padding: 10px 14px; font-size: 0.9em; color: #ddd; line-height: 1.6; }
+  .yt-field .value.title { font-size: 1em; font-weight: 600; color: #fff; }
+  .yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #111; border-radius: 6px; }
+  .yt-tag { background: #2a2a2a; padding: 3px 10px; border-radius: 20px; font-size: 0.78em; color: #ccc; }
+
+  .yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.9em; cursor: default; font-weight: 600; }
+  .yt-btn.primary { background: #ff0000; color: white; }
+  .yt-btn.secondary { background: #252525; color: #aaa; border: 1px solid #333; }
+  .yt-note { font-size: 0.8em; color: #555; margin-top: 12px; }
+
   .meta { font-size: 0.8em; color: #555; margin-top: 32px; border-top: 1px solid #222; padding-top: 12px; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>Anthropic vs 國防部：AI 與威權的邊界 <span class="badge">製作中</span></h1>
+  <h1>Anthropic vs 國防部：AI 與威權的邊界 <span class="badge wip">製作中</span></h1>
 
   <div class="section">
-    <h2>📺 原始影片</h2>
-    <div class="source">
+    <div class="section-title">📺 原始影片</div>
+    <div class="source-card">
       <a href="https://youtu.be/KBPOTklFTiU" target="_blank">
-        🔗 The Department of War is making a huge mistake. — Dwarkesh Patel (24:38)
+        🔗 The Department of War is making a huge mistake. — Dwarkesh Patel
       </a>
+      <div class="info-row">
+        <span class="info-chip">⏱ 24:38</span>
+        <span class="info-chip">🎙 Dwarkesh Patel</span>
+        <span class="info-chip">📅 2025</span>
+      </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>📋 影片主題</h2>
-    <div class="info">
-      <strong>核心論點：</strong>Anthropic 拒絕與美國國防部合作是一個錯誤。<br>
-      <strong>章節：</strong>Anthropic vs 五角大廈 → 威權主義的過剩危機 → AI 結構上有利於監控 → 對齊誰？→ 民主 vs 威權的 AI 競賽<br>
-      <strong>主講：</strong>Dwarkesh Patel（科技/政策 Podcast 主持人）
-    </div>
+    <div class="section-title">🎬 Stage 影片</div>
+    <p style="color:#555; font-size:0.9em; padding:16px; background:#111; border-radius:8px;">製作中，尚未產生...</p>
   </div>
 
   <div class="section">
-    <h2>🎬 Stage 影片</h2>
-    <p style="color:#555; font-size:0.9em">製作中，尚未產生...</p>
-  </div>
-
-  <div class="section">
-    <h2>📁 素材檔案</h2>
+    <div class="section-title">📁 素材檔案</div>
     <div class="files">
       <a href="script_zh.html">✍️ 播客腳本（改寫版）</a>
-      <a href="transcript_zh.txt">📄 逐字稿（繁中 TXT）</a>
+      <a href="transcript_zh.txt">📄 逐字稿（繁中）</a>
       <a href="subtitles_zh.srt">📝 字幕 SRT（繁中）</a>
       <a href="subtitles_en.srt">📝 字幕 SRT（英文）</a>
+      <a href="voice_preview.html">🎧 語音試聽</a>
     </div>
   </div>
 
-  <div class="meta">94iVoice Stage｜最後更新：<span id="ts"></span>
+  <!-- YouTube Publishing Section -->
+  <div class="section">
+    <div class="section-title">📺 YouTube 發布設定</div>
+    <div class="yt-section">
+      <div class="yt-header">
+        <span class="yt-logo">▶</span>
+        <h2>愛播客 — YouTube 發布文案</h2>
+        <span class="yt-status private">🔒 私人審閱</span>
+      </div>
+
+      <div class="yt-field">
+        <label>影片標題</label>
+        <div class="value title" id="yt-title">AI技術如何改變全球政治格局？監控與威權的挑戰</div>
+      </div>
+
+      <div class="yt-field">
+        <label>影片描述</label>
+        <div class="value" id="yt-desc">在本集94iVoice播客中，我們深入探討AI技術的發展及其對全球政治格局的影響，特別是在民主與威權國家之間的較量中。本集重點包括：1. Anthropic拒絕與美國國防部合作的影響；2. AI如何助長威權主義及監控風險；3. 如何平衡企業自由與國家安全。
+
+📌 時間章節：
+00:00 Anthropic vs 國防部（五角大廈）
+04:00 威權主義的過剩危機
+07:00 AI 在結構上有利於大規模監控
+10:00 對齊——對齊誰？
+13:00 民主 vs 威權：AI 軍事能力的競賽
+
+🎙 94iVoice — AI 與科技深度解析
+歡迎訂閱，每週更新 → https://www.youtube.com/@94ivoice</div>
+      </div>
+
+      <div class="yt-field">
+        <label>標籤</label>
+        <div class="yt-tags" id="yt-tags">
+          <span class="yt-tag">AI</span>
+          <span class="yt-tag">人工智慧</span>
+          <span class="yt-tag">政治</span>
+          <span class="yt-tag">監控</span>
+          <span class="yt-tag">威權主義</span>
+          <span class="yt-tag">科技發展</span>
+          <span class="yt-tag">數位化</span>
+          <span class="yt-tag">Ethics</span>
+          <span class="yt-tag">國防</span>
+          <span class="yt-tag">國際關係</span>
+          <span class="yt-tag">94iVoice</span>
+          <span class="yt-tag">Podcast</span>
+          <span class="yt-tag">科技與社會</span>
+          <span class="yt-tag">Dwarkesh Patel</span>
+        </div>
+      </div>
+
+      <div class="yt-field">
+        <label>類別 / 隱私設定</label>
+        <div class="value">科技與科學（Science &amp; Technology）｜🔒 私人（審閱後改公開）</div>
+      </div>
+
+      <div class="yt-actions">
+        <div class="yt-btn primary">▶ 上傳私人影片（審閱用）</div>
+        <div class="yt-btn secondary">✏️ 編輯文案</div>
+        <div class="yt-btn secondary">🌐 改為公開發布</div>
+      </div>
+      <div class="yt-note">⚠️ 以上按鈕為預覽用途。實際發布請告知 Javis，自動上傳到「愛播客」頻道。</div>
+    </div>
+  </div>
+
+  <div class="meta">
+    94iVoice Stage｜最後更新：<span id="ts"></span>
     <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
   </div>
 </div>
