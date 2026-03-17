@@ -1,6 +1,6 @@
 # 94iVoice YouTube 影片製作流程
 
-> 最終版｜更新：2026-03-15（字幕保留問號；新增 Stage Preview 規格、封面無 Speaker 規則）
+> 最終版｜更新：2026-03-17（Ken Burns 正確寫法加強；禁止清單補充「先放大再平移」錯誤模式）
 
 ---
 
@@ -9,7 +9,8 @@
 | 項目 | 設定值 |
 |------|--------|
 | 🎙 TTS 聲音 | `zh-CN-YunjianNeural` |
-| 🎙 TTS 語速 | `+10%` |
+| 🎙 TTS 語速 | 預設（不加 --rate）|
+| 🎙 TTS 工具 | `gen_tts_ssml.py`（SSML 版，自動修正發音）|
 | 🖼 背景圖生成 | DALL-E 3 · 1792×1024 · standard |
 | 🎬 影片解析度 | 1280×720 · 24fps · H.264 |
 | 🎞 Ken Burns | `scale(t)+crop eval=frame`，1.0→1.2→1.0，30s 循環 |
@@ -42,6 +43,8 @@ GitHub Stage Repo（永久）:
                （6.04s · 1504×832 · 含原始音效，re-encode 至 1280×720 使用）
   字體:        /usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc
   斷句腳本:    /home/jovie/.openclaw/workspace/split_srt.py
+  TTS 腳本:    /home/jovie/.openclaw/workspace/gen_tts_ssml.py   ← SSML 版（主要使用）
+  TTS 預處理:  /home/jovie/.openclaw/workspace/tts_preprocess.py ← 輔助模組
 ```
 
 ---
@@ -76,23 +79,74 @@ stage/
 
 #### 🎙 TTS 固定設定（所有影片統一使用）
 
+**✅ 標準指令（SSML 版，所有影片統一使用）：**
 ```bash
-edge-tts \
-  --voice zh-CN-YunjianNeural \
-  --rate="+10%" \
-  --text "$(cat script_clean.txt)" \
-  --write-media audio.mp3 \
-  --write-subtitles audio.vtt   # edge-tts 輸出的 .vtt 實際上是 SRT 格式，直接用
-
-cp audio.vtt subtitles.srt
+python3 ~/workspace/gen_tts_ssml.py script_clean.txt /tmp/{影片名}
+# 輸出：/tmp/{影片名}/audio.mp3（自動套用 SSML 發音修正）
 ```
 
 | 參數 | 值 | 說明 |
 |------|-----|------|
 | voice | `zh-CN-YunjianNeural` | 低沉有力男聲（激情感） |
-| rate | `+10%` | 1.1 倍語速，流暢不拖沓 |
+| rate | 預設 | edge-tts 預設語速，自然流暢 |
+| 輸入 | `script_clean.txt` | Markdown 格式（`##`、`**` 由腳本自動清除）|
 
-> ⚠️ 腳本文字需先清除 Markdown 格式（`##`、`**`）再傳入 TTS
+**⚠️ 注意：SSML 模式不輸出詞級字幕**，字幕需後續執行 `split_srt.py`（流程不變）。
+
+---
+
+#### 🔤 SSML 自動發音修正規則（`gen_tts_ssml.py`）
+
+**英文縮寫 → 個別字母（`ABBR_MAP`）：**
+
+| 詞 | TTS 唸法 |
+|---|---|
+| AI | A・I |
+| OpenAI | Open・A・I |
+| ChatGPT / ChatGPT-4 | Chat・G・P・T（/4）|
+| GPT / GPT-4 / GPT-4o | G・P・T（/4/4o）|
+| API | A・P・I |
+| CEO / CTO / CFO | C・E・O … |
+| IPO / ETF / GDP / ROI | 各字母個別唸 |
+
+**多音字 → 強制指定聲調（`SSML_RULES` + `SSML_PHONEMES`）：**
+
+| 詞 | 錯誤發音 | 正確發音 |
+|---|---|---|
+| 醒覺 | jiào ❌ | jué ✅ |
+| 睡覺 / 一覺 | jué ❌ | jiào ✅ |
+| 覺得 / 感覺 / 察覺 / 自覺 / 覺悟 | jiào ❌ | jué ✅ |
+| 重複 / 重新 / 重建 | zhòng ❌ | chóng ✅ |
+| 重要 / 重量 | chóng ❌ | zhòng ✅ |
+| 成長 / 生長 / 長大 | 可能混淆 | zhang3 ✅ |
+| 漫長 / 長期 | 可能混淆 | chang2 ✅ |
+
+**稱謂縮寫（文字替換，進 SSML 前處理）：**
+
+| 原文 | TTS 輸入 |
+|---|---|
+| Dr. Waku / Dr. Xxx | Doctor Waku / Doctor Xxx |
+| Mr. / Mrs. / Ms. | Mister / Misses / Miss |
+| vs. | versus |
+| OpenClaw | Open Claw |
+
+**新增規則方式：**
+```python
+# 英文縮寫：在 ABBR_MAP 新增
+"LLM": "L L M",
+"RAG": "R A G",
+
+# 多音字：在 SSML_RULES 新增（文字替換）或 SSML_PHONEMES（phoneme 標籤）
+("著作", "著作"),  # 視需求加強制 phoneme
+```
+
+**舊版 CLI（備用，不建議）：**
+```bash
+edge-tts --voice zh-CN-YunjianNeural \
+  --text "$(cat script_clean.txt)" \
+  --write-media audio.mp3 --write-subtitles audio.vtt
+cp audio.vtt subtitles.srt
+```
 
 #### DALL-E 3 背景圖生成
 
@@ -103,7 +157,7 @@ client = OpenAI()
 
 resp = client.images.generate(
     model="dall-e-3",
-    prompt="cinematic ultra-realistic 4K, {章節主題描述}",
+    prompt="{依下方原則撰寫的 prompt}",
     size="1792x1024",   # 最接近 16:9
     quality="standard",
     n=1
@@ -113,6 +167,39 @@ open(f"bg_{i:02d}_{name}.png", "wb").write(img_data)
 ```
 
 > 每章節生成一張，命名規則：`bg_00_opening.png`、`bg_01_xxx.png`…
+
+---
+
+#### 🎨 背景圖生成原則（2026-03-16 定版）
+
+**風格方向：**
+- ✅ 溫暖色調：amber（琥珀）、gold（金）、warm orange（暖橙）、ochre（赭黃）、warm teal（暖青）
+- ✅ 插畫/油畫質感：painterly, illustrated digital art（非寫實暗黑賽博龐克）
+- ✅ 每張圖凸顯該章節的**核心視覺比喻**（鑰匙、裂縫、網絡、金庫…）
+- ❌ 禁止純白或亮色大面積背景（字幕無法顯示）
+- ❌ 禁止含有任何文字
+
+**字幕可讀性規則（關鍵）：**
+- 底部 1/3 必須保持**深色**（深棕、深藍、深褐、近黑）
+- 主要視覺元素集中在**畫面中上部**
+- 白色字幕 + 黑色邊框在這樣的底色下一定清楚
+
+**Prompt 模板：**
+```
+{具體視覺描述（主體 + 動作/狀態）}, {色調：warm amber and gold tones / warm orange glow},
+painterly digital illustration style, {補充細節},
+dark {color} shadow at bottom third, no text, 4K
+```
+
+**各類章節對應視覺比喻（參考）：**
+| 章節類型 | 建議視覺比喻 |
+|----------|------------|
+| 開場/鉤子 | 象徵性物件（鑰匙、門、鏡子）浮在暮色城市上空 |
+| 技術漏洞 | 放大鏡 + 裂縫電路、破碎的盾牌 |
+| AI 攻擊/自動化 | 光網連接全球節點、指揮中心俯視圖 |
+| 財務損失 | 金庫破裂、硬幣崩落 |
+| 品牌/工具 | 品牌吉祥物或工具圖示在聚光燈下 |
+| 世界/社會影響 | 城市俯瞰、基礎設施網絡、局部熄燈 |
 
 ---
 
@@ -160,13 +247,12 @@ python3 /home/jovie/.openclaw/workspace/split_srt.py \
 
 ### Step 4｜Ken Burns 影片片段
 
-> ⚠️ **禁止使用 `zoompan` 濾鏡** — 逐幀離散計算有抖動問題
-> 正確方法：`scale(t) + crop eval=frame`（連續時間戳，完全平滑）
+> ✅ **唯一正確寫法：`scale(t) + crop eval=frame`**（連續時間戳，完全平滑）
 
 **效果：1.0× → 1.2× → 1.0× 循環，30 秒一個完整循環**
 
 ```bash
-# Ken Burns 濾鏡（三角波循環公式）
+# ✅ 正確 Ken Burns 濾鏡（三角波循環公式）
 # zoom = 1.0 + 0.2 × (1 - |2×(t mod 30)/30 - 1|)
 KB_FILTER="scale=w='1280*(1+0.2*(1-abs(2*mod(t,30)/30-1)))':h='720*(1+0.2*(1-abs(2*mod(t,30)/30-1)))':eval=frame,crop=1280:720,format=yuv420p"
 
@@ -174,8 +260,6 @@ KB_FILTER="scale=w='1280*(1+0.2*(1-abs(2*mod(t,30)/30-1)))':h='720*(1+0.2*(1-abs
 ffmpeg -y -loop 1 -i bg_00_opening.png -t {秒數} -r 24 \
   -vf "$KB_FILTER" \
   -c:v libx264 -pix_fmt yuv420p -r 24 seg_00_opening.mp4
-
-# 所有章節同樣處理...
 ```
 
 **關鍵時間點：**
@@ -188,6 +272,55 @@ t= 30s → 1.0× (回到起點，開始下一循環)
 ```
 
 長章節（>30s）會自動循環；短章節（<30s）走部分循環亦可。
+
+---
+
+### 🚫 Ken Burns 禁止寫法（三種，都會造成抖動）
+
+#### ❌ 禁止 1：`zoompan` 濾鏡
+```bash
+# ❌ 絕對禁止
+-vf "zoompan=z='zoom+0.001':d=25:s=1280x720"
+```
+原因：逐幀離散整數計算，天生抖動，無法平滑。
+
+#### ❌ 禁止 2：先 scale 放大到固定尺寸，再用 crop 移動位置
+```bash
+# ❌ 絕對禁止（看起來像 Ken Burns，實際上是「位置移動」不是「縮放」）
+-vf "scale=2560:1472, crop=1280:720:'(iw-1280)/2*(1+0.2*sin(2*3.14*t/30))':'(ih-720)/2'"
+```
+原因：影像是固定放大的，`crop` 偏移量用三角函數控制，結果是**鏡頭在平移**，不是平滑縮放，會產生位移抖動感。
+
+#### ❌ 禁止 3：`eval=init`（每段只算一次）
+```bash
+# ❌ 禁止：eval=init 讓縮放值只在開頭計算一次，整段固定比例，沒有 Ken Burns 效果
+"scale=w='...':h='...':eval=init"
+```
+原因：`eval=frame` 才會每幀重新計算 `t`，產生連續動態縮放。
+
+---
+
+### ✅ Python 腳本中的正確寫法（複製貼上用）
+
+```python
+# Ken Burns vf — 複製貼上，不要自己改公式
+KB_VF = (
+    "scale=w='1280*(1+0.2*(1-abs(2*mod(t,30)/30-1)))':"
+    "h='720*(1+0.2*(1-abs(2*mod(t,30)/30-1)))':"
+    "eval=frame,"
+    "crop=1280:720,"
+    "format=yuv420p,"
+    "fps=24"
+)
+
+subprocess.run([
+    "ffmpeg", "-y", "-loop", "1", "-i", str(img),
+    "-t", str(dur), "-r", "24",
+    "-vf", KB_VF,
+    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "23", "-preset", "veryfast",
+    str(out)
+], check=True, capture_output=True)
+```
 
 ---
 
@@ -284,32 +417,84 @@ ffmpeg -y \
 
 ---
 
+#### 🎙 有 Speaker 時的語感模式（2026-03-16 定版）
+
+> 當來源影片有具體 Speaker 時，**主角是 Speaker，播客是翻譯者/朋友**。
+
+**核心語感轉換：**
+
+| ❌ 播客自己說 | ✅ 轉達 Speaker 說 |
+|------------|-----------------|
+| 「AI 現在可以自動入侵企業」 | 「Dr. Waku 說，AI 現在已經可以自動入侵企業了」 |
+| 「我認為這件事很重要」 | 「他說，這件事讓整個資安圈都嚇到了」 |
+| 「我整理了三個重點」 | 「他在影片裡提了三件事，我覺得每一件都值得說清楚」 |
+
+**三種歸因句式（自然輪換，不要每句都一樣）：**
+- 直接歸因：「Dr. Waku 說...」「他說...」「他提到...」
+- 間接歸因：「根據他的分析...」「他的觀察是...」「他舉了一個例子...」
+- 評論歸因：「他說了一句話我覺得很有意思——」「他的結論是...，這讓我想到...」
+
+**細節轉換原則：**
+- 技術術語 → 生活比喻（zero-day = 「軟體廠商自己還不知道的漏洞，就像鎖還沒壞但鑰匙已經在賊手上」）
+- 統計數字 → 具體感受（「80-90% 全自動」= 「駭客只要選好目標按確認，其他 AI 全部包辦」）
+- 抽象概念 → 場景描述（「攻防不對等」= 「防守的人要每一球都守住，攻擊的人只需要進一球」）
+
+**播客定位（有 Speaker 時）：**
+> 我不是專家，我是替你把專家說的東西翻成人話的那個朋友。
+
+---
+
 #### ✅ 腳本結構公式
 
+**無 Speaker（原創/評論型）：**
 ```
 [開頭：鉤子場景（你的日常 + 反直覺觀察）]
   ↓
-[第1-2章：問題定義 + 背景（為什麼現在發生）]
+[第1-2章：問題定義 + 背景]
   ↓
-[第3-4章：影響深化（具體例子，從遠到近）]
+[第3-4章：影響深化（具體例子）]
   ↓
-[第5章：核心洞察（這次為什麼不一樣 / 你能做什麼）]
+[第5章：核心洞察]
   ↓
-[結尾：行動號召 + 簡短有力的收尾句]
+[結尾：行動號召]
+```
+
+**有 Speaker（轉述/解析型）：**
+```
+[開頭：衝擊鉤子 → Speaker 是誰 → 他談了哪些精彩主題 → 我來整理]
+  ↓
+[依 Speaker 原始結構走，每個重點都歸因給 Speaker]
+  ↓
+[穿插播客自己的翻譯/感想（「這讓我想到...」「用台灣的角度來說...」）]
+  ↓
+[結尾：總結 Speaker 的核心觀點 + CTA]
 ```
 
 ---
 
-#### 🟢 開頭公式（3 種）
+#### 🟢 開頭公式（4 種）
 
-**A. 你的行為映射（最強）**
+> ⚠️ **2026-03-16 新增規則：開場必須介紹來源 Speaker 的精彩主題**
+> 當來源影片有具體 Speaker 時，開場第一段要：
+> 1. 先用鉤子抓住注意力（衝擊數字或場景）
+> 2. 點出「這個人是誰、他談了什麼精彩主題」
+> 3. 用「我整理了他的核心觀點，重點說給你聽」作為橋接
+>
+> 範例：「[衝擊鉤子]… Dr. Waku 是 AI 安全研究員，他這支影片談的是 [精彩主題1]、[精彩主題2]，還有 [主題3]。我把他說的重點整理好了，今天帶你在七分鐘內搞懂這件事。」
+
+**A. 來源 Speaker 介紹（有具體人物時優先用）**（2026-03-16 新增）
+> 「[衝擊事件/數字]。說這話的是 [Speaker 名字]，[一句話介紹身份]。
+> 他在這支影片裡談到了 [精彩主題1]、[精彩主題2]，還有 [主題3]。
+> 我把重點整理好了，[X] 分鐘說清楚。」
+
+**B. 你的行為映射（最強，無具體人物時用）**
 > 「你上次完整看完一支15分鐘教學影片，是什麼時候？」  
 > 「你有沒有注意到，你最近問AI的次數，比問Google多了？」
 
-**B. 反直覺陳述**
+**C. 反直覺陳述**
 > 「你可以請AI幫你摘要這支影片——但你沒有。這個選擇本身就是今天的答案。」
 
-**C. 數字/事件衝擊**
+**D. 數字/事件衝擊**
 > 「Stack Overflow在2024年裁員。原因不是公司經營不善——是因為工程師不再需要它了。」
 
 ❌ **禁用開頭**：
@@ -565,28 +750,55 @@ python3 ~/workspace/make_thumbnail.py \
 
 ---
 
-#### 照片來源優先順序
+#### Speaker 自動識別規則（Step 10 前必須執行）
 
-1. **Wikipedia Commons**（最佳品質）
+> ⚠️ 每支影片製作時，**必須先判斷 Speaker**，再決定封面設計方式。
+
+**判斷流程：**
+1. 從 yt-dlp metadata 取得頻道名稱（`channel` 欄位）
+2. 若頻道名稱是個人名稱（非機構/媒體）→ 視為 Speaker，需取得照片
+3. 若是機構頻道（CNN, TED, Lex Fridman Podcast 等）→ 從影片本身找 Speaker
+
+**Speaker 照片取得優先順序：**
+
+1. **YouTube 頻道頭像**（最快最準）
    ```python
    import requests, re
-   r = requests.get("https://en.wikipedia.org/wiki/{人名}",
+   from PIL import Image
+   import io
+
+   headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+   r = requests.get(f"https://www.youtube.com/watch?v={VIDEO_ID}", headers=headers, timeout=15)
+   # 找最高解析度頻道頭像
+   urls = re.findall(r'https://yt3\.ggpht\.com/[A-Za-z0-9_\-]+=s\d+[^"\'<>\s]*', r.text)
+   # 取 s800 或最大尺寸
+   avatar_base = urls[0].split('=s')[0] if urls else None
+   if avatar_base:
+       r2 = requests.get(avatar_base + "=s800-c-k-c0x00ffffff-no-rj", headers=headers)
+       img = Image.open(io.BytesIO(r2.content))
+       img.save("speaker_photo.jpg", quality=95)
+   ```
+
+2. **Wikipedia Commons**（有維基條目的知名人士）
+   ```python
+   r = requests.get(f"https://en.wikipedia.org/wiki/{人名}",
        headers={"User-Agent": "Mozilla/5.0"})
    imgs = re.findall(r'//upload\.wikimedia\.org[^\s"\'<>]+(?:jpg|jpeg|png)', r.text)
    ```
-2. **YouTube 影片縮圖裁切**（Wiki 找不到時）
+
+3. **YouTube 影片縮圖裁切**（頭像取不到時的備用方案）
    ```python
-   from PIL import Image
-   import requests, io
    vid = "{VIDEO_ID}"
    r = requests.get(f"https://img.youtube.com/vi/{vid}/maxresdefault.jpg")
    img = Image.open(io.BytesIO(r.content))
-   # 裁切右側人物區域（通常人臉在右半邊）
    w, h = img.size
-   face = img.crop((w // 2, 0, w, h))   # 右半邊
-   face.save("person_face.jpg", quality=95)
+   face = img.crop((w // 2, 0, w, h))
+   face.save("speaker_photo.jpg", quality=95)
    ```
-3. **無人物時** → 使用 DALL-E 3 背景圖作為右側圖（`bg_02.png` 等），省略 `--name`
+
+4. **無人物時** → 使用 DALL-E 3 背景圖作為右側圖（`bg_02.png` 等），省略 `--name`
+
+> 💡 **Dr. Waku 案例**（2026-03-16）：YouTube 頻道頭像方案成功，取得 800×800 清晰人像。Wikipedia 無條目，不適用。
 
 #### 照片填充規則（make_thumbnail.py）
 
@@ -1014,9 +1226,10 @@ git pull --rebase && git push
 |------|------|---------|--------|
 | elon | ✅ 已發布 | — | [stage/elon/](https://i94ivoice-glitch.github.io/stage/elon/) |
 | anthropic_dod | ✅ 已公開 | [Q0LXBx1TxxY](https://youtu.be/Q0LXBx1TxxY) | [stage/anthropic_dod/](https://i94ivoice-glitch.github.io/stage/anthropic_dod/) |
+| ai_hackers | Stage（YouTube 私人） | [EZ5gcHLJT_4](https://youtu.be/EZ5gcHLJT_4) | [stage/ai_hackers/](https://i94ivoice-glitch.github.io/stage/ai_hackers/) |
 | vampire（AI吸血鬼效應）| 🔒 已上傳私人 | [fDyC_t4pKv0](https://youtu.be/fDyC_t4pKv0) | [stage/vampire/](https://i94ivoice-glitch.github.io/stage/vampire/) |
-| dankoe（AI時代護城河）| ⏳ Stage 審閱中 | — | [stage/dankoe/](https://i94ivoice-glitch.github.io/stage/dankoe/) |
-| palantir | 📋 待製作 | — | — |
+| dankoe（AI時代護城河）| Stage（YouTube 私人） | [0dXtEk-3PaE](https://youtu.be/0dXtEk-3PaE) | [stage/dankoe/](https://i94ivoice-glitch.github.io/stage/dankoe/) |
+| palantir | Stage（YouTube 私人） | [hy96g8FwHrM](https://youtu.be/hy96g8FwHrM) | [stage/palantir/](https://i94ivoice-glitch.github.io/stage/palantir/) |
 
 ---
 
@@ -1026,7 +1239,9 @@ git pull --rebase && git push
 |------|------|------|
 | 音訊時長 2 倍長 | 用了 `-f concat -c copy` 合併片尾 | 改用 `filter_complex concat` |
 | 字幕跑到畫面中間 | 整句字幕 + 大字體換行 | 先執行 `split_srt.py --max-width 54` |
-| Ken Burns 抖動 | 使用了 `zoompan` 濾鏡 | 改用 `scale(t)+crop eval=frame` |
+| Ken Burns 抖動（方式1）| 使用了 `zoompan` 濾鏡 | 改用 `scale(t)+crop eval=frame` |
+| Ken Burns 抖動（方式2）| `scale=固定大尺寸` + `crop` 平移 | 改用 `scale(t) eval=frame`，不要固定放大再平移 |
+| Ken Burns 無效果 | `eval=init` 只算一次 | 改用 `eval=frame` 每幀重算 |
 | 字幕不顯示 | subtitles 路徑用相對路徑 | 改用絕對路徑 |
 | git push 失敗 | 未先 pull | `git pull --rebase` 後再 push |
 | drawtext bold 不生效 | 未指定 Bold 字體檔 | 使用 `NotoSansCJK-Bold.ttc` |
