@@ -1,6 +1,6 @@
 # 94iVoice YouTube 影片製作流程
 
-> 最終版｜更新：2026-03-17（Ken Burns 正確寫法加強；禁止清單補充「先放大再平移」錯誤模式）
+> 最終版｜更新：2026-03-17-B（TTS 全面改為純文字替換；SSML 移除；覺/感覺/察覺等補入 TEXT_RULES）
 
 ---
 
@@ -79,10 +79,10 @@ stage/
 
 #### 🎙 TTS 固定設定（所有影片統一使用）
 
-**✅ 標準指令（SSML 版，所有影片統一使用）：**
+**✅ 標準指令（純文字替換版，所有影片統一使用）：**
 ```bash
 python3 ~/workspace/gen_tts_ssml.py script_clean.txt /tmp/{影片名}
-# 輸出：/tmp/{影片名}/audio.mp3（自動套用 SSML 發音修正）
+# 輸出：/tmp/{影片名}/audio.mp3 + subtitles.srt
 ```
 
 | 參數 | 值 | 說明 |
@@ -91,61 +91,55 @@ python3 ~/workspace/gen_tts_ssml.py script_clean.txt /tmp/{影片名}
 | rate | 預設 | edge-tts 預設語速，自然流暢 |
 | 輸入 | `script_clean.txt` | Markdown 格式（`##`、`**` 由腳本自動清除）|
 
-**⚠️ 注意：SSML 模式不輸出詞級字幕**，字幕需後續執行 `split_srt.py`（流程不變）。
+> ⚠️ **SSML 不可用**：edge-tts 7.x 內部強制 escape XML 標籤，SSML 標籤會被直接唸出來。
+> 唯一正確方案：純文字替換（`TEXT_RULES`），在 `gen_tts_ssml.py` 中維護。
 
 ---
 
-#### 🔤 SSML 自動發音修正規則（`gen_tts_ssml.py`）
+#### 🔤 TEXT_RULES 發音修正規則（`gen_tts_ssml.py`）
 
-**英文縮寫 → 個別字母（`ABBR_MAP`）：**
+**英文縮寫 → 字母加空格（TTS 逐字唸）：**
 
-| 詞 | TTS 唸法 |
+| 詞 | 替換後 |
 |---|---|
-| AI | A・I |
-| OpenAI | Open・A・I |
-| ChatGPT / ChatGPT-4 | Chat・G・P・T（/4）|
-| GPT / GPT-4 / GPT-4o | G・P・T（/4/4o）|
-| API | A・P・I |
-| CEO / CTO / CFO | C・E・O … |
-| IPO / ETF / GDP / ROI | 各字母個別唸 |
+| AI（獨立出現）| A I |
+| OpenAI | Open A I |
+| ChatGPT / ChatGPT-4 / ChatGPT-4o | Chat G P T（/4/4o）|
+| GPT / GPT-4 / GPT-4o | G P T（/4/4o）|
+| API / CEO / CTO / CFO | A P I / C E O … |
+| IPO / ETF / GDP / ROI / LLM / RAG / UI | 各字母空格 |
 
-**多音字 → 強制指定聲調（`SSML_RULES` + `SSML_PHONEMES`）：**
+**稱謂縮寫 → 全稱：**
 
-| 詞 | 錯誤發音 | 正確發音 |
-|---|---|---|
-| 醒覺 | jiào ❌ | jué ✅ |
-| 睡覺 / 一覺 | jué ❌ | jiào ✅ |
-| 覺得 / 感覺 / 察覺 / 自覺 / 覺悟 | jiào ❌ | jué ✅ |
-| 重複 / 重新 / 重建 | zhòng ❌ | chóng ✅ |
-| 重要 / 重量 | chóng ❌ | zhòng ✅ |
-| 成長 / 生長 / 長大 | 可能混淆 | zhang3 ✅ |
-| 漫長 / 長期 | 可能混淆 | chang2 ✅ |
-
-**稱謂縮寫（文字替換，進 SSML 前處理）：**
-
-| 原文 | TTS 輸入 |
+| 原文 | 替換後 |
 |---|---|
-| Dr. Waku / Dr. Xxx | Doctor Waku / Doctor Xxx |
-| Mr. / Mrs. / Ms. | Mister / Misses / Miss |
+| Dr. Waku | Doctor Waku |
+| Dr. / Mr. / Mrs. / Ms. | Doctor / Mister / Misses / Miss |
 | vs. | versus |
 | OpenClaw | Open Claw |
 
-**新增規則方式：**
+**破音字 → 同義詞或同音單義字：**
+
+| 原文 | 替換後 | 說明 |
+|------|--------|------|
+| 睡覺 / 一覺 / 午覺 | 睡叫 / 一叫 / 午叫 | 「叫」固定 jiào |
+| 覺得 | 感到 | 同義，避免唸 jiào |
+| 感覺 | 感受 | 同義，避免唸 jiào |
+| 察覺 | 發現 | 同義，避免唸 jiào |
+| 自覺 | 自行察覺 | 加詞消歧義 |
+| 醒覺 | 醒悟 | 同義詞 |
+| 沒有 | 梅有 | 「梅」固定 méi |
+| 著名 / 著作 | 知名 / 作品 | zhù 義 → 同義詞 |
+| 著急 / 著火 | 焦急 / 起火 | zháo 義 → 同義詞 |
+| 行業 / 行情 / 同行 | 產業 / 市況 / 同業 | háng 義 → 同義詞 |
+| 重複 / 重建 | 再重複 / 重新建立 | chóng 強制 |
+| 調整 / 調配 | 調節 / 分配 | tiáo 強制 |
+| 愛好 | 興趣 | hào → 同義詞 |
+
+**新增規則方式（直接加到 `gen_tts_ssml.py` TEXT_RULES，長詞放前面）：**
 ```python
-# 英文縮寫：在 ABBR_MAP 新增
-"LLM": "L L M",
-"RAG": "R A G",
-
-# 多音字：在 SSML_RULES 新增（文字替換）或 SSML_PHONEMES（phoneme 標籤）
-("著作", "著作"),  # 視需求加強制 phoneme
-```
-
-**舊版 CLI（備用，不建議）：**
-```bash
-edge-tts --voice zh-CN-YunjianNeural \
-  --text "$(cat script_clean.txt)" \
-  --write-media audio.mp3 --write-subtitles audio.vtt
-cp audio.vtt subtitles.srt
+("原文長詞",  "替換後"),   # 說明
+("原文短詞",  "替換後"),
 ```
 
 #### DALL-E 3 背景圖生成
