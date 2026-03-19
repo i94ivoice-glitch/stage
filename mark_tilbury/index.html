@@ -2,128 +2,219 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Stage: S&P 500 還能存？因為AI浪潮 這位投資達人悄悄調整了三件事</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>94iVoice｜S&P 500 還能存？因為AI浪潮 這位投資達人悄悄調整了三件事 - Stage</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans TC',sans-serif;background:#0d0d0d;color:#e0e0e0;padding:24px 20px;max-width:900px;margin:0 auto;line-height:1.7}
-a{color:#4FC3F7;text-decoration:none}
-h2{color:#4FC3F7;border-left:4px solid #4FC3F7;padding-left:12px;margin:32px 0 16px}
-.badge{font-size:.68em;padding:3px 8px;border-radius:4px;vertical-align:middle;margin-left:8px}
-.badge.stage{background:#e63946;color:#fff}
-video{width:100%;border-radius:8px;margin:16px 0;background:#000}
-.chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0}
-.chapter-card{background:#1a1a1a;border-radius:8px;overflow:hidden}
-.chapter-card img{width:100%;height:112px;object-fit:cover;display:block}
-.chapter-info{padding:10px}
-.chapter-num{font-size:.8em;color:#4FC3F7;font-weight:600}
-.chapter-dur{font-size:.78em;color:#888;margin-top:2px}
-.thumb-section{background:#1a1a1a;border-radius:10px;padding:20px;margin:16px 0}
-.thumb-label{font-size:.8em;color:#888;letter-spacing:.08em;margin-bottom:12px}
-.thumb-body{display:flex;gap:20px;flex-wrap:wrap}
-.thumb-preview{flex:0 0 240px}
-.thumb-preview img{width:100%;border-radius:6px}
-.btn-dl{display:block;text-align:center;margin-top:8px;padding:6px;background:#1e3a5a;border-radius:4px;font-size:.82em}
-.thumb-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.thumb-tags span{background:#222;padding:2px 8px;border-radius:4px;font-size:.75em;color:#aaa}
-.thumb-meta{flex:1;min-width:200px}
-.thumb-meta-title{font-size:.8em;color:#888;letter-spacing:.08em;margin-bottom:10px}
-.thumb-row{display:flex;gap:12px;margin-bottom:8px;font-size:.9em;border-bottom:1px solid #222;padding-bottom:6px}
-.thumb-row .lbl{color:#888;min-width:50px;flex-shrink:0}
-.yt-section{background:#1a1a1a;border-radius:10px;padding:20px;margin:16px 0}
-.yt-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.yt-logo{color:#ff0000;font-size:1.3em}
-.yt-header h2{border:none;margin:0;padding:0;color:#fff;font-size:1em}
-.yt-pill{font-size:.75em;padding:3px 10px;border-radius:20px;background:#333;color:#aaa;margin-left:auto}
-.yt-field label{font-size:.8em;color:#888;letter-spacing:.08em;display:block;margin-bottom:6px}
-.yt-field{margin-bottom:16px}
-.val{background:#111;padding:14px;border-radius:6px;font-size:.9em;line-height:1.8;white-space:pre-wrap;color:#ddd}
-.title-val{font-size:1em;font-weight:600;color:#FFD700}
-.script-section{background:#111;border-radius:8px;padding:20px;margin:16px 0;white-space:pre-wrap;font-size:.9em;line-height:1.9;color:#ccc}
-.back{margin-bottom:20px}
-.back a{color:#555;font-size:.82em;padding:6px 12px;background:#141414;border:1px solid #222;border-radius:6px}
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+  .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+  .badge.stage { background: #e63946; color: white; }
+  .badge.private { background: #f4a261; color: #111; }
+  .badge.live { background: #22c55e; color: #fff; }
+  .section { margin: 32px 0; }
+  .section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+  video { width: 100%; border-radius: 10px; background: #000; display: block; }
+  .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+  .source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px; }
+  .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
+  .source-card a:hover { text-decoration: underline; }
+  .chapter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 600px) { .chapter-grid { grid-template-columns: repeat(2, 1fr); } }
+  .chapter-card { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
+  .chapter-card:hover { border-color: #444; }
+  .chapter-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .chapter-info { padding: 10px 12px; }
+  .chapter-num { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; line-height: 1.4; }
+  .chapter-dur { font-size: 0.72em; color: #555; margin-top: 4px; }
+  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+  .files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; transition: background 0.15s; }
+  .files a:hover { background: #1e1e1e; }
+  .yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
+  .yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .yt-logo { color: #ff0000; font-size: 1.5em; }
+  .yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
+  .yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #2a2015; color: #f4a261; border: 1px solid #3a3020; margin-left: auto; }
+  .yt-field { margin-bottom: 16px; }
+  .yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
+  .yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+  .yt-field .val.title-val { font-size: 1em; font-weight: 600; color: #fff; }
+  .yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
+  .yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
+  .yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
+  .yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.88em; cursor: pointer; font-weight: 600; }
+  .yt-btn.primary { background: #ff0000; color: white; }
+  .yt-btn.secondary { background: #1e1e1e; color: #888; border: 1px solid #2a2a2a; }
+  .yt-note { font-size: 0.76em; color: #444; margin-top: 10px; }
+  .script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
+  .copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+  .copy-btn:hover { background: #2a2a2a; color: #eee; }
+  .meta { font-size: 0.75em; color: #3a3a3a; margin-top: 40px; border-top: 1px solid #1a1a1a; padding-top: 12px; }
 </style>
 </head>
 <body>
-<div class="back"><a href="../">← Stage 索引</a></div>
+<div class="container">
 
-<h1>S&P 500 還能存？因為AI浪潮 這位投資達人悄悄調整了三件事 <span class="badge stage">Stage 審閱中</span></h1>
+  <!-- ⓪ 返回索引 -->
+  <div style="margin-bottom:20px;">
+    <a href="../" style="color:#555;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#141414;border:1px solid #222;border-radius:6px;">
+      ← Stage 索引
+    </a>
+  </div>
 
-<h2>② 影片預覽</h2>
-<video controls preload="metadata" poster="thumbnail.jpg">
-  <source src="mark_tilbury_stage.mp4" type="video/mp4">
-</video>
+  <!-- ① 頁首 -->
+  <h1>S&P 500 還能存？因為AI浪潮 這位投資達人悄悄調整了三件事 <span class="badge stage">Stage 審閱中</span></h1>
 
-<h2>③ 章節背景圖</h2>
-<div class="chapter-grid">
-  <div class="chapter-card">
-    <img src="bg_00_opening.png" loading="lazy" onerror="this.style.display='none'">
-    <div class="chapter-info">
-      <div class="chapter-num">00 · 開場</div>
-      <div class="chapter-dur">0:00 → 0:25</div>
+  <!-- ② 影片播放器 -->
+  <div class="section">
+    <div class="section-title">🎬 Stage 影片</div>
+    <video controls preload="metadata" poster="thumbnail.jpg">
+      <source src="mark_tilbury_stage.mp4" type="video/mp4">
+      <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
+    </video>
+    <div class="video-meta">
+      <span class="chip">⏱ 約 4 分鐘</span>
+      <span class="chip">🎙 YunjianNeural</span>
+      <span class="chip">🖼 DALL-E 3 × 4</span>
+      <span class="chip">📝 FontSize 38</span>
+      <span class="chip">🎬 Logo 片尾</span>
     </div>
   </div>
-  <div class="chapter-card">
-    <img src="bg_01_sp500.png" loading="lazy" onerror="this.style.display='none'">
-    <div class="chapter-info">
-      <div class="chapter-num">01 · S&P 500風險</div>
-      <div class="chapter-dur">0:25 → 1:38</div>
-    </div>
-  </div>
-  <div class="chapter-card">
-    <img src="bg_02_global.png" loading="lazy" onerror="this.style.display='none'">
-    <div class="chapter-info">
-      <div class="chapter-num">02 · 全球分散</div>
-      <div class="chapter-dur">1:38 → 2:37</div>
-    </div>
-  </div>
-  <div class="chapter-card">
-    <img src="bg_03_gold.png" loading="lazy" onerror="this.style.display='none'">
-    <div class="chapter-info">
-      <div class="chapter-num">03 · 黃金與現金</div>
-      <div class="chapter-dur">2:37 → 4:00</div>
-    </div>
-  </div>
-</div>
 
-<h2>④ YouTube 封面</h2>
-<div class="thumb-section">
-  <div class="thumb-label">🖼 YOUTUBE 封面</div>
-  <div class="thumb-body">
-    <div class="thumb-preview">
-      <img src="thumbnail.jpg" alt="thumbnail">
-      <a class="btn-dl" href="thumbnail.jpg" download>⬇ 下載封面</a>
-      <div class="thumb-tags">
-        <span>1280×720</span>
-        <span>暗色金融風</span>
-        <span>Mark Tilbury 頭貼</span>
+  <!-- ③ 原始影片來源 -->
+  <div class="section">
+    <div class="section-title">📺 原始影片</div>
+    <div class="source-card">
+      <a href="https://youtu.be/O8t50OxsfB8" target="_blank">
+        ▶ I'm Changing How I Invest My Money Because of AI — Mark Tilbury
+      </a>
+      <div class="video-meta" style="margin-top:10px;">
+        <span class="chip">⏱ 19:52</span>
+        <span class="chip">🎙 Mark Tilbury</span>
+        <span class="chip">💰 投資理財</span>
+      </div>
+      <div style="margin-top:12px;">
+        <a href="transcript_en.txt" target="_blank" style="display:inline-block;padding:7px 16px;background:#1e1e1e;border:1px solid #2a2a2a;border-radius:6px;color:#a0c4ff;text-decoration:none;font-size:0.82em;margin-right:8px;">
+          📄 英文逐字稿
+        </a>
+        <a href="transcript_zh.txt" target="_blank" style="display:inline-block;padding:7px 16px;background:#1e1e1e;border:1px solid #2a2a2a;border-radius:6px;color:#86efac;text-decoration:none;font-size:0.82em;">
+          📄 繁體中文逐字稿
+        </a>
       </div>
     </div>
-    <div class="thumb-meta">
-      <div class="thumb-meta-title">設計說明</div>
-      <div class="thumb-row"><span class="lbl">Speaker</span><span>MARK TILBURY</span></div>
-      <div class="thumb-row"><span class="lbl">大標</span><span><b>S&amp;P 500</b> AI 讓他改變了</span></div>
-      <div class="thumb-row"><span class="lbl">主文</span><span>三個投資 <b style="color:#FFB500">調整策略</b></span></div>
-      <div class="thumb-row"><span class="lbl">副標</span><span>40% 集中風險・全球分散・黃金配置</span></div>
-      <div class="thumb-row"><span class="lbl">時長</span><span>5 分鐘重點解析</span></div>
+  </div>
+
+  <!-- ④ 章節背景圖 -->
+  <div class="section">
+    <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <img src="bg_00_opening.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">00 · 開場</div>
+          <div class="chapter-title">金融圖表</div>
+          <div class="chapter-dur">0:00 → 0:25</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_01_sp500.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">01 · S&P 500 風險</div>
+          <div class="chapter-title">股市集中風險</div>
+          <div class="chapter-dur">0:25 → 1:38</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_02_global.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">02 · 全球分散</div>
+          <div class="chapter-title">全球投資地圖</div>
+          <div class="chapter-dur">1:38 → 2:37</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_03_gold.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">03 · 黃金與現金</div>
+          <div class="chapter-title">黃金資產配置</div>
+          <div class="chapter-dur">2:37 → 4:00</div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<h2>⑤ YouTube 文案</h2>
-<div class="yt-section">
-  <div class="yt-header">
-    <span class="yt-logo">▶</span>
-    <h2>愛播客 — YouTube 發布文案</h2>
-    <span class="yt-pill">⏳ 待審閱</span>
+  <!-- ⑤ YouTube 封面 -->
+  <div class="section">
+    <div class="section-title">🖼 YouTube 封面</div>
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start;">
+      <div>
+        <a href="thumbnail.jpg" target="_blank">
+          <img src="thumbnail.jpg" style="width:100%;border-radius:8px;display:block;border:1px solid #2a2a2a;">
+        </a>
+        <div class="video-meta" style="margin-top:8px;">
+          <span class="chip">📐 1280×720</span>
+          <span class="chip">🎨 暗色金融風</span>
+          <span class="chip">📷 Mark Tilbury 頭貼</span>
+        </div>
+        <a href="thumbnail.jpg" download="94ivoice_mark_tilbury_thumbnail.jpg"
+           style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">
+          ⬇ 下載封面
+        </a>
+      </div>
+      <div style="background:#111;border:1px solid #222;border-radius:10px;padding:18px;font-size:0.82em;line-height:2;">
+        <div style="color:#555;font-size:0.72em;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;">設計說明</div>
+        <div><span style="color:#555;">Speaker</span> MARK TILBURY</div>
+        <div><span style="color:#555;">大標</span> <span style="color:#fff;font-weight:700;">S&amp;P 500</span> AI 讓他改變了</div>
+        <div><span style="color:#555;">主文</span> 三個投資 <span style="color:#FFD700;font-weight:700;">調整策略</span></div>
+        <div><span style="color:#555;">副標</span> 40% 集中風險・全球分散・黃金配置</div>
+        <div><span style="color:#555;">時長</span> 5 分鐘重點解析</div>
+      </div>
+    </div>
   </div>
-  <div class="yt-field">
-    <label>標題</label>
-    <div class="val title-val">S&P 500 還能存？因為AI浪潮 這位投資達人悄悄調整了三件事</div>
+
+  <!-- ⑥ 中文腳本 -->
+  <div class="section">
+    <div class="section-title">✍️ 中文腳本</div>
+    <div class="script-block" id="scriptContent">載入中...</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
   </div>
-  <div class="yt-field">
-    <label>描述</label>
-    <div class="val">在這段影片中，著名投資專家 Mark Tilbury 分享了因 AI 浪潮而悄悄調整的三件事：S&P 500 集中風險、全球分散策略，以及黃金與現金配置。
+
+  <!-- ⑦ 素材檔案 -->
+  <div class="section">
+    <div class="section-title">📁 素材檔案</div>
+    <div class="files">
+      <a href="script_zh.txt">✍️ 播客腳本（中文）</a>
+      <a href="transcript_en.txt">📄 逐字稿（英文）</a>
+      <a href="transcript_zh.txt">📄 逐字稿（繁體中文）</a>
+      <a href="subtitles.srt">✂️ 字幕 SRT</a>
+      <a href="youtube_meta.json">📋 YouTube 文案 JSON</a>
+      <a href="thumbnail.jpg" download>🖼 封面圖</a>
+      <a href="mark_tilbury_stage.mp4">🎬 影片檔案</a>
+    </div>
+  </div>
+
+  <!-- ⑧ YouTube 發布設定 -->
+  <div class="section">
+    <div class="section-title">📺 YouTube 發布設定</div>
+    <div class="yt-section">
+      <div class="yt-header">
+        <span class="yt-logo">▶</span>
+        <h2>愛播客 — YouTube 發布文案</h2>
+        <span class="yt-pill">⏳ 待審閱</span>
+      </div>
+
+      <div class="yt-field">
+        <label>影片標題</label>
+        <div class="val title-val">S&P 500 還能存？因為AI浪潮 這位投資達人悄悄調整了三件事</div>
+      </div>
+
+      <div class="yt-field">
+        <label>影片描述</label>
+        <div class="val" id="ytDesc">在這段影片中，著名投資專家 Mark Tilbury 分享了因 AI 浪潮而悄悄調整的三件事：S&P 500 集中風險、全球分散策略，以及黃金與現金配置。
 
 🔑 本集重點：
 1. S&P 500 每 1 元有 40% 流向前 10 大公司，估值建立在 AI 預期上
@@ -146,21 +237,47 @@ https://youtu.be/O8t50OxsfB8
 歡迎訂閱 → https://www.youtube.com/@94ivoice
 
 #投資 #理財 #SP500 #AI投資 #MarkTilbury #黃金 #ETF #94iVoice #愛播客</div>
+      </div>
+
+      <div class="yt-field">
+        <label>標籤</label>
+        <div class="yt-tags">
+          <span class="yt-tag">投資</span>
+          <span class="yt-tag">Mark Tilbury</span>
+          <span class="yt-tag">AI</span>
+          <span class="yt-tag">S&P 500</span>
+          <span class="yt-tag">黃金</span>
+          <span class="yt-tag">全球分散</span>
+          <span class="yt-tag">財務自由</span>
+          <span class="yt-tag">理財策略</span>
+        </div>
+      </div>
+
+      <div class="yt-field">
+        <label>類別 / 隱私</label>
+        <div class="val">科技與科學（Science &amp; Technology）｜🔒 私人（審閱後改公開）</div>
+      </div>
+
+      <div class="yt-actions">
+        <button class="yt-btn primary" onclick="navigator.clipboard.writeText(document.getElementById('ytDesc').innerText)">📋 複製描述</button>
+      </div>
+    </div>
   </div>
+
+  <!-- ⑨ footer -->
+  <div class="meta">
+    94iVoice Stage Preview · 原始影片：<a href="https://youtu.be/O8t50OxsfB8" style="color:#3a5a7a">Mark Tilbury - I'm Changing How I Invest My Money Because of AI</a> ·
+    <span id="ts"></span>
+    <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
+  </div>
+
 </div>
-
-<h2>腳本</h2>
-<div class="script-section">「每 1 元投資在 S&P 500 指數中，就有 40% 流往前十大公司。」說這話的是 Mark Tilbury，他是一名知名的投資專家與YouTube 創作者。他在這支影片談了三件事：S&P 500 的集中風險、全球分散的策略，以及黃金與現金的配置策略。五分鐘，我幫你說清楚。
-
-Mark 提到了當前 S&P 500 指數的集中風險：每投入 1 元，其中 40% 流入 Nvidia、微軟、蘋果、Google、Amazon、Meta 等前十大公司。根據他的分析，這些公司幾乎都在押寶人工智慧，要支撐這些公司的高估值，每年至少需要 2 兆美元的收入，但 2024 年這些公司的合計實際收入才約 1 兆美元。我特別查了一下，到 2025 年底這個集中度已經超過 40%——比影片拍攝時還要更高。簡單說，這就像一家餐廳的估值已達 1 億美元，但它每年才賺 500 萬，投資人相信「未來會爆賺」才願意持有。Mark 指出，這就導致投資人其實是在賭還沒發生的未來。很多人選擇等權重 S&P 500 作為替代方案，計劃用賣掉過去漲最好的公司、補進漲不好的股票來解決這個問題。但他認為這長期看來不划算，因為犧牲了成長潛力。分散不能只靠換一種美國指數，他開始看向更遠的地方。
-
-Mark 轉而談到全球分散，他指出歷史已經證明，沒有永遠的霸主。例如，1900 年時，英國占全球股市 24%，當時被稱為「倫敦時代」。再來是 1980 年代的日本，當時幾乎所有人都以為未來是日本的。然而，我們看到的現實情況並非如此。現在則是美國主導，但 Mark 不願賭美國會永遠維持這個地位。他選擇投資於全球基金 VWRP，這基包括 3700 家公司涉及 45 個國家，費率僅為 0.19%。這型基金會自動調整比重：當某國家崛起，基金就會跟著調整。換句話說，這就像分散押注多個國家的代表隊，而不僅僅是賭美國奪金。分散股票是一層，但他還做了另一層保護措施。
-
-Mark 提到另一層保護措施涉及黃金與現金。他指出，中國近年來大量囤積黃金，現在全球央行持有的黃金已超越美國國債，這是自 1996 年來首次。黃金在 2025 年被正式升格為銀行的一級資產，地位等同於現金。簡單來說，這就是說銀行現在可以把黃金當作現金一樣計算，需求自然大增，黃金的價值也會水漲船高。他補充說，連「股神」巴菲特在影片拍攝時都手握 3,477 億美元現金，準備等崩盤再進場。我查了一下，到 2025 年底這個數字已經漲到 3,730 億——他不只沒買，反而繼續在賣。這個訊號我覺得很值得注意。Mark 的策略是以 S&P 500 為主要持股，同時配置全球基金、小型股、黃金和現金。簡言之，這不是預測，而是準備好面對兩種結果——漲了也能賺，跌了也能撐得住。
-
-最後補充一句：以上都是我看完影片的個人整理和想法，不構成任何投資建議。
-
-AI 在改變世界，我們一起慢慢搞懂它。下次見。</div>
-
+<script>
+fetch('script_zh.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('scriptContent').textContent = t;
+}).catch(()=>{
+  document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
+});
+</script>
 </body>
 </html>
