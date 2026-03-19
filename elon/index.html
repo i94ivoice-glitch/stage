@@ -3,63 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>94iVoice｜Elon Musk Abundance Summit - Stage</title>
+<title>94iVoice｜Elon Musk：10年後經濟翻10倍，但金錢會失去意義 - Stage</title>
 <style>
+  * { box-sizing: border-box; }
   body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
-  .container { max-width: 900px; margin: 0 auto; }
-  h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #333; padding-bottom: 12px; }
-  .badge { background: #e63946; color: white; font-size: 0.7em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
-  video { width: 100%; border-radius: 8px; margin: 16px 0; background: #000; }
-  .section { margin: 24px 0; }
-  .section h2 { font-size: 1em; color: #aaa; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-  .thumb { border-radius: 6px; overflow: hidden; background: #1a1a1a; }
-  .thumb img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
-  .thumb p { margin: 4px 8px 8px; font-size: 0.78em; color: #888; }
-  .files a { display: block; padding: 8px 12px; background: #1a1a1a; border-radius: 6px; color: #4ea8de; text-decoration: none; margin: 6px 0; font-size: 0.9em; }
-  .files a:hover { background: #252525; }
-  .meta { font-size: 0.8em; color: #555; margin-top: 32px; border-top: 1px solid #222; padding-top: 12px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+  .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+  .badge.live { background: #22c55e; color: #fff; }
+  .badge.private { background: #f4a261; color: #111; }
+  .section { margin: 32px 0; }
+  .section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+  video { width: 100%; border-radius: 10px; background: #000; display: block; }
+  .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+  .source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px; }
+  .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
+  .chapter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 600px) { .chapter-grid { grid-template-columns: repeat(2, 1fr); } }
+  .chapter-card { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
+  .chapter-card:hover { border-color: #444; }
+  .chapter-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .chapter-info { padding: 10px 12px; }
+  .chapter-num { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; line-height: 1.4; }
+  .chapter-dur { font-size: 0.72em; color: #555; margin-top: 4px; }
+  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+  .files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
+  .files a:hover { background: #1e1e1e; }
+  .yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
+  .yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .yt-logo { color: #ff0000; font-size: 1.5em; }
+  .yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
+  .yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #1a3a1a; color: #22c55e; border: 1px solid #2a4a2a; margin-left: auto; }
+  .yt-field { margin-bottom: 16px; }
+  .yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
+  .yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+  .yt-field .val.title-val { font-size: 1em; font-weight: 600; color: #fff; }
+  .yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
+  .yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
+  .yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
+  .yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.88em; cursor: pointer; font-weight: 600; }
+  .yt-btn.primary { background: #ff0000; color: white; }
+  .yt-btn.secondary { background: #1e1e1e; color: #888; border: 1px solid #2a2a2a; }
+  .yt-note { font-size: 0.76em; color: #444; margin-top: 10px; }
+  .script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
+  .copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+  .meta { font-size: 0.75em; color: #3a3a3a; margin-top: 40px; border-top: 1px solid #1a1a1a; padding-top: 12px; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>Elon Musk × Abundance Summit <span class="badge">STAGE</span></h1>
 
-  <div class="section">
-    <h2>🎬 Stage 預覽影片</h2>
-    <video controls preload="metadata">
-      <source src="94ivoice_elon_stage.mp4" type="video/mp4">
-    </video>
+  <div style="margin-bottom:20px;">
+    <a href="../" style="color:#555;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#141414;border:1px solid #222;border-radius:6px;">
+      ← Stage 索引
+    </a>
   </div>
 
+  <h1>Elon Musk：10年後經濟翻10倍，但金錢會失去意義 <span class="badge live">✅ 已發布</span></h1>
+
   <div class="section">
-    <h2>🖼 章節背景圖</h2>
-    <div class="grid">
-      <div class="thumb"><img src="bg_00_opening.png"><p>00 開場</p></div>
-      <div class="thumb"><img src="bg_01_agi.png"><p>01 AI 自我改進</p></div>
-      <div class="thumb"><img src="bg_02_spacex_xai.png"><p>02 SpaceX × xAI</p></div>
-      <div class="thumb"><img src="bg_03_economy.png"><p>03 經濟翻十倍</p></div>
-      <div class="thumb"><img src="bg_04_optimus.png"><p>04 Optimus 機器人</p></div>
-      <div class="thumb"><img src="bg_05_ubi.png"><p>05 全民收入</p></div>
-      <div class="thumb"><img src="bg_06_longevity.png"><p>06 長壽醫療</p></div>
-      <div class="thumb"><img src="bg_07_reflection.png"><p>07 深思問題</p></div>
+    <div class="section-title">🎬 Stage 影片</div>
+    <video controls preload="metadata" poster="thumbnail.jpg">
+      <source src="94ivoice_elon_stage.mp4" type="video/mp4">
+      <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
+    </video>
+    <div class="video-meta">
+      <span class="chip">⏱ 約 9 分鐘</span>
+      <span class="chip">🎙 YunjianNeural</span>
+      <span class="chip">🖼 DALL-E 3 × 8</span>
+      <span class="chip">🎬 Logo 片尾</span>
     </div>
   </div>
 
   <div class="section">
-    <h2>📁 素材檔案</h2>
+    <div class="section-title">📺 原始影片</div>
+    <div class="source-card">
+      <a href="https://youtu.be/Kbk9BiPhm7o" target="_blank">
+        ▶ Elon Musk × Peter Diamandis — Abundance Summit
+      </a>
+      <div class="video-meta" style="margin-top:10px;">
+        <span class="chip">⏱ 原始訪談</span>
+        <span class="chip">🎙 Elon Musk</span>
+        <span class="chip">📅 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <img src="bg_00_opening.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">00 · 開場</div>
+          <div class="chapter-title">AI 自我改進的時代</div>
+          <div class="chapter-dur">0:00 → ~1:10</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_01_agi.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">01 · AI 自我改進</div>
+          <div class="chapter-title">AGI 與遞歸改進</div>
+          <div class="chapter-dur">~1:10 → ~2:20</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_02_spacex_xai.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">02 · SpaceX × xAI</div>
+          <div class="chapter-title">兩個使命的交匯</div>
+          <div class="chapter-dur">~2:20 → ~3:40</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_03_economy.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">03 · 經濟翻十倍</div>
+          <div class="chapter-title">豐盛時代的到來</div>
+          <div class="chapter-dur">~3:40 → ~5:00</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_04_optimus.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">04 · Optimus 機器人</div>
+          <div class="chapter-title">人類勞動的終結</div>
+          <div class="chapter-dur">~5:00 → ~6:20</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_05_ubi.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">05 · 全民收入</div>
+          <div class="chapter-title">後工作時代的財富分配</div>
+          <div class="chapter-dur">~6:20 → ~7:40</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_06_longevity.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">06 · 長壽醫療</div>
+          <div class="chapter-title">壽命延長的倫理困境</div>
+          <div class="chapter-dur">~7:40 → ~8:30</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_07_reflection.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">07 · 深思問題</div>
+          <div class="chapter-title">意義與人類的未來</div>
+          <div class="chapter-dur">~8:30 → 9:22</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🖼 YouTube 封面</div>
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start;">
+      <div>
+        <a href="thumbnail.jpg" target="_blank">
+          <img src="thumbnail.jpg" style="width:100%;border-radius:8px;display:block;border:1px solid #2a2a2a;">
+        </a>
+        <div class="video-meta" style="margin-top:8px;">
+          <span class="chip">📐 1280×720</span>
+          <span class="chip">🎨 深紫漸層</span>
+          <span class="chip">📷 Elon Musk 大頭照</span>
+        </div>
+        <a href="thumbnail.jpg" download="94ivoice_elon_thumbnail.jpg"
+           style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">
+          ⬇ 下載封面
+        </a>
+      </div>
+      <div style="background:#111;border:1px solid #222;border-radius:10px;padding:18px;font-size:0.82em;line-height:2;">
+        <div style="color:#555;font-size:0.72em;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;">設計說明</div>
+        <div><span style="color:#555;">Speaker</span> ELON MUSK</div>
+        <div><span style="color:#555;">大標</span> <span style="color:#fff;font-weight:700;">10 年後</span> 經濟翻 10 倍</div>
+        <div><span style="color:#555;">主文</span> 但金錢 <span style="color:#FFD700;font-weight:700;">會失去意義</span></div>
+        <div><span style="color:#555;">副標</span> Abundance Summit 訪談精華解析</div>
+        <div><span style="color:#555;">時長</span> 9 分鐘重點解析</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">✍️ 中文腳本</div>
+    <div class="script-block" id="scriptContent">載入中...</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📁 素材檔案</div>
     <div class="files">
-      <a href="elon_podcast_audio.mp3">🎵 音訊 MP3</a>
-      <a href="subtitles.srt">📝 字幕 SRT</a>
-      <a href="elon_podcast_script_zh.html">📄 腳本（繁中）</a>
-      <a href="elon_abundance_summit_zh.html">📄 逐字稿（繁中）</a>
+      <a href="subtitles.srt">✂️ 字幕 SRT</a>
+      <a href="thumbnail.jpg" download>🖼 封面圖</a>
+      <a href="94ivoice_elon_stage.mp4">🎬 影片檔案</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📺 YouTube 發布設定</div>
+    <div class="yt-section">
+      <div class="yt-header">
+        <span class="yt-logo">▶</span>
+        <h2>愛播客 — YouTube 發布文案</h2>
+        <span class="yt-pill">✅ 已發布</span>
+      </div>
+
+      <div class="yt-field">
+        <label>影片標題</label>
+        <div class="val title-val">Elon Musk：10年後經濟翻10倍，但金錢會失去意義</div>
+      </div>
+
+      <div class="yt-field">
+        <label>影片描述</label>
+        <div class="val" id="ytDesc">Elon Musk 在 Abundance Summit 上說了一句話：「金錢會失去意義。」不是比喻，而是他真的相信的預測。
+
+🔑 本集重點：
+1. AI 遞歸改進——比人類預想快 10 倍的 AGI 到來
+2. SpaceX × xAI 的雙重使命：人類多行星化 + AI 安全
+3. 經濟翻 10 倍：AI 讓人均 GDP 爆發，不是科幻
+4. Optimus 機器人：每個人都有自己的機器人助手
+5. 全民高收入：後工作時代的財富分配
+6. 長壽醫療：壽命延長帶來的倫理挑戰
+
+📌 時間章節：
+00:00 開場
+01:10 AI 自我改進
+02:20 SpaceX × xAI
+03:40 經濟翻十倍
+05:00 Optimus 機器人
+06:20 全民收入
+07:40 長壽醫療
+08:30 深思問題
+
+📺 原始來源：
+Elon Musk × Peter Diamandis — Abundance Summit
+https://youtu.be/Kbk9BiPhm7o
+
+🎙 94iVoice — AI 與科技深度解析
+歡迎訂閱 → https://www.youtube.com/@94ivoice
+
+#ElonMusk #AI #經濟 #AGI #豐盛 #未來 #94iVoice #愛播客</div>
+      </div>
+
+      <div class="yt-field">
+        <label>標籤</label>
+        <div class="yt-tags">
+          <span class="yt-tag">ElonMusk</span>
+          <span class="yt-tag">AI</span>
+          <span class="yt-tag">AGI</span>
+          <span class="yt-tag">經濟</span>
+          <span class="yt-tag">豐盛</span>
+          <span class="yt-tag">未來工作</span>
+          <span class="yt-tag">Optimus</span>
+          <span class="yt-tag">長壽</span>
+          <span class="yt-tag">94iVoice</span>
+          <span class="yt-tag">愛播客</span>
+          <span class="yt-tag">科技</span>
+          <span class="yt-tag">人工智慧</span>
+        </div>
+      </div>
+
+      <div class="yt-field">
+        <label>類別 / 隱私</label>
+        <div class="val">科技與科學（Science &amp; Technology）｜✅ 已公開</div>
+      </div>
+
+      <div class="yt-actions">
+        <button class="yt-btn primary" onclick="navigator.clipboard.writeText(document.getElementById('ytDesc').innerText)">📋 複製描述</button>
+      </div>
     </div>
   </div>
 
   <div class="meta">
-    94iVoice Stage｜最後更新：<span id="ts"></span>
+    94iVoice Stage Preview · 原始影片：<a href="https://youtu.be/Kbk9BiPhm7o" style="color:#3a5a7a">Elon Musk × Abundance Summit</a> ·
+    <span id="ts"></span>
     <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
   </div>
+
 </div>
+<script>
+fetch('script_zh.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('scriptContent').textContent = t;
+}).catch(()=>{
+  document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
+});
+</script>
 </body>
 </html>
