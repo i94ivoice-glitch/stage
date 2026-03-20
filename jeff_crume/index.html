@@ -80,17 +80,8 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 .text-card-dur { font-size: 0.58em; color: #FF9B00; margin-top: 4px; }
 .text-card-line { height: 4px; background: #7D3CF0; width: 80%; margin: 6px 0; }
 
-/* 照片卡片（左紫色 + 右照片） */
-.photo-card-body { position: relative; aspect-ratio: 16/9; overflow: hidden; }
-.photo-card-body .purple-half {
-  position: absolute; left: 0; top: 0; bottom: 0; width: 60%;
-  background: linear-gradient(to right, #120226 80%, transparent);
-  z-index: 1;
-}
-.photo-card-body img {
-  position: absolute; right: 0; top: 0; width: 45%; height: 100%;
-  object-fit: cover; object-position: top center;
-}
+/* 照片卡片 */
+.photo-card-body img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
 
 /* 動作列 */
 .action-bar {
@@ -223,8 +214,7 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
         <div class="opt-card" data-photo="1" onclick="selectPhoto(this)">
           <span class="opt-badge">✓ 已選</span>
           <div class="photo-card-body">
-            <div class="purple-half"></div>
-            <img src="speaker_photos/photo_opt_1.jpg" alt="正式頭像">
+            <img src="thumb_options/card_photo_1.jpg" alt="正式頭像">
           </div>
           <div class="opt-label"><strong>照片 1</strong> — 正式頭像 · 戶外散景 · NC State</div>
         </div>
@@ -232,8 +222,7 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
         <div class="opt-card" data-photo="2" onclick="selectPhoto(this)">
           <span class="opt-badge">✓ 已選</span>
           <div class="photo-card-body">
-            <div class="purple-half"></div>
-            <img src="speaker_photos/photo_opt_2.jpg" alt="教學現場">
+            <img src="thumb_options/card_photo_2.jpg" alt="教學現場">
           </div>
           <div class="opt-label"><strong>照片 2</strong> — 教學現場 · 黑背景板書 · IBM</div>
         </div>
