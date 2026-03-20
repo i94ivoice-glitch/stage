@@ -1,0 +1,16 @@
+{
+  "raw_2_right.jpg": {
+    "face_cx": 360,
+    "face_cy": 360,
+    "face_w": 200,
+    "face_h": 200,
+    "found": true
+  },
+  "raw_3_right.jpg": {
+    "face_cx": 320,
+    "face_cy": 360,
+    "face_w": 160,
+    "face_h": 240,
+    "found": true
+  }
+}
