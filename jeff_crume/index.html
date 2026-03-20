@@ -177,6 +177,16 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
     </div>
   </div>
 
+    <!-- 封面預覽 -->
+    <div id="thumbPreview" style="display:none;"margin-top:16px;">
+      <div style="font-size:0.78em;color:#555;margin-bottom:10px;">📺 封面預覽</div>
+      <img id="thumbPreviewImg" src="" style="width:100%;border-radius:8px;border:1px solid #333;">
+      <div style="margin-top:10px;">
+        <a id="thumbDlBtn" href="#" style="padding:8px 18px;background:#1a1a2e;border:1px solid #2a2a4a;border-radius:6px;color:#7a9acf;text-decoration:none;font-size:0.82em;">⬇ 下載封面</a>
+      </div>
+    </div>
+  </div>
+
   <!-- 腳本草稿 -->
   <div class="section">
     <div class="section-title">✍️ 腳本草稿（Step 0 — 請確認）</div>
@@ -216,6 +226,15 @@ function selectText(card) {
   document.getElementById('textActionBar').innerHTML =
     `<span class="sel-info">已選：<span class="sel-name">版本 ${ver}｜${verLabels[ver]}</span></span>`;
   document.getElementById('photoHint').classList.add('show');
+  // 顯示封面預覽
+  const preview = document.getElementById('thumbPreview');
+  const img = document.getElementById('thumbPreviewImg');
+  const dl = document.getElementById('thumbDlBtn');
+  const src = `thumb_options/final_${ver}.jpg`;
+  img.src = src;
+  dl.href = src;
+  dl.download = `94ivoice_jeff_crume_${ver}.jpg`;
+  preview.classList.add('show');
 }
 
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
