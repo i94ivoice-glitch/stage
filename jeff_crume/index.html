@@ -28,6 +28,39 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 .notice { background: #1a1a00; border: 1px solid #3a3a00; border-radius: 10px; padding: 16px 20px; color: #aaa; font-size: 0.88em; line-height: 1.8; }
 .notice strong { color: #ffd700; }
 
+/* 封面選擇器 */
+.thumb-select-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 700px) { .thumb-select-grid { grid-template-columns: 1fr; } }
+.thumb-select-card {
+  background: #141414;
+  border: 2px solid #222;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+  position: relative;
+}
+.thumb-select-card:hover { border-color: #555; transform: translateY(-2px); }
+.thumb-select-card.selected { border-color: #FFD700; box-shadow: 0 0 0 1px #FFD700; }
+.thumb-select-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.thumb-select-card .tc-label { padding: 8px 12px; font-size: 0.75em; color: #888; }
+.thumb-select-card .tc-badge {
+  position: absolute; top: 8px; right: 8px;
+  background: #FFD700; color: #111;
+  font-size: 0.68em; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px;
+  display: none;
+}
+.thumb-select-card.selected .tc-badge { display: block; }
+.thumb-fullview { margin-top: 14px; display: none; }
+.thumb-fullview.show { display: block; }
+.thumb-fullview img { width: 100%; border-radius: 8px; border: 1px solid #333; }
+.thumb-action-bar { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 0.82em; color: #555; }
+.thumb-action-bar .sel-name { color: #FFD700; font-weight: 600; }
+.action-btn { padding: 7px 16px; border-radius: 6px; font-size: 0.82em; cursor: pointer; text-decoration: none; display: inline-block; border: 1px solid; }
+.action-btn.dl { background: #1a1a2e; border-color: #2a2a4a; color: #7a9acf; }
+.action-btn.confirm { background: #1a2e1a; border-color: #2a4a2a; color: #6cca6c; }
+
 /* Speaker 照片選擇器 */
 .speaker-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 @media (max-width: 600px) { .speaker-grid { grid-template-columns: 1fr; } }
@@ -182,6 +215,42 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
     </div>
   </div>
 
+  <!-- 封面選擇器 -->
+  <div class="section">
+    <div class="section-title">🖼 YouTube 封面設計（請選擇 Speaker 照片）</div>
+    <div class="thumb-select-grid">
+
+      <div class="thumb-select-card" data-idx="1" data-src="thumb_preview_1.jpg" data-label="正式頭像（戶外散景）" onclick="selectThumb(this)">
+        <span class="tc-badge">✓ 已選</span>
+        <img src="thumb_preview_1.jpg" loading="lazy">
+        <div class="tc-label">照片 1 · 正式頭像 · 戶外散景</div>
+      </div>
+
+      <div class="thumb-select-card" data-idx="2" data-src="thumb_preview_2.jpg" data-label="教學現場（本集縮圖）" onclick="selectThumb(this)">
+        <span class="tc-badge">✓ 已選</span>
+        <img src="thumb_preview_2.jpg" loading="lazy">
+        <div class="tc-label">照片 2 · 教學現場 · 黑背景板書</div>
+      </div>
+
+      <div class="thumb-select-card" data-idx="3" data-src="thumb_preview_3.jpg" data-label="AI主題演講" onclick="selectThumb(this)">
+        <span class="tc-badge">✓ 已選</span>
+        <img src="thumb_preview_3.jpg" loading="lazy">
+        <div class="tc-label">照片 3 · AI 主題演講 · 科技背景</div>
+      </div>
+
+    </div>
+
+    <!-- 動作列 -->
+    <div class="thumb-action-bar" id="thumbActionBar">
+      <span>點擊上方封面預覽選擇 →</span>
+    </div>
+
+    <!-- 全尺寸預覽 -->
+    <div class="thumb-fullview" id="thumbFullview">
+      <img id="thumbFullImg" src="" alt="封面全尺寸預覽">
+    </div>
+  </div>
+
   <!-- Speaker 照片選擇器 -->
   <div class="section">
     <div class="section-title">🧑 Speaker 照片選擇（封面用）</div>
@@ -269,6 +338,27 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 </div>
 
 <script>
+// 封面選擇
+let selectedThumb = null;
+function selectThumb(card) {
+  document.querySelectorAll('.thumb-select-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selectedThumb = card;
+  const label = card.dataset.label;
+  const src = card.dataset.src;
+  const idx = card.dataset.idx;
+
+  const bar = document.getElementById('thumbActionBar');
+  bar.innerHTML = `<span>已選：<span class="sel-name">封面 ${idx}｜${label}</span></span>
+    <a class="action-btn dl" href="${src}" download="94ivoice_jeff_crume_thumb${idx}.jpg">⬇ 下載封面</a>`;
+
+  const full = document.getElementById('thumbFullview');
+  const img = document.getElementById('thumbFullImg');
+  img.src = src;
+  full.classList.add('show');
+  full.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 // 腳本載入
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
