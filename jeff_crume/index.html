@@ -10,36 +10,30 @@ body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee;
 .container { max-width: 960px; margin: 0 auto; }
 h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
 .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
-.badge.stage { background: #e63946; color: white; }
+.badge.ready { background: #2ecc71; color: white; }
 .section { margin: 36px 0; }
 .section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
 .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
 .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+video { width: 100%; border-radius: 12px; background: #000; }
 .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
 .files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
 .files a:hover { background: #1e1e1e; }
-.script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 600px; overflow-y: auto; }
+.script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
 .copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
 .source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 18px; }
 .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
 .meta { font-size: 0.72em; color: #333; text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a1a1a; }
-.notice { background: #1a1a00; border: 1px solid #3a3a00; border-radius: 10px; padding: 16px 20px; color: #aaa; font-size: 0.88em; line-height: 1.8; }
-.notice strong { color: #ffd700; }
-
-/* 封面提案 */
-.thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 700px) { .thumb-grid { grid-template-columns: 1fr; } }
-.thumb-proposal { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
-.thumb-proposal img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-.proposal-label {
-  font-size: 0.7em; font-weight: 700; letter-spacing: 1.5px;
-  color: #111; background: #FFD700;
-  padding: 4px 12px; display: inline-block;
-  margin: 10px 12px 4px;
-  border-radius: 4px;
-}
-.proposal-desc { padding: 0 12px 12px; font-size: 0.75em; color: #888; }
+.bg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+.bg-grid img { width: 100%; border-radius: 8px; border: 1px solid #222; }
+.thumb-preview { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+.thumb-preview img { max-width: 480px; border-radius: 8px; border: 1px solid #333; }
+.thumb-preview .info { flex: 1; min-width: 200px; }
+.yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; margin-top: 24px; }
+.yt-field { margin-bottom: 16px; }
+.yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
+.yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
 </style>
 </head>
 <body>
@@ -49,17 +43,26 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
     <a href="../" style="color:#555;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#141414;border:1px solid #222;border-radius:6px;">← Stage 索引</a>
   </div>
 
-  <h1>AI 與教育：Jeff Crume 談批判性思維 <span class="badge stage">⏳ 腳本草稿</span></h1>
+  <h1>AI 與教育：Jeff Crume <span class="badge ready">✅ 影片完成</span></h1>
 
-  <div class="notice">
-    <strong>⚠️ Step 0 腳本草稿</strong> — 確認腳本後才會繼續製作影片（TTS、背景圖、字幕）。如需修改請直接告知。
+  <!-- 影片播放 -->
+  <div class="section">
+    <div class="section-title">🎬 影片預覽</div>
+    <video controls poster="thumbnail.jpg">
+      <source src="jeff_crume_stage.mp4" type="video/mp4">
+    </video>
+    <div class="video-meta">
+      <span class="chip">⏱ 4:36</span>
+      <span class="chip">🎙 YunjianNeural</span>
+      <span class="chip">📺 1920×1080</span>
+    </div>
   </div>
 
-  <!-- 原始影片 -->
+  <!-- 原始來源 -->
   <div class="section">
     <div class="section-title">📺 原始影片</div>
     <div class="source-card">
-      <a href="https://youtu.be/k7PvscqGD24" target="_blank">▶ AI &amp; Education: Generative AI &amp; the Future of Critical Thinking — IBM Technology</a>
+      <a href="https://youtu.be/k7PvscqGD24" target="_blank">▶ AI & Education: Generative AI & the Future of Critical Thinking — IBM Technology</a>
       <div class="video-meta" style="margin-top:10px;">
         <span class="chip">⏱ 16 分鐘</span>
         <span class="chip">🎙 Jeff Crume</span>
@@ -68,65 +71,81 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
     </div>
   </div>
 
-  <!-- 封面提案 -->
+  <!-- 章節背景圖 -->
   <div class="section">
-    <div class="section-title">🖼 YouTube 封面提案</div>
-    <div style="font-size:0.82em;color:#666;margin-bottom:16px;">三版封面設計供參考，告知選擇 A / B / C</div>
-
-    <div class="thumb-grid">
-
-      <div class="thumb-proposal">
-        <div class="proposal-label">提案 A</div>
-        <img src="thumb_options/final_A.jpg" alt="封面提案 A">
-        <div class="proposal-desc">批判性思維 · AI 說的不一定是對的</div>
-      </div>
-
-      <div class="thumb-proposal">
-        <div class="proposal-label">提案 B</div>
-        <img src="thumb_options/final_B.jpg" alt="封面提案 B">
-        <div class="proposal-desc">AI 與教育 · 技能被淘汰下一個是你嗎</div>
-      </div>
-
-      <div class="thumb-proposal">
-        <div class="proposal-label">提案 C</div>
-        <img src="thumb_options/final_C.jpg" alt="封面提案 C">
-        <div class="proposal-desc">學習要改變了 · AI 時代最重要的不是記憶力</div>
-      </div>
-
+    <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
+    <div class="bg-grid">
+      <img src="bg_00_opening.png" alt="開場">
+      <img src="bg_01_history.png" alt="歷史輪迴">
+      <img src="bg_02_critical.png" alt="核心能力">
+      <img src="bg_03_classroom.png" alt="AI教室">
+      <img src="bg_04_future.png" alt="共譜未來">
     </div>
   </div>
 
-  <!-- 腳本草稿 -->
+  <!-- 封面 -->
   <div class="section">
-    <div class="section-title">✍️ 腳本草稿（Step 0 — 請確認）</div>
+    <div class="section-title">🖼 YouTube 封面</div>
+    <div class="thumb-preview">
+      <img src="thumbnail.jpg" alt="封面">
+      <div class="info">
+        <p style="color:#888;font-size:0.85em;">選定版本：<strong style="color:#FFD700;">C</strong></p>
+        <p style="color:#aaa;font-size:0.82em;line-height:1.6;">學習要改變了<br>AI 時代最重要的不是記憶力</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 腳本 -->
+  <div class="section">
+    <div class="section-title">✍️ 中文腳本</div>
     <div class="script-block" id="scriptContent">載入中...</div>
     <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
   </div>
 
-  <!-- 素材檔案 -->
-  <div class="section">
-    <div class="section-title">📁 素材檔案</div>
-    <div class="files">
-      <a href="script_zh.txt">✍️ 腳本草稿</a>
-      <a href="transcript_en.txt">📄 逐字稿（英文）</a>
-      <a href="transcript_zh.txt">📄 逐字稿（繁體中文）</a>
+  <!-- YouTube 設定 -->
+  <div class="yt-section">
+    <div style="font-size:0.9em;font-weight:600;color:#fff;margin-bottom:16px;">📺 YouTube 發布設定</div>
+    <div class="yt-field">
+      <label>標題</label>
+      <div class="val" id="ytTitle">載入中...</div>
+    </div>
+    <div class="yt-field">
+      <label>描述</label>
+      <div class="val" id="ytDesc">載入中...</div>
+    </div>
+    <div class="yt-field">
+      <label>標籤</label>
+      <div class="val" id="ytTags">載入中...</div>
     </div>
   </div>
 
-  <div class="meta">
-    94iVoice Stage Preview ·
-    <a href="https://youtu.be/k7PvscqGD24" style="color:#3a5a7a">AI &amp; Education — IBM Technology</a> ·
-    <span id="ts"></span>
-    <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
+  <!-- 素材 -->
+  <div class="section">
+    <div class="section-title">📁 素材檔案</div>
+    <div class="files">
+      <a href="jeff_crume_stage.mp4">📹 影片 (20MB)</a>
+      <a href="thumbnail.jpg">🖼 封面 (164KB)</a>
+      <a href="subtitles.srt">📝 字幕 SRT</a>
+      <a href="script_zh.txt">📄 腳本 TXT</a>
+      <a href="youtube_meta.json">📋 YT 文案 JSON</a>
+    </div>
   </div>
 
+  <div class="meta">94iVoice Stage · 2026-03-20</div>
 </div>
+
 <script>
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{
-  document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
+  document.getElementById('scriptContent').textContent = '（載入失敗）';
 });
+
+fetch('youtube_meta.json').then(r=>r.json()).then(d=>{
+  document.getElementById('ytTitle').textContent = d.title || '—';
+  document.getElementById('ytDesc').textContent = d.description || '—';
+  document.getElementById('ytTags').textContent = d.tags || '—';
+}).catch(()=>{});
 </script>
 </body>
 </html>
