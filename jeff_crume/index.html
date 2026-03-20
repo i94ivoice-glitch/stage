@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 與教育：Jeff Crume — 94iVoice Stage</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
+.container { max-width: 960px; margin: 0 auto; }
+h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+.badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+.badge.stage { background: #e63946; color: white; }
+.section { margin: 32px 0; }
+.section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+.chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+.video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+.files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
+.files a:hover { background: #1e1e1e; }
+.script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 600px; overflow-y: auto; }
+.copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+.source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 18px; }
+.source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
+.source-card a:hover { text-decoration: underline; }
+.meta { font-size: 0.72em; color: #333; text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a1a1a; }
+.notice { background: #1a1a00; border: 1px solid #3a3a00; border-radius: 10px; padding: 16px 20px; color: #aaa; font-size: 0.88em; line-height: 1.8; }
+.notice strong { color: #ffd700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div style="margin-bottom:20px;">
+    <a href="../" style="color:#555;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#141414;border:1px solid #222;border-radius:6px;">
+      ← Stage 索引
+    </a>
+  </div>
+
+  <h1>AI 與教育：Jeff Crume 談批判性思維 <span class="badge stage">⏳ 腳本草稿</span></h1>
+
+  <!-- 審閱通知 -->
+  <div class="notice">
+    <strong>⚠️ Step 0 腳本草稿</strong> — 請確認腳本方向後，才會繼續製作影片（TTS、背景圖、字幕）。<br>
+    如需修改腳本，請直接告知。確認後將進行完整影片製作。
+  </div>
+
+  <!-- 原始影片 -->
+  <div class="section">
+    <div class="section-title">📺 原始影片</div>
+    <div class="source-card">
+      <a href="https://youtu.be/k7PvscqGD24" target="_blank">▶ AI &amp; Education: Generative AI &amp; the Future of Critical Thinking — IBM Technology</a>
+      <div class="video-meta" style="margin-top:10px;">
+        <span class="chip">⏱ 16 分鐘</span>
+        <span class="chip">🎙 Jeff Crume</span>
+        <span class="chip">📺 IBM Technology</span>
+      </div>
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="transcript_en.txt" style="color:#555;font-size:0.82em;padding:5px 12px;background:#0d0d0d;border:1px solid #222;border-radius:5px;text-decoration:none;">📄 英文逐字稿</a>
+        <a href="transcript_zh.txt" style="color:#555;font-size:0.82em;padding:5px 12px;background:#0d0d0d;border:1px solid #222;border-radius:5px;text-decoration:none;">📄 繁體中文逐字稿</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 腳本草稿 -->
+  <div class="section">
+    <div class="section-title">✍️ 腳本草稿（Step 0 — 請確認）</div>
+    <div class="script-block" id="scriptContent">載入中...</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
+  </div>
+
+  <!-- 素材檔案 -->
+  <div class="section">
+    <div class="section-title">📁 素材檔案</div>
+    <div class="files">
+      <a href="script_zh.txt">✍️ 腳本草稿</a>
+      <a href="transcript_en.txt">📄 逐字稿（英文）</a>
+      <a href="transcript_zh.txt">📄 逐字稿（繁體中文）</a>
+    </div>
+  </div>
+
+  <div class="meta">
+    94iVoice Stage Preview · 原始影片：<a href="https://youtu.be/k7PvscqGD24" style="color:#3a5a7a">AI &amp; Education — IBM Technology</a> ·
+    <span id="ts"></span>
+    <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
+  </div>
+
+</div>
+
+<script>
+fetch('script_zh.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('scriptContent').textContent = t;
+}).catch(()=>{
+  document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
+});
+</script>
+</body>
+</html>
