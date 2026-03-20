@@ -27,60 +27,19 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 .notice { background: #1a1a00; border: 1px solid #3a3a00; border-radius: 10px; padding: 16px 20px; color: #aaa; font-size: 0.88em; line-height: 1.8; }
 .notice strong { color: #ffd700; }
 
-/* 文案選項卡 */
-.text-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-@media (max-width: 700px) { .text-grid { grid-template-columns: 1fr; } }
-.text-card {
-  background: #141414; border: 2px solid #222; border-radius: 10px;
-  overflow: hidden; cursor: pointer;
-  transition: border-color 0.2s, transform 0.15s; position: relative;
+/* 封面提案 */
+.thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 700px) { .thumb-grid { grid-template-columns: 1fr; } }
+.thumb-proposal { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+.thumb-proposal img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.proposal-label {
+  font-size: 0.7em; font-weight: 700; letter-spacing: 1.5px;
+  color: #111; background: #FFD700;
+  padding: 4px 12px; display: inline-block;
+  margin: 10px 12px 4px;
+  border-radius: 4px;
 }
-.text-card:hover { border-color: #555; transform: translateY(-2px); }
-.text-card.selected { border-color: #FFD700; box-shadow: 0 0 0 1px #FFD700; }
-.text-card .sel-badge {
-  position: absolute; top: 8px; right: 8px;
-  background: #FFD700; color: #111;
-  font-size: 0.68em; font-weight: 700;
-  padding: 3px 8px; border-radius: 4px; display: none;
-}
-.text-card.selected .sel-badge { display: block; }
-.text-body {
-  background: linear-gradient(to right, #120226, #370A5A);
-  padding: 18px 16px 14px;
-}
-.tc-name { font-size: 0.6em; color: #fff; font-weight: 700; letter-spacing: 1.5px; }
-.tc-line { width: 36px; height: 3px; background: #FF567E; margin: 4px 0 10px; }
-.tc-big { font-size: 1.4em; font-weight: 900; color: #fff; line-height: 1.15; }
-.tc-big span { font-size: 0.58em; font-weight: 700; }
-.tc-divider { height: 4px; background: #7D3CF0; width: 75%; margin: 7px 0 6px; }
-.tc-main { font-size: 0.7em; color: #fff; }
-.tc-main em { color: #FFB500; font-style: normal; font-weight: 700; }
-.tc-sub { font-size: 0.6em; color: #D2CDFF; margin-top: 4px; }
-.tc-dur { font-size: 0.56em; color: #FF9B00; margin-top: 4px; }
-.tc-footer { padding: 8px 12px; font-size: 0.75em; color: #888; }
-.tc-footer strong { color: #ccc; }
-
-/* 選好後的動作列 */
-.action-bar {
-  margin-top: 14px; padding: 12px 16px;
-  background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
-  font-size: 0.82em; color: #555;
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-}
-.sel-info { flex: 1; }
-.sel-name { color: #FFD700; font-weight: 600; }
-
-/* 照片上傳提示 */
-.photo-hint {
-  margin-top: 16px;
-  background: #111820; border: 1px solid #1a3040; border-radius: 10px;
-  padding: 18px 20px; display: none;
-}
-.photo-hint.show { display: block; }
-.photo-hint-title { font-size: 0.82em; color: #4ea8de; font-weight: 600; margin-bottom: 10px; }
-.photo-spec { background: #0d0d0d; border: 1px solid #1a2a3a; border-radius: 7px; padding: 12px 16px; font-size: 0.8em; color: #aaa; line-height: 2; }
-.photo-spec strong { color: #fff; }
-.photo-spec code { background: #1a1a1a; padding: 2px 6px; border-radius: 3px; color: #FFB500; font-size: 0.9em; }
+.proposal-desc { padding: 0 12px 12px; font-size: 0.75em; color: #888; }
 </style>
 </head>
 <body>
@@ -109,82 +68,33 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
     </div>
   </div>
 
-  <!-- 封面文案選擇 -->
+  <!-- 封面提案 -->
   <div class="section">
-    <div class="section-title">🖼 YouTube 封面文案（3 選 1）</div>
-    <div style="font-size:0.82em;color:#666;margin-bottom:14px;">選擇左側文案設計，右側 Speaker 照片請另行上傳</div>
+    <div class="section-title">🖼 YouTube 封面提案</div>
+    <div style="font-size:0.82em;color:#666;margin-bottom:16px;">三版封面設計供參考，告知選擇 A / B / C</div>
 
-    <div class="text-grid">
+    <div class="thumb-grid">
 
-      <div class="text-card" data-ver="A" onclick="selectText(this)">
-        <span class="sel-badge">✓ 已選</span>
-        <div class="text-body">
-          <div class="tc-name">JEFF CRUME</div>
-          <div class="tc-line"></div>
-          <div class="tc-big">批判性思維</div>
-          <div class="tc-divider"></div>
-          <div class="tc-main">AI 說的不一定<em>是對的</em></div>
-          <div class="tc-sub">你有辦法辨別 AI 的謊言嗎？</div>
-          <div class="tc-dur">6 分鐘精華解析</div>
-        </div>
-        <div class="tc-footer"><strong>版本 A</strong> — 批判性思維 · AI 的謊言</div>
+      <div class="thumb-proposal">
+        <div class="proposal-label">提案 A</div>
+        <img src="thumb_options/final_A.jpg" alt="封面提案 A">
+        <div class="proposal-desc">批判性思維 · AI 說的不一定是對的</div>
       </div>
 
-      <div class="text-card" data-ver="B" onclick="selectText(this)">
-        <span class="sel-badge">✓ 已選</span>
-        <div class="text-body">
-          <div class="tc-name">JEFF CRUME</div>
-          <div class="tc-line"></div>
-          <div class="tc-big">AI <span>與教育</span></div>
-          <div class="tc-divider"></div>
-          <div class="tc-main">技能被淘汰<em>下一個是你嗎</em></div>
-          <div class="tc-sub">IBM 教授的 AI 世代生存指南</div>
-          <div class="tc-dur">6 分鐘精華解析</div>
-        </div>
-        <div class="tc-footer"><strong>版本 B</strong> — 技能淘汰 · 生存指南</div>
+      <div class="thumb-proposal">
+        <div class="proposal-label">提案 B</div>
+        <img src="thumb_options/final_B.jpg" alt="封面提案 B">
+        <div class="proposal-desc">AI 與教育 · 技能被淘汰下一個是你嗎</div>
       </div>
 
-      <div class="text-card" data-ver="C" onclick="selectText(this)">
-        <span class="sel-badge">✓ 已選</span>
-        <div class="text-body">
-          <div class="tc-name">JEFF CRUME</div>
-          <div class="tc-line"></div>
-          <div class="tc-big">學習 <span>要改變了</span></div>
-          <div class="tc-divider"></div>
-          <div class="tc-main">AI 時代最重要的<em>不是記憶力</em></div>
-          <div class="tc-sub">元素週期表背了又怎樣？草書又怎樣？</div>
-          <div class="tc-dur">6 分鐘精華解析</div>
-        </div>
-        <div class="tc-footer"><strong>版本 C</strong> — 學習革命 · 不是記憶力</div>
+      <div class="thumb-proposal">
+        <div class="proposal-label">提案 C</div>
+        <img src="thumb_options/final_C.jpg" alt="封面提案 C">
+        <div class="proposal-desc">學習要改變了 · AI 時代最重要的不是記憶力</div>
       </div>
 
-    </div>
-
-    <!-- 選擇後的動作列 -->
-    <div class="action-bar" id="textActionBar">
-      <span class="sel-info">點擊上方選擇文案版本</span>
-    </div>
-
-    <!-- 照片上傳提示 -->
-    <div class="photo-hint" id="photoHint">
-      <div class="photo-hint-title">📸 接下來：上傳 Speaker 照片</div>
-      <div class="photo-spec">
-        <div>📐 <strong>比例</strong>：<code>5 : 7</code>（寬 : 高）</div>
-        <div>👤 <strong>構圖</strong>：頭頂到下巴完整，鼻子水平置中</div>
-        <div>🖼 <strong>用途</strong>：封面右側 Speaker 照片區</div>
-        <div>📩 <strong>做法</strong>：直接傳圖片給我，我會自動裁切並生成封面</div>
-      </div>
     </div>
   </div>
-
-    <!-- 封面預覽 -->
-    <div id="thumbPreview" style="display:none;"margin-top:16px;">
-      <div style="font-size:0.78em;color:#555;margin-bottom:10px;">📺 封面預覽</div>
-      <img id="thumbPreviewImg" src="" style="width:100%;border-radius:8px;border:1px solid #333;">
-      <div style="margin-top:10px;">
-        <a id="thumbDlBtn" href="#" style="padding:8px 18px;background:#1a1a2e;border:1px solid #2a2a4a;border-radius:6px;color:#7a9acf;text-decoration:none;font-size:0.82em;">⬇ 下載封面</a>
-      </div>
-    </div>
   </div>
 
   <!-- 腳本草稿 -->
@@ -213,30 +123,6 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 
 </div>
 <script>
-const verLabels = {
-  A: '批判性思維 · AI 說的不一定是對的',
-  B: 'AI 與教育 · 技能被淘汰下一個是你嗎',
-  C: '學習要改變了 · AI 時代最重要的不是記憶力'
-};
-
-function selectText(card) {
-  document.querySelectorAll('.text-card').forEach(c => c.classList.remove('selected'));
-  card.classList.add('selected');
-  const ver = card.dataset.ver;
-  document.getElementById('textActionBar').innerHTML =
-    `<span class="sel-info">已選：<span class="sel-name">版本 ${ver}｜${verLabels[ver]}</span></span>`;
-  document.getElementById('photoHint').classList.add('show');
-  // 顯示封面預覽
-  const preview = document.getElementById('thumbPreview');
-  const img = document.getElementById('thumbPreviewImg');
-  const dl = document.getElementById('thumbDlBtn');
-  const src = `thumb_options/final_${ver}.jpg`;
-  img.src = src;
-  dl.href = src;
-  dl.download = `94ivoice_jeff_crume_${ver}.jpg`;
-  preview.classList.add('show');
-}
-
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{
