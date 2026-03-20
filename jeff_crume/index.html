@@ -11,8 +11,8 @@ body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee;
 h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
 .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
 .badge.stage { background: #e63946; color: white; }
-.section { margin: 32px 0; }
-.section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section { margin: 36px 0; }
+.section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
 .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
 .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
@@ -23,59 +23,118 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 .copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
 .source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 18px; }
 .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
-.source-card a:hover { text-decoration: underline; }
 .meta { font-size: 0.72em; color: #333; text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a1a1a; }
 .notice { background: #1a1a00; border: 1px solid #3a3a00; border-radius: 10px; padding: 16px 20px; color: #aaa; font-size: 0.88em; line-height: 1.8; }
 .notice strong { color: #ffd700; }
 
-/* 封面選擇器 */
-.thumb-select-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-@media (max-width: 700px) { .thumb-select-grid { grid-template-columns: 1fr; } }
-.thumb-select-card {
-  background: #141414;
-  border: 2px solid #222;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: border-color 0.2s, transform 0.15s;
-  position: relative;
+/* ── Step 指示器 ── */
+.step-nav { display: flex; gap: 0; margin-bottom: 28px; }
+.step-dot {
+  flex: 1; text-align: center; padding: 10px 6px;
+  font-size: 0.78em; color: #444; border-bottom: 2px solid #222;
+  transition: color 0.2s, border-color 0.2s;
 }
-.thumb-select-card:hover { border-color: #555; transform: translateY(-2px); }
-.thumb-select-card.selected { border-color: #FFD700; box-shadow: 0 0 0 1px #FFD700; }
-.thumb-select-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-.thumb-select-card .tc-label { padding: 8px 12px; font-size: 0.75em; color: #888; }
-.thumb-select-card .tc-badge {
+.step-dot.active { color: #FFD700; border-color: #FFD700; font-weight: 700; }
+.step-dot.done   { color: #6cca6c; border-color: #6cca6c; }
+
+/* ── 選項卡通用 ── */
+.option-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.option-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+@media (max-width: 700px) {
+  .option-grid-3 { grid-template-columns: 1fr; }
+  .option-grid-2 { grid-template-columns: 1fr; }
+}
+.opt-card {
+  background: #141414; border: 2px solid #222; border-radius: 10px;
+  overflow: hidden; cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s; position: relative;
+}
+.opt-card:hover { border-color: #555; transform: translateY(-2px); }
+.opt-card.selected { border-color: #FFD700; box-shadow: 0 0 0 1px #FFD700; }
+.opt-card img { width: 100%; display: block; }
+.opt-card img.ratio-16-9 { aspect-ratio: 16/9; object-fit: cover; }
+.opt-card img.ratio-photo { aspect-ratio: 512/720; object-fit: cover; }
+.opt-badge {
   position: absolute; top: 8px; right: 8px;
   background: #FFD700; color: #111;
   font-size: 0.68em; font-weight: 700;
-  padding: 3px 8px; border-radius: 4px;
-  display: none;
+  padding: 3px 8px; border-radius: 4px; display: none;
 }
-.thumb-select-card.selected .tc-badge { display: block; }
-.thumb-fullview { margin-top: 14px; display: none; }
-.thumb-fullview.show { display: block; }
-.thumb-fullview img { width: 100%; border-radius: 8px; border: 1px solid #333; }
-.thumb-action-bar { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 0.82em; color: #555; }
-.thumb-action-bar .sel-name { color: #FFD700; font-weight: 600; }
-.action-btn { padding: 7px 16px; border-radius: 6px; font-size: 0.82em; cursor: pointer; text-decoration: none; display: inline-block; border: 1px solid; }
-.action-btn.dl { background: #1a1a2e; border-color: #2a2a4a; color: #7a9acf; }
+.opt-card.selected .opt-badge { display: block; }
+.opt-label { padding: 9px 12px; font-size: 0.78em; color: #888; line-height: 1.4; }
+.opt-label strong { color: #ccc; }
+
+/* 文案卡片（左側文字區放大預覽） */
+.text-card-body {
+  background: linear-gradient(to right, #120226, #370A5A);
+  padding: 20px 18px;
+  min-height: 100px;
+}
+.text-card-name { font-size: 0.62em; color: #fff; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 4px; }
+.text-card-name-line { width: 40px; height: 3px; background: #FF567E; margin-bottom: 10px; }
+.text-card-big { font-size: 1.5em; font-weight: 900; color: #fff; line-height: 1.1; }
+.text-card-big span { font-size: 0.6em; }
+.text-card-main { font-size: 0.72em; color: #fff; margin-top: 6px; }
+.text-card-main em { color: #FFB500; font-style: normal; font-weight: 700; }
+.text-card-sub { font-size: 0.62em; color: #D2CDFF; margin-top: 5px; }
+.text-card-dur { font-size: 0.58em; color: #FF9B00; margin-top: 4px; }
+.text-card-line { height: 4px; background: #7D3CF0; width: 80%; margin: 6px 0; }
+
+/* 照片卡片（左紫色 + 右照片） */
+.photo-card-body { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+.photo-card-body .purple-half {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 60%;
+  background: linear-gradient(to right, #120226 80%, transparent);
+  z-index: 1;
+}
+.photo-card-body img {
+  position: absolute; right: 0; top: 0; width: 45%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+
+/* 動作列 */
+.action-bar {
+  margin-top: 14px; padding: 12px 16px;
+  background: #141414; border: 1px solid #2a2a2a; border-radius: 8px;
+  font-size: 0.82em; color: #555;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.action-bar .sel-info { flex: 1; }
+.action-bar .sel-name { color: #FFD700; font-weight: 600; }
+.next-btn {
+  padding: 9px 22px; border-radius: 7px; font-size: 0.85em; font-weight: 600;
+  cursor: pointer; border: none; background: #2a1f60; color: #a89cf0;
+  transition: background 0.2s;
+}
+.next-btn:hover { background: #3a2a80; }
+.next-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.next-btn.ready { background: #FFD700; color: #111; }
+.next-btn.ready:hover { background: #fce03a; }
+
+/* 最終預覽 */
+.final-preview { display: none; margin-top: 20px; }
+.final-preview.show { display: block; }
+.final-preview img { width: 100%; border-radius: 10px; border: 1px solid #333; }
+.final-actions { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+.dl-btn { padding: 9px 20px; border-radius: 7px; font-size: 0.85em; text-decoration: none; display: inline-block; background: #1a1a2e; border: 1px solid #2a2a4a; color: #7a9acf; }
+.dl-btn:hover { background: #1f1f3e; }
+
+/* Step panel 顯示/隱藏 */
+.step-panel { display: none; }
+.step-panel.active { display: block; }
 </style>
 </head>
 <body>
 <div class="container">
 
   <div style="margin-bottom:20px;">
-    <a href="../" style="color:#555;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#141414;border:1px solid #222;border-radius:6px;">
-      ← Stage 索引
-    </a>
+    <a href="../" style="color:#555;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#141414;border:1px solid #222;border-radius:6px;">← Stage 索引</a>
   </div>
 
   <h1>AI 與教育：Jeff Crume 談批判性思維 <span class="badge stage">⏳ 腳本草稿</span></h1>
 
-  <!-- 審閱通知 -->
   <div class="notice">
-    <strong>⚠️ Step 0 腳本草稿</strong> — 請確認腳本方向後，才會繼續製作影片（TTS、背景圖、字幕）。<br>
-    如需修改腳本，請直接告知。確認後將進行完整影片製作。
+    <strong>⚠️ Step 0 腳本草稿</strong> — 確認腳本後才會繼續製作影片（TTS、背景圖、字幕）。如需修改請直接告知。
   </div>
 
   <!-- 原始影片 -->
@@ -88,48 +147,120 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
         <span class="chip">🎙 Jeff Crume</span>
         <span class="chip">📺 IBM Technology</span>
       </div>
-      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="transcript_en.txt" style="color:#555;font-size:0.82em;padding:5px 12px;background:#0d0d0d;border:1px solid #222;border-radius:5px;text-decoration:none;">📄 英文逐字稿</a>
-        <a href="transcript_zh.txt" style="color:#555;font-size:0.82em;padding:5px 12px;background:#0d0d0d;border:1px solid #222;border-radius:5px;text-decoration:none;">📄 繁體中文逐字稿</a>
-      </div>
     </div>
   </div>
 
-  <!-- 封面選擇器 -->
+  <!-- ══════════════════════════════════════ 封面設計器 ══════════════════════════════════════ -->
   <div class="section">
-    <div class="section-title">🖼 YouTube 封面設計（請選擇版本）</div>
-    <div class="thumb-select-grid">
+    <div class="section-title">🖼 YouTube 封面設計</div>
 
-      <div class="thumb-select-card" data-idx="A" data-src="thumb_options/thumb_A.jpg" data-label="AI 衝擊教育 · 你還能分辨真假答案嗎" onclick="selectThumb(this)">
-        <span class="tc-badge">✓ 已選</span>
-        <img src="thumb_options/thumb_A.jpg" loading="lazy">
-        <div class="tc-label"><strong>版本 A</strong> · AI 衝擊教育 · 你還能分辨真假答案嗎</div>
-      </div>
-
-      <div class="thumb-select-card" data-idx="B" data-src="thumb_options/thumb_B.jpg" data-label="技能被淘汰了 · 接下來被取代的是你嗎" onclick="selectThumb(this)">
-        <span class="tc-badge">✓ 已選</span>
-        <img src="thumb_options/thumb_B.jpg" loading="lazy">
-        <div class="tc-label"><strong>版本 B</strong> · 技能被淘汰了 · 接下來被取代的是你嗎</div>
-      </div>
-
-      <div class="thumb-select-card" data-idx="C" data-src="thumb_options/thumb_C.jpg" data-label="批判性思維 · AI 說的不一定是對的" onclick="selectThumb(this)">
-        <span class="tc-badge">✓ 已選</span>
-        <img src="thumb_options/thumb_C.jpg" loading="lazy">
-        <div class="tc-label"><strong>版本 C</strong> · 批判性思維 · AI 說的不一定是對的</div>
-      </div>
-
+    <!-- Step 指示器 -->
+    <div class="step-nav">
+      <div class="step-dot active" id="dot1">① 選文案</div>
+      <div class="step-dot" id="dot2">② 選照片</div>
+      <div class="step-dot" id="dot3">③ 完成預覽</div>
     </div>
 
-    <!-- 動作列 -->
-    <div class="thumb-action-bar" id="thumbActionBar">
-      <span>點擊上方封面選擇版本 → 確認後會以此照片製作正式封面</span>
+    <!-- Step 1: 文案選擇 -->
+    <div class="step-panel active" id="step1">
+      <div style="font-size:0.82em;color:#666;margin-bottom:14px;">選擇左側文案設計（右側照片稍後選）</div>
+      <div class="option-grid-3">
+
+        <div class="opt-card" data-text="A" onclick="selectText(this)">
+          <span class="opt-badge">✓ 已選</span>
+          <div class="text-card-body">
+            <div class="text-card-name">JEFF CRUME</div>
+            <div class="text-card-name-line"></div>
+            <div class="text-card-big">批判性思維</div>
+            <div class="text-card-line"></div>
+            <div class="text-card-main">AI 說的不一定<em>是對的</em></div>
+            <div class="text-card-sub">你有辦法辨別 AI 的謊言嗎？</div>
+            <div class="text-card-dur">6 分鐘精華解析</div>
+          </div>
+          <div class="opt-label"><strong>版本 A</strong> — 批判性思維，AI 的謊言</div>
+        </div>
+
+        <div class="opt-card" data-text="B" onclick="selectText(this)">
+          <span class="opt-badge">✓ 已選</span>
+          <div class="text-card-body">
+            <div class="text-card-name">JEFF CRUME</div>
+            <div class="text-card-name-line"></div>
+            <div class="text-card-big">AI <span>與教育</span></div>
+            <div class="text-card-line"></div>
+            <div class="text-card-main">技能被淘汰<em>下一個是你嗎</em></div>
+            <div class="text-card-sub">IBM 教授的 AI 世代生存指南</div>
+            <div class="text-card-dur">6 分鐘精華解析</div>
+          </div>
+          <div class="opt-label"><strong>版本 B</strong> — 技能淘汰，生存指南</div>
+        </div>
+
+        <div class="opt-card" data-text="C" onclick="selectText(this)">
+          <span class="opt-badge">✓ 已選</span>
+          <div class="text-card-body">
+            <div class="text-card-name">JEFF CRUME</div>
+            <div class="text-card-name-line"></div>
+            <div class="text-card-big">學習 <span>要改變了</span></div>
+            <div class="text-card-line"></div>
+            <div class="text-card-main">AI 時代最重要的<em>不是記憶力</em></div>
+            <div class="text-card-sub">元素週期表背了又怎樣？草書又怎樣？</div>
+            <div class="text-card-dur">6 分鐘精華解析</div>
+          </div>
+          <div class="opt-label"><strong>版本 C</strong> — 學習革命，不是記憶力</div>
+        </div>
+
+      </div>
+      <div class="action-bar" id="textActionBar">
+        <span class="sel-info">點擊選擇文案版本</span>
+        <button class="next-btn" id="nextToPhoto" disabled onclick="goToStep2()">選好了，選照片 →</button>
+      </div>
     </div>
 
-    <!-- 全尺寸預覽 -->
-    <div class="thumb-fullview" id="thumbFullview">
-      <img id="thumbFullImg" src="" alt="封面全尺寸預覽">
+    <!-- Step 2: 照片選擇 -->
+    <div class="step-panel" id="step2">
+      <div style="font-size:0.82em;color:#666;margin-bottom:14px;">選擇右側 Speaker 照片（左側為封面背景色，照片已依封面比例裁切）</div>
+      <div class="option-grid-2">
+
+        <div class="opt-card" data-photo="1" onclick="selectPhoto(this)">
+          <span class="opt-badge">✓ 已選</span>
+          <div class="photo-card-body">
+            <div class="purple-half"></div>
+            <img src="speaker_photos/photo_opt_1.jpg" alt="正式頭像">
+          </div>
+          <div class="opt-label"><strong>照片 1</strong> — 正式頭像 · 戶外散景 · NC State</div>
+        </div>
+
+        <div class="opt-card" data-photo="2" onclick="selectPhoto(this)">
+          <span class="opt-badge">✓ 已選</span>
+          <div class="photo-card-body">
+            <div class="purple-half"></div>
+            <img src="speaker_photos/photo_opt_2.jpg" alt="教學現場">
+          </div>
+          <div class="opt-label"><strong>照片 2</strong> — 教學現場 · 黑背景板書 · IBM</div>
+        </div>
+
+      </div>
+      <div class="action-bar" id="photoActionBar">
+        <span class="sel-info">點擊選擇照片</span>
+        <button class="next-btn" style="background:#1a1a1a;color:#555;border:1px solid #333;" onclick="goToStep1()">← 返回文案</button>
+        <button class="next-btn" id="nextToPreview" disabled onclick="goToStep3()">選好了，看封面預覽 →</button>
+      </div>
     </div>
+
+    <!-- Step 3: 最終預覽 -->
+    <div class="step-panel" id="step3">
+      <div style="font-size:0.82em;color:#666;margin-bottom:14px;" id="finalDesc">封面預覽</div>
+      <div class="final-preview show">
+        <img id="finalImg" src="" alt="封面最終預覽">
+        <div class="final-actions">
+          <a id="dlBtn" class="dl-btn" href="#" download>⬇ 下載封面</a>
+          <button class="next-btn" style="background:#1a1a1a;color:#555;border:1px solid #333;" onclick="goToStep2()">← 換照片</button>
+          <button class="next-btn" style="background:#1a1a1a;color:#555;border:1px solid #333;" onclick="goToStep1()">← 換文案</button>
+        </div>
+      </div>
+    </div>
+
   </div>
+  <!-- ══════════════════════════════════════ End 封面設計器 ══════════════════════════════════════ -->
 
   <!-- 腳本草稿 -->
   <div class="section">
@@ -145,14 +276,11 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
       <a href="script_zh.txt">✍️ 腳本草稿</a>
       <a href="transcript_en.txt">📄 逐字稿（英文）</a>
       <a href="transcript_zh.txt">📄 逐字稿（繁體中文）</a>
-      <a href="thumb_options/thumb_A.jpg" download>🖼 封面 A</a>
-      <a href="thumb_options/thumb_B.jpg" download>🖼 封面 B</a>
-      <a href="thumb_options/thumb_C.jpg" download>🖼 封面 C</a>
     </div>
   </div>
 
   <div class="meta">
-    94iVoice Stage Preview · 原始影片：<a href="https://youtu.be/k7PvscqGD24" style="color:#3a5a7a">AI &amp; Education — IBM Technology</a> ·
+    94iVoice Stage Preview · <a href="https://youtu.be/k7PvscqGD24" style="color:#3a5a7a">AI &amp; Education — IBM Technology</a> ·
     <span id="ts"></span>
     <script>document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW')</script>
   </div>
@@ -160,25 +288,57 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 </div>
 
 <script>
-// 封面選擇
-function selectThumb(card) {
-  document.querySelectorAll('.thumb-select-card').forEach(c => c.classList.remove('selected'));
-  card.classList.add('selected');
-  const label = card.dataset.label;
-  const src = card.dataset.src;
-  const idx = card.dataset.idx;
+let selText = null, selPhoto = null;
 
-  const bar = document.getElementById('thumbActionBar');
-  bar.innerHTML = `<span>已選：<span class="sel-name">封面 ${idx}｜${label}</span></span>
-    <a class="action-btn dl" href="${src}" download="94ivoice_jeff_crume_thumb${idx}.jpg">⬇ 下載封面</a>`;
-
-  const full = document.getElementById('thumbFullview');
-  document.getElementById('thumbFullImg').src = src;
-  full.classList.add('show');
-  full.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+// ── Step 指示器 ──
+function setStep(n) {
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('step' + i).classList.toggle('active', i === n);
+    const dot = document.getElementById('dot' + i);
+    dot.classList.remove('active', 'done');
+    if (i < n)  dot.classList.add('done');
+    if (i === n) dot.classList.add('active');
+  }
 }
 
-// 腳本載入
+// ── Step 1: 文案 ──
+function selectText(card) {
+  document.querySelectorAll('#step1 .opt-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selText = card.dataset.text;
+  const labels = {A:'批判性思維 · AI 說的不一定是對的', B:'AI 與教育 · 技能被淘汰下一個是你嗎', C:'學習要改變了 · AI 時代最重要的不是記憶力'};
+  document.getElementById('textActionBar').querySelector('.sel-info').innerHTML =
+    `已選：<span class="sel-name">版本 ${selText}｜${labels[selText]}</span>`;
+  const btn = document.getElementById('nextToPhoto');
+  btn.disabled = false; btn.classList.add('ready');
+}
+function goToStep2() { setStep(2); window.scrollTo({top: document.getElementById('step2').getBoundingClientRect().top + window.scrollY - 80, behavior:'smooth'}); }
+function goToStep1() { setStep(1); }
+
+// ── Step 2: 照片 ──
+function selectPhoto(card) {
+  document.querySelectorAll('#step2 .opt-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selPhoto = card.dataset.photo;
+  const labels = {1:'正式頭像 · 戶外散景', 2:'教學現場 · 黑背景板書'};
+  document.getElementById('photoActionBar').querySelector('.sel-info').innerHTML =
+    `已選：<span class="sel-name">照片 ${selPhoto}｜${labels[selPhoto]}</span>`;
+  const btn = document.getElementById('nextToPreview');
+  btn.disabled = false; btn.classList.add('ready');
+}
+function goToStep3() {
+  setStep(3);
+  const src = `thumb_options/final_text_${selText}_photo${selPhoto}.jpg`;
+  const fname = `94ivoice_jeff_crume_${selText}_photo${selPhoto}.jpg`;
+  document.getElementById('finalImg').src = src;
+  document.getElementById('dlBtn').href = src;
+  document.getElementById('dlBtn').download = fname;
+  document.getElementById('finalDesc').innerHTML =
+    `封面預覽 — <span style="color:#FFD700">版本 ${selText}</span> + <span style="color:#FFD700">照片 ${selPhoto}</span>`;
+  window.scrollTo({top: document.getElementById('step3').getBoundingClientRect().top + window.scrollY - 80, behavior:'smooth'});
+}
+
+// ── 腳本載入 ──
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{
