@@ -291,11 +291,19 @@ document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toL
 
 // SRT 預覽
 fetch('subtitles.srt').then(r=>r.text()).then(t=>{
-  const html = t
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/^(\d+)$/gm, '<span class="srt-num">$1</span>')
-    .replace(/^(\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3})$/gm, '<span class="srt-time">$1</span>')
-    .replace(/^(?!<span)(.+)$/gm, '<span class="srt-text">$1</span>');
+  // 逐行處理：明確判斷每行類型
+  const lines = t.replace(/&/g,'&amp;').replace(/</g,'&lt;').split('\n');
+  const html = lines.map(line => {
+    if (/^\d+$/.test(line.trim())) {
+      return `<span class="srt-num">${line}</span>`;
+    } else if (/^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}/.test(line)) {
+      return `<span class="srt-time">${line}</span>`;
+    } else if (line.trim() === '') {
+      return '';  // 空行保留
+    } else {
+      return `<span class="srt-text">${line}</span>`;
+    }
+  }).join('\n');
   document.getElementById('srtContent').innerHTML = html;
 }).catch(()=>{
   document.getElementById('srtContent').textContent = '（字幕載入失敗）';
