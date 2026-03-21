@@ -1,5 +1,43 @@
 {
-  "title": "94iVoice｜Jeff Crume 證明 AI 將如何改變教育與工作未來！",
-  "description": "在這期影片中，Jeff Crume 分享了他與 ChatGPT 的第一次碰撞，讓我們重新思考教育的本質與AI的角色。從歷史的變遷到未來的展望，Jeff 強調了批判思維與靈活適應的重要性。在 AI 帶來革命性改變的時代，我們要學會如何巧妙運用它來增強成果！\n\n章節時間碼：\n0:04 開場\n1:07 歷史輪迴\n2:06 核心能力\n3:05 AI教室\n3:56 共譜未來\n\n喜歡我們的內容嗎？別忘了訂閱頻道！",
-  "tags": "AI, ChatGPT, 教育, 批判思維, 靈活適應, Jeff Crume, 個性化學習, 歷史, 技能, AI在教育, 未來, 科技進步, 自我提升, IBM, 創新思維"
+  "title": "94iVoice｜AI來了，教育的意義還在嗎？發掘未來的關鍵！",
+  "description": "在這支影片中，我們將討論IBM教授Jeff Crume的觀察：AI如何影響教育和學習。從過去被淘汰的技能，到今天必須重視的批判性思考能力，讓我們一起探索AI時代的一切。  \n\n**章節時間碼:**  \n0:00 開場  \n0:52 歷史的輪迴  \n2:04 核心能力  \n3:21 AI教室  \n4:45 共譜未來  \n\n訂閱我們的頻道，如果你對AI和教育的未來感興趣，想了解更多深度分析和見解！請讓我們一起迎接這個變革的時代！  \n\n#AI #教育 #批判性思考 #技術與教育 #JeffCrume",
+  "tags": [
+    "AI",
+    "教育",
+    "批判性思考",
+    "技術與教育",
+    "JeffCrume"
+  ],
+  "chapters": [
+    {
+      "name": "開場",
+      "start": 0.1,
+      "bg": "bg_00_opening.png",
+      "duration": 52.69
+    },
+    {
+      "name": "歷史的輪迴",
+      "start": 52.787,
+      "bg": "bg_01_history.png",
+      "duration": 71.47
+    },
+    {
+      "name": "核心能力",
+      "start": 124.262,
+      "bg": "bg_02_critical.png",
+      "duration": 77.12
+    },
+    {
+      "name": "AI教室",
+      "start": 201.387,
+      "bg": "bg_03_classroom.png",
+      "duration": 84.32
+    },
+    {
+      "name": "共譜未來",
+      "start": 285.712,
+      "bg": "bg_04_future.png",
+      "duration": 79.64
+    }
+  ]
 }
