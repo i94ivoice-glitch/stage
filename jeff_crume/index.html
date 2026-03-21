@@ -30,6 +30,10 @@ video { width: 100%; border-radius: 12px; background: #000; }
 .thumb-preview { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
 .thumb-preview img { max-width: 480px; border-radius: 8px; border: 1px solid #333; }
 .thumb-preview .info { flex: 1; min-width: 200px; }
+.srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
+.srt-block .srt-num { color: #444; }
+.srt-block .srt-time { color: #5a7a9a; }
+.srt-block .srt-text { color: #eee; }
 .yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; margin-top: 24px; }
 .yt-field { margin-bottom: 16px; }
 .yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
@@ -102,6 +106,12 @@ video { width: 100%; border-radius: 12px; background: #000; }
     <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
   </div>
 
+  <!-- 字幕 SRT 預覽 -->
+  <div class="section">
+    <div class="section-title">📝 字幕內容（SRT）</div>
+    <div class="srt-block" id="srtContent">載入中...</div>
+  </div>
+
   <!-- YouTube 設定 -->
   <div class="yt-section">
     <div style="font-size:0.9em;font-weight:600;color:#fff;margin-bottom:16px;">📺 YouTube 發布設定</div>
@@ -139,6 +149,16 @@ fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{
   document.getElementById('scriptContent').textContent = '（載入失敗）';
+});
+
+fetch('subtitles.srt').then(r=>r.text()).then(t=>{
+  // 語法高亮
+  const html = t.replace(/^(\d+)$/gm, '<span class="srt-num">$1</span>')
+               .replace(/^(\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3})$/gm, '<span class="srt-time">$1</span>')
+               .replace(/^(?!\d|<)(.+)$/gm, '<span class="srt-text">$1</span>');
+  document.getElementById('srtContent').innerHTML = html;
+}).catch(()=>{
+  document.getElementById('srtContent').textContent = '（字幕載入失敗）';
 });
 
 fetch('youtube_meta.json').then(r=>r.json()).then(d=>{
