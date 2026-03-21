@@ -74,6 +74,10 @@ video { width: 100%; border-radius: 12px; background: #000; }
 .yt-btn.secondary { background: #1e1e1e; color: #888; border: 1px solid #2a2a2a; }
 .yt-note { font-size: 0.76em; color: #444; margin-top: 10px; }
 
+.srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
+.srt-block .srt-num  { color: #444; }
+.srt-block .srt-time { color: #5a7a9a; }
+.srt-block .srt-text { color: #eee; }
 .meta { font-size: 0.72em; color: #333; text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a1a1a; }
 </style>
 </head>
@@ -215,6 +219,7 @@ video { width: 100%; border-radius: 12px; background: #000; }
     </div>
   </div>
 
+  <!-- ⑧-css SRT block style (inline) -->
   <!-- ⑧ YouTube 發布設定 -->
   <div class="section">
     <div class="section-title">📺 YouTube 發布設定</div>
@@ -253,10 +258,16 @@ video { width: 100%; border-radius: 12px; background: #000; }
     </div>
   </div>
 
+  <!-- ⑧-b SRT 字幕預覽 -->
+  <div class="section">
+    <div class="section-title">📝 字幕內容（SRT）</div>
+    <div class="srt-block" id="srtContent">載入中...</div>
+  </div>
+
   <!-- ⑨ Footer -->
   <div class="meta">
     94iVoice Stage Preview · 原始來源：<a href="https://youtu.be/k7PvscqGD24" style="color:#3a5a7a">IBM Technology — Jeff Crume</a> ·
-    <span id="ts"></span>
+    更新：<span id="page-updated"></span>
   </div>
 </div>
 
@@ -275,7 +286,21 @@ fetch('youtube_meta.json').then(r=>r.json()).then(d=>{
   tagsEl.innerHTML = tags.map(t => `<span class="yt-tag">${t.trim()}</span>`).join('');
 }).catch(()=>{});
 
-document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW');
+// 頁面更新時間（document.lastModified = 伺服器檔案修改時間）
+const lm = new Date(document.lastModified);
+document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toLocaleString('zh-TW');
+
+// SRT 預覽
+fetch('subtitles.srt').then(r=>r.text()).then(t=>{
+  const html = t
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/^(\d+)$/gm, '<span class="srt-num">$1</span>')
+    .replace(/^(\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3})$/gm, '<span class="srt-time">$1</span>')
+    .replace(/^(?!<span)(.+)$/gm, '<span class="srt-text">$1</span>');
+  document.getElementById('srtContent').innerHTML = html;
+}).catch(()=>{
+  document.getElementById('srtContent').textContent = '（字幕載入失敗）';
+});
 </script>
 </body>
 </html>
