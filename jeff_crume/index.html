@@ -206,6 +206,12 @@ video { width: 100%; border-radius: 12px; background: #000; }
     <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
   </div>
 
+  <!-- ⑥-b SRT 字幕預覽 -->
+  <div class="section">
+    <div class="section-title">📝 字幕內容（SRT）</div>
+    <div class="srt-block" id="srtContent">載入中...</div>
+  </div>
+
   <!-- ⑦ 素材檔案 -->
   <div class="section">
     <div class="section-title">📁 素材檔案</div>
@@ -220,7 +226,6 @@ video { width: 100%; border-radius: 12px; background: #000; }
     </div>
   </div>
 
-  <!-- ⑧-css SRT block style (inline) -->
   <!-- ⑧ YouTube 發布設定 -->
   <div class="section">
     <div class="section-title">📺 YouTube 發布設定</div>
@@ -257,12 +262,6 @@ video { width: 100%; border-radius: 12px; background: #000; }
       </div>
       <div class="yt-note">⚠️ 確認後請告知 Javis 執行上傳（--unlisted）</div>
     </div>
-  </div>
-
-  <!-- ⑧-b SRT 字幕預覽 -->
-  <div class="section">
-    <div class="section-title">📝 字幕內容（SRT）</div>
-    <div class="srt-block" id="srtContent">載入中...</div>
   </div>
 
   <!-- ⑨ Footer -->
