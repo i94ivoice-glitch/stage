@@ -8,61 +8,103 @@
 * { box-sizing: border-box; }
 body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
 .container { max-width: 960px; margin: 0 auto; }
+
 h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
 .badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
-.badge.ready { background: #2ecc71; color: white; }
-.section { margin: 36px 0; }
-.section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.badge.stage   { background: #e63946; color: white; }
+.badge.private { background: #f4a261; color: #111; }
+.badge.live    { background: #22c55e; color: #fff; }
+
+.section { margin: 32px 0; }
+.section-title {
+  font-size: 0.75em; color: #555; text-transform: uppercase;
+  letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
 .section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+
 .chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
 .video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
 video { width: 100%; border-radius: 12px; background: #000; }
+
+/* 章節背景圖 Grid */
+.chapter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 600px) { .chapter-grid { grid-template-columns: repeat(2, 1fr); } }
+.chapter-card { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+.chapter-card:hover { border-color: #444; }
+.chapter-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.chapter-info { padding: 10px 12px; }
+.chapter-num   { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; line-height: 1.4; }
+.chapter-dur   { font-size: 0.72em; color: #555; margin-top: 4px; }
+
+/* 封面 */
+.thumb-preview { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+.thumb-preview img { max-width: 480px; border-radius: 8px; border: 1px solid #333; }
+.thumb-info { flex: 1; min-width: 200px; background: #111; border: 1px solid #222; border-radius: 10px; padding: 18px; font-size: 0.82em; line-height: 2; }
+
+/* 素材 */
 .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
 .files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
 .files a:hover { background: #1e1e1e; }
+
+/* 腳本 */
 .script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
 .copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+
+/* 原始來源 */
 .source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 18px; }
 .source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
-.meta { font-size: 0.72em; color: #333; text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a1a1a; }
-.bg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-.bg-grid img { width: 100%; border-radius: 8px; border: 1px solid #222; }
-.thumb-preview { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
-.thumb-preview img { max-width: 480px; border-radius: 8px; border: 1px solid #333; }
-.thumb-preview .info { flex: 1; min-width: 200px; }
-.srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
-.srt-block .srt-num { color: #444; }
-.srt-block .srt-time { color: #5a7a9a; }
-.srt-block .srt-text { color: #eee; }
-.yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; margin-top: 24px; }
+
+/* YouTube 區塊 */
+.yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
+.yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.yt-logo { color: #ff0000; font-size: 1.5em; }
+.yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
+.yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #2a2015; color: #f4a261; border: 1px solid #3a3020; margin-left: auto; }
 .yt-field { margin-bottom: 16px; }
 .yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
 .yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+.yt-field .val.title-val { font-size: 1em; font-weight: 600; color: #fff; }
+.yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
+.yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
+.yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
+.yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.88em; cursor: pointer; font-weight: 600; }
+.yt-btn.primary { background: #ff0000; color: white; }
+.yt-btn.secondary { background: #1e1e1e; color: #888; border: 1px solid #2a2a2a; }
+.yt-note { font-size: 0.76em; color: #444; margin-top: 10px; }
+
+.meta { font-size: 0.72em; color: #333; text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a1a1a; }
 </style>
 </head>
 <body>
 <div class="container">
 
+  <!-- ⓪ 返回索引 -->
   <div style="margin-bottom:20px;">
     <a href="../" style="color:#555;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#141414;border:1px solid #222;border-radius:6px;">← Stage 索引</a>
   </div>
 
-  <h1>AI 與教育：Jeff Crume <span class="badge ready">✅ 影片完成</span></h1>
+  <!-- ① 頁首 -->
+  <h1>AI 與教育：Jeff Crume <span class="badge stage">Stage 審閱中</span></h1>
 
-  <!-- 影片播放 -->
+  <!-- ② 影片播放器 -->
   <div class="section">
-    <div class="section-title">🎬 影片預覽</div>
-    <video controls poster="thumbnail.jpg">
-      <source src="jeff_crume_stage.mp4" type="video/mp4">
+    <div class="section-title">🎬 Stage 影片</div>
+    <video controls preload="metadata" poster="thumbnail.jpg">
+      <source src="jeff_crume_final.mp4" type="video/mp4">
+      <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
     </video>
     <div class="video-meta">
-      <span class="chip">⏱ 4:36</span>
+      <span class="chip">⏱ 約 6 分鐘</span>
       <span class="chip">🎙 YunjianNeural</span>
+      <span class="chip">🖼 DALL-E 3 × 5</span>
       <span class="chip">📺 1920×1080</span>
+      <span class="chip">🎬 Logo 片尾</span>
     </div>
   </div>
 
-  <!-- 原始來源 -->
+  <!-- ③ 原始影片來源 -->
   <div class="section">
     <div class="section-title">📺 原始影片</div>
     <div class="source-card">
@@ -72,100 +114,168 @@ video { width: 100%; border-radius: 12px; background: #000; }
         <span class="chip">🎙 Jeff Crume</span>
         <span class="chip">📺 IBM Technology</span>
       </div>
-    </div>
-  </div>
-
-  <!-- 章節背景圖 -->
-  <div class="section">
-    <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
-    <div class="bg-grid">
-      <img src="bg_00_opening.png" alt="開場">
-      <img src="bg_01_history.png" alt="歷史輪迴">
-      <img src="bg_02_critical.png" alt="核心能力">
-      <img src="bg_03_classroom.png" alt="AI教室">
-      <img src="bg_04_future.png" alt="共譜未來">
-    </div>
-  </div>
-
-  <!-- 封面 -->
-  <div class="section">
-    <div class="section-title">🖼 YouTube 封面</div>
-    <div class="thumb-preview">
-      <img src="thumbnail.jpg" alt="封面">
-      <div class="info">
-        <p style="color:#888;font-size:0.85em;">選定版本：<strong style="color:#FFD700;">C</strong></p>
-        <p style="color:#aaa;font-size:0.82em;line-height:1.6;">學習要改變了<br>AI 時代最重要的不是記憶力</p>
+      <div style="margin-top:12px;">
+        <a href="transcript_en.txt" style="color:#4ea8de;text-decoration:none;font-size:0.82em;margin-right:12px;">📄 英文逐字稿</a>
+        <a href="transcript_zh.txt" style="color:#4ea8de;text-decoration:none;font-size:0.82em;">📄 繁體中文逐字稿</a>
       </div>
     </div>
   </div>
 
-  <!-- 腳本 -->
+  <!-- ④ 章節背景圖 Grid -->
+  <div class="section">
+    <div class="section-title">🖼 章節背景圖（DALL-E 3）</div>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <img src="bg_00_opening.png" loading="lazy" alt="開場">
+        <div class="chapter-info">
+          <div class="chapter-num">00 · 開場</div>
+          <div class="chapter-title">播主鉤子</div>
+          <div class="chapter-dur">0:00 → 0:52（52s）</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_01_history.png" loading="lazy" alt="歷史的輪迴">
+        <div class="chapter-info">
+          <div class="chapter-num">01 · 歷史的輪迴</div>
+          <div class="chapter-title">被淘汰的技能</div>
+          <div class="chapter-dur">0:52 → 2:04（71s）</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_02_critical.png" loading="lazy" alt="核心能力">
+        <div class="chapter-info">
+          <div class="chapter-num">02 · 核心能力</div>
+          <div class="chapter-title">批判思維才是關鍵</div>
+          <div class="chapter-dur">2:04 → 3:21（77s）</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_03_classroom.png" loading="lazy" alt="AI教室">
+        <div class="chapter-info">
+          <div class="chapter-num">03 · AI教室</div>
+          <div class="chapter-title">無限耐心的一對一家教</div>
+          <div class="chapter-dur">3:21 → 4:45（84s）</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_04_future.png" loading="lazy" alt="共譜未來">
+        <div class="chapter-info">
+          <div class="chapter-num">04 · 共譜未來</div>
+          <div class="chapter-title">你在用AI，還是AI在用你？</div>
+          <div class="chapter-dur">4:45 → 6:11（80s）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ YouTube 封面 -->
+  <div class="section">
+    <div class="section-title">🖼 YouTube 封面</div>
+    <div class="thumb-preview">
+      <div>
+        <a href="thumbnail.jpg" target="_blank">
+          <img src="thumbnail.jpg" alt="YouTube 封面">
+        </a>
+        <div class="video-meta" style="margin-top:8px;">
+          <span class="chip">📐 1280×720</span>
+          <span class="chip">🤖 Jeff Crume 照片</span>
+        </div>
+        <a href="thumbnail.jpg" download="94ivoice_jeff_crume_thumbnail.jpg"
+           style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">
+          ⬇ 下載封面
+        </a>
+      </div>
+      <div class="thumb-info">
+        <div style="color:#555;font-size:0.72em;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;">設計說明</div>
+        <div><span style="color:#555;">Speaker</span> Jeff Crume</div>
+        <div><span style="color:#555;">主題</span> AI 與教育</div>
+        <div><span style="color:#555;">時長</span> 6 分鐘精華解析</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ 中文腳本 -->
   <div class="section">
     <div class="section-title">✍️ 中文腳本</div>
     <div class="script-block" id="scriptContent">載入中...</div>
     <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
   </div>
 
-  <!-- 字幕 SRT 預覽 -->
-  <div class="section">
-    <div class="section-title">📝 字幕內容（SRT）</div>
-    <div class="srt-block" id="srtContent">載入中...</div>
-  </div>
-
-  <!-- YouTube 設定 -->
-  <div class="yt-section">
-    <div style="font-size:0.9em;font-weight:600;color:#fff;margin-bottom:16px;">📺 YouTube 發布設定</div>
-    <div class="yt-field">
-      <label>標題</label>
-      <div class="val" id="ytTitle">載入中...</div>
-    </div>
-    <div class="yt-field">
-      <label>描述</label>
-      <div class="val" id="ytDesc">載入中...</div>
-    </div>
-    <div class="yt-field">
-      <label>標籤</label>
-      <div class="val" id="ytTags">載入中...</div>
-    </div>
-  </div>
-
-  <!-- 素材 -->
+  <!-- ⑦ 素材檔案 -->
   <div class="section">
     <div class="section-title">📁 素材檔案</div>
     <div class="files">
-      <a href="jeff_crume_stage.mp4">📹 影片 (20MB)</a>
-      <a href="thumbnail.jpg">🖼 封面 (164KB)</a>
-      <a href="subtitles.srt">📝 字幕 SRT</a>
-      <a href="script_zh.txt">📄 腳本 TXT</a>
-      <a href="youtube_meta.json">📋 YT 文案 JSON</a>
+      <a href="script_zh.txt">✍️ 播客腳本（中文）</a>
+      <a href="transcript_en.txt">📄 逐字稿（英文）</a>
+      <a href="transcript_zh.txt">📄 逐字稿（繁中）</a>
+      <a href="subtitles.srt">✂️ 字幕 SRT</a>
+      <a href="youtube_meta.json">📋 YouTube 文案 JSON</a>
+      <a href="thumbnail.jpg" download>🖼 封面圖</a>
+      <a href="jeff_crume_final.mp4">🎬 影片檔案</a>
     </div>
   </div>
 
-  <div class="meta">94iVoice Stage · 2026-03-20</div>
+  <!-- ⑧ YouTube 發布設定 -->
+  <div class="section">
+    <div class="section-title">📺 YouTube 發布設定</div>
+    <div class="yt-section">
+      <div class="yt-header">
+        <span class="yt-logo">▶</span>
+        <h2>愛播客 — YouTube 發布文案</h2>
+        <span class="yt-pill">⏳ 待審閱</span>
+      </div>
+
+      <div class="yt-field">
+        <label>影片標題</label>
+        <div class="val title-val" id="ytTitle">載入中...</div>
+      </div>
+
+      <div class="yt-field">
+        <label>影片描述</label>
+        <div class="val" id="ytDesc">載入中...</div>
+      </div>
+
+      <div class="yt-field">
+        <label>標籤</label>
+        <div class="yt-tags" id="ytTags"></div>
+      </div>
+
+      <div class="yt-field">
+        <label>類別 / 隱私</label>
+        <div class="val">科技與科學（Science &amp; Technology）｜🔒 私人（審閱後改公開）</div>
+      </div>
+
+      <div class="yt-actions">
+        <button class="yt-btn primary" onclick="navigator.clipboard.writeText(document.getElementById('ytDesc').innerText)">📋 複製描述</button>
+        <div class="yt-btn secondary">🔒 發布前請先審閱</div>
+      </div>
+      <div class="yt-note">⚠️ 確認後請告知 Javis 執行上傳（--unlisted）</div>
+    </div>
+  </div>
+
+  <!-- ⑨ Footer -->
+  <div class="meta">
+    94iVoice Stage Preview · 原始來源：<a href="https://youtu.be/k7PvscqGD24" style="color:#3a5a7a">IBM Technology — Jeff Crume</a> ·
+    <span id="ts"></span>
+  </div>
 </div>
 
 <script>
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{
-  document.getElementById('scriptContent').textContent = '（載入失敗）';
-});
-
-fetch('subtitles.srt').then(r=>r.text()).then(t=>{
-  // 語法高亮
-  const html = t.replace(/^(\d+)$/gm, '<span class="srt-num">$1</span>')
-               .replace(/^(\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3})$/gm, '<span class="srt-time">$1</span>')
-               .replace(/^(?!\d|<)(.+)$/gm, '<span class="srt-text">$1</span>');
-  document.getElementById('srtContent').innerHTML = html;
-}).catch(()=>{
-  document.getElementById('srtContent').textContent = '（字幕載入失敗）';
+  document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
 });
 
 fetch('youtube_meta.json').then(r=>r.json()).then(d=>{
   document.getElementById('ytTitle').textContent = d.title || '—';
   document.getElementById('ytDesc').textContent = d.description || '—';
-  document.getElementById('ytTags').textContent = d.tags || '—';
+  const tagsEl = document.getElementById('ytTags');
+  const tags = Array.isArray(d.tags) ? d.tags : (d.tags || '').split(',');
+  tagsEl.innerHTML = tags.map(t => `<span class="yt-tag">${t.trim()}</span>`).join('');
 }).catch(()=>{});
+
+document.getElementById('ts').textContent = new Date().toLocaleString('zh-TW');
 </script>
 </body>
 </html>
