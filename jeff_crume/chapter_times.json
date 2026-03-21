@@ -1,0 +1,32 @@
+[
+  {
+    "name": "開場",
+    "start": 0.1,
+    "bg": "bg_00_opening.png",
+    "duration": 48.39
+  },
+  {
+    "name": "歷史的輪迴",
+    "start": 48.487,
+    "bg": "bg_01_history.png",
+    "duration": 71.1
+  },
+  {
+    "name": "核心能力",
+    "start": 119.587,
+    "bg": "bg_02_critical.png",
+    "duration": 77.44
+  },
+  {
+    "name": "AI教室",
+    "start": 197.025,
+    "bg": "bg_03_classroom.png",
+    "duration": 78.61
+  },
+  {
+    "name": "共譜未來",
+    "start": 275.637,
+    "bg": "bg_04_future.png",
+    "duration": 77.77
+  }
+]
