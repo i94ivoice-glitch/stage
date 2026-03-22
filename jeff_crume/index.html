@@ -206,7 +206,14 @@ video { width: 100%; border-radius: 12px; background: #000; }
     <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
   </div>
 
-  <!-- ⑥-b SRT 字幕預覽 -->
+  <!-- ⑥-b TTS 閱讀稿 -->
+  <div class="section">
+    <div class="section-title">🔊 TTS 閱讀稿（實際送給語音合成的文字）</div>
+    <div class="script-block" id="ttsContent">載入中...</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製閱讀稿</button>
+  </div>
+
+  <!-- ⑥-c SRT 字幕預覽 -->
   <div class="section">
     <div class="section-title">📝 字幕內容（SRT）</div>
     <div class="srt-block" id="srtContent">載入中...</div>
@@ -217,6 +224,7 @@ video { width: 100%; border-radius: 12px; background: #000; }
     <div class="section-title">📁 素材檔案</div>
     <div class="files">
       <a href="script_zh.txt">✍️ 播客腳本（中文）</a>
+      <a href="script_tts.txt">🔊 TTS 閱讀稿</a>
       <a href="transcript_en.txt">📄 逐字稿（英文）</a>
       <a href="transcript_zh.txt">📄 逐字稿（繁中）</a>
       <a href="subtitles.srt">✂️ 字幕 SRT</a>
@@ -275,6 +283,12 @@ fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{
   document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
+});
+
+fetch('script_tts.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('ttsContent').textContent = t;
+}).catch(()=>{
+  document.getElementById('ttsContent').textContent = '（TTS 閱讀稿載入失敗）';
 });
 
 fetch('youtube_meta.json').then(r=>r.json()).then(d=>{
