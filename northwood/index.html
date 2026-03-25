@@ -50,6 +50,11 @@ video { width: 100%; border-radius: 10px; background: #000; }
 .yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.88em; cursor: pointer; font-weight: 600; background: #ff0000; color: white; margin-top: 16px; }
 
 .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #1a1a1a; font-size: 0.75em; color: #555; }
+/* SRT 預覽 */
+.srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
+.srt-block .srt-num  { color: #444; }
+.srt-block .srt-time { color: #5a7a9a; }
+.srt-block .srt-text { color: #eee; }
 </style>
 </head>
 <body>
@@ -66,12 +71,28 @@ video { width: 100%; border-radius: 10px; background: #000; }
   <div class="section-title">🎬 Stage 影片</div>
   <video controls preload="metadata" poster="thumbnail.jpg">
     <source src="northwood_stage.mp4" type="video/mp4">
+    <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
   </video>
   <div class="video-meta">
     <span class="chip">⏱ 6.8 分鐘</span>
     <span class="chip">🎙 Edge TTS YunJhe 1.1x</span>
     <span class="chip">🖼 DALL-E 3 × 6</span>
     <span class="chip">🎬 Logo 片尾</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📺 原始影片</div>
+  <div style="background:#141414;border:1px solid #222;border-radius:10px;padding:18px;">
+    <a href="https://youtu.be/jHECsr9GCs8" target="_blank" style="color:#4ea8de;font-size:0.95em;font-weight:600;text-decoration:none;">▶ Why Every Satellite Needs Earth — a16z</a>
+    <div class="video-meta" style="margin-top:10px;">
+      <span class="chip">🎙 Bridgit Mendler (Northwood Space CEO)</span>
+      <span class="chip">📅 2024</span>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+      <a href="transcript_en.txt" style="padding:6px 14px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">📄 英文逐字稿</a>
+      <a href="transcript_zh.txt" style="padding:6px 14px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">📄 繁體中文逐字稿</a>
+    </div>
   </div>
 </div>
 
@@ -130,11 +151,13 @@ video { width: 100%; border-radius: 10px; background: #000; }
 <div class="section">
   <div class="section-title">📁 素材檔案</div>
   <div class="files">
-    <a href="script_zh.txt">✍️ 腳本</a>
+    <a href="script_zh.txt">✍️ 播客腳本（中文）</a>
+    <a href="transcript_en.txt">📄 逐字稿（英文）</a>
+    <a href="transcript_zh.txt">📄 逐字稿（繁體中文）</a>
     <a href="subtitles.srt">✂️ 字幕 SRT</a>
-    <a href="youtube_meta.json">📋 YouTube JSON</a>
+    <a href="youtube_meta.json">📋 YouTube 文案 JSON</a>
     <a href="thumbnail.jpg" download>🖼 封面圖</a>
-    <a href="northwood_stage.mp4">🎬 影片</a>
+    <a href="northwood_stage.mp4">🎬 影片檔案</a>
   </div>
 </div>
 
@@ -162,6 +185,11 @@ video { width: 100%; border-radius: 10px; background: #000; }
   </div>
 </div>
 
+<div class="section">
+  <div class="section-title">📝 字幕內容（SRT）</div>
+  <div class="srt-block" id="srtContent">載入中...</div>
+</div>
+
 <div class="footer">
   94iVoice Stage Preview · 原始影片：<a href="https://youtu.be/jHECsr9GCs8" style="color:#3a5a7a;">Why Every Satellite Needs Earth — a16z</a>
 </div>
@@ -175,6 +203,17 @@ document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toL
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 });
+
+fetch('subtitles.srt').then(r=>r.text()).then(t=>{
+  const lines = t.replace(/&/g,'&amp;').replace(/</g,'&lt;').split('\n');
+  const html = lines.map(line => {
+    if (/^\d+$/.test(line.trim())) return `<span class="srt-num">${line}</span>`;
+    else if (/^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}/.test(line)) return `<span class="srt-time">${line}</span>`;
+    else if (line.trim() === '') return '';
+    else return `<span class="srt-text">${line}</span>`;
+  }).join('\n');
+  document.getElementById('srtContent').innerHTML = html;
+}).catch(()=>{ document.getElementById('srtContent').textContent = '（字幕載入失敗）'; });
 
 fetch('youtube_meta.json').then(r=>r.json()).then(d=>{
   document.getElementById('ytTitle').textContent = d.title;
