@@ -150,9 +150,17 @@ video { width: 100%; border-radius: 10px; background: #000; }
 </div>
 
 <div class="section">
+  <div class="section-title">🔊 TTS 發音稿（TEXT_RULES 替換後）</div>
+  <div style="font-size:0.78em;color:#555;margin-bottom:10px;">TTS 實際唸的文字（與播客腳本對照）</div>
+  <div class="script-block" id="ttsContent">載入中...</div>
+  <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button>
+</div>
+
+<div class="section">
   <div class="section-title">📁 素材檔案</div>
   <div class="files">
     <a href="script_zh.txt">✍️ 播客腳本（中文）</a>
+    <a href="script_tts.txt">🔊 TTS 發音稿</a>
     <a href="transcript_en.txt">📄 逐字稿（英文）</a>
     <a href="transcript_zh.txt">📄 逐字稿（繁體中文）</a>
     <a href="subtitles.srt">✂️ 字幕 SRT</a>
@@ -204,6 +212,12 @@ document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toL
 
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
+});
+
+fetch('script_tts.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('ttsContent').textContent = t;
+}).catch(()=>{
+  document.getElementById('ttsContent').textContent = '（發音稿載入失敗）';
 });
 
 fetch('subtitles.srt').then(r=>r.text()).then(t=>{
