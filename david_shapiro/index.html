@@ -27,30 +27,42 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 .source-thumb { width: 140px; flex-shrink: 0; border-radius: 8px; overflow: hidden; }
 .source-thumb img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
 .source-info h3 { margin: 0 0 6px; font-size: 0.95em; color: #fff; }
-.thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 700px) { .thumb-grid { grid-template-columns: 1fr; } }
-.thumb-proposal { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
-.thumb-proposal img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-.proposal-label { font-size: 0.7em; font-weight: 700; letter-spacing: 1.5px; color: #111; background: #FFD700; padding: 4px 12px; display: inline-block; margin: 10px 12px 4px; border-radius: 4px; }
-.proposal-desc { padding: 0 12px 12px; font-size: 0.75em; color: #888; }
-.bg-plan-grid { display: flex; flex-direction: column; gap: 12px; }
-.bg-plan-item { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px 18px; display: flex; gap: 16px; align-items: flex-start; }
-.bg-plan-num { font-size: 0.68em; font-weight: 700; letter-spacing: 1.2px; color: #555; min-width: 36px; padding-top: 2px; }
-.bg-plan-body { flex: 1; }
-.bg-plan-title { font-size: 0.88em; color: #ddd; font-weight: 600; margin-bottom: 6px; }
-.bg-plan-prompt { font-size: 0.78em; color: #888; line-height: 1.7; background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 6px; padding: 8px 12px; white-space: pre-wrap; }
+.chapter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 600px) { .chapter-grid { grid-template-columns: repeat(2, 1fr); } }
+.chapter-card { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+.chapter-card:hover { border-color: #444; }
+.chapter-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.chapter-info { padding: 10px 12px; }
+.chapter-num { font-size: 0.68em; color: #555; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.chapter-title { font-size: 0.82em; color: #ccc; margin-top: 3px; line-height: 1.4; }
+.chapter-dur { font-size: 0.72em; color: #555; margin-top: 4px; }
 .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
 .files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
 .files a:hover { background: #1e1e1e; }
-.script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 600px; overflow-y: auto; }
+.script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
 .copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
 .copy-btn:hover { background: #2a2a2a; }
+.srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
+.srt-num  { color: #444; }
+.srt-time { color: #5a7a9a; }
+.srt-text { color: #eee; }
+.yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
+.yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.yt-logo { color: #ff0000; font-size: 1.5em; }
+.yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
+.yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #2a2015; color: #f4a261; border: 1px solid #3a3020; margin-left: auto; }
+.yt-field { margin-bottom: 16px; }
+.yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
+.yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+.yt-field .val.title-val { font-size: 1em; font-weight: 600; color: #fff; }
+.yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
+.yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
+.yt-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.yt-btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.88em; cursor: pointer; font-weight: 600; }
+.yt-btn.primary { background: #ff0000; color: white; }
+.yt-btn.secondary { background: #1e1e1e; color: #888; border: 1px solid #2a2a2a; }
 footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #1a1a1a; font-size: 0.75em; color: #555; text-align: center; }
 footer a { color: #3a5a7a; }
-.srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
-.srt-block .srt-num  { color: #444; }
-.srt-block .srt-time { color: #5a7a9a; }
-.srt-block .srt-text { color: #eee; }
 </style>
 </head>
 <body>
@@ -63,15 +75,13 @@ footer a { color: #3a5a7a; }
   </div>
 
   <!-- ① 頁首 -->
-  <h1>David Shapiro — AI越強，人類剩下的才是核心 <span class="badge making">🔨 製作中</span></h1>
+  <h1>David Shapiro — AI越強，人類剩下的才是核心 <span class="badge stage">🎬 Stage 審閱中</span></h1>
 
   <!-- ② 審閱提示 -->
   <div class="notice">
-    <strong>📋 草稿審閱</strong><br>
-    請確認以下三件事，確認後開始製作：<br>
-    1️⃣ <strong>腳本方向</strong> — 內容 OK？有需要修改的地方嗎？<br>
-    2️⃣ <strong>封面文案</strong> — 選擇 A / B / C 哪個版本？（已選 A）<br>
-    3️⃣ <strong>背景圖生成方式</strong> — 已選 (G) Google Imagen 4
+    <strong>🎬 Stage 審閱</strong><br>
+    請確認影片、封面、YouTube 文案，沒問題後告知「確認上傳」。<br>
+    如需修改腳本 → 告知，重跑 TTS 後重建。如只改文案 → 直接說明。
   </div>
 
   <!-- ③ 原始影片來源 -->
@@ -98,91 +108,105 @@ footer a { color: #3a5a7a; }
     </div>
   </div>
 
-  <!-- ④ 封面提案 A/B/C -->
+  <!-- ⑥ 影片播放器 -->
   <div class="section">
-    <div class="section-title">🖼 YouTube 封面提案</div>
-    <div style="font-size:0.82em;color:#666;margin-bottom:16px;">已選 A ✅ — 製作完成後替換為最終封面</div>
-    <div class="thumb-grid">
-      <div class="thumb-proposal" style="border-color:#ffd700;">
-        <div class="proposal-label" style="background:#ffd700;">提案 A ✅ 已選</div>
-        <img src="thumb_A.jpg" alt="封面提案 A">
-        <div class="proposal-desc">「AI越強，你越重要」— 正向反差，人類創作力無可取代</div>
+    <div class="section-title">🎬 Stage 影片</div>
+    <video controls preload="metadata" poster="thumbnail.jpg" style="width:100%;border-radius:8px;">
+      <source src="david_shapiro_stage.mp4" type="video/mp4">
+      <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
+    </video>
+    <div class="video-meta">
+      <span class="chip">⏱ 5:20</span>
+      <span class="chip">🎙 YunjianNeural</span>
+      <span class="chip">🖼 背景圖 × 6</span>
+      <span class="chip">📝 FontSize 135</span>
+      <span class="chip">🎬 Logo 片尾</span>
+      <span class="chip">📺 1920×1080 · 30fps</span>
+    </div>
+  </div>
+
+  <!-- ⑤ 章節背景圖 Grid -->
+  <div class="section">
+    <div class="section-title">🖼 章節背景圖</div>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <img src="bg_00_開場.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">00 · 開場</div>
+          <div class="chapter-title">開場</div>
+          <div class="chapter-dur">0:00 → 0:23</div>
+        </div>
       </div>
-      <div class="thumb-proposal">
-        <div class="proposal-label">提案 B</div>
-        <img src="thumb_B.jpg" alt="封面提案 B">
-        <div class="proposal-desc">「有些事 AI 做不到」— 具體情感場景，媽媽的故事、深夜的文字</div>
+      <div class="chapter-card">
+        <img src="bg_01_什麼是_Vesperance.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">01 · 什麼是 Vesperance</div>
+          <div class="chapter-title">什麼是 Vesperance</div>
+          <div class="chapter-dur">0:23 → 1:52</div>
+        </div>
       </div>
-      <div class="thumb-proposal">
-        <div class="proposal-label">提案 C</div>
-        <img src="thumb_C.jpg" alt="封面提案 C">
-        <div class="proposal-desc">「Vesperance 時代末感」— AI解放人類，不是焦慮是機會</div>
+      <div class="chapter-card">
+        <img src="bg_02_AI的超指數成長.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">02 · AI的超指數成長</div>
+          <div class="chapter-title">AI的超指數成長</div>
+          <div class="chapter-dur">1:52 → 2:31</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_03_人類獨有的創作力.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">03 · 人類獨有的創作力</div>
+          <div class="chapter-title">人類獨有的創作力</div>
+          <div class="chapter-dur">2:31 → 3:38</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_04_新時代的機會.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">04 · 新時代的機會</div>
+          <div class="chapter-title">新時代的機會</div>
+          <div class="chapter-dur">3:38 → 4:55</div>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <img src="bg_05_結語.png" loading="lazy">
+        <div class="chapter-info">
+          <div class="chapter-num">05 · 結語</div>
+          <div class="chapter-title">結語</div>
+          <div class="chapter-dur">4:55 → 5:17</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ⑤ 背景圖場景描述 -->
+  <!-- ⑦ YouTube 封面 -->
   <div class="section">
-    <div class="section-title">🎨 背景圖場景描述（Google Imagen 4）</div>
-    <div style="font-size:0.82em;color:#666;margin-bottom:16px;">已選 G（Google Imagen 4）✅ — 腳本確認後開始生成</div>
-    <div class="bg-plan-grid">
-
-      <div class="bg-plan-item">
-        <div class="bg-plan-num">00</div>
-        <div class="bg-plan-body">
-          <div class="bg-plan-title">開場</div>
-          <div class="bg-plan-prompt">在一個充滿淡藍色調的現代辦公室裡，一位年輕的亞洲女性坐在電腦前，側臉映著監視器柔和的冷光，她神情專注，背後是一扇半開的窗，外面是城市的夕陽，一片溫暖的橘色逐漸與辦公室的冷光融和。</div>
+    <div class="section-title">🖼 YouTube 封面</div>
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start;">
+      <div>
+        <a href="thumbnail.jpg" target="_blank">
+          <img src="thumbnail.jpg" style="width:100%;border-radius:8px;border:1px solid #2a2a2a;">
+        </a>
+        <div class="video-meta" style="margin-top:8px;">
+          <span class="chip">📐 1280×720</span>
+          <span class="chip">🤖 David Shapiro</span>
         </div>
+        <a href="thumbnail.jpg" download="94ivoice_david_shapiro_thumbnail.jpg"
+           style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">
+          ⬇ 下載封面
+        </a>
       </div>
-
-      <div class="bg-plan-item">
-        <div class="bg-plan-num">01</div>
-        <div class="bg-plan-body">
-          <div class="bg-plan-title">什麼是 Vesperance</div>
-          <div class="bg-plan-prompt">傍晚時分，一條老舊的巷子口，一攤小吃攤拉下了鐵門，手寫的「停業」告示貼在門上。路燈剛亮起，一個人站在對面人行道，望著那道鐵門，手裡拿著外帶袋卻沒有走。整個畫面透著一種日常的失落感，不是悲劇，是某種生活節奏悄悄斷掉的瞬間。</div>
-        </div>
+      <div style="background:#111;border:1px solid #222;border-radius:10px;padding:18px;font-size:0.82em;line-height:2;">
+        <div style="color:#555;font-size:0.72em;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;">設計說明</div>
+        <div><span style="color:#555;">Speaker</span> David Shapiro</div>
+        <div><span style="color:#555;">大標</span> <span style="color:#fff;font-weight:700;">AI越強</span> 你越重要</div>
+        <div><span style="color:#555;">主文</span> 人類創作力 <span style="color:#FFD700;font-weight:700;">無可取代</span></div>
+        <div><span style="color:#555;">副標</span> 換個角度看AI時代</div>
+        <div><span style="color:#555;">時長</span> 精華解析</div>
       </div>
-
-      <div class="bg-plan-item">
-        <div class="bg-plan-num">02</div>
-        <div class="bg-plan-body">
-          <div class="bg-plan-title">AI的超指數成長</div>
-          <div class="bg-plan-prompt">一個大型數據中心的內部，密密麻麻的高科技伺服器在不斷閃爍著微光，代表著數據的流動與運算。牆上略顯出被高科技氣息籠罩的背景，散發出一種未來感。但其中一個角落的光線稍微柔和，流露出一種非威脅的感覺。</div>
-        </div>
-      </div>
-
-      <div class="bg-plan-item">
-        <div class="bg-plan-num">03</div>
-        <div class="bg-plan-body">
-          <div class="bg-plan-title">人類獨有的創作力</div>
-          <div class="bg-plan-prompt">一個溫馨的家庭臥室，母親坐在床邊，溫柔地給小女孩講故事。夜燈投射出暖黃色光暈，讓人感到安心與親密。桌上還擺著一杯熱可可，蒸汽緩緩上升，強調人與人之間的情感連結。窗外月光柔和，給房間增添了一抹夢幻。</div>
-        </div>
-      </div>
-
-      <div class="bg-plan-item">
-        <div class="bg-plan-num">04</div>
-        <div class="bg-plan-body">
-          <div class="bg-plan-title">新時代的機會</div>
-          <div class="bg-plan-prompt">夜晚的咖啡店，一個疲憊但專注的男性獨自坐在角落，筆記型電腦螢幕映著他的臉，桌上放著一杯還冒著熱氣的咖啡。旁邊另一個場景：一個母親和小孩坐在家中地板上，手指沾著彩色黏土，兩人都笑著。整個畫面傳遞出一種終於有時間做自己想做的事的鬆了一口氣的溫度。</div>
-        </div>
-      </div>
-
-      <div class="bg-plan-item">
-        <div class="bg-plan-num">05</div>
-        <div class="bg-plan-body">
-          <div class="bg-plan-title">結語</div>
-          <div class="bg-plan-prompt">一位年長的男性坐在書桌前，筆記本電腦畫面映著他堅毅的眼神。窗外開始下起小雨，滴落在玻璃窗上的水珠模糊了城市的夜景，但屋內溫暖的燈光卻依舊不滅，象徵著無懼未知、勇敢表達的精神。</div>
-        </div>
-      </div>
-
     </div>
   </div>
-
-  <!-- ⑥ 影片播放器（Step 6 後加入） -->
-  <!-- TODO: 製作完成後填入影片播放器 -->
-
-  <!-- ⑦ YouTube 封面（Step 7 後加入） -->
-  <!-- TODO: 製作完成後填入最終封面 -->
 
   <!-- ⑧ 中文腳本 -->
   <div class="section">
@@ -191,15 +215,7 @@ footer a { color: #3a5a7a; }
     <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
   </div>
 
-  <!-- ⑧-b TTS 發音稿（Step 1 後加入） -->
-  <div class="section">
-    <div class="section-title">🔊 TTS 發音稿（TEXT_RULES 替換後）</div>
-    <div style="font-size:0.78em;color:#555;margin-bottom:10px;">TTS 實際唸的文字，與腳本對照確認發音替換</div>
-    <div class="script-block" id="ttsContent">載入中...</div>
-    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button>
-  </div>
-
-  <!-- ⑧-c SRT 字幕預覽（Step 1 後加入） -->
+  <!-- ⑧-c SRT 字幕預覽 -->
   <div class="section">
     <div class="section-title">📝 字幕內容（SRT）</div>
     <div class="srt-block" id="srtContent">載入中...</div>
@@ -210,17 +226,45 @@ footer a { color: #3a5a7a; }
     <div class="section-title">📁 素材檔案</div>
     <div class="files">
       <a href="script_zh.txt">✍️ 播客腳本</a>
+      <a href="subtitles.srt">✂️ 字幕 SRT</a>
       <a href="transcript_en.txt">🇺🇸 英文逐字稿</a>
       <a href="transcript_zh.txt">🇹🇼 中文翻譯</a>
-      <a href="thumb_A.jpg">🖼 封面 A</a>
-      <a href="thumb_B.jpg">🖼 封面 B</a>
-      <a href="thumb_A.jpg">🖼 封面 A（已選）</a>
-      <a href="thumb_C.jpg">🖼 封面 C</a>
+      <a href="youtube_meta.json">📋 YouTube 文案</a>
+      <a href="thumbnail.jpg" download>🖼 封面圖</a>
+      <a href="david_shapiro_stage.mp4">🎬 影片檔案</a>
     </div>
   </div>
 
-  <!-- ⑩ YouTube 發布設定（Step 7 後加入） -->
-  <!-- TODO: Step 7 完成後填入 -->
+  <!-- ⑩ YouTube 發布設定 -->
+  <div class="section">
+    <div class="section-title">📺 YouTube 發布設定</div>
+    <div class="yt-section">
+      <div class="yt-header">
+        <span class="yt-logo">▶</span>
+        <h2>愛播客 — YouTube 發布文案</h2>
+        <span class="yt-pill">⏳ 待審閱</span>
+      </div>
+      <div class="yt-field">
+        <label>影片標題</label>
+        <div class="val title-val" id="ytTitle">載入中...</div>
+      </div>
+      <div class="yt-field">
+        <label>影片描述</label>
+        <div class="val" id="ytDesc">載入中...</div>
+      </div>
+      <div class="yt-field">
+        <label>標籤</label>
+        <div class="yt-tags" id="ytTags"></div>
+      </div>
+      <div class="yt-field">
+        <label>類別 / 隱私</label>
+        <div class="val">科技與科學（Science & Technology）｜🔒 私人（審閱後改公開）</div>
+      </div>
+      <div class="yt-actions">
+        <button class="yt-btn primary" onclick="navigator.clipboard.writeText(document.getElementById('ytDesc').innerText)">📋 複製描述</button>
+      </div>
+    </div>
+  </div>
 
   <footer>
     94iVoice Stage Preview ·
@@ -231,17 +275,9 @@ footer a { color: #3a5a7a; }
 
 <script>
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
-  document.getElementById('scriptContent').textContent = t;
-}).catch(()=>{ document.getElementById('scriptContent').textContent = '（載入失敗）'; });
+  document.getElementById('scriptContent').textContent=t;
+}).catch(()=>{document.getElementById('scriptContent').textContent='（載入失敗）';});
 
-const d = new Date(document.lastModified);
-const ts = isNaN(d) ? '—' : d.toLocaleString('zh-TW');
-if(document.getElementById('page-updated')) document.getElementById('page-updated').textContent = ts;
-if(document.getElementById('footer-updated')) document.getElementById('footer-updated').textContent = ts;
-
-fetch('script_tts.txt').then(r=>r.text()).then(t=>{
-  document.getElementById('ttsContent').textContent=t;
-}).catch(()=>{document.getElementById('ttsContent').textContent='（載入失敗）';});
 fetch('subtitles.srt').then(r=>r.text()).then(t=>{
   const lines=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').split('\n');
   const html=lines.map(line=>{
@@ -252,6 +288,21 @@ fetch('subtitles.srt').then(r=>r.text()).then(t=>{
   }).join('\n');
   document.getElementById('srtContent').innerHTML=html;
 }).catch(()=>{document.getElementById('srtContent').textContent='（載入失敗）';});
+
+fetch('youtube_meta.json').then(r=>r.json()).then(m=>{
+  document.getElementById('ytTitle').textContent=m.title||'—';
+  document.getElementById('ytDesc').textContent=m.description||'—';
+  const tags=(m.tags||[]).map(t=>`<span class="yt-tag">${t}</span>`).join('');
+  document.getElementById('ytTags').innerHTML=tags;
+}).catch(()=>{
+  document.getElementById('ytTitle').textContent='（載入失敗）';
+  document.getElementById('ytDesc').textContent='（載入失敗）';
+});
+
+const d=new Date(document.lastModified);
+const ts=isNaN(d)?'—':d.toLocaleString('zh-TW');
+if(document.getElementById('page-updated')) document.getElementById('page-updated').textContent=ts;
+if(document.getElementById('footer-updated')) document.getElementById('footer-updated').textContent=ts;
 </script>
 </body>
 </html>
