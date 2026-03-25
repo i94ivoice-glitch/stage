@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⏳ Northwood Space · Stage 草稿 — 94iVoice</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
+.container { max-width: 960px; margin: 0 auto; }
+h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+.badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+.badge.stage { background: #e63946; color: white; }
+.section { margin: 32px 0; }
+.section-title { font-size: 0.75em; color: #666; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+.notice { background: #1a1400; border: 1px solid #3a2a00; border-radius: 10px; padding: 16px 20px; font-size: 0.88em; color: #d4a017; line-height: 1.7; }
+.chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+.video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 18px; }
+.source-card a { color: #4ea8de; text-decoration: none; font-size: 0.95em; font-weight: 500; }
+.source-card a:hover { text-decoration: underline; }
+
+/* 封面提案 */
+.thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 700px) { .thumb-grid { grid-template-columns: 1fr; } }
+.thumb-proposal { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+.thumb-proposal img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #1e1e1e; }
+.proposal-label { font-size: 0.7em; font-weight: 700; letter-spacing: 1.5px; color: #111; background: #FFD700; padding: 4px 12px; display: inline-block; margin: 10px 12px 4px; border-radius: 4px; }
+.proposal-title { padding: 2px 12px 2px; font-size: 0.88em; color: #fff; font-weight: 600; }
+.proposal-desc { padding: 2px 12px 12px; font-size: 0.75em; color: #888; }
+
+/* Speaker 照片 */
+.speaker-box { display: flex; align-items: flex-start; gap: 20px; background: #141414; border: 1px solid #222; border-radius: 10px; padding: 18px; }
+.speaker-box img { width: 120px; border-radius: 8px; object-fit: cover; }
+.speaker-info { flex: 1; font-size: 0.88em; line-height: 1.8; color: #ccc; }
+.speaker-name { font-size: 1.1em; font-weight: 700; color: #fff; margin-bottom: 4px; }
+
+/* 腳本 */
+.script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 600px; overflow-y: auto; }
+.copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+
+/* 檔案 */
+.files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+.files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
+.files a:hover { background: #1e1e1e; }
+
+/* footer */
+.footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #1a1a1a; font-size: 0.76em; color: #444; text-align: center; }
+.footer a { color: #3a5a7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 返回 -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px;">
+    <a href="../" style="color:#ccc;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#1e1e1e;border:1px solid #444;border-radius:6px;">← Stage 索引</a>
+    <span style="font-size:0.75em;color:#aaa;">更新：<span id="page-updated"></span></span>
+  </div>
+
+  <h1>迪士尼演員去做太空公司 <span class="badge stage">⏳ 腳本草稿</span></h1>
+
+  <!-- 審閱提示 -->
+  <div class="section">
+    <div class="notice">
+      ⚠️ <strong>Step 0 審閱中</strong>：請確認腳本內容 + 選擇封面文案版本（A / B / C）。<br>
+      確認後告知 Javis，再啟動 TTS 合成與影片製作。
+    </div>
+  </div>
+
+  <!-- 原始影片 -->
+  <div class="section">
+    <div class="section-title">📺 原始影片來源</div>
+    <div class="source-card">
+      <a href="https://youtu.be/jHECsr9GCs8" target="_blank">▶ Why Every Satellite Needs Earth | Northwood CEO on a16z</a>
+      <div class="video-meta" style="margin-top:10px;">
+        <span class="chip">⏱ 40:54</span>
+        <span class="chip">🎙 Bridgit Mendler</span>
+        <span class="chip">📡 a16z</span>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="transcript_en.txt" style="color:#4ea8de;font-size:0.82em;">📄 英文逐字稿</a>
+        <a href="transcript_zh.txt" style="color:#4ea8de;font-size:0.82em;">📄 繁中翻譯</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Speaker 照片 -->
+  <div class="section">
+    <div class="section-title">🧑 Speaker</div>
+    <div class="speaker-box">
+      <img src="speaker.jpg" alt="Bridgit Mendler">
+      <div class="speaker-info">
+        <div class="speaker-name">Bridgit Mendler</div>
+        <div>Northwood Space · 共同創辦人兼 CEO</div>
+        <div style="color:#666;margin-top:4px;">迪士尼演員出身（Good Luck Charlie）→ MIT 法學博士 → 太空科技創業家</div>
+        <div style="color:#666;">與先生共同創辦 Northwood，獲得 $5,000 萬美元太空部隊合約</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 封面文案提案 -->
+  <div class="section">
+    <div class="section-title">🖼 YouTube 封面文案提案</div>
+    <div style="font-size:0.82em;color:#666;margin-bottom:16px;">三版設計方向供選擇，告知 A / B / C（封面圖製作後補上）</div>
+    <div class="thumb-grid">
+
+      <div class="thumb-proposal">
+        <div style="width:100%;aspect-ratio:16/9;background:#1a1a2e;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:16px;text-align:center;">
+          <div style="font-size:1.3em;font-weight:900;color:#fff;line-height:1.3;">從三年到三個月</div>
+          <div style="font-size:0.8em;color:#aaa;margin-top:6px;">衛星地面站部署的革命</div>
+        </div>
+        <div class="proposal-label">提案 A</div>
+        <div class="proposal-title">從三年到三個月</div>
+        <div class="proposal-desc">數字衝擊 · 衛星地面站部署的革命</div>
+      </div>
+
+      <div class="thumb-proposal">
+        <div style="width:100%;aspect-ratio:16/9;background:#0d1a0d;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:16px;text-align:center;">
+          <div style="font-size:1.2em;font-weight:900;color:#fff;line-height:1.3;">沒有地面站<br>衛星就是石頭</div>
+          <div style="font-size:0.8em;color:#aaa;margin-top:6px;">迪士尼演員揭露太空最大秘密</div>
+        </div>
+        <div class="proposal-label">提案 B</div>
+        <div class="proposal-title">沒有地面站，衛星就是石頭</div>
+        <div class="proposal-desc">反直覺 · 迪士尼演員揭露太空最大秘密</div>
+      </div>
+
+      <div class="thumb-proposal">
+        <div style="width:100%;aspect-ratio:16/9;background:#1a0d1a;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:16px;text-align:center;">
+          <div style="font-size:1.1em;font-weight:900;color:#fff;line-height:1.3;">迪士尼童星<br>怎麼跑去做太空公司</div>
+          <div style="font-size:0.8em;color:#aaa;margin-top:6px;">Bridgit Mendler 的轉型故事</div>
+        </div>
+        <div class="proposal-label">提案 C</div>
+        <div class="proposal-title">迪士尼童星怎麼跑去做太空公司</div>
+        <div class="proposal-desc">人物故事 · Bridgit Mendler 的轉型</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 腳本 -->
+  <div class="section">
+    <div class="section-title">✍️ 中文腳本（草稿）</div>
+    <div class="script-block" id="scriptContent">載入中...</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button>
+    <div style="margin-top:8px;font-size:0.78em;color:#555;">預估時長：約 7-8 分鐘 · 中文字數約 1,500 字</div>
+  </div>
+
+  <!-- 素材檔案 -->
+  <div class="section">
+    <div class="section-title">📁 素材檔案</div>
+    <div class="files">
+      <a href="script_zh.txt">✍️ 播客腳本</a>
+      <a href="transcript_en.txt">📄 英文逐字稿</a>
+      <a href="transcript_zh.txt">📄 繁中翻譯</a>
+      <a href="speaker.jpg">🖼 Speaker 照片</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    94iVoice Stage Preview ·
+    原始影片：<a href="https://youtu.be/jHECsr9GCs8" target="_blank">Why Every Satellite Needs Earth — a16z</a> ·
+    更新：<span id="footer-updated"></span>
+  </div>
+</div>
+
+<script>
+// 更新時間
+const lm = new Date(document.lastModified);
+const ts = isNaN(lm) ? '—' : lm.toLocaleString('zh-TW');
+document.getElementById('page-updated').textContent = ts;
+document.getElementById('footer-updated').textContent = ts;
+
+// 載入腳本
+fetch('script_zh.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('scriptContent').textContent = t;
+}).catch(()=>{
+  document.getElementById('scriptContent').textContent = '（腳本載入失敗）';
+});
+</script>
+</body>
+</html>
