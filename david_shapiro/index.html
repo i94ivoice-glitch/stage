@@ -47,6 +47,10 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 .copy-btn:hover { background: #2a2a2a; }
 footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #1a1a1a; font-size: 0.75em; color: #555; text-align: center; }
 footer a { color: #3a5a7a; }
+.srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
+.srt-block .srt-num  { color: #444; }
+.srt-block .srt-time { color: #5a7a9a; }
+.srt-block .srt-text { color: #eee; }
 </style>
 </head>
 <body>
@@ -59,7 +63,7 @@ footer a { color: #3a5a7a; }
   </div>
 
   <!-- ① 頁首 -->
-  <h1>David Shapiro — AI越強，人類剩下的才是核心 <span class="badge draft">⏳ 草稿審閱中</span></h1>
+  <h1>David Shapiro — AI越強，人類剩下的才是核心 <span class="badge making">🔨 製作中</span></h1>
 
   <!-- ② 審閱提示 -->
   <div class="notice">
@@ -188,10 +192,18 @@ footer a { color: #3a5a7a; }
   </div>
 
   <!-- ⑧-b TTS 發音稿（Step 1 後加入） -->
-  <!-- TODO: TTS 完成後填入 -->
+  <div class="section">
+    <div class="section-title">🔊 TTS 發音稿（TEXT_RULES 替換後）</div>
+    <div style="font-size:0.78em;color:#555;margin-bottom:10px;">TTS 實際唸的文字，與腳本對照確認發音替換</div>
+    <div class="script-block" id="ttsContent">載入中...</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button>
+  </div>
 
   <!-- ⑧-c SRT 字幕預覽（Step 1 後加入） -->
-  <!-- TODO: TTS 完成後填入 -->
+  <div class="section">
+    <div class="section-title">📝 字幕內容（SRT）</div>
+    <div class="srt-block" id="srtContent">載入中...</div>
+  </div>
 
   <!-- ⑨ 素材檔案 -->
   <div class="section">
@@ -226,6 +238,20 @@ const d = new Date(document.lastModified);
 const ts = isNaN(d) ? '—' : d.toLocaleString('zh-TW');
 if(document.getElementById('page-updated')) document.getElementById('page-updated').textContent = ts;
 if(document.getElementById('footer-updated')) document.getElementById('footer-updated').textContent = ts;
+
+fetch('script_tts.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('ttsContent').textContent=t;
+}).catch(()=>{document.getElementById('ttsContent').textContent='（載入失敗）';});
+fetch('subtitles.srt').then(r=>r.text()).then(t=>{
+  const lines=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').split('\n');
+  const html=lines.map(line=>{
+    if(/^\d+$/.test(line.trim())) return `<span class="srt-num">${line}</span>`;
+    if(/^\d{2}:\d{2}:\d{2},\d{3} --> /.test(line)) return `<span class="srt-time">${line}</span>`;
+    if(line.trim()==='') return '';
+    return `<span class="srt-text">${line}</span>`;
+  }).join('\n');
+  document.getElementById('srtContent').innerHTML=html;
+}).catch(()=>{document.getElementById('srtContent').textContent='（載入失敗）';});
 </script>
 </body>
 </html>
