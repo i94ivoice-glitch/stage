@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【草稿審閱】David Shapiro — 2年內全部結束 | 94iVoice Stage</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
+.container { max-width: 960px; margin: 0 auto; }
+a { color: #4ea8de; }
+h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+.badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+.badge.draft { background: #9333ea; color: white; }
+.section { margin: 32px 0; }
+.section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+.notice { background: #1a1200; border: 1px solid #3a3000; border-radius: 10px; padding: 16px 20px; font-size: 0.88em; color: #d4a017; margin-bottom: 24px; line-height: 1.8; }
+.notice strong { color: #ffd700; }
+.source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; }
+.source-thumb { width: 140px; flex-shrink: 0; border-radius: 8px; overflow: hidden; }
+.source-thumb img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.source-info h3 { margin: 0 0 6px; font-size: 0.95em; color: #fff; }
+.source-meta { font-size: 0.78em; color: #888; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+
+/* 封面提案 */
+.thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 700px) { .thumb-grid { grid-template-columns: 1fr; } }
+.thumb-proposal { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+.thumb-proposal img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.proposal-label { font-size: 0.7em; font-weight: 700; letter-spacing: 1.5px; color: #111; background: #FFD700; padding: 4px 12px; display: inline-block; margin: 10px 12px 4px; border-radius: 4px; }
+.proposal-desc { padding: 0 12px 12px; font-size: 0.75em; color: #888; }
+
+/* 背景圖場景描述 */
+.bg-plan-grid { display: flex; flex-direction: column; gap: 12px; }
+.bg-plan-item { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px 18px; display: flex; gap: 16px; align-items: flex-start; }
+.bg-plan-num { font-size: 0.68em; font-weight: 700; letter-spacing: 1.2px; color: #555; min-width: 36px; padding-top: 2px; text-transform: uppercase; }
+.bg-plan-body { flex: 1; }
+.bg-plan-title { font-size: 0.88em; color: #ddd; font-weight: 600; margin-bottom: 6px; }
+.bg-plan-prompt { font-size: 0.78em; color: #888; line-height: 1.7; font-family: monospace; background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 6px; padding: 8px 12px; white-space: pre-wrap; }
+.bg-plan-notice { margin-top: 16px; padding: 12px 16px; background: #1a1a0d; border: 1px solid #333320; border-radius: 8px; font-size: 0.82em; color: #aaa; }
+
+/* 腳本 */
+.script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 600px; overflow-y: auto; }
+.copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+.copy-btn:hover { background: #2a2a2a; }
+
+/* 素材 */
+.files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+.files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
+.files a:hover { background: #1e1e1e; }
+
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #1a1a1a; font-size: 0.75em; color: #333; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ⓪ 返回索引 -->
+  <div style="margin-bottom:16px;">
+    <a href="../" style="font-size:0.82em;color:#555;text-decoration:none;">← 返回 Stage 索引</a>
+  </div>
+
+  <!-- ① 頁首 + Badge -->
+  <h1>David Shapiro — 2年內全部結束 <span class="badge draft">⏳ 腳本草稿</span></h1>
+
+  <!-- ② 審閱提示 -->
+  <div class="notice">
+    <strong>📋 草稿審閱</strong><br>
+    請確認以下三件事，確認後我開始製作：<br>
+    1️⃣ <strong>腳本方向</strong> — 內容 OK？有需要修改的地方嗎？<br>
+    2️⃣ <strong>封面文案</strong> — 選擇 A / B / C 哪個版本？<br>
+    3️⃣ <strong>背景圖生成方式</strong> — (D) DALL-E 3 自動生成 / (G) Google Imagen 4 生成
+  </div>
+
+  <!-- ③ 原始影片來源 -->
+  <div class="section">
+    <div class="section-title">📺 來源影片</div>
+    <div class="source-card">
+      <div class="source-thumb">
+        <a href="https://youtu.be/l_B3dg97dSM" target="_blank">
+          <img src="https://img.youtube.com/vi/l_B3dg97dSM/mqdefault.jpg" alt="thumbnail">
+        </a>
+      </div>
+      <div class="source-info">
+        <h3><a href="https://youtu.be/l_B3dg97dSM" target="_blank">It's all over in 2 years</a></h3>
+        <div class="source-meta">
+          <span class="chip">👤 David Shapiro</span>
+          <span class="chip">⏱ 9:28</span>
+          <span class="chip">🌐 English</span>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="transcript_en.txt" style="font-size:0.78em;">📄 英文逐字稿</a>
+          <a href="transcript_zh.txt" style="font-size:0.78em;">📄 中文翻譯</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ 封面提案 A/B/C -->
+  <div class="section">
+    <div class="section-title">🖼 YouTube 封面提案</div>
+    <div style="font-size:0.82em;color:#666;margin-bottom:16px;">三版封面設計供參考，回覆選擇 A / B / C</div>
+    <div class="thumb-grid">
+      <div class="thumb-proposal">
+        <div class="proposal-label">提案 A</div>
+        <img src="thumb_A.jpg" alt="封面提案 A">
+        <div class="proposal-desc">「我們剩下 2年」— 衝擊數字直打，AI時代最後的貢獻</div>
+      </div>
+      <div class="thumb-proposal">
+        <div class="proposal-label">提案 B</div>
+        <img src="thumb_B.jpg" alt="封面提案 B">
+        <div class="proposal-desc">「AI 2年後超越人類」— 超指數成長視角，你準備好了嗎</div>
+      </div>
+      <div class="thumb-proposal">
+        <div class="proposal-label">提案 C</div>
+        <img src="thumb_C.jpg" alt="封面提案 C">
+        <div class="proposal-desc">「Vesperance 時代末感」— 情感視角，一個時代正在結束</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ 背景圖場景描述確認 -->
+  <div class="section">
+    <div class="section-title">🎨 背景圖場景描述（Imagen 4）</div>
+    <div style="font-size:0.82em;color:#666;margin-bottom:16px;">確認場景描述後告知「確認」，再選 D/G 開始生成背景圖</div>
+    <div class="bg-plan-grid">
+
+      <div class="bg-plan-item">
+        <div class="bg-plan-num">00</div>
+        <div class="bg-plan-body">
+          <div class="bg-plan-title">開場</div>
+          <div class="bg-plan-prompt">A photorealistic, cinematic wide-angle shot of a contemplative writer seated at a sleek office desk, bathed in cool blue-white LED lighting, surrounded by books and notes, pondering the implications of the last contributions, with a high-tech cityscape visible through the large window behind.</div>
+        </div>
+      </div>
+
+      <div class="bg-plan-item">
+        <div class="bg-plan-num">01</div>
+        <div class="bg-plan-body">
+          <div class="bg-plan-title">什麼是 Vesperance</div>
+          <div class="bg-plan-prompt">A photorealistic, cinematic wide-angle scene of a person standing on the edge of a dramatic, futuristic urban landscape, illuminated by cool white fluorescent lights. They appear deep in thought, gazing at the skyline representing rapid change, evoking feelings of nostalgia and transformation.</div>
+        </div>
+      </div>
+
+      <div class="bg-plan-item">
+        <div class="bg-plan-num">02</div>
+        <div class="bg-plan-body">
+          <div class="bg-plan-title">AI的超指數成長</div>
+          <div class="bg-plan-prompt">A photorealistic, cinematic wide-angle visualization of a massive, state-of-the-art data center filled with powerful GPUs, under cool white LED lighting, representing the scale of AI development akin to historical projects like Apollo and Manhattan, showcasing a bustling, humming hub of digital progress.</div>
+        </div>
+      </div>
+
+      <div class="bg-plan-item">
+        <div class="bg-plan-num">03</div>
+        <div class="bg-plan-body">
+          <div class="bg-plan-title">認知過剩時代</div>
+          <div class="bg-plan-prompt">A photorealistic, cinematic wide-angle image depicting a busy, futuristic office space filled with young professionals experiencing cognitive overload; the space is illuminated with cool white light and features holographic displays of rapidly changing information and data.</div>
+        </div>
+      </div>
+
+      <div class="bg-plan-item">
+        <div class="bg-plan-num">04</div>
+        <div class="bg-plan-body">
+          <div class="bg-plan-title">我們能做什麼</div>
+          <div class="bg-plan-prompt">A photorealistic, cinematic wide-angle shot of a creative individual surrounded by towering bookshelves in an expansive, modern library bathed in blue-white fluorescents, exploring limitless possibilities of storytelling; the air is filled with digital words and numbers signifying infinite creative potential.</div>
+        </div>
+      </div>
+
+      <div class="bg-plan-item">
+        <div class="bg-plan-num">05</div>
+        <div class="bg-plan-body">
+          <div class="bg-plan-title">結語</div>
+          <div class="bg-plan-prompt">A photorealistic, cinematic wide-angle view of a serene individual standing on a bridge overlooking a futuristic city under cool blue-white lighting, symbolizing the onset of a new industrial revolution, with a sense of direction and stability amidst the grandeur of technological advancement.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-plan-notice">⚠️ 確認場景描述後，告知選擇背景圖生成方式：<strong>(D) DALL-E 3</strong> 自動生成 / <strong>(G) Google Imagen 4</strong> 腳本生成</div>
+  </div>
+
+  <!-- ⑥ 中文腳本 -->
+  <div class="section">
+    <div class="section-title">📝 播客腳本（草稿）</div>
+    <div class="script-block" id="script-block">載入中…</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('script-block').textContent)">📋 複製腳本</button>
+  </div>
+
+  <!-- ⑦ 素材檔案 -->
+  <div class="section">
+    <div class="section-title">📁 素材檔案</div>
+    <div class="files">
+      <a href="script_clean.txt">📝 播客腳本</a>
+      <a href="transcript_en.txt">🇺🇸 英文逐字稿</a>
+      <a href="transcript_zh.txt">🇹🇼 中文翻譯</a>
+      <a href="thumb_A.jpg">🖼 封面 A</a>
+      <a href="thumb_B.jpg">🖼 封面 B</a>
+      <a href="thumb_C.jpg">🖼 封面 C</a>
+    </div>
+  </div>
+
+  <footer>
+    94iVoice Stage · <span id="updated"></span>
+  </footer>
+</div>
+
+<script>
+fetch('script_clean.txt').then(r=>r.text()).then(t=>{
+  document.getElementById('script-block').textContent = t;
+}).catch(()=>{
+  document.getElementById('script-block').textContent = '（無法載入腳本）';
+});
+document.getElementById('updated').textContent = '更新時間：' + document.lastModified;
+</script>
+</body>
+</html>
