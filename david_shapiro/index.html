@@ -198,7 +198,7 @@ footer a { color: #3a5a7a; }
 <div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
   <a href="david_shapiro_stage.mp4">🎬 Stage 影片</a>
   <a href="thumbnail.jpg">🖼 YouTube 封面</a>
-  <a href="script_zh.txt">✍️ 中文腳本</a>
+  <a href="script_clean.txt">✍️ 中文腳本</a>
   <a href="script_tts.txt">🔊 TTS 發音稿</a>
   <a href="subtitles.srt">💬 SRT 字幕</a>
   <a href="transcript_en.txt">📄 英文逐字稿</a>
@@ -233,7 +233,7 @@ footer a { color: #3a5a7a; }
 <script>
 const lm = new Date(document.lastModified);
 document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toLocaleString('zh-TW');
-fetch('script_zh.txt').then(r=>r.text()).then(t=>{
+fetch('script_clean.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{ document.getElementById('scriptContent').textContent = '（尚未產生）'; });
 const ttsEl = document.getElementById('ttsContent');
