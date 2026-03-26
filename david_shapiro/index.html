@@ -159,7 +159,7 @@ footer a { color: #3a5a7a; }
     <span class="chip">📺 1920×1080 · 30fps</span>
   </div>
 </div>
-<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div>
+<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
 <div class="section"><div class="section-title">💬 SRT 字幕預覽</div><div class="srt-block" id="srtContent">載入中...</div></div>
 <div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
   <a href="david_shapiro_stage.mp4">🎬 Stage 影片</a>
@@ -202,6 +202,8 @@ document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toL
 fetch('script_zh.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{ document.getElementById('scriptContent').textContent = '（尚未產生）'; });
+const ttsEl = document.getElementById('ttsContent');
+if (ttsEl) fetch('script_tts.txt').then(r=>r.text()).then(t=>{ ttsEl.textContent = t; }).catch(()=>{ ttsEl.textContent = '（尚未產生）'; });
 const srtEl = document.getElementById('srtContent');
 if (srtEl) fetch('subtitles.srt').then(r=>r.text()).then(t=>{ srtEl.textContent = t; }).catch(()=>{});
 </script>
