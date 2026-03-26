@@ -54,6 +54,15 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 .chapter-bg-card { background: #141414; border: 1px solid #1e1e1e; border-radius: 8px; overflow: hidden; }
 .chapter-bg-card:hover { border-color: #444; }
 .chapter-bg-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.chapter-bg-placeholder { width: 100%; aspect-ratio: 16/9; background: #1a1a1a; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #444; font-size: 0.75em; text-align: center; padding: 10px; box-sizing: border-box; }
+.chapter-bg-placeholder .ph-icon { font-size: 1.6em; }
+.chapter-bg-placeholder .ph-label { color: #555; font-size: 0.85em; line-height: 1.4; }
+.chapter-bg-card.pending { border-color: #2a2a00; border-style: dashed; }
+.chapter-bg-card.reuse-note { border-color: #1a2a1a; }
+.bg-badge { display: inline-block; font-size: 0.6em; padding: 1px 6px; border-radius: 3px; margin-left: 4px; font-weight: 700; vertical-align: middle; }
+.bg-badge.new    { background: #2a1a00; color: #f4a261; }
+.bg-badge.reuse  { background: #1a2a1a; color: #4ade80; }
+.bg-badge.update { background: #1a1a2a; color: #60a5fa; }
 .chapter-bg-info { padding: 8px 10px; }
 .chapter-bg-label { font-size: 0.65em; font-weight: 700; color: #555; letter-spacing: 0.8px; }
 .chapter-bg-scene { font-size: 0.75em; color: #888; margin-top: 3px; line-height: 1.4; }
@@ -108,39 +117,42 @@ footer a { color: #3a5a7a; }
   <div class="section-title">🖼 章節背景圖</div>
   <div class="chapter-groups">
     <div class="chapter-group">
-      <div class="chapter-group-header"><span class="chapter-group-num">00</span><span class="chapter-group-name">開場</span><span class="chapter-group-time">0:00 → 0:28</span></div>
+      <div class="chapter-group-header"><span class="chapter-group-num">00</span><span class="chapter-group-name">開場</span><span class="chapter-group-time">0:00 → 0:28</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ 網路上不缺乏販賣 AI 焦慮的影片</div></div>
       <div class="chapter-bg-row">
-        <div class="chapter-bg-card"><img src="bg_00_開場.png" loading="lazy" alt="開場"><div class="chapter-bg-info"><div class="chapter-bg-label">00 · 0:00 → 0:28</div><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:4px;">▶ 網路上不缺乏販賣 AI 焦慮的影片</div></div></div>
+        <div class="chapter-bg-card"><img src="bg_00_開場.png" loading="lazy" alt="bg_00_開場.png"><div class="chapter-bg-info"><div class="chapter-bg-label">bg_00_開場.png <span class="bg-badge update">重生</span></div><div class="chapter-bg-scene">現代辦公室走廊，一個人站在玻璃窗前俯視城市，背光剪影，黃昏金光從窗外透入</div></div></div>
       </div>
     </div>
     <div class="chapter-group">
-      <div class="chapter-group-header"><span class="chapter-group-num">01</span><span class="chapter-group-name">什麼是_Vesperance</span><span class="chapter-group-time">0:28 → 2:02</span></div>
+      <div class="chapter-group-header"><span class="chapter-group-num">01</span><span class="chapter-group-name">什麼是_Vesperance</span><span class="chapter-group-time">0:28 → 2:02</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ David 開場介紹了一個新詞 Vesperance</div></div>
       <div class="chapter-bg-row">
-        <div class="chapter-bg-card"><img src="bg_01_什麼是_Vesperance.png" loading="lazy" alt="什麼是_Vesperance"><div class="chapter-bg-info"><div class="chapter-bg-label">00 · 0:28 → 2:02</div><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:4px;">▶ David 開場介紹了一個新詞 Vesperance</div></div></div>
+        <div class="chapter-bg-card reuse-note"><img src="bg_01_什麼是_Vesperance.png" loading="lazy" alt="bg_01_什麼是_Vesperance.png"><div class="chapter-bg-info"><div class="chapter-bg-label">bg_01_什麼是_Vesperance.png <span class="bg-badge reuse">沿用</span></div><div class="chapter-bg-scene">台灣夜市小巷，一間傳統小吃攤燈光昏黃，鐵捲門拉到一半，手寫停業告示貼在上面，行人駐足</div></div></div>
+        <div class="chapter-bg-card pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">辦公大樓大廳，一個人拎著紙箱走向玻璃門出口，保全在旁邊，其他同事在背景繼續工作，傍晚暖光</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">bg_01b_離職.png <span class="bg-badge new">待生成</span></div></div></div>
       </div>
     </div>
     <div class="chapter-group">
-      <div class="chapter-group-header"><span class="chapter-group-num">02</span><span class="chapter-group-name">AI的超指數成長</span><span class="chapter-group-time">2:02 → 2:44</span></div>
+      <div class="chapter-group-header"><span class="chapter-group-num">02</span><span class="chapter-group-name">AI的超指數成長</span><span class="chapter-group-time">2:02 → 2:44</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ 講完情緒 David 轉向數據</div></div>
       <div class="chapter-bg-row">
-        <div class="chapter-bg-card"><img src="bg_02_AI的超指數成長.png" loading="lazy" alt="AI的超指數成長"><div class="chapter-bg-info"><div class="chapter-bg-label">00 · 2:02 → 2:44</div><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:4px;">▶ 講完情緒 David 轉向數據</div></div></div>
+        <div class="chapter-bg-card reuse-note"><img src="bg_02_AI的超指數成長.png" loading="lazy" alt="bg_02_AI的超指數成長.png"><div class="chapter-bg-info"><div class="chapter-bg-label">bg_02_AI的超指數成長.png <span class="bg-badge reuse">沿用</span></div><div class="chapter-bg-scene">超大型資料中心機房，無盡機架延伸至遠方，藍白指示燈閃爍，冷光走廊，低角度廣角</div></div></div>
       </div>
     </div>
     <div class="chapter-group">
-      <div class="chapter-group-header"><span class="chapter-group-num">03</span><span class="chapter-group-name">人類獨有的創作力</span><span class="chapter-group-time">2:44 → 3:58</span></div>
+      <div class="chapter-group-header"><span class="chapter-group-num">03</span><span class="chapter-group-name">人類獨有的創作力</span><span class="chapter-group-time">2:44 → 3:58</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ David 提到一個迷人的數字</div></div>
       <div class="chapter-bg-row">
-        <div class="chapter-bg-card"><img src="bg_03_人類獨有的創作力.png" loading="lazy" alt="人類獨有的創作力"><div class="chapter-bg-info"><div class="chapter-bg-label">00 · 2:44 → 3:58</div><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:4px;">▶ David 提到一個迷人的數字</div></div></div>
+        <div class="chapter-bg-card reuse-note"><img src="bg_03_人類獨有的創作力.png" loading="lazy" alt="bg_03_人類獨有的創作力.png"><div class="chapter-bg-info"><div class="chapter-bg-label">bg_03_人類獨有的創作力.png <span class="bg-badge reuse">沿用</span></div><div class="chapter-bg-scene">昏黃臥室，媽媽坐在小床邊，孩子蓋著棉被仰頭聆聽，床頭燈散發柔和橘光，窗外月光</div></div></div>
+        <div class="chapter-bg-card pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">台灣傳統廟宇廣場，老伯伯坐在榕樹下泡茶，孫子在旁邊玩耍，夕陽金光斜射，香火煙霧飄散</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">bg_03b_廟宇.png <span class="bg-badge new">待生成</span></div></div></div>
       </div>
     </div>
     <div class="chapter-group">
-      <div class="chapter-group-header"><span class="chapter-group-num">04</span><span class="chapter-group-name">新時代的機會</span><span class="chapter-group-time">3:58 → 5:23</span></div>
+      <div class="chapter-group-header"><span class="chapter-group-num">04</span><span class="chapter-group-name">新時代的機會</span><span class="chapter-group-time">3:58 → 5:23</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ AI 正在幫人類扛掉大量重複的腦力工作</div></div>
       <div class="chapter-bg-row">
-        <div class="chapter-bg-card"><img src="bg_04_新時代的機會.png" loading="lazy" alt="新時代的機會"><div class="chapter-bg-info"><div class="chapter-bg-label">00 · 3:58 → 5:23</div><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:4px;">▶ AI 正在幫人類扛掉大量重複的腦力工作</div></div></div>
+        <div class="chapter-bg-card reuse-note"><img src="bg_04_新時代的機會.png" loading="lazy" alt="bg_04_新時代的機會.png"><div class="chapter-bg-info"><div class="chapter-bg-label">bg_04_新時代的機會.png <span class="bg-badge reuse">沿用</span></div><div class="chapter-bg-scene">深夜咖啡廳角落，一個男人對著筆電螢幕專注打字，桌上一杯冒煙咖啡，窗外城市燈光模糊</div></div></div>
+        <div class="chapter-bg-card pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">寬敞客廳地板，媽媽和孩子席地而坐，桌上散落剪紙和黏土，兩人手指沾滿顏料，陽光從落地窗灑入</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">bg_04b_黏土.png <span class="bg-badge new">待生成</span></div></div></div>
       </div>
     </div>
     <div class="chapter-group">
-      <div class="chapter-group-header"><span class="chapter-group-num">05</span><span class="chapter-group-name">結語</span><span class="chapter-group-time">5:23 → 5:46</span></div>
+      <div class="chapter-group-header"><span class="chapter-group-num">05</span><span class="chapter-group-name">結語</span><span class="chapter-group-time">5:23 → 5:46</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ David 說了一件事</div></div>
       <div class="chapter-bg-row">
-        <div class="chapter-bg-card"><img src="bg_05_結語.png" loading="lazy" alt="結語"><div class="chapter-bg-info"><div class="chapter-bg-label">00 · 5:23 → 5:46</div><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:4px;">▶ David 說了一件事</div></div></div>
+        <div class="chapter-bg-card reuse-note"><img src="bg_05_結語.png" loading="lazy" alt="bg_05_結語.png"><div class="chapter-bg-info"><div class="chapter-bg-label">bg_05_結語.png <span class="bg-badge reuse">沿用</span></div><div class="chapter-bg-scene">書房夜晚，一個男人坐在桌前對著筆電，螢幕光映在堅定的眼神上，窗外細雨，室內檯燈暖光穩定</div></div></div>
       </div>
     </div>
   </div>
