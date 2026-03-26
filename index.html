@@ -24,12 +24,14 @@
     .card .title { font-size: .92rem; font-weight: 700; color: #fff; line-height: 1.4; }
     .card .desc  { font-size: .8rem; color: #7a8aaa; line-height: 1.6; flex: 1; min-height: 3.84em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
     .card-footer { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 8px; flex-wrap: wrap; }
-    .tag  { display: inline-block; padding: 2px 9px; border-radius: 12px; font-size: .7rem; }
-    .tag.stage  { background: rgba(230,57,70,0.15); border: 1px solid rgba(230,57,70,0.4); color: #e63946; }
+    .tag { display: inline-block; padding: 2px 9px; border-radius: 12px; font-size: .7rem; }
+    .tag.draft   { background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.4); color: #a855f7; }
+    .tag.making  { background: rgba(99,179,237,0.15); border: 1px solid rgba(99,179,237,0.4); color: #63b3ed; }
+    .tag.stage   { background: rgba(230,57,70,0.15);  border: 1px solid rgba(230,57,70,0.4);  color: #e63946; }
     .tag.private { background: rgba(244,162,97,0.15); border: 1px solid rgba(244,162,97,0.4); color: #f4a261; }
-    .tag.live   { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4); color: #22c55e; }
-    .tag.wip    { background: rgba(100,100,100,0.15); border: 1px solid #333; color: #666; }
-    .tag.blue   { background: rgba(99,179,237,0.12); border: 1px solid rgba(99,179,237,0.3); color: #63b3ed; }
+    .tag.live    { background: rgba(34,197,94,0.15);  border: 1px solid rgba(34,197,94,0.4);  color: #22c55e; }
+    .tag.wip     { background: rgba(100,100,100,0.15); border: 1px solid #333; color: #666; }
+    .yt-link { font-size:.7rem; color:#4ea8de; cursor:pointer; }
     .dur { font-size: .72rem; color: #555; margin-left: auto; }
 
     footer { text-align: center; margin-top: 56px; font-size: .78rem; color: #333; }
@@ -48,82 +50,70 @@
 <div class="section-label">🎬 近期影片</div>
 <div class="grid">
 
-
-
-              <a class="card" href="northwood/">
-      <div class="card-body">
-        <div class="title">Northwood Space：衛星的地面革命</div>
-        <div class="desc">迪士尼演員 → MIT 博士 → 太空基礎設施 CEO</div>
-        <div class="card-footer">
-          <span class="tag stage">⏳ 腳本草稿</span>
-          <span class="dur">約 7 分鐘</span>
-        </div>
+  <a class="card" href="northwood/">
+    <img class="card-thumb" src="northwood/thumbnail.jpg" onerror="this.style.background='#1a1a2e'">
+    <div class="card-body">
+      <div class="title">迪士尼演員去做太空公司</div>
+      <div class="desc">Bridgit Mendler × Northwood Space — 衛星地面基礎設施革命。迪士尼演員 → MIT 博士 → 太空基礎設施 CEO</div>
+      <div class="card-footer">
+        <span class="tag draft">⏳ 草稿審閱中</span>
+        <span class="dur">約 7-8 分鐘</span>
       </div>
-    </a>
-<a class="card" href="northwood/">
-          <div class="card-thumb" style="background:#1a1a2e;display:flex;align-items:center;justify-content:center;font-size:2em;">🛰️</div>
-          <div class="card-body">
-            <div class="title">迪士尼演員去做太空公司</div>
-            <div class="desc">Bridgit Mendler × Northwood Space — 衛星地面基礎設施革命</div>
-            <div class="card-footer">
-              <span class="tag stage">⏳ 腳本草稿</span>
-              <span class="dur">約 7-8 分鐘</span>
-            </div>
-          </div>
-        </a>
-        <a class="card" href="palantir/">
-    <img class="card-thumb" src="palantir/thumbnail.jpg" alt="Palantir" onerror="this.style.background='#1a1a2e'">
+    </div>
+  </a>
+
+  <a class="card" href="palantir/">
+    <img class="card-thumb" src="palantir/thumbnail.jpg" onerror="this.style.background='#1a1a2e'">
     <div class="card-body">
       <div class="title">Palantir 的怪胎哲學：Alex Karp 如何用 AI 重寫戰爭規則</div>
       <div class="desc">二十年的「怪胎秀」如何把資料骨架變成戰場 OS：AI 自動決策、矽谷與軍方的和解、美國真正的護城河。</div>
       <div class="card-footer">
-        <span class="tag stage">Stage</span>
-        <span class="tag private">🔒 YouTube 私人</span>
+        <span class="tag private">🔒 已上傳（私人）</span>
         <span class="dur">4:59</span>
       </div>
     </div>
   </a>
 
   <a class="card" href="mark_tilbury/">
-    <img class="card-thumb" src="mark_tilbury/thumbnail.jpg" alt="Mark Tilbury AI投資" onerror="this.style.background='#1a1a2e'">
+    <img class="card-thumb" src="mark_tilbury/thumbnail.jpg" onerror="this.style.background='#1a1a2e'">
     <div class="card-body">
-      <div class="title">S&P 500 還能存？因為AI浪潮 這位投資達人悄悄調整了三件事</div>
+      <div class="title">S&amp;P 500 還能存？因為AI浪潮 這位投資達人悄悄調整了三件事</div>
       <div class="desc">Mark Tilbury 的投資策略大調整：百分之四十集中風險、全球分散 VWRP、黃金升格一級資產、巴菲特囤現金 3,730 億。</div>
       <div class="card-footer">
         <span class="tag private">🔒 已上傳（私人）</span>
-        <span onclick="event.stopPropagation();window.open('https://www.youtube.com/watch?v=DiDZzzdooO4','_blank')" style="font-size:.7rem;color:#4ea8de;cursor:pointer;">▶ YouTube</span>
+        <span onclick="event.stopPropagation();window.open('https://www.youtube.com/watch?v=DiDZzzdooO4','_blank')" class="yt-link">▶ YouTube</span>
         <span class="dur">約 4 分鐘</span>
       </div>
     </div>
   </a>
 
   <a class="card" href="ai_hackers/">
-    <img class="card-thumb" src="ai_hackers/thumbnail.jpg" alt="AI駭客時代" onerror="this.style.background='#1a1a2e'">
+    <img class="card-thumb" src="ai_hackers/thumbnail.jpg" onerror="this.style.background='#1a1a2e'">
     <div class="card-body">
       <div class="title">AI駭客大軍已啟動？這三件事讓我睡不著</div>
       <div class="desc">Dr. Waku 解析三大威脅：AI 全自動攻擊企業、自動製造漏洞、全世界都沒準備好。</div>
       <div class="card-footer">
         <span class="tag private">🔒 已上傳（私人）</span>
-        <span onclick="event.stopPropagation();window.open('https://www.youtube.com/watch?v=L_E9rpDZyb8','_blank')" style="font-size:.7rem;color:#4ea8de;cursor:pointer;">▶ YouTube</span>
+        <span onclick="event.stopPropagation();window.open('https://www.youtube.com/watch?v=L_E9rpDZyb8','_blank')" class="yt-link">▶ YouTube</span>
         <span class="dur">5:35</span>
       </div>
     </div>
   </a>
 
   <a class="card" href="dankoe/">
-    <img class="card-thumb" src="dankoe/thumbnail.jpg" alt="AI時代護城河" onerror="this.style.background='#1a1a2e'">
+    <img class="card-thumb" src="dankoe/thumbnail.jpg" onerror="this.style.background='#1a1a2e'">
     <div class="card-body">
       <div class="title">AI時代，你唯一的護城河是「你自己」</div>
       <div class="desc">後AI高收入技能組合：主動性→品味→視角→說服力→技術工具。換人測試揭示你的不可取代性。</div>
       <div class="card-footer">
         <span class="tag private">🔒 已上傳（私人）</span>
-        <span class="dur">~4 分鐘</span>
+        <span class="dur">約 4 分鐘</span>
       </div>
     </div>
   </a>
 
   <a class="card" href="vampire/">
-    <img class="card-thumb" src="vampire/thumbnail.jpg" alt="AI吸血鬼效應" onerror="this.style.background='#1a1a2e'">
+    <img class="card-thumb" src="vampire/thumbnail.jpg" onerror="this.style.background='#1a1a2e'">
     <div class="card-body">
       <div class="title">AI吸血鬼效應：正在改變你的工作與生活？</div>
       <div class="desc">AI不只搶走工作，還在吸走意義。Stack Overflow、新聞媒體、職場人士都難逃吸血鬼效應。</div>
@@ -135,25 +125,25 @@
   </a>
 
   <a class="card" href="anthropic_dod/">
-    <img class="card-thumb" src="anthropic_dod/thumbnail.jpg" alt="Anthropic vs 國防部" onerror="this.style.background='#1a1a2e'">
+    <img class="card-thumb" src="anthropic_dod/thumbnail.jpg" onerror="this.style.background='#1a1a2e'">
     <div class="card-body">
       <div class="title">Anthropic vs 國防部：AI 與威權的邊界</div>
       <div class="desc">當AI公司拒絕替軍方服務，威權主義的過剩危機正在浮現。民主 vs 威權的AI軍備競賽。</div>
       <div class="card-footer">
         <span class="tag live">✅ 已公開</span>
-        <span onclick="event.stopPropagation();window.open('https://youtu.be/Q0LXBx1TxxY','_blank')" style="font-size:.7rem;color:#4ea8de;cursor:pointer;">▶ YouTube</span>
+        <span onclick="event.stopPropagation();window.open('https://youtu.be/Q0LXBx1TxxY','_blank')" class="yt-link">▶ YouTube</span>
         <span class="dur">8:25</span>
       </div>
     </div>
   </a>
 
   <a class="card" href="elon/">
-    <img class="card-thumb" src="elon/thumbnail.jpg" alt="Elon Musk 10年後" onerror="this.style.background='#1a1a2e'">
+    <img class="card-thumb" src="elon/thumbnail.jpg" onerror="this.style.background='#1a1a2e'">
     <div class="card-body">
       <div class="title">Elon Musk：10年後經濟翻10倍，但金錢會失去意義</div>
       <div class="desc">Abundance Summit 訪談精華。AI讓生產力爆炸，但我們準備好了嗎？9分鐘深度解析。</div>
       <div class="card-footer">
-        <span class="tag live">✅ 已發布</span>
+        <span class="tag live">✅ 已公開</span>
         <span class="dur">9 分鐘</span>
       </div>
     </div>
@@ -164,10 +154,9 @@
 <!-- 待製作 -->
 <div class="section-label">📋 待製作</div>
 <div class="grid">
-  <div class="card" style="opacity:0.7;">
+  <div class="card" style="opacity:0.5; cursor:default;">
     <div class="card-body" style="padding:24px 16px; text-align:center;">
-      <div class="title">新影片規畫中</div>
-      <div class="desc">持續更新...</div>
+      <div class="title" style="color:#555;">新影片規劃中</div>
       <div class="card-footer" style="justify-content:center;">
         <span class="tag wip">📋 WIP</span>
       </div>
