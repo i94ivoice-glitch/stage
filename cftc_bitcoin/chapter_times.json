@@ -10,7 +10,9 @@
         "bg": "bg_a854ecc2.png",
         "scene_zh": "華盛頓 DC 金融監管大樓外觀，黃昏金光側打，美國國旗，epic 廣角仰拍"
       }
-    ]
+    ],
+    "title_sec": 0.0,
+    "visual_start_ms": 100
   },
   {
     "name": "SEC 與 CFTC 握手言和",
@@ -36,7 +38,9 @@
         "bg": "bg_6ecac773.png",
         "scene_zh": "現代科技辦公室開放空間，工程師與律師並肩討論，螢幕上顯示加密貨幣圖表"
       }
-    ]
+    ],
+    "title_sec": 2.0,
+    "visual_start_ms": 43068
   },
   {
     "name": "預測市場：合法賭博，還是新金融工具？",
@@ -62,7 +66,9 @@
         "bg": "bg_9376d486.png",
         "scene_zh": "電腦螢幕特寫顯示預測市場介面，數字跳動，夜晚辦公環境，藍光"
       }
-    ]
+    ],
+    "title_sec": 2.0,
+    "visual_start_ms": 102164
   },
   {
     "name": "AI 代理，即將成為最強交易員？",
@@ -78,17 +84,19 @@
       },
       {
         "at_ms": 162900,
-        "dur_ms": 1000,
+        "dur_ms": 20036,
         "bg": "bg_c2f2cac1.png",
         "scene_zh": "超大型資料中心走廊，伺服器機架藍光閃爍，機器人手臂在作業，未來感"
       },
       {
-        "at_ms": 162900,
-        "dur_ms": 23520,
+        "at_ms": 182936,
+        "dur_ms": 3484,
         "bg": "bg_f4a45378.png",
         "scene_zh": "深夜辦公室，單人面對多螢幕交易系統，程式碼與圖表交替閃現，冷藍燈光"
       }
-    ]
+    ],
+    "title_sec": 2.0,
+    "visual_start_ms": 160900
   },
   {
     "name": "美國即將開放「永續合約」",
@@ -114,26 +122,23 @@
         "bg": "bg_443edc76.png",
         "scene_zh": "比特幣符號在金融資料視覺化背景上，暖黃色調，動態感"
       }
-    ]
+    ],
+    "title_sec": 2.0,
+    "visual_start_ms": 186420
   },
   {
     "name": "結語",
     "start_ms": 232785,
-    "dur_sec": 33.909,
+    "dur_sec": 33.915,
     "bg_segments": [
       {
         "at_ms": 232785,
-        "dur_ms": 2000,
-        "bg": "title_05_card.png",
-        "scene_zh": "【結語】標題卡",
-        "is_title_card": true
-      },
-      {
-        "at_ms": 234785,
-        "dur_ms": 31909,
+        "dur_ms": 33915,
         "bg": "bg_6323158e.png",
         "scene_zh": "華盛頓 DC 夜景俯瞰，政府大樓燈光，宏觀視角，靜謐感"
       }
-    ]
+    ],
+    "title_sec": 0.0,
+    "visual_start_ms": 232785
   }
 ]
