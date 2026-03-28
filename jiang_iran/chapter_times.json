@@ -3,7 +3,7 @@
     "name": "開場",
     "start_ms": 100,
     "title_sec": 0.0,
-    "dur_sec": 33.534,
+    "dur_sec": 33.53,
     "bg": "bg_28c3432b.png",
     "bg_segments": null
   },
@@ -11,7 +11,7 @@
     "name": "這場戰爭，是另一個烏克蘭",
     "start_ms": 33634,
     "title_sec": 2.0,
-    "dur_sec": 51.626,
+    "dur_sec": 51.63,
     "bg": "bg_7823890e.png",
     "bg_segments": [
       {
@@ -33,7 +33,7 @@
     "name": "以色列的如意算盤",
     "start_ms": 85260,
     "title_sec": 2.0,
-    "dur_sec": 51.896,
+    "dur_sec": 51.9,
     "bg": "bg_c715ebfd.png",
     "bg_segments": [
       {
@@ -55,7 +55,7 @@
     "name": "川普困住了，美國困住了",
     "start_ms": 137156,
     "title_sec": 2.0,
-    "dur_sec": 62.888,
+    "dur_sec": 62.89,
     "bg": "bg_4ef2b936.png",
     "bg_segments": [
       {
@@ -77,7 +77,7 @@
     "name": "西方為什麼沒有力量阻止這一切",
     "start_ms": 200044,
     "title_sec": 2.0,
-    "dur_sec": 73.296,
+    "dur_sec": 75.3,
     "bg": "bg_98bce292.png",
     "bg_segments": [
       {
@@ -89,7 +89,7 @@
       },
       {
         "at_ms": 202044,
-        "dur_ms": 71300,
+        "dur_ms": 73300,
         "bg": "bg_98bce292.png",
         "scene_zh": "西方為什麼沒有力量阻止這一切"
       }
@@ -97,23 +97,23 @@
   },
   {
     "name": "結語",
-    "start_ms": 273340,
+    "start_ms": 275340,
     "title_sec": 2.0,
     "dur_sec": 50.44,
     "bg": "bg_e9095b59.png",
     "bg_segments": [
       {
-        "at_ms": 273340,
+        "at_ms": 275340,
         "dur_ms": 2000,
         "bg": "title_05_card.png",
         "scene_zh": "【結語】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 275340,
+        "at_ms": 277340,
         "dur_ms": 48440,
         "bg": "bg_e9095b59.png",
-        "scene_zh": "結語"
+        "scene_zh": "黎明前的地平線，橘紅光芒從地平線升起，人物剪影站在高處俯視"
       }
     ]
   }
