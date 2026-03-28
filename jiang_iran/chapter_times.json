@@ -10,34 +10,90 @@
   {
     "name": "這場戰爭，是另一個烏克蘭",
     "start_ms": 35634,
-    "title_sec": 0.0,
+    "title_sec": 2.0,
     "dur_sec": 51.63,
     "bg": "bg_7823890e.png",
-    "bg_segments": null
+    "bg_segments": [
+      {
+        "at_ms": 35634,
+        "dur_ms": 2000,
+        "bg": "title_01_card.png",
+        "scene_zh": "【這場戰爭，是另一個烏克蘭】標題卡",
+        "is_title_card": true
+      },
+      {
+        "at_ms": 37634,
+        "dur_ms": 49630,
+        "bg": "bg_7823890e.png",
+        "scene_zh": "這場戰爭，是另一個烏克蘭"
+      }
+    ]
   },
   {
     "name": "以色列的如意算盤",
     "start_ms": 87260,
-    "title_sec": 0.0,
+    "title_sec": 2.0,
     "dur_sec": 51.9,
     "bg": "bg_c715ebfd.png",
-    "bg_segments": null
+    "bg_segments": [
+      {
+        "at_ms": 87260,
+        "dur_ms": 2000,
+        "bg": "title_02_card.png",
+        "scene_zh": "【以色列的如意算盤】標題卡",
+        "is_title_card": true
+      },
+      {
+        "at_ms": 89260,
+        "dur_ms": 49900,
+        "bg": "bg_c715ebfd.png",
+        "scene_zh": "以色列的如意算盤"
+      }
+    ]
   },
   {
     "name": "川普困住了，美國困住了",
     "start_ms": 139156,
-    "title_sec": 0.0,
+    "title_sec": 2.0,
     "dur_sec": 62.89,
     "bg": "bg_4ef2b936.png",
-    "bg_segments": null
+    "bg_segments": [
+      {
+        "at_ms": 139156,
+        "dur_ms": 2000,
+        "bg": "title_03_card.png",
+        "scene_zh": "【川普困住了，美國困住了】標題卡",
+        "is_title_card": true
+      },
+      {
+        "at_ms": 141156,
+        "dur_ms": 60890,
+        "bg": "bg_4ef2b936.png",
+        "scene_zh": "川普困住了，美國困住了"
+      }
+    ]
   },
   {
     "name": "西方為什麼沒有力量阻止這一切",
     "start_ms": 202044,
-    "title_sec": 0.0,
+    "title_sec": 2.0,
     "dur_sec": 73.3,
     "bg": "bg_98bce292.png",
-    "bg_segments": null
+    "bg_segments": [
+      {
+        "at_ms": 202044,
+        "dur_ms": 2000,
+        "bg": "title_04_card.png",
+        "scene_zh": "【西方為什麼沒有力量阻止這一切】標題卡",
+        "is_title_card": true
+      },
+      {
+        "at_ms": 204044,
+        "dur_ms": 71300,
+        "bg": "bg_98bce292.png",
+        "scene_zh": "西方為什麼沒有力量阻止這一切"
+      }
+    ]
   },
   {
     "name": "結語",
@@ -57,7 +113,7 @@
         "at_ms": 277340,
         "dur_ms": 48440,
         "bg": "bg_e9095b59.png",
-        "scene_zh": "黎明前的地平線，橘紅光芒從地平線升起，人物剪影站在高處俯視"
+        "scene_zh": "結語"
       }
     ]
   }
