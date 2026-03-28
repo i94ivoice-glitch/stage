@@ -3,7 +3,7 @@
     "name": "開場",
     "start_ms": 100,
     "title_sec": 0.0,
-    "dur_sec": 33.53,
+    "dur_sec": 30.6,
     "bg": "bg_28c3432b.png",
     "bg_segments": null
   },
@@ -11,7 +11,7 @@
     "name": "這場戰爭，是另一個烏克蘭",
     "start_ms": 30700,
     "title_sec": 2.0,
-    "dur_sec": 51.63,
+    "dur_sec": 54.56,
     "bg": "bg_7823890e.png",
     "bg_segments": [
       {
@@ -23,7 +23,7 @@
       },
       {
         "at_ms": 32700,
-        "dur_ms": 49630,
+        "dur_ms": 52560,
         "bg": "bg_7823890e.png",
         "scene_zh": "這場戰爭，是另一個烏克蘭"
       }
