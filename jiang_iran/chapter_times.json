@@ -3,27 +3,27 @@
     "name": "開場",
     "start_ms": 100,
     "title_sec": 0.0,
-    "dur_sec": 30.6,
+    "dur_sec": 33.53,
     "bg": "bg_28c3432b.png",
     "bg_segments": null
   },
   {
     "name": "這場戰爭，是另一個烏克蘭",
-    "start_ms": 30700,
+    "start_ms": 33634,
     "title_sec": 2.0,
-    "dur_sec": 54.56,
+    "dur_sec": 51.63,
     "bg": "bg_7823890e.png",
     "bg_segments": [
       {
-        "at_ms": 30700,
+        "at_ms": 33634,
         "dur_ms": 2000,
         "bg": "title_01_card.png",
         "scene_zh": "【這場戰爭，是另一個烏克蘭】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 32700,
-        "dur_ms": 52560,
+        "at_ms": 35634,
+        "dur_ms": 49630,
         "bg": "bg_7823890e.png",
         "scene_zh": "這場戰爭，是另一個烏克蘭"
       }
@@ -55,7 +55,7 @@
     "name": "川普困住了，美國困住了",
     "start_ms": 137156,
     "title_sec": 2.0,
-    "dur_sec": 62.89,
+    "dur_sec": 90.7,
     "bg": "bg_4ef2b936.png",
     "bg_segments": [
       {
@@ -67,7 +67,7 @@
       },
       {
         "at_ms": 139156,
-        "dur_ms": 60890,
+        "dur_ms": 88700,
         "bg": "bg_4ef2b936.png",
         "scene_zh": "川普困住了，美國困住了"
       }
@@ -75,21 +75,21 @@
   },
   {
     "name": "西方為什麼沒有力量阻止這一切",
-    "start_ms": 200044,
+    "start_ms": 227860,
     "title_sec": 2.0,
-    "dur_sec": 75.3,
+    "dur_sec": 75.32,
     "bg": "bg_98bce292.png",
     "bg_segments": [
       {
-        "at_ms": 200044,
+        "at_ms": 227860,
         "dur_ms": 2000,
         "bg": "title_04_card.png",
         "scene_zh": "【西方為什麼沒有力量阻止這一切】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 202044,
-        "dur_ms": 73300,
+        "at_ms": 229860,
+        "dur_ms": 73320,
         "bg": "bg_98bce292.png",
         "scene_zh": "西方為什麼沒有力量阻止這一切"
       }
@@ -97,21 +97,21 @@
   },
   {
     "name": "結語",
-    "start_ms": 275340,
+    "start_ms": 303180,
     "title_sec": 2.0,
-    "dur_sec": 50.44,
+    "dur_sec": 50.36,
     "bg": "bg_e9095b59.png",
     "bg_segments": [
       {
-        "at_ms": 275340,
+        "at_ms": 303180,
         "dur_ms": 2000,
         "bg": "title_05_card.png",
         "scene_zh": "【結語】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 277340,
-        "dur_ms": 48440,
+        "at_ms": 305180,
+        "dur_ms": 48360,
         "bg": "bg_e9095b59.png",
         "scene_zh": "黎明前的地平線，橘紅光芒從地平線升起，人物剪影站在高處俯視"
       }
