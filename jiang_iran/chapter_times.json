@@ -3,97 +3,41 @@
     "name": "開場",
     "start_ms": 100,
     "title_sec": 0.0,
-    "dur_sec": 33.53,
+    "dur_sec": 35.53,
     "bg": "bg_28c3432b.png",
     "bg_segments": null
   },
   {
-    "name": "第一章：這場戰爭，是另一個烏克蘭",
-    "start_ms": 33634,
-    "title_sec": 2.0,
+    "name": "這場戰爭，是另一個烏克蘭",
+    "start_ms": 35634,
+    "title_sec": 0.0,
     "dur_sec": 51.63,
-    "bg": "bg_62680987.png",
-    "bg_segments": [
-      {
-        "at_ms": 33634,
-        "dur_ms": 2000,
-        "bg": "title_01_card.png",
-        "scene_zh": "【第一章：這場戰爭，是另一個烏克蘭】標題卡",
-        "is_title_card": true
-      },
-      {
-        "at_ms": 35634,
-        "dur_ms": 49630,
-        "bg": "bg_62680987.png",
-        "scene_zh": "第一章：這場戰爭，是另一個烏克蘭"
-      }
-    ]
+    "bg": "bg_7823890e.png",
+    "bg_segments": null
   },
   {
-    "name": "第二章：以色列的如意算盤",
-    "start_ms": 85260,
-    "title_sec": 2.0,
+    "name": "以色列的如意算盤",
+    "start_ms": 87260,
+    "title_sec": 0.0,
     "dur_sec": 51.9,
-    "bg": "bg_19703392.png",
-    "bg_segments": [
-      {
-        "at_ms": 85260,
-        "dur_ms": 2000,
-        "bg": "title_02_card.png",
-        "scene_zh": "【第二章：以色列的如意算盤】標題卡",
-        "is_title_card": true
-      },
-      {
-        "at_ms": 87260,
-        "dur_ms": 49900,
-        "bg": "bg_19703392.png",
-        "scene_zh": "第二章：以色列的如意算盤"
-      }
-    ]
+    "bg": "bg_c715ebfd.png",
+    "bg_segments": null
   },
   {
-    "name": "第三章：川普困住了，美國困住了",
-    "start_ms": 137156,
-    "title_sec": 2.0,
+    "name": "川普困住了，美國困住了",
+    "start_ms": 139156,
+    "title_sec": 0.0,
     "dur_sec": 62.89,
-    "bg": "bg_9ec2922b.png",
-    "bg_segments": [
-      {
-        "at_ms": 137156,
-        "dur_ms": 2000,
-        "bg": "title_03_card.png",
-        "scene_zh": "【第三章：川普困住了，美國困住了】標題卡",
-        "is_title_card": true
-      },
-      {
-        "at_ms": 139156,
-        "dur_ms": 60890,
-        "bg": "bg_9ec2922b.png",
-        "scene_zh": "第三章：川普困住了，美國困住了"
-      }
-    ]
+    "bg": "bg_4ef2b936.png",
+    "bg_segments": null
   },
   {
-    "name": "第四章：西方為什麼沒有力量阻止這一切",
-    "start_ms": 200044,
-    "title_sec": 2.0,
-    "dur_sec": 75.3,
-    "bg": "bg_1fbbaf1b.png",
-    "bg_segments": [
-      {
-        "at_ms": 200044,
-        "dur_ms": 2000,
-        "bg": "title_04_card.png",
-        "scene_zh": "【第四章：西方為什麼沒有力量阻止這一切】標題卡",
-        "is_title_card": true
-      },
-      {
-        "at_ms": 202044,
-        "dur_ms": 73300,
-        "bg": "bg_1fbbaf1b.png",
-        "scene_zh": "第四章：西方為什麼沒有力量阻止這一切"
-      }
-    ]
+    "name": "西方為什麼沒有力量阻止這一切",
+    "start_ms": 202044,
+    "title_sec": 0.0,
+    "dur_sec": 73.3,
+    "bg": "bg_98bce292.png",
+    "bg_segments": null
   },
   {
     "name": "結語",
