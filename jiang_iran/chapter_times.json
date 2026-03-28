@@ -4,8 +4,15 @@
     "start_ms": 100,
     "title_sec": 0.0,
     "dur_sec": 30.6,
-    "bg": "bg_28c3432b.png",
-    "bg_segments": null
+    "bg": "bg_9cb787d0.png",
+    "bg_segments": [
+      {
+        "at_ms": 100,
+        "dur_ms": 30600,
+        "bg": "bg_9cb787d0.png",
+        "scene_zh": "中東地圖俯瞰，伊朗、伊拉克、以色列邊境清晰可見，史詩感燈光由上往下照射"
+      }
+    ]
   },
   {
     "name": "這場戰爭，是另一個烏克蘭",
@@ -23,9 +30,15 @@
       },
       {
         "at_ms": 32700,
-        "dur_ms": 52560,
+        "dur_ms": 21729,
         "bg": "bg_6503e2cc.png",
         "scene_zh": "中東城市夜景，遠處爆炸的橘紅光芒，煙霧彌漫，史詩廣角"
+      },
+      {
+        "at_ms": 54429,
+        "dur_ms": 30831,
+        "bg": "bg_5f86d320.png",
+        "scene_zh": "石油輸送管線鳥瞰，波斯灣水面反光，黃昏史詩感"
       }
     ]
   },
@@ -34,7 +47,7 @@
     "start_ms": 85260,
     "title_sec": 2.0,
     "dur_sec": 51.9,
-    "bg": "bg_c715ebfd.png",
+    "bg": "bg_3e01a9a8.png",
     "bg_segments": [
       {
         "at_ms": 85260,
@@ -44,10 +57,16 @@
         "is_title_card": true
       },
       {
-        "at_ms": 87260,
-        "dur_ms": 49900,
-        "bg": "bg_c715ebfd.png",
-        "scene_zh": "以色列的如意算盤"
+        "at_ms": 88671,
+        "dur_ms": 14568,
+        "bg": "bg_3e01a9a8.png",
+        "scene_zh": "以色列議會外觀，黃昏強光側打，史詩仰拍，戲劇性雲彩"
+      },
+      {
+        "at_ms": 103239,
+        "dur_ms": 33921,
+        "bg": "bg_a5ad72a4.png",
+        "scene_zh": "密室談判桌，西裝男士低頭交談，窗外城市夜景，冷藍燈光"
       }
     ]
   },
@@ -56,7 +75,7 @@
     "start_ms": 137156,
     "title_sec": 2.0,
     "dur_sec": 90.7,
-    "bg": "bg_4ef2b936.png",
+    "bg": "bg_955f8675.png",
     "bg_segments": [
       {
         "at_ms": 137156,
@@ -67,9 +86,15 @@
       },
       {
         "at_ms": 139156,
-        "dur_ms": 88700,
-        "bg": "bg_4ef2b936.png",
-        "scene_zh": "川普困住了，美國困住了"
+        "dur_ms": 23888,
+        "bg": "bg_955f8675.png",
+        "scene_zh": "白宮外觀，黃昏金光斜射，低角度仰拍，美國國旗飄揚"
+      },
+      {
+        "at_ms": 163044,
+        "dur_ms": 64812,
+        "bg": "bg_69d83682.png",
+        "scene_zh": "美軍航母戰鬥群在阿拉伯海，直升機起飛，戲劇性海天色彩"
       }
     ]
   },
@@ -89,9 +114,21 @@
       },
       {
         "at_ms": 229860,
-        "dur_ms": 73320,
+        "dur_ms": 19240,
         "bg": "bg_b6a26aad.png",
         "scene_zh": "西方大學校園，秋日落葉，空曠廣場，學生稀少，冷調光線"
+      },
+      {
+        "at_ms": 249100,
+        "dur_ms": 34614,
+        "bg": "bg_6eb03e6f.png",
+        "scene_zh": "大學圖書館內，書架高聳，晨光穿透窗戶，無人閱讀"
+      },
+      {
+        "at_ms": 283714,
+        "dur_ms": 19466,
+        "bg": "bg_f69ede4f.png",
+        "scene_zh": "中國現代大學課堂，學生專注閱讀古典書籍，溫暖燈光"
       }
     ]
   },
