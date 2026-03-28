@@ -108,7 +108,7 @@
     "name": "西方為什麼沒有力量阻止這一切",
     "start_ms": 227860,
     "title_sec": 2.0,
-    "dur_sec": 75.32,
+    "dur_sec": 74.24,
     "bg": "bg_b6a26aad.png",
     "bg_segments": [
       {
@@ -120,19 +120,19 @@
       },
       {
         "at_ms": 229860,
-        "dur_ms": 19240,
+        "dur_ms": 19695,
         "bg": "bg_b6a26aad.png",
         "scene_zh": "西方大學校園，秋日落葉，空曠廣場，學生稀少，冷調光線"
       },
       {
-        "at_ms": 249100,
-        "dur_ms": 34614,
+        "at_ms": 249555,
+        "dur_ms": 34057,
         "bg": "bg_6eb03e6f.png",
         "scene_zh": "大學圖書館內，書架高聳，晨光穿透窗戶，無人閱讀"
       },
       {
-        "at_ms": 283714,
-        "dur_ms": 19466,
+        "at_ms": 283612,
+        "dur_ms": 18488,
         "bg": "bg_f69ede4f.png",
         "scene_zh": "中國現代大學課堂，學生專注閱讀古典書籍，溫暖燈光"
       }
@@ -140,20 +140,20 @@
   },
   {
     "name": "結語",
-    "start_ms": 303180,
+    "start_ms": 302100,
     "title_sec": 2.0,
     "dur_sec": 50.36,
     "bg": "bg_e9095b59.png",
     "bg_segments": [
       {
-        "at_ms": 303180,
+        "at_ms": 302100,
         "dur_ms": 2000,
         "bg": "title_05_card.png",
         "scene_zh": "【結語】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 305180,
+        "at_ms": 304100,
         "dur_ms": 48360,
         "bg": "bg_e9095b59.png",
         "scene_zh": "黎明前的地平線，橘紅光芒從地平線升起，人物剪影站在高處俯視"
