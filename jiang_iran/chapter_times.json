@@ -3,29 +3,29 @@
     "name": "開場",
     "start_ms": 100,
     "title_sec": 0.0,
-    "dur_sec": 33.53,
+    "dur_sec": 30.6,
     "bg": "bg_28c3432b.png",
     "bg_segments": null
   },
   {
     "name": "這場戰爭，是另一個烏克蘭",
-    "start_ms": 33634,
+    "start_ms": 30700,
     "title_sec": 2.0,
-    "dur_sec": 51.63,
-    "bg": "bg_7823890e.png",
+    "dur_sec": 54.56,
+    "bg": "bg_6503e2cc.png",
     "bg_segments": [
       {
-        "at_ms": 33634,
+        "at_ms": 30700,
         "dur_ms": 2000,
         "bg": "title_01_card.png",
         "scene_zh": "【這場戰爭，是另一個烏克蘭】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 35634,
-        "dur_ms": 49630,
-        "bg": "bg_7823890e.png",
-        "scene_zh": "這場戰爭，是另一個烏克蘭"
+        "at_ms": 32700,
+        "dur_ms": 52560,
+        "bg": "bg_6503e2cc.png",
+        "scene_zh": "中東城市夜景，遠處爆炸的橘紅光芒，煙霧彌漫，史詩廣角"
       }
     ]
   },
@@ -78,7 +78,7 @@
     "start_ms": 227860,
     "title_sec": 2.0,
     "dur_sec": 75.32,
-    "bg": "bg_98bce292.png",
+    "bg": "bg_b6a26aad.png",
     "bg_segments": [
       {
         "at_ms": 227860,
@@ -90,8 +90,8 @@
       {
         "at_ms": 229860,
         "dur_ms": 73320,
-        "bg": "bg_98bce292.png",
-        "scene_zh": "西方為什麼沒有力量阻止這一切"
+        "bg": "bg_b6a26aad.png",
+        "scene_zh": "西方大學校園，秋日落葉，空曠廣場，學生稀少，冷調光線"
       }
     ]
   },
