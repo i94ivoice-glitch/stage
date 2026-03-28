@@ -9,20 +9,20 @@
   },
   {
     "name": "這場戰爭，是另一個烏克蘭",
-    "start_ms": 33634,
+    "start_ms": 30700,
     "title_sec": 2.0,
     "dur_sec": 51.63,
     "bg": "bg_7823890e.png",
     "bg_segments": [
       {
-        "at_ms": 33634,
+        "at_ms": 30700,
         "dur_ms": 2000,
         "bg": "title_01_card.png",
         "scene_zh": "【這場戰爭，是另一個烏克蘭】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 35634,
+        "at_ms": 32700,
         "dur_ms": 49630,
         "bg": "bg_7823890e.png",
         "scene_zh": "這場戰爭，是另一個烏克蘭"
