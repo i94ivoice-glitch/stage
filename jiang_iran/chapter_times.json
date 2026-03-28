@@ -3,27 +3,27 @@
     "name": "開場",
     "start_ms": 100,
     "title_sec": 0.0,
-    "dur_sec": 30.6,
+    "dur_sec": 33.53,
     "bg": "bg_28c3432b.png",
     "bg_segments": null
   },
   {
     "name": "第一章：這場戰爭，是另一個烏克蘭",
-    "start_ms": 30700,
+    "start_ms": 33634,
     "title_sec": 2.0,
-    "dur_sec": 68.56,
+    "dur_sec": 51.63,
     "bg": "bg_62680987.png",
     "bg_segments": [
       {
-        "at_ms": 30700,
+        "at_ms": 33634,
         "dur_ms": 2000,
         "bg": "title_01_card.png",
         "scene_zh": "【第一章：這場戰爭，是另一個烏克蘭】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 32700,
-        "dur_ms": 66560,
+        "at_ms": 35634,
+        "dur_ms": 49630,
         "bg": "bg_62680987.png",
         "scene_zh": "第一章：這場戰爭，是另一個烏克蘭"
       }
@@ -31,21 +31,21 @@
   },
   {
     "name": "第二章：以色列的如意算盤",
-    "start_ms": 99262,
+    "start_ms": 85260,
     "title_sec": 2.0,
-    "dur_sec": 37.89,
+    "dur_sec": 51.9,
     "bg": "bg_19703392.png",
     "bg_segments": [
       {
-        "at_ms": 99262,
+        "at_ms": 85260,
         "dur_ms": 2000,
         "bg": "title_02_card.png",
         "scene_zh": "【第二章：以色列的如意算盤】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 101262,
-        "dur_ms": 35890,
+        "at_ms": 87260,
+        "dur_ms": 49900,
         "bg": "bg_19703392.png",
         "scene_zh": "第二章：以色列的如意算盤"
       }
