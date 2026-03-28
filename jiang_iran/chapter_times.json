@@ -1,9 +1,9 @@
 [
   {
     "name": "開場",
-    "start_ms": 100,
+    "start_ms": 0,
     "title_sec": 0.0,
-    "dur_sec": 30.6,
+    "dur_sec": 30.7,
     "bg": "bg_9cb787d0.png",
     "bg_segments": [
       {
@@ -57,8 +57,8 @@
         "is_title_card": true
       },
       {
-        "at_ms": 88671,
-        "dur_ms": 14568,
+        "at_ms": 87260,
+        "dur_ms": 15979,
         "bg": "bg_3e01a9a8.png",
         "scene_zh": "以色列議會外觀，黃昏強光側打，史詩仰拍，戲劇性雲彩"
       },
@@ -120,19 +120,19 @@
       },
       {
         "at_ms": 229860,
-        "dur_ms": 19695,
+        "dur_ms": 18229,
         "bg": "bg_b6a26aad.png",
         "scene_zh": "西方大學校園，秋日落葉，空曠廣場，學生稀少，冷調光線"
       },
       {
-        "at_ms": 249555,
+        "at_ms": 248089,
         "dur_ms": 34057,
         "bg": "bg_6eb03e6f.png",
         "scene_zh": "大學圖書館內，書架高聳，晨光穿透窗戶，無人閱讀"
       },
       {
-        "at_ms": 283612,
-        "dur_ms": 18488,
+        "at_ms": 282146,
+        "dur_ms": 19954,
         "bg": "bg_f69ede4f.png",
         "scene_zh": "中國現代大學課堂，學生專注閱讀古典書籍，溫暖燈光"
       }
