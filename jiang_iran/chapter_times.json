@@ -3,26 +3,26 @@
     "name": "開場",
     "start_ms": 100,
     "title_sec": 0.0,
-    "dur_sec": 35.53,
+    "dur_sec": 33.534,
     "bg": "bg_28c3432b.png",
     "bg_segments": null
   },
   {
     "name": "這場戰爭，是另一個烏克蘭",
-    "start_ms": 35634,
+    "start_ms": 33634,
     "title_sec": 2.0,
-    "dur_sec": 51.63,
+    "dur_sec": 51.626,
     "bg": "bg_7823890e.png",
     "bg_segments": [
       {
-        "at_ms": 35634,
+        "at_ms": 33634,
         "dur_ms": 2000,
         "bg": "title_01_card.png",
         "scene_zh": "【這場戰爭，是另一個烏克蘭】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 37634,
+        "at_ms": 35634,
         "dur_ms": 49630,
         "bg": "bg_7823890e.png",
         "scene_zh": "這場戰爭，是另一個烏克蘭"
@@ -31,20 +31,20 @@
   },
   {
     "name": "以色列的如意算盤",
-    "start_ms": 87260,
+    "start_ms": 85260,
     "title_sec": 2.0,
-    "dur_sec": 51.9,
+    "dur_sec": 51.896,
     "bg": "bg_c715ebfd.png",
     "bg_segments": [
       {
-        "at_ms": 87260,
+        "at_ms": 85260,
         "dur_ms": 2000,
         "bg": "title_02_card.png",
         "scene_zh": "【以色列的如意算盤】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 89260,
+        "at_ms": 87260,
         "dur_ms": 49900,
         "bg": "bg_c715ebfd.png",
         "scene_zh": "以色列的如意算盤"
@@ -53,20 +53,20 @@
   },
   {
     "name": "川普困住了，美國困住了",
-    "start_ms": 139156,
+    "start_ms": 137156,
     "title_sec": 2.0,
-    "dur_sec": 62.89,
+    "dur_sec": 62.888,
     "bg": "bg_4ef2b936.png",
     "bg_segments": [
       {
-        "at_ms": 139156,
+        "at_ms": 137156,
         "dur_ms": 2000,
         "bg": "title_03_card.png",
         "scene_zh": "【川普困住了，美國困住了】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 141156,
+        "at_ms": 139156,
         "dur_ms": 60890,
         "bg": "bg_4ef2b936.png",
         "scene_zh": "川普困住了，美國困住了"
@@ -75,20 +75,20 @@
   },
   {
     "name": "西方為什麼沒有力量阻止這一切",
-    "start_ms": 202044,
+    "start_ms": 200044,
     "title_sec": 2.0,
-    "dur_sec": 73.3,
+    "dur_sec": 73.296,
     "bg": "bg_98bce292.png",
     "bg_segments": [
       {
-        "at_ms": 202044,
+        "at_ms": 200044,
         "dur_ms": 2000,
         "bg": "title_04_card.png",
         "scene_zh": "【西方為什麼沒有力量阻止這一切】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 204044,
+        "at_ms": 202044,
         "dur_ms": 71300,
         "bg": "bg_98bce292.png",
         "scene_zh": "西方為什麼沒有力量阻止這一切"
@@ -97,20 +97,20 @@
   },
   {
     "name": "結語",
-    "start_ms": 275340,
+    "start_ms": 273340,
     "title_sec": 2.0,
     "dur_sec": 50.44,
     "bg": "bg_e9095b59.png",
     "bg_segments": [
       {
-        "at_ms": 275340,
+        "at_ms": 273340,
         "dur_ms": 2000,
         "bg": "title_05_card.png",
         "scene_zh": "【結語】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 277340,
+        "at_ms": 275340,
         "dur_ms": 48440,
         "bg": "bg_e9095b59.png",
         "scene_zh": "結語"
