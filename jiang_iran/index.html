@@ -92,8 +92,8 @@ footer a { color: #3a5a7a; }
 <body>
 <div class="container">
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px;"><a href="../" style="color:#ccc;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#1e1e1e;border:1px solid #444;border-radius:6px;">← Stage 索引</a><span style="font-size:0.75em;color:#aaa;">更新：<span id="page-updated"></span></span></div>
-<h1>94iVoice — jiang_iran <span class="badge draft">⏳ 草稿審閱中</span></h1>
-<div class="notice"><strong>📋 草稿審閱</strong><br>請確認以下三件事，確認後開始製作：<br>1️⃣ <strong>腳本方向</strong> — 內容 OK？有需要修改的地方嗎？<br>2️⃣ <strong>封面文案</strong> — 選擇 A / B / C 哪個版本？<br>3️⃣ <strong>背景圖生成方式</strong> — (D) DALL-E 3 自動生成 / (G) Google Imagen 4 生成</div>
+<h1>94iVoice — jiang_iran <span class="badge stage">🎬 Stage 審閱中</span></h1>
+<div class="notice"><strong>🎬 Stage 審閱</strong><br>請確認影片、封面、YouTube 文案，沒問題後告知「確認上傳」。<br>如需修改腳本 → 告知，重跑 TTS 後重建。如只改文案 → 直接說明。</div>
 <div class="section">
   <div class="section-title">📺 原始影片</div>
   <div class="source-card">
@@ -115,37 +115,115 @@ footer a { color: #3a5a7a; }
   </div>
 </div>
 <div class="section">
-  <div class="section-title">🖼 YouTube 封面提案</div>
-  <div style="font-size:0.82em;color:#666;margin-bottom:16px;">三版封面設計供參考，回覆選擇 A / B / C</div>
-  <div class="thumb-grid">
-    <div class="thumb-proposal">
-      <div class="proposal-label">提案 A</div>
-      <img src="thumb_A.jpg" alt="封面提案 A" loading="lazy">
-      <div class="proposal-desc"></div>
+  <div class="section-title">🖼 章節背景圖</div>
+  <div class="chapter-groups">
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">00</span><span class="chapter-group-name">開場</span><span class="chapter-group-time">0:00 → 0:30</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-done"><img src="bg_28c3432b.png" loading="lazy" alt="bg_28c3432b.png"><div class="chapter-bg-info"><div class="chapter-bg-label">0:00 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene"></div></div></div>
+      </div>
     </div>
-    <div class="thumb-proposal">
-      <div class="proposal-label">提案 B</div>
-      <img src="thumb_B.jpg" alt="封面提案 B" loading="lazy">
-      <div class="proposal-desc"></div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">01</span><span class="chapter-group-name">第一章：這場戰爭，是另一個烏克蘭</span><span class="chapter-group-time">0:30 → 1:39</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【第一章：這場戰爭，是另一個烏克蘭】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">0:30 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【第一章：這場戰爭，是另一個烏克蘭】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_62680987.png" loading="lazy" alt="bg_62680987.png"><div class="chapter-bg-info"><div class="chapter-bg-label">0:32 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">第一章：這場戰爭，是另一個烏克蘭</div></div></div>
+      </div>
     </div>
-    <div class="thumb-proposal">
-      <div class="proposal-label">提案 C</div>
-      <img src="thumb_C.jpg" alt="封面提案 C" loading="lazy">
-      <div class="proposal-desc"></div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">02</span><span class="chapter-group-name">第二章：以色列的如意算盤</span><span class="chapter-group-time">1:39 → 2:17</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【第二章：以色列的如意算盤】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">1:39 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【第二章：以色列的如意算盤】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_19703392.png" loading="lazy" alt="bg_19703392.png"><div class="chapter-bg-info"><div class="chapter-bg-label">1:41 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">第二章：以色列的如意算盤</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">03</span><span class="chapter-group-name">第三章：川普困住了，美國困住了</span><span class="chapter-group-time">2:17 → 3:20</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【第三章：川普困住了，美國困住了】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">2:17 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【第三章：川普困住了，美國困住了】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_9ec2922b.png" loading="lazy" alt="bg_9ec2922b.png"><div class="chapter-bg-info"><div class="chapter-bg-label">2:19 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">第三章：川普困住了，美國困住了</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">04</span><span class="chapter-group-name">第四章：西方為什麼沒有力量阻止這一切</span><span class="chapter-group-time">3:20 → 4:35</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【第四章：西方為什麼沒有力量阻止這一切】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">3:20 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【第四章：西方為什麼沒有力量阻止這一切】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_1fbbaf1b.png" loading="lazy" alt="bg_1fbbaf1b.png"><div class="chapter-bg-info"><div class="chapter-bg-label">3:22 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">第四章：西方為什麼沒有力量阻止這一切</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">05</span><span class="chapter-group-name">結語</span><span class="chapter-group-time">4:35 → 5:25</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【結語】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">4:35 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【結語】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_e9095b59.png" loading="lazy" alt="bg_e9095b59.png"><div class="chapter-bg-info"><div class="chapter-bg-label">4:37 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">黎明前的地平線，橘紅光芒從地平線升起，人物剪影站在高處俯視</div></div></div>
+      </div>
     </div>
   </div>
 </div>
-<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" style="font-size:0.82em;color:#555;">（草稿階段尚未產生，確認腳本後製作）</div></div>
+<div class="section">
+  <div class="section-title">🎬 Stage 影片</div>
+  <video controls preload="metadata" poster="thumbnail.jpg" style="width:100%;border-radius:8px;">
+    <source src="jiang_iran_stage.mp4" type="video/mp4">
+    <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
+  </video>
+  <div class="video-meta">
+    <span class="chip">🎙 YunjianNeural</span>
+    <span class="chip">🖼 背景圖 × 11（6 章節）</span>
+    <span class="chip">📝 FontSize 135</span>
+    <span class="chip">🎬 Logo 片尾</span>
+    <span class="chip">📺 1920×1080 · 30fps</span>
+  </div>
+</div>
+<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
+<div class="section"><div class="section-title">💬 SRT 字幕預覽</div><div class="srt-block" id="srtContent">載入中...</div></div>
 <div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
-  <a href="jiang_iran_stage.mp4" style="opacity:0.35;pointer-events:none;">🎬 Stage 影片</a>
-  <a href="thumbnail.jpg" style="opacity:0.35;pointer-events:none;">🖼 YouTube 封面</a>
+  <a href="jiang_iran_stage.mp4">🎬 Stage 影片</a>
+  <a href="thumbnail.jpg">🖼 YouTube 封面</a>
   <a href="script_clean.txt">✍️ 中文腳本</a>
-  <a href="script_tts.txt" style="opacity:0.35;pointer-events:none;">🔊 TTS 發音稿</a>
-  <a href="subtitles.srt" style="opacity:0.35;pointer-events:none;">💬 SRT 字幕</a>
+  <a href="script_tts.txt">🔊 TTS 發音稿</a>
+  <a href="subtitles.srt">💬 SRT 字幕</a>
   <a href="transcript_en.txt">📄 英文逐字稿</a>
   <a href="transcript_zh.txt">📄 中文翻譯</a>
-  <a href="youtube_meta.json" style="opacity:0.35;pointer-events:none;">📋 YouTube 文案</a>
+  <a href="youtube_meta.json">📋 YouTube 文案</a>
 </div></div>
+<div class="section">
+  <div class="section-title">📋 YouTube 發布設定</div>
+  <div class="yt-section">
+    <div class="yt-header">
+      <span class="yt-logo">▶</span>
+      <h2>YouTube 文案</h2>
+      <span class="yt-pill">🔒 未上傳（私人）</span>
+    </div>
+    <div class="yt-field"><label>標題</label><div class="val title-val">以色列為何不要停火？川普和談被誰搞砸</div></div>
+    <div class="yt-field"><label>描述</label><div class="val">油價破百美元，而伊朗的目標是兩百。
+
+政治分析師江學勤教授，在幾次重大事件前都預測對了。他說：這場戰爭才剛開始，而且有人不想讓它結束。
+
+🔑 本集重點：
+1. 伊朗戰爭為何像烏克蘭——消耗戰、無法快速結束
+2. 以色列如何一次次破壞川普的和談努力
+3. 美國困在中間，走不掉也打不大
+4. 西方丟掉柏拉圖，中國卻在推廣西方經典
+
+📌 時間章節：
+0:00 開場
+0:30 第一章：這場戰爭，是另一個烏克蘭
+1:39 第二章：以色列的如意算盤
+2:17 第三章：川普困住了，美國困住了
+3:20 第四章：西方為什麼沒有力量阻止這一切
+4:35 結語
+
+📺 原始來源：
+Tucker Carlson — Political Prophet Predicts the Next Phase in Iran, Trump&#x27;s War Plan, &amp; Israel&#x27;s Plot to Sabotage It
+https://youtu.be/2K2nQsTTjQE
+
+🎙 94iVoice — AI 與科技深度解析
+歡迎訂閱 → https://www.youtube.com/@94ivoice
+
+#伊朗戰爭 #以色列 #川普 #中東局勢 #94iVoice</div></div>
+    <div class="yt-field"><label>標籤</label><div class="yt-tags"><span class="yt-tag">中東衝突</span><span class="yt-tag">伊朗戰爭</span><span class="yt-tag">以色列</span><span class="yt-tag">川普</span><span class="yt-tag">油價</span><span class="yt-tag">江學勤</span><span class="yt-tag">Tucker Carlson</span><span class="yt-tag">94iVoice</span><span class="yt-tag">AI</span><span class="yt-tag">地緣政治</span></div></div>
+  </div>
+</div>
 <footer>94iVoice 愛播客 Stage 預覽頁 &nbsp;·&nbsp; 來源：<a href="https://www.youtube.com/watch?v=2K2nQsTTjQE" target="_blank">Political Prophet Predicts the Next Phase in Iran, Trump’s War Plan, &amp; Israel’s Plot to Sabotage It</a></footer>
 </div>
 <script>
