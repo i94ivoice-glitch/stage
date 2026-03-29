@@ -204,11 +204,12 @@ footer a { color: #3a5a7a; }
     <span class="chip">📺 1920×1080 · 30fps</span>
   </div>
 </div>
-<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
+<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><audio controls preload="none" style="width:100%;margin-bottom:12px;border-radius:6px;"><source src="audio.mp3" type="audio/mpeg"></audio><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><div style="display:flex;gap:8px;margin-top:10px;"><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button><a href="audio.mp3" download="audio.mp3" style="padding:7px 16px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.8em;">⬇ 下載音檔</a></div></div>
 <div class="section"><div class="section-title">💬 SRT 字幕預覽</div><div class="srt-block" id="srtContent">載入中...</div></div>
 <div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
   <a href="jiang_money_stage.mp4">🎬 Stage 影片</a>
   <a href="thumbnail.jpg">🖼 YouTube 封面</a>
+  <a href="audio.mp3">🎙 TTS 音檔</a>
   <a href="script_clean.txt">✍️ 中文腳本</a>
   <a href="script_tts.txt">🔊 TTS 發音稿</a>
   <a href="subtitles.srt">💬 SRT 字幕</a>
