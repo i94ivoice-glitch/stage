@@ -87,6 +87,9 @@ h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-botto
 .srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
 footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #1a1a1a; font-size: 0.75em; color: #555; text-align: center; }
 footer a { color: #3a5a7a; }
+.pod-dl-btn { display: inline-block; padding: 7px 16px; background: #0d2a1a; border: 1px solid #1a4a2a; border-radius: 6px; color: #1DB954; text-decoration: none; font-size: 0.82em; }
+.pod-dl-btn:hover { background: #0f3a22; }
+.pod-dl-disabled { background: #1a1a1a; border: 1px solid #2a2a2a; color: #555; cursor: not-allowed; }
 </style>
 </head>
 <body>
@@ -111,6 +114,27 @@ footer a { color: #3a5a7a; }
         <a href="transcript_en.txt" style="font-size:0.78em;">📄 英文逐字稿</a>
         <a href="transcript_zh.txt" style="font-size:0.78em;">📄 中文翻譯</a>
       </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">🖼 YouTube 封面提案</div>
+  <div style="font-size:0.82em;color:#666;margin-bottom:16px;">三版封面設計供參考，回覆選擇 A / B / C</div>
+  <div class="thumb-grid">
+    <div class="thumb-proposal">
+      <div class="proposal-label">提案 A</div>
+      <img src="thumb_A.jpg" alt="封面提案 A" loading="lazy">
+      <div class="proposal-desc"></div>
+    </div>
+    <div class="thumb-proposal">
+      <div class="proposal-label">提案 B</div>
+      <img src="thumb_B.jpg" alt="封面提案 B" loading="lazy">
+      <div class="proposal-desc"></div>
+    </div>
+    <div class="thumb-proposal">
+      <div class="proposal-label">提案 C</div>
+      <img src="thumb_C.jpg" alt="封面提案 C" loading="lazy">
+      <div class="proposal-desc"></div>
     </div>
   </div>
 </div>
@@ -180,11 +204,14 @@ footer a { color: #3a5a7a; }
     <span class="chip">📺 1920×1080 · 30fps</span>
   </div>
 </div>
-<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
+<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><audio controls preload="none" style="width:100%;margin-bottom:12px;border-radius:6px;"><source src="audio.mp3" type="audio/mpeg"></audio><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" style="margin-top:10px;" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
 <div class="section"><div class="section-title">💬 SRT 字幕預覽</div><div class="srt-block" id="srtContent">載入中...</div></div>
 <div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
   <a href="jiang_iran_stage.mp4">🎬 Stage 影片</a>
   <a href="thumbnail.jpg">🖼 YouTube 封面</a>
+  <a href="audio.mp3" style="opacity:0.35;pointer-events:none;">🎙 TTS 音檔</a>
+  <a href="audio_spotify.mp3">🎵 Spotify 音訊</a>
+  <a href="cover_spotify.jpg">🟢 Spotify 封面</a>
   <a href="script_clean.txt">✍️ 中文腳本</a>
   <a href="script_tts.txt">🔊 TTS 發音稿</a>
   <a href="subtitles.srt">💬 SRT 字幕</a>
@@ -228,6 +255,57 @@ https://youtu.be/2K2nQsTTjQE
 
 #伊朗戰爭 #以色列 #川普 #中東局勢 #94iVoice</div></div>
     <div class="yt-field"><label>標籤</label><div class="yt-tags"><span class="yt-tag">中東衝突</span><span class="yt-tag">伊朗戰爭</span><span class="yt-tag">以色列</span><span class="yt-tag">川普</span><span class="yt-tag">油價</span><span class="yt-tag">江學勤</span><span class="yt-tag">Tucker Carlson</span><span class="yt-tag">94iVoice</span><span class="yt-tag">AI</span><span class="yt-tag">地緣政治</span></div></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">🎙 Spotify Podcast 發布設定</div>
+  <div class="yt-section">
+    <div class="yt-header">
+      <span style="color:#1DB954;font-size:1.4em;">🎵</span>
+      <h2>Spotify Podcast 文案</h2>
+      <span class="yt-pill" style="background:#0d2a1a;color:#1DB954;border-color:#1a4a2a;">Spotify</span>
+    </div>
+    <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;">
+      <img src="cover_spotify.jpg" style="width:140px;height:140px;object-fit:cover;border-radius:8px;border:1px solid #2a2a2a;flex-shrink:0;" loading="lazy">
+      <div style="flex:1;min-width:200px;">
+        <div class="yt-field"><label>集數標題</label><div class="val title-val">以色列為何不要停火？川普和談被誰搞砸</div></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+          <a href="audio_spotify.mp3" download="audio_spotify.mp3" class="pod-dl-btn">⬇ 音訊 MP3 (160kbps)</a>
+          <a href="cover_spotify.jpg" download="cover_spotify.jpg" class="pod-dl-btn">⬇ 封面 1400×1400</a>
+        </div>
+      </div>
+    </div>
+    <div class="yt-field"><label>節目描述</label><div class="val" style="max-height:300px;overflow-y:auto;">油價破百美元，而伊朗的目標是兩百。
+
+政治分析師江學勤教授，在幾次重大事件前都預測對了。他說：這場戰爭才剛開始，而且有人不想讓它結束。
+
+🔑 本集重點：
+1. 伊朗戰爭為何像烏克蘭——消耗戰、無法快速結束
+2. 以色列如何一次次破壞川普的和談努力
+3. 美國困在中間，走不掉也打不大——越戰的歷史重演
+4. 西方丟掉柏拉圖，中國卻在推廣西方經典
+
+📌 時間章節：
+
+📺 原始來源：
+Tucker Carlson — Political Prophet Predicts the Next Phase in Iran, Trump&#x27;s War Plan, &amp; Israel&#x27;s Plot to Sabotage It
+https://youtu.be/2K2nQsTTjQE
+
+🎙 94iVoice — AI 與科技深度解析
+
+#伊朗戰爭 #以色列 #川普 #中東局勢 #94iVoice</div></div>
+    <div class="yt-field"><label>標籤</label><div class="yt-tags"><span class="yt-tag">中東衝突</span><span class="yt-tag">伊朗戰爭</span><span class="yt-tag">以色列</span><span class="yt-tag">川普</span><span class="yt-tag">油價</span><span class="yt-tag">江學勤</span><span class="yt-tag">Tucker Carlson</span><span class="yt-tag">94iVoice</span><span class="yt-tag">AI</span><span class="yt-tag">地緣政治</span></div></div>
+    <div style="margin-top:14px;padding:10px 14px;background:#0d1a0d;border:1px solid #1a3a1a;border-radius:6px;font-size:0.78em;color:#6a9a6a;line-height:1.8;">
+      📋 <strong>Spotify 規格</strong>：音訊 MP3 · 96–320kbps · 封面 JPEG 1400×1400px（正方形）· 影片 MP4/MOV 1080p H.264（選填）
+    </div>
+    <div style="margin-top:12px;">
+      <a href="https://creators.spotify.com" target="_blank"
+         style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
+                background:#1DB954;color:#000;font-weight:700;font-size:0.88em;
+                border-radius:8px;text-decoration:none;">
+        🎙 前往 Spotify for Creators 上傳
+      </a>
+    </div>
   </div>
 </div>
 <footer>94iVoice 愛播客 Stage 預覽頁 &nbsp;·&nbsp; 來源：<a href="https://www.youtube.com/watch?v=2K2nQsTTjQE" target="_blank">Political Prophet Predicts the Next Phase in Iran, Trump’s War Plan, &amp; Israel’s Plot to Sabotage It</a></footer>
