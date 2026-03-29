@@ -92,8 +92,8 @@ footer a { color: #3a5a7a; }
 <body>
 <div class="container">
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px;"><a href="../" style="color:#ccc;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#1e1e1e;border:1px solid #444;border-radius:6px;">← Stage 索引</a><span style="font-size:0.75em;color:#aaa;">更新：<span id="page-updated"></span></span></div>
-<h1>94iVoice — jiang_money <span class="badge draft">⏳ 草稿審閱中</span></h1>
-<div class="notice"><strong>📋 草稿審閱</strong><br>請確認以下三件事，確認後開始製作：<br>1️⃣ <strong>腳本方向</strong> — 內容 OK？有需要修改的地方嗎？<br>2️⃣ <strong>封面文案</strong> — 選擇 A / B / C 哪個版本？<br>3️⃣ <strong>背景圖生成方式</strong> — (D) DALL-E 3 自動生成 / (G) Google Imagen 4 生成</div>
+<h1>94iVoice — jiang_money <span class="badge stage">🎬 Stage 審閱中</span></h1>
+<div class="notice"><strong>🎬 Stage 審閱</strong><br>請確認影片、封面、YouTube 文案，沒問題後告知「確認上傳」。<br>如需修改腳本 → 告知，重跑 TTS 後重建。如只改文案 → 直接說明。</div>
 <div class="section">
   <div class="section-title">📺 原始影片</div>
   <div class="source-card">
@@ -114,17 +114,133 @@ footer a { color: #3a5a7a; }
     </div>
   </div>
 </div>
-<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" style="font-size:0.82em;color:#555;">（草稿階段尚未產生，確認腳本後製作）</div></div>
+<div class="section"><div class="section-title">🖼 YouTube 封面</div><div style="aspect-ratio:16/9;max-width:480px;background:#141414;border:1px dashed #333;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#555;font-size:0.85em;"><div style="font-size:1.8em;">🖼</div><div>封面未選擇（Step 7 完成後更新）</div></div></div>
+<div class="section">
+  <div class="section-title">🖼 章節背景圖</div>
+  <div class="chapter-groups">
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">00</span><span class="chapter-group-name">開場</span><span class="chapter-group-time">0:00 → 0:38</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">加油站夜景，燈光照射油槍，駕駛低頭看帳單，電影感近景</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">0:00 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">加油站夜景，燈光照射油槍，駕駛低頭看帳單，電影感近景</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">01</span><span class="chapter-group-name">霍爾木茲效應</span><span class="chapter-group-time">0:38 → 2:27</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【霍爾木茲效應】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">0:38 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【霍爾木茲效應】標題卡</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">霍爾木茲海峽鳥瞰，波斯灣出口，黃昏航拍，史詩廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">0:40 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">霍爾木茲海峽鳥瞰，波斯灣出口，黃昏航拍，史詩廣角</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">油輪艦隊俯瞰，波斯灣海面，黃昏金光，史詩廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">1:25 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">油輪艦隊俯瞰，波斯灣海面，黃昏金光，史詩廣角</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">02</span><span class="chapter-group-name">停滯性通膨</span><span class="chapter-group-time">2:27 → 3:33</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【停滯性通膨】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">2:27 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【停滯性通膨】標題卡</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">1970年代美國加油站，長龍車隊，冷色紀錄片風格，電影感廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">2:29 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">1970年代美國加油站，長龍車隊，冷色紀錄片風格，電影感廣角</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">03</span><span class="chapter-group-name">沒人在說的兩個隱藏衝擊</span><span class="chapter-group-time">3:33 → 4:25</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【沒人在說的兩個隱藏衝擊】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">3:33 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【沒人在說的兩個隱藏衝擊】標題卡</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">半導體晶片工廠內部，無塵室，藍白燈光，科技感廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">3:35 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">半導體晶片工廠內部，無塵室，藍白燈光，科技感廣角</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">農田俯瞰，大規模農業，黃昏金光，史詩廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">4:07 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">農田俯瞰，大規模農業，黃昏金光，史詩廣角</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">04</span><span class="chapter-group-name">黃金的反直覺走勢</span><span class="chapter-group-time">4:25 → 5:39</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【黃金的反直覺走勢】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">4:25 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【黃金的反直覺走勢】標題卡</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">金條特寫，金融保險庫，暖黃金光，電影感近景</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">4:27 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">金條特寫，金融保險庫，暖黃金光，電影感近景</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">05</span><span class="chapter-group-name">七個步驟，從現在開始</span><span class="chapter-group-time">5:39 → 7:58</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【七個步驟，從現在開始】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">5:39 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【七個步驟，從現在開始】標題卡</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">家庭廚房餐桌，親子對話，溫暖燈光，生活感近景</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">5:41 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">家庭廚房餐桌，親子對話，溫暖燈光，生活感近景</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">06</span><span class="chapter-group-name">結語</span><span class="chapter-group-time">7:58 → 8:27</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">黎明地平線，城市天際線剪影，第一道曙光，史詩廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">7:58 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">黎明地平線，城市天際線剪影，第一道曙光，史詩廣角</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">🎬 Stage 影片</div>
+  <video controls preload="metadata" poster="thumbnail.jpg" style="width:100%;border-radius:8px;">
+    <source src="jiang_money_stage.mp4" type="video/mp4">
+    <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
+  </video>
+  <div class="video-meta">
+    <span class="chip">🎙 YunjianNeural</span>
+    <span class="chip">🖼 背景圖 × 14（7 章節）</span>
+    <span class="chip">📝 FontSize 135</span>
+    <span class="chip">🎬 Logo 片尾</span>
+    <span class="chip">📺 1920×1080 · 30fps</span>
+  </div>
+</div>
+<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
+<div class="section"><div class="section-title">💬 SRT 字幕預覽</div><div class="srt-block" id="srtContent">載入中...</div></div>
 <div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
   <a href="jiang_money_stage.mp4" style="opacity:0.35;pointer-events:none;">🎬 Stage 影片</a>
   <a href="thumbnail.jpg" style="opacity:0.35;pointer-events:none;">🖼 YouTube 封面</a>
-  <a href="script_clean.txt" style="opacity:0.35;pointer-events:none;">✍️ 中文腳本</a>
+  <a href="script_clean.txt">✍️ 中文腳本</a>
   <a href="script_tts.txt" style="opacity:0.35;pointer-events:none;">🔊 TTS 發音稿</a>
   <a href="subtitles.srt" style="opacity:0.35;pointer-events:none;">💬 SRT 字幕</a>
   <a href="transcript_en.txt" style="opacity:0.35;pointer-events:none;">📄 英文逐字稿</a>
   <a href="transcript_zh.txt" style="opacity:0.35;pointer-events:none;">📄 中文翻譯</a>
   <a href="youtube_meta.json" style="opacity:0.35;pointer-events:none;">📋 YouTube 文案</a>
 </div></div>
+<div class="section">
+  <div class="section-title">📋 YouTube 發布設定</div>
+  <div class="yt-section">
+    <div class="yt-header">
+      <span class="yt-logo">▶</span>
+      <h2>YouTube 文案</h2>
+      <span class="yt-pill">🔒 未上傳（私人）</span>
+    </div>
+    <div class="yt-field"><label>標題</label><div class="val title-val">伊朗戰爭衝擊你的錢包：7個步驟現在就能做</div></div>
+    <div class="yt-field"><label>描述</label><div class="val">油價 3 週漲 40%，加油站漲 24%——這場戰爭正在透過霍爾木茲海峽，影響你的錢包。
+
+江學勤教授帶你搞懂這條從伊朗打到你退休帳戶的連結線，以及你現在就能做的 7 個自保步驟。
+
+🔑 本集重點：
+• 霍爾木茲效應：為什麼一條 33 公里寬的海峽封閉，會讓全球經濟倒數
+• 停滯性通膨：1979 年的鬼魂回來了，而聯準會這次沒有空間
+• 隱藏衝擊：氦氣斷供、化肥收緊——多數人不知道的兩根支柱
+• 7 個步驟：從現金緩衝到防禦板塊，馬上能執行
+
+📌 時間章節：
+0:00 開場
+0:38 霍爾木茲效應
+2:27 停滯性通膨
+3:33 沒人在說的兩個隱藏衝擊
+4:25 黃金的反直覺走勢
+5:39 七個步驟，從現在開始
+7:58 結語
+
+📺 相關影片：
+以色列為何不要停火？川普和談被誰搞砸
+https://youtu.be/W4DTO_ObbwU
+
+📺 原始來源：
+Prof. Jiang — Iran W@r &amp; Economic Collapse: 7 Ways to Protect Your Money
+https://youtu.be/LZkN-X_-1O4
+
+⚠️ 免責聲明：以上內容為個人整理和想法，不構成任何投資建議。
+投資有風險，每個人的財務狀況不同，做決定前請自行評估或諮詢專業顧問。
+
+🎙 94iVoice — AI 與科技深度解析
+歡迎訂閱 → https://www.youtube.com/@94ivoice
+
+#伊朗戰爭 #投資理財 #停滯性通膨 #霍爾木茲 #江學勤 #94iVoice</div></div>
+    <div class="yt-field"><label>標籤</label><div class="yt-tags"><span class="yt-tag">伊朗戰爭</span><span class="yt-tag">投資理財</span><span class="yt-tag">停滯性通膨</span><span class="yt-tag">霍爾木茲海峽</span><span class="yt-tag">江學勤</span><span class="yt-tag">油價</span><span class="yt-tag">黃金</span><span class="yt-tag">TIPS</span><span class="yt-tag">94iVoice</span></div></div>
+  </div>
+</div>
 <footer>94iVoice 愛播客 Stage 預覽頁 &nbsp;·&nbsp; 來源：<a href="https://rr1---sn-45gx5nuvox-u2xe6.googlevideo.com/videoplayback?expire=1774733096&amp;ei=yPLHaequK-Cs0-kPte-b-A4&amp;ip=220.228.163.157&amp;id=o-ACO6I8KEw0YFkfrz7GUifgf26r1E-nTqvafWqguhZHkI&amp;itag=251&amp;source=youtube&amp;requiressl=yes&amp;xpc=EgVo2aDSNQ%3D%3D&amp;cps=506&amp;met=1774711496%2C&amp;mh=d1&amp;mm=31%2C29&amp;mn=sn-45gx5nuvox-u2xe6%2Csn-ojun55-55&amp;ms=au%2Crdu&amp;mv=u&amp;mvi=1&amp;pcm2cms=yes&amp;pl=24&amp;rms=au%2Cau&amp;bui=AUUZDGLJGtH7t-62ai0pGsm3USVc8TS9sveu9gkPKqqwoTkHJo0ZKmsuRgfwNHkYdx7D12VZnFwimW7F&amp;spc=jlWavaEo_FwrMjNMsoQQHE_GpbnnC_-UiqTp1JOUV4F0&amp;vprv=1&amp;svpuc=1&amp;xtags=acont%3Doriginal%3Alang%3Den-US&amp;mime=audio%2Fwebm&amp;rqh=1&amp;gir=yes&amp;clen=19331906&amp;dur=1411.721&amp;lmt=1774279838923345&amp;mt=1774711142&amp;fvip=4&amp;keepalive=yes&amp;fexp=51565116%2C51565682&amp;c=ANDROID_VR&amp;txp=5532534&amp;sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cxtags%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&amp;sig=AHEqNM4wRAIgYz7N037lgN1K1fYVFP54sLW6CcBCsPjwfKMsEekeZm0CIHUfRwjP7n3h99F8KLwgtqJmzomXga0oijbwAP8XEZzF&amp;lsparams=cps%2Cmet%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Crms&amp;lsig=APaTxxMwRAIgaP_j8vPDnvRRep6q48HjsM6Cduh35sOAfKQxkcltqyoCIDC3_FNF5IyE2WfIh2WTPefXZgTRF38EsYe25H6_lfw6" target="_blank">Iran W@r &amp; Economic Collapse: 7 Ways to Protect Your Money  - Prof. Jiang Xueqin Analysis</a></footer>
 </div>
 <script>
@@ -132,99 +248,7 @@ const lm = new Date(document.lastModified);
 document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toLocaleString('zh-TW');
 fetch('script_clean.txt').then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
-}).catch(()=>{
-  // fallback: inline content
-  document.getElementById('scriptContent').textContent = `【開場】
-[BG: 加油站夜景，燈光照射油槍，駕駛低頭看帳單，電影感近景]
-上週你去加油，有沒有多看了一眼那個數字？
-江學勤教授說，那個數字不是意外，那是一場你可能沒注意到的戰爭，透過一條海峽，傳到你的油箱裡。他教地緣政治，這支影片他要把這條線——從伊朗打到你的錢包——完整走一遍，然後告訴你七件可以現在就做的事。
-那今天的影片一定要看到最後，這跟你的荷包、你的家庭、你的未來息息相關。
-喜歡這類內容的，先訂閱頻道，我們開始今天的分享。
-
-【霍爾木茲效應】
-[Title:2]
-[BG: 霍爾木茲海峽鳥瞰，波斯灣出口，黃昏航拍，史詩廣角]
-2026 年 2 月 28 日，美以對伊朗發動空襲，目標是最高領袖哈梅內伊。幾天後，伊朗反擊。中東從緊張，變成戰場。
-
-你可能會想——戰爭一直都有，為什麼這場會影響到我的退休帳戶？江教授說，答案在一個地方：霍爾木茲海峽。
-
-最窄 33 公里，窄到人可以游泳橫渡。每天 2,000 萬桶石油從這裡過。日本 75%、印度 60%、中國 40% 的石油，全走這條路。整個現代世界的能源骨幹，穿過這條比美國某些郡還窄的通道——而伊朗，現在實際上已經把它封了。
-[BG: 油輪艦隊俯瞰，波斯灣海面，黃昏金光，史詩廣角]
-海峽一封，全球經濟倒數開始。工廠停了、暖氣沒了、飛機停飛——能源稀缺，所有東西都變貴。這不是危言聳聽，這是供需。
-
-布倫特原油三週從 65 美元漲破 100 美元，漲了百分之四十。高盛估計，如果海峽繼續封鎖，3 月底前可能到 150 美元。你加油站的體感：三週漲了百分之二十四。送貨卡車、飛機燃油、超市每件商品的運費，全部轉嫁給你。
-
-卡達能源也在 3 月 2 日暫停了液化天然氣生產——它供應全球百分之二十的液化天然氣，幾乎一夜之間斷供。歐洲天然氣價格隨之幾乎翻倍。
-
-如果你想更深入了解這場戰爭的地緣政治背景——為什麼以色列不想停火、川普的和談計劃又被誰搞砸——我們上一支影片有完整分析，連結放在下方，推薦你接著看。
-
-【停滯性通膨】
-[Title:2]
-[BG: 1970年代美國加油站，長龍車隊，冷色紀錄片風格，電影感廣角]
-江教授說，經濟學家已經在低聲說一個詞了——停滯性通膨。
-
-高通膨加上經濟放緩，同時到來。最難處理，因為沒有乾淨的解決方案：升息打通膨，你壓垮成長；降息救經濟，你讓通膨繼續跑。每個選項都有代價。
-
-1979 年，同樣是伊朗、同樣是石油衝擊——美國國債殖利率飆到 15%，油價翻倍，標普 500 連續多年幾乎沒有實質報酬。這就是分析師們現在的歷史對照。
-[BG: 聯準會大樓外觀，陰天側打光，沉重電影感廣角]
-這次更麻煩——聯準會通膨本來就卡在 3%，戰前就已沒有空間。現在如果油價維持 100 美元，整體通膨可能再加 1.25 個百分點。市場預期 2026 年零次降息，消費者信心降至年內最低，摩根大通估算全球 GDP 上半年年增率可能被壓低 0.6 個百分點。這一切不再只是預測，損失已在積累了。
-
-【沒人在說的兩個隱藏衝擊】
-[Title:2]
-[BG: 半導體晶片工廠內部，無塵室，藍白燈光，科技感廣角]
-江教授說，能源衝擊大家都在講，但還有兩個衝擊幾乎沒有報導，而且都很嚴重。
-
-第一個：氦氣。別急著關掉——這不是生日氣球的問題。卡達有全球最大的氦氣生產基地之一，伊朗攻擊後，全球三分之一的氦氣供應下線。半導體需要氦氣，MRI 也需要。沒有氦氣，製造晶片的工廠就無法運轉，現代經濟開始停滯。
-
-第二個：化肥。
-[BG: 農田俯瞰，大規模農業，黃昏金光，史詩廣角]
-海灣是尿素、氨、硫磺等化肥原料的主要產地。這裡中斷，農業產出下降，食品價格上漲。
-
-三根支柱同時被擠壓：能源昂貴、氦氣斷供、化肥收緊。大多數人只知道第一個。
-
-【黃金的反直覺走勢】
-[Title:2]
-[BG: 金條特寫，金融保險庫，暖黃金光，電影感近景]
-過去一年黃金漲了百分之六十四，1 月首次突破 5,000 美元。戰爭一爆發，本能都說黃金要漲——危機來臨，黃金上漲，這是慣常劇本。
-
-但實際發生的是：空襲那天黃金短暫漲到 5,423 美元，然後急劇下跌，幾天跌超百分之六，之後繼續走低。自戰爭以來黃金損失超過百分之十四，錄得 1983 年以來最大單週跌幅。
-
-江教授說，解釋在利率。這種規模的石油衝擊讓央行維持高利率，而黃金不付利息。當國庫券實際在產生收益，黃金的相對吸引力就下降了。加上美元走強，讓黃金對國際買家更貴，需求進一步被壓。
-
-但長期面貌沒有改變。摩根大通、美國銀行、富國銀行年底目標都在 6,000 到 6,300 美元。縱觀 1970 年以來十次重大衝突，黃金在最初幾個月平均漲百分之五到十五——但危機頂峰買進往往令人失望，耐心的長期積累才帶來結果。
-
-【七個步驟，從現在開始】
-[Title:2]
-[BG: 家庭廚房餐桌，親子對話，溫暖燈光，生活感近景]
-江教授說：七個步驟，不複雜，不需要專業知識，需要的只是清楚的認知和貫徹執行。
-
-**第一步：建現金緩衝。** 三到六個月生活費，放在隨時可動用的現金裡。這是阻止你在動盪時做出恐慌決定的東西，什麼都在這個之後。
-
-**第二步：現金按時間分層。** 30 天內要用的放支票帳戶；30 天到六個月放高收益儲蓄帳戶；六個月到兩年放短期美國國庫券。每一塊錢都在發揮作用，而不是被通膨吃掉。
-[BG: 手機螢幕特寫，高收益儲蓄帳戶介面，現代感近景]
-**第三步：不要恐慌賣出長期投資。** 看著帳戶下跌，每個本能都想把錢移走——但恐慌賣出鎖定的是原本可能只是暫時的損失，然後你再錯過反彈。歷史上，危機期間賣出的投資者，通常就是在接近底部賣出、接近頂部買回的那些人。
-
-**第四步：了解 TIPS。** 美國通膨保值債券，本金隨通膨上漲，保護購買力。在通膨維持高位而聯準會又無法積極加息的環境下，它是少數專門為這種情況設計的工具。
-
-**第五步：考慮黃金配置百分之五到二十。** 世界黃金協會建議正常時期 5% 到 10%，地緣政治風險升高時 10% 到 20%。方法是定期小額買入，不要在危機頂峰一次性衝進去。
-
-**第六步：輪換到防禦性板塊。** 工業、材料、醫療保健——不管油價多高，人還是要看病。近退休或已退休的人，這不是可選的謹慎，而是沒有二十年等待復甦的人理應採取的姿態。
-
-**第七步：家庭實際準備。** 能源和食品預算要比去年高。積極還清信用卡和浮動利率借款，利率維持高位時這些是陷阱。審視你每月固定支出，找出一年以上沒看過的訂閱和保險，每一塊找回的錢都在發揮作用。
-
-最後補充一句：以上都是我看完影片的個人整理和想法，不構成任何投資建議。
-
-【結語】
-[BG: 黎明地平線，城市天際線剪影，第一道曙光，史詩廣角]
-江教授說，你工作太辛苦、存錢太久了，不應該只是個被動旁觀者。
-
-七個步驟，不複雜，不需要專業知識。從現金緩衝開始——那是地基，其他的都在上面。
-
-你無法控制霍爾木茲、無法控制聯準會、也無法控制油價。但你可以面對風險做好準備。
-
-AI 在改變世界，我們一起慢慢搞懂它。下次見。
-`;
-});
+}).catch(()=>{ document.getElementById('scriptContent').textContent = '（尚未產生）'; });
 const ttsEl = document.getElementById('ttsContent');
 if (ttsEl) fetch('script_tts.txt').then(r=>r.text()).then(t=>{ ttsEl.textContent = t; }).catch(()=>{ ttsEl.textContent = '（尚未產生）'; });
 const srtEl = document.getElementById('srtContent');
