@@ -4,12 +4,12 @@
     "first": "上週你去加油有沒",
     "start_ms": 0,
     "title_sec": 0.0,
-    "dur_sec": 38.14,
+    "dur_sec": 38.19,
     "bg": "bg_44c05db8.png",
     "bg_segments": [
       {
         "at_ms": 100,
-        "dur_ms": 38040,
+        "dur_ms": 38090,
         "bg": "bg_44c05db8.png",
         "scene_zh": "加油站夜景，燈光照射油槍，駕駛低頭看帳單，電影感近景"
       }
@@ -18,26 +18,26 @@
   {
     "name": "霍爾木茲效應",
     "first": "2026年2月2",
-    "start_ms": 38140,
+    "start_ms": 38188,
     "title_sec": 2.0,
     "dur_sec": 109.59,
     "bg": "bg_067b5727.png",
     "bg_segments": [
       {
-        "at_ms": 38140,
+        "at_ms": 38188,
         "dur_ms": 2000,
         "bg": "title_01_card.png",
         "scene_zh": "【霍爾木茲效應】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 40140,
+        "at_ms": 40188,
         "dur_ms": 45797,
         "bg": "bg_067b5727.png",
         "scene_zh": "霍爾木茲海峽鳥瞰，波斯灣出口，黃昏航拍，史詩廣角"
       },
       {
-        "at_ms": 85937,
+        "at_ms": 85985,
         "dur_ms": 61793,
         "bg": "bg_fa25bb52.png",
         "scene_zh": "油輪艦隊俯瞰，波斯灣海面，黃昏金光，史詩廣角"
@@ -47,20 +47,20 @@
   {
     "name": "停滯性通膨",
     "first": "經濟學家已經在低",
-    "start_ms": 147732,
+    "start_ms": 147780,
     "title_sec": 2.0,
     "dur_sec": 65.43,
     "bg": "bg_e91c8c6f.png",
     "bg_segments": [
       {
-        "at_ms": 147732,
+        "at_ms": 147780,
         "dur_ms": 2000,
         "bg": "title_02_card.png",
         "scene_zh": "【停滯性通膨】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 149732,
+        "at_ms": 149780,
         "dur_ms": 63430,
         "bg": "bg_e91c8c6f.png",
         "scene_zh": "1970年代美國加油站，長龍車隊，冷色紀錄片風格，電影感廣角"
@@ -70,26 +70,26 @@
   {
     "name": "沒人在說的兩個隱藏衝擊",
     "first": "江教授說能源衝擊",
-    "start_ms": 213164,
+    "start_ms": 213212,
     "title_sec": 2.0,
     "dur_sec": 52.57,
     "bg": "bg_ecda9737.png",
     "bg_segments": [
       {
-        "at_ms": 213164,
+        "at_ms": 213212,
         "dur_ms": 2000,
         "bg": "title_03_card.png",
         "scene_zh": "【沒人在說的兩個隱藏衝擊】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 215164,
+        "at_ms": 215212,
         "dur_ms": 32559,
         "bg": "bg_ecda9737.png",
         "scene_zh": "半導體晶片工廠內部，無塵室，藍白燈光，科技感廣角"
       },
       {
-        "at_ms": 247723,
+        "at_ms": 247771,
         "dur_ms": 18011,
         "bg": "bg_b4e07122.png",
         "scene_zh": "農田俯瞰，大規模農業，黃昏金光，史詩廣角"
@@ -99,20 +99,20 @@
   {
     "name": "黃金的反直覺走勢",
     "first": "過去一年黃金漲了",
-    "start_ms": 265732,
+    "start_ms": 265780,
     "title_sec": 2.0,
     "dur_sec": 74.12,
     "bg": "bg_33bd992b.png",
     "bg_segments": [
       {
-        "at_ms": 265732,
+        "at_ms": 265780,
         "dur_ms": 2000,
         "bg": "title_04_card.png",
         "scene_zh": "【黃金的反直覺走勢】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 267732,
+        "at_ms": 267780,
         "dur_ms": 72120,
         "bg": "bg_33bd992b.png",
         "scene_zh": "金條特寫，金融保險庫，暖黃金光，電影感近景"
@@ -122,20 +122,20 @@
   {
     "name": "七個步驟，從現在開始",
     "first": "江教授說七個步驟",
-    "start_ms": 339852,
+    "start_ms": 339900,
     "title_sec": 2.0,
     "dur_sec": 138.33,
     "bg": "bg_7495b272.png",
     "bg_segments": [
       {
-        "at_ms": 339852,
+        "at_ms": 339900,
         "dur_ms": 2000,
         "bg": "title_05_card.png",
         "scene_zh": "【七個步驟，從現在開始】標題卡",
         "is_title_card": true
       },
       {
-        "at_ms": 341852,
+        "at_ms": 341900,
         "dur_ms": 136330,
         "bg": "bg_7495b272.png",
         "scene_zh": "家庭廚房餐桌，親子對話，溫暖燈光，生活感近景"
@@ -145,13 +145,13 @@
   {
     "name": "結語",
     "first": "江教授說你工作太",
-    "start_ms": 478183,
+    "start_ms": 478231,
     "title_sec": 0.0,
     "dur_sec": 29.68,
     "bg": "bg_e5ab2fd0.png",
     "bg_segments": [
       {
-        "at_ms": 478183,
+        "at_ms": 478231,
         "dur_ms": 29680,
         "bg": "bg_e5ab2fd0.png",
         "scene_zh": "黎明地平線，城市天際線剪影，第一道曙光，史詩廣角"
