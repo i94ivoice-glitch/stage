@@ -95,9 +95,70 @@ footer a { color: #3a5a7a; }
 <body>
 <div class="container">
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px;"><a href="../" style="color:#ccc;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#1e1e1e;border:1px solid #444;border-radius:6px;">← Stage 索引</a><span style="font-size:0.75em;color:#aaa;">更新：<span id="page-updated"></span></span></div>
-<h1>94iVoice — diamandis_ep242 <span class="badge draft">⏳ 草稿審閱中</span></h1>
-<div class="notice"><strong>📋 草稿審閱</strong><br>請確認以下三件事，確認後開始製作：<br>1️⃣ <strong>腳本方向</strong> — 內容 OK？有需要修改的地方嗎？<br>2️⃣ <strong>封面文案</strong> — 選擇 A / B / C 哪個版本？<br>3️⃣ <strong>背景圖生成方式</strong> — (D) DALL-E 3 自動生成 / (G) Google Imagen 4 生成</div>
-<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" style="font-size:0.82em;color:#555;">（草稿階段尚未產生，確認腳本後製作）</div></div>
+<h1>94iVoice — diamandis_ep242 <span class="badge stage">🎬 Stage 審閱中</span></h1>
+<div class="notice"><strong>🎬 Stage 審閱</strong><br>請確認影片、封面、YouTube 文案，沒問題後告知「確認上傳」。<br>如需修改腳本 → 告知，重跑 TTS 後重建。如只改文案 → 直接說明。</div>
+<div class="section"><div class="section-title">🖼 YouTube 封面</div><div style="aspect-ratio:16/9;max-width:480px;background:#141414;border:1px dashed #333;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#555;font-size:0.85em;"><div style="font-size:1.8em;">🖼</div><div>封面未選擇（Step 7 完成後更新）</div></div></div>
+<div class="section">
+  <div class="section-title">🖼 章節背景圖</div>
+  <div class="chapter-groups">
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">00</span><span class="chapter-group-name">開場</span><span class="chapter-group-time">0:00 → 0:44</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">未來感晶片工廠鳥瞰，金屬機械臂與晶圓自動運輸系統在黃昏金光下運作，隱約看到產線上的晶圓裝在透明的玻璃盒裡，epic 廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">0:00 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">未來感晶片工廠鳥瞰，金屬機械臂與晶圓自動運輸系統在黃昏金光下運作，隱約看到產線上的晶圓裝在透明的玻璃盒裡，epic 廣角</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">01</span><span class="chapter-group-name">一、TeraFab：Elon 的晶片銀河工廠</span><span class="chapter-group-time">0:44 → 2:08</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【一、TeraFab：Elon 的晶片銀河工廠】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">0:44 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【一、TeraFab：Elon 的晶片銀河工廠】標題卡</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">德州奧斯汀超大型工業廠區俯瞰，廠房連綿一望無際，規模宏大，黃昏暖光，epic 廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">0:46 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">德州奧斯汀超大型工業廠區俯瞰，廠房連綿一望無際，規模宏大，黃昏暖光，epic 廣角</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">半導體供應鏈示意圖，全球各地工廠節點連線，從原材料到晶片的生產流程，鳥瞰地圖視角，黃金發光連結線</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">1:13 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">半導體供應鏈示意圖，全球各地工廠節點連線，從原材料到晶片的生產流程，鳥瞰地圖視角，黃金發光連結線</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">SpaceX 星艦在發射台點火升空，烈焰噴射，夜空中留下一道白光軌跡，壯觀 epic 廣角</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">1:39 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">SpaceX 星艦在發射台點火升空，烈焰噴射，夜空中留下一道白光軌跡，壯觀 epic 廣角</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">02</span><span class="chapter-group-name">二、自駕車：人類開車終將違法</span><span class="chapter-group-time">2:08 → 3:53</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【二、自駕車：人類開車終將違法】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">2:08 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【二、自駕車：人類開車終將違法】標題卡</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">Waymo 白色自駕車在城市街道行駛，車頂雷達旋轉，行人安全穿越，陽光明亮的都市街景</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">2:10 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">Waymo 白色自駕車在城市街道行駛，車頂雷達旋轉，行人安全穿越，陽光明亮的都市街景</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">法庭或立法廳場景，議員或法官在審議，莊嚴肅穆，象徵法規制定的關鍵時刻，暖黃燈光</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">2:34 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">法庭或立法廳場景，議員或法官在審議，莊嚴肅穆，象徵法規制定的關鍵時刻，暖黃燈光</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">eVTOL 飛行計程車在城市高樓間飛行，乘客透過玻璃窗俯瞰城市，遠方可見原本是大型停車場的空地正在改建成公園，黃昏金光</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">3:13 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">eVTOL 飛行計程車在城市高樓間飛行，乘客透過玻璃窗俯瞰城市，遠方可見原本是大型停車場的空地正在改建成公園，黃昏金光</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">03</span><span class="chapter-group-name">三、AI 大洗牌：工作消失只是第一步</span><span class="chapter-group-time">3:53 → 5:22</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><div class="chapter-bg-placeholder"><div class="ph-icon">🎬</div><div class="ph-label">【三、AI 大洗牌：工作消失只是第一步】標題卡</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">3:53 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【三、AI 大洗牌：工作消失只是第一步】標題卡</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">企業辦公室走廊，大量空置工位，名牌還掛在椅背上，遠處一名員工獨自收拾紙箱，冷調日光燈</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">3:55 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">企業辦公室走廊，大量空置工位，名牌還掛在椅背上，遠處一名員工獨自收拾紙箱，冷調日光燈</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">工程師在螢幕前，左邊是傳統程式碼，右邊是 AI 對話介面自動補全，兩種工作方式並排對比，暖黃夜燈</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">4:34 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">工程師在螢幕前，左邊是傳統程式碼，右邊是 AI 對話介面自動補全，兩種工作方式並排對比，暖黃夜燈</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">老牌企業大樓外觀，正門招牌略顯陳舊，一旁有工人架起新的數位螢幕看板，象徵企業被收購改造，黃昏斜光</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">4:57 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">老牌企業大樓外觀，正門招牌略顯陳舊，一旁有工人架起新的數位螢幕看板，象徵企業被收購改造，黃昏斜光</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">04</span><span class="chapter-group-name">結語</span><span class="chapter-group-time">5:23 → 6:15</span></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">三個並排畫面合成：晶片工廠產線、自駕車車隊、工程師與 AI 介面，象徵三大浪潮同時湧來，黃昏金光 epic</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">5:23 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">三個並排畫面合成：晶片工廠產線、自駕車車隊、工程師與 AI 介面，象徵三大浪潮同時湧來，黃昏金光 epic</div></div></div>
+        <div class="chapter-bg-card is-pending"><div class="chapter-bg-placeholder"><div class="ph-icon">🎨</div><div class="ph-label">清晨海邊，一個人站在礁石上遠眺地平線，海面反光，天際泛出金橙色晨光，充滿希望與開闊感</div></div><div class="chapter-bg-info"><div class="chapter-bg-label">5:53 <span class="bg-badge pending">待生成</span></div><div class="chapter-bg-scene">清晨海邊，一個人站在礁石上遠眺地平線，海面反光，天際泛出金橙色晨光，充滿希望與開闊感</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">🎬 Stage 影片</div>
+  <video controls preload="metadata" poster="thumbnail.jpg" style="width:100%;border-radius:8px;">
+    <source src="diamandis_ep242_stage.mp4" type="video/mp4">
+    <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
+  </video>
+  <div class="video-meta">
+    <span class="chip">🎙 YunjianNeural</span>
+    <span class="chip">🖼 背景圖 × 15（5 章節）</span>
+    <span class="chip">📝 FontSize 135</span>
+    <span class="chip">🎬 Logo 片尾</span>
+    <span class="chip">📺 1920×1080 · 30fps</span>
+  </div>
+</div>
+<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><audio controls preload="none" style="width:100%;margin-bottom:12px;border-radius:6px;"><source src="audio.mp3" type="audio/mpeg"></audio><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" style="margin-top:10px;" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
+<div class="section"><div class="section-title">💬 SRT 字幕預覽</div><div class="srt-block" id="srtContent">載入中...</div></div>
 <div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
   <a href="diamandis_ep242_stage.mp4" style="opacity:0.35;pointer-events:none;">🎬 Stage 影片</a>
   <a href="thumbnail.jpg" style="opacity:0.35;pointer-events:none;">🖼 YouTube 封面</a>
@@ -111,6 +172,88 @@ footer a { color: #3a5a7a; }
   <a href="transcript_zh.txt" style="opacity:0.35;pointer-events:none;">📄 中文翻譯</a>
   <a href="youtube_meta.json" style="opacity:0.35;pointer-events:none;">📋 YouTube 文案</a>
 </div></div>
+<div class="section">
+  <div class="section-title">📋 YouTube 發布設定</div>
+  <div class="yt-section">
+    <div class="yt-header">
+      <span class="yt-logo">▶</span>
+      <h2>YouTube 文案</h2>
+      <span class="yt-pill">🔒 未上傳（私人）</span>
+    </div>
+    <div class="yt-field"><label>標題</label><div class="val title-val">Elon 要建全球最大晶片工廠，人類開車將變非法，AI 正在改寫職場規則</div></div>
+    <div class="yt-field"><label>描述</label><div class="val">Peter Diamandis 和登月計劃播客團隊，花兩小時拆解了三件正在改變世界的事：Elon 的 TeraFab 晶片帝國、自駕車讓人類開車變違法，以及 AI 大洗牌。
+
+🔑 本集重點：
+1. TeraFab：Elon 要建年產一太瓦算力的超級晶片廠，是全球現有產能的 50 倍
+2. 自駕車：Waymo 事故減少 92%，人類開車終將違法，城市 60% 停車場將消失
+3. AI 大洗牌：企業未來只需 20-25% 員工，貝佐斯千億基金收購老牌企業用 AI 改造
+
+📌 時間章節：
+00:00 開場
+00:44 一、TeraFab：Elon 的晶片銀河工廠
+02:08 二、自駕車：人類開車終將違法
+03:53 三、AI 大洗牌：工作消失只是第一步
+05:23 結語
+
+📺 原始來源：
+Peter H. Diamandis — Elon Enters the Chip Race, the S&amp;P 500 Repricing, and Human Drivers Will Become Illegal | EP #242
+https://youtu.be/wMLcIWLlcWg
+
+🎙 94iVoice — AI 與科技深度解析
+歡迎訂閱 → https://www.youtube.com/@94ivoice
+
+#Elon #AI #自駕車 #晶片 #科技 #94iVoice</div></div>
+    <div class="yt-field"><label>標籤</label><div class="yt-tags"><span class="yt-tag">Elon Musk</span><span class="yt-tag">TeraFab</span><span class="yt-tag">AI</span><span class="yt-tag">自駕車</span><span class="yt-tag">Waymo</span><span class="yt-tag">晶片</span><span class="yt-tag">科技</span><span class="yt-tag">Peter Diamandis</span><span class="yt-tag">94iVoice</span><span class="yt-tag">人工智慧</span></div></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">🎙 Spotify Podcast 發布設定</div>
+  <div class="yt-section">
+    <div class="yt-header">
+      <span style="color:#1DB954;font-size:1.4em;">🎵</span>
+      <h2>Spotify Podcast 文案</h2>
+      <span class="yt-pill" style="background:#0d2a1a;color:#1DB954;border-color:#1a4a2a;">Spotify</span>
+    </div>
+    <div style="display:flex;gap:20px;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;">
+      <div style="width:140px;height:140px;background:#141414;border:1px dashed #333;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.75em;color:#555;flex-shrink:0;">封面未生成</div>
+      <div style="flex:1;min-width:200px;">
+        <div class="yt-field"><label>集數標題</label><div class="val title-val">Elon 要建全球最大晶片工廠，人類開車將變非法，AI 正在改寫職場規則</div></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+          <span class="pod-dl-btn pod-dl-disabled">⬇ 音訊 MP3 (160kbps)（未生成）</span>
+          <span class="pod-dl-btn pod-dl-disabled">⬇ 封面 1400×1400（未生成）</span>
+        </div>
+      </div>
+    </div>
+    <div class="yt-field"><label>節目描述</label><div class="val" style="max-height:300px;overflow-y:auto;">Peter Diamandis 和登月計劃播客團隊，花兩小時拆解了三件正在改變世界的事：Elon 的 TeraFab 晶片帝國、自駕車讓人類開車變違法，以及 AI 大洗牌。
+
+🔑 本集重點：
+1. TeraFab：Elon 要建年產一太瓦算力的超級晶片廠，是全球現有產能的 50 倍
+2. 自駕車：Waymo 事故減少 92%，人類開車終將違法，城市 60% 停車場將消失
+3. AI 大洗牌：企業未來只需 20-25% 員工，貝佐斯千億基金收購老牌企業用 AI 改造
+
+📌 時間章節：
+
+📺 原始來源：
+Peter H. Diamandis — Elon Enters the Chip Race, the S&amp;P 500 Repricing, and Human Drivers Will Become Illegal | EP #242
+https://youtu.be/wMLcIWLlcWg
+
+🎙 94iVoice — AI 與科技深度解析
+
+#Elon #AI #自駕車 #晶片 #科技 #94iVoice</div></div>
+    <div class="yt-field"><label>標籤</label><div class="yt-tags"><span class="yt-tag">Elon Musk</span><span class="yt-tag">TeraFab</span><span class="yt-tag">AI</span><span class="yt-tag">自駕車</span><span class="yt-tag">Waymo</span><span class="yt-tag">晶片</span><span class="yt-tag">科技</span><span class="yt-tag">Peter Diamandis</span><span class="yt-tag">94iVoice</span><span class="yt-tag">人工智慧</span></div></div>
+    <div style="margin-top:14px;padding:10px 14px;background:#0d1a0d;border:1px solid #1a3a1a;border-radius:6px;font-size:0.78em;color:#6a9a6a;line-height:1.8;">
+      📋 <strong>Spotify 規格</strong>：音訊 MP3 · 96–320kbps · 封面 JPEG 1400×1400px（正方形）· 影片 MP4/MOV 1080p H.264（選填）
+    </div>
+    <div style="margin-top:12px;">
+      <a href="https://creators.spotify.com" target="_blank"
+         style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;
+                background:#1DB954;color:#000;font-weight:700;font-size:0.88em;
+                border-radius:8px;text-decoration:none;">
+        🎙 前往 Spotify for Creators 上傳
+      </a>
+    </div>
+  </div>
+</div>
 <footer>94iVoice 愛播客 Stage 預覽頁 &nbsp;·&nbsp; 來源：<a href="#" target="_blank">原始影片</a></footer>
 </div>
 <script>
@@ -120,7 +263,7 @@ fetch('script_clean.txt?v=' + Date.now()).then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{ document.getElementById('scriptContent').textContent = '（尚未產生）'; });
 const ttsEl = document.getElementById('ttsContent');
-if (ttsEl) fetch('script_tts.txt').then(r=>r.text()).then(t=>{ ttsEl.textContent = t; }).catch(()=>{ ttsEl.textContent = '（尚未產生）'; });
+if (ttsEl) fetch('script_tts.txt?v=' + Date.now()).then(r=>r.text()).then(t=>{ ttsEl.textContent = t; }).catch(()=>{ ttsEl.textContent = '（尚未產生）'; });
 const srtEl = document.getElementById('srtContent');
 if (srtEl) fetch('subtitles.srt').then(r=>r.text()).then(t=>{ srtEl.textContent = t; }).catch(()=>{});
 </script>
