@@ -116,7 +116,7 @@ footer a { color: #3a5a7a; }
 <script>
 const lm = new Date(document.lastModified);
 document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toLocaleString('zh-TW');
-fetch('script_clean.txt').then(r=>r.text()).then(t=>{
+fetch('script_clean.txt?v=' + Date.now()).then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{ document.getElementById('scriptContent').textContent = '（尚未產生）'; });
 const ttsEl = document.getElementById('ttsContent');
