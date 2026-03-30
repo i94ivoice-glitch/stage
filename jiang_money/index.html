@@ -161,6 +161,7 @@ footer a { color: #3a5a7a; }
       <div class="chapter-bg-row">
         <div class="chapter-bg-card is-title"><img src="title_02_card.png" loading="lazy" alt="title_02_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">2:27 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【停滯性通膨】標題卡</div></div></div>
         <div class="chapter-bg-card is-done"><img src="bg_e91c8c6f.png" loading="lazy" alt="bg_e91c8c6f.png"><div class="chapter-bg-info"><div class="chapter-bg-label">2:29 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">1970年代美國加油站，長龍車隊，冷色紀錄片風格，電影感廣角</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_f37334dd.png" loading="lazy" alt="bg_f37334dd.png"><div class="chapter-bg-info"><div class="chapter-bg-label">3:04 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">聯準會大樓外觀，陰天側打光，沉重電影感廣角</div></div></div>
       </div>
     </div>
     <div class="chapter-group">
@@ -183,6 +184,7 @@ footer a { color: #3a5a7a; }
       <div class="chapter-bg-row">
         <div class="chapter-bg-card is-title"><img src="title_05_card.png" loading="lazy" alt="title_05_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">5:39 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【七個步驟，從現在開始】標題卡</div></div></div>
         <div class="chapter-bg-card is-done"><img src="bg_7495b272.png" loading="lazy" alt="bg_7495b272.png"><div class="chapter-bg-info"><div class="chapter-bg-label">5:41 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">家庭廚房餐桌，親子對話，溫暖燈光，生活感近景</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_818bc188.png" loading="lazy" alt="bg_818bc188.png"><div class="chapter-bg-info"><div class="chapter-bg-label">6:17 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">手機螢幕特寫，高收益儲蓄帳戶介面，現代感近景</div></div></div>
       </div>
     </div>
     <div class="chapter-group">
@@ -201,7 +203,7 @@ footer a { color: #3a5a7a; }
   </video>
   <div class="video-meta">
     <span class="chip">🎙 YunjianNeural</span>
-    <span class="chip">🖼 背景圖 × 14（7 章節）</span>
+    <span class="chip">🖼 背景圖 × 16（7 章節）</span>
     <span class="chip">📝 FontSize 135</span>
     <span class="chip">🎬 Logo 片尾</span>
     <span class="chip">📺 1920×1080 · 30fps</span>
@@ -331,11 +333,11 @@ https://youtu.be/LZkN-X_-1O4
 <script>
 const lm = new Date(document.lastModified);
 document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toLocaleString('zh-TW');
-fetch('script_clean.txt').then(r=>r.text()).then(t=>{
+fetch('script_clean.txt?v=' + Date.now()).then(r=>r.text()).then(t=>{
   document.getElementById('scriptContent').textContent = t;
 }).catch(()=>{ document.getElementById('scriptContent').textContent = '（尚未產生）'; });
 const ttsEl = document.getElementById('ttsContent');
-if (ttsEl) fetch('script_tts.txt').then(r=>r.text()).then(t=>{ ttsEl.textContent = t; }).catch(()=>{ ttsEl.textContent = '（尚未產生）'; });
+if (ttsEl) fetch('script_tts.txt?v=' + Date.now()).then(r=>r.text()).then(t=>{ ttsEl.textContent = t; }).catch(()=>{ ttsEl.textContent = '（尚未產生）'; });
 const srtEl = document.getElementById('srtContent');
 if (srtEl) fetch('subtitles.srt').then(r=>r.text()).then(t=>{ srtEl.textContent = t; }).catch(()=>{});
 </script>
