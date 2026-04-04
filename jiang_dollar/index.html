@@ -95,29 +95,8 @@ footer a { color: #3a5a7a; }
 <body>
 <div class="container">
 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px;"><a href="../" style="color:#ccc;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#1e1e1e;border:1px solid #444;border-radius:6px;">← Stage 索引</a><span style="font-size:0.75em;color:#aaa;">更新：<span id="page-updated"></span></span></div>
-<h1>94iVoice — jiang_dollar <span class="badge draft">⏳ 草稿審閱中</span></h1>
-<div class="notice"><strong>📋 草稿審閱</strong><br>請確認以下三件事，確認後開始製作：<br>1️⃣ <strong>腳本方向</strong> — 內容 OK？有需要修改的地方嗎？<br>2️⃣ <strong>封面文案</strong> — 選擇 A / B / C 哪個版本？<br>3️⃣ <strong>背景圖生成方式</strong> — (D) DALL-E 3 自動生成 / (G) Google Imagen 4 生成</div>
-<div class="section">
-  <div class="section-title">🖼 YouTube 封面提案</div>
-  <div style="font-size:0.82em;color:#666;margin-bottom:16px;">三版封面設計供參考，回覆選擇 A / B / C</div>
-  <div class="thumb-grid">
-    <div class="thumb-proposal">
-      <div class="proposal-label">提案 A</div>
-      <img src="thumb_A.jpg" alt="封面提案 A" loading="lazy">
-      <div class="proposal-desc"></div>
-    </div>
-    <div class="thumb-proposal">
-      <div class="proposal-label">提案 B</div>
-      <img src="thumb_B.jpg" alt="封面提案 B" loading="lazy">
-      <div class="proposal-desc"></div>
-    </div>
-    <div class="thumb-proposal">
-      <div class="proposal-label">提案 C</div>
-      <img src="thumb_C.jpg" alt="封面提案 C" loading="lazy">
-      <div class="proposal-desc"></div>
-    </div>
-  </div>
-</div>
+<h1>94iVoice — jiang_dollar <span class="badge stage">🎬 Stage 審閱中</span></h1>
+<div class="notice"><strong>🎬 Stage 審閱</strong><br>請確認影片、封面、YouTube 文案，沒問題後告知「確認上傳」。<br>如需修改腳本 → 告知，重跑 TTS 後重建。如只改文案 → 直接說明。</div>
 <div class="section">
   <div class="section-title">🖼 章節背景圖</div>
   <div class="chapter-groups">
@@ -198,16 +177,31 @@ footer a { color: #3a5a7a; }
     </div>
   </div>
 </div>
-<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><div class="script-block" style="font-size:0.82em;color:#555;">（草稿階段尚未產生，確認腳本後製作）</div></div>
+<div class="section">
+  <div class="section-title">🎬 Stage 影片</div>
+  <video controls preload="metadata" poster="thumbnail.jpg" style="width:100%;border-radius:8px;">
+    <source src="jiang_dollar_stage.mp4" type="video/mp4">
+    <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
+  </video>
+  <div class="video-meta">
+    <span class="chip">🎙 YunjianNeural</span>
+    <span class="chip">🖼 背景圖 × 26（9 章節）</span>
+    <span class="chip">📝 FontSize 135</span>
+    <span class="chip">🎬 Logo 片尾</span>
+    <span class="chip">📺 1920×1080 · 30fps</span>
+  </div>
+</div>
+<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><audio controls preload="none" style="width:100%;margin-bottom:12px;border-radius:6px;"><source src="audio.mp3" type="audio/mpeg"></audio><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" style="margin-top:10px;" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
+<div class="section"><div class="section-title">💬 SRT 字幕預覽</div><div class="srt-block" id="srtContent">載入中...</div></div>
 <div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
   <a href="jiang_dollar_stage.mp4">🎬 Stage 影片</a>
   <a href="thumbnail.jpg">🖼 YouTube 封面</a>
-  <a href="audio.mp3" style="opacity:0.35;pointer-events:none;">🎙 TTS 音檔</a>
+  <a href="audio.mp3">🎙 TTS 音檔</a>
   <a href="audio_spotify.mp3" style="opacity:0.35;pointer-events:none;">🎵 Spotify 音訊</a>
   <a href="cover_spotify.jpg" style="opacity:0.35;pointer-events:none;">🟢 Spotify 封面</a>
   <a href="script_clean.txt">✍️ 中文腳本</a>
-  <a href="script_tts.txt" style="opacity:0.35;pointer-events:none;">🔊 TTS 發音稿</a>
-  <a href="subtitles.srt" style="opacity:0.35;pointer-events:none;">💬 SRT 字幕</a>
+  <a href="script_tts.txt">🔊 TTS 發音稿</a>
+  <a href="subtitles.srt">💬 SRT 字幕</a>
   <a href="transcript_en.txt">📄 英文逐字稿</a>
   <a href="transcript_zh.txt">📄 中文翻譯</a>
   <a href="youtube_meta.json" style="opacity:0.35;pointer-events:none;">📋 YouTube 文案</a>
