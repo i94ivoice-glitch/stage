@@ -1,0 +1,65 @@
+[
+  {
+    "name": "開場",
+    "first": "2026年3月二",
+    "start_ms": 0,
+    "title_sec": 0,
+    "dur_sec": 37.4,
+    "bg": "bg_28c3432b.png",
+    "bg_segments": null
+  },
+  {
+    "name": "五十年前的秘密交易",
+    "first": "要看懂人民幣收費",
+    "start_ms": 37399,
+    "title_sec": 0,
+    "dur_sec": 75.94,
+    "bg": "bg_8c4e44aa.png",
+    "bg_segments": null
+  },
+  {
+    "name": "霍爾木茲的人民幣收費站",
+    "first": "先看霍爾木茲有多",
+    "start_ms": 113343,
+    "title_sec": 0,
+    "dur_sec": 79.86,
+    "bg": "bg_9e826bb2.png",
+    "bg_segments": null
+  },
+  {
+    "name": "三波衝擊，傳到你這裡",
+    "first": "江教授說這場衝突",
+    "start_ms": 193199,
+    "title_sec": 0,
+    "dur_sec": 135.03,
+    "bg": "bg_7c540f2f.png",
+    "bg_segments": null
+  },
+  {
+    "name": "美國的蘇伊士時刻",
+    "first": "為什麼叫美國的蘇",
+    "start_ms": 328231,
+    "title_sec": 0,
+    "dur_sec": 98.77,
+    "bg": "bg_e476bce4.png",
+    "bg_segments": null
+  },
+  {
+    "name": "去美元化，數字已經在說話",
+    "first": "這場衝突不是去美",
+    "start_ms": 426999,
+    "title_sec": 0,
+    "dur_sec": 72.15,
+    "bg": "bg_4cc44c0b.png",
+    "bg_segments": null
+  },
+  {
+    "name": "三個信號，現在就能追蹤",
+    "first": "江教授說理解了這",
+    "start_ms": 499151,
+    "title_sec": 0,
+    "dur_sec": 257.04,
+    "bg": "bg_9f445ff3.png",
+    "bg_segments": null
+  }
+]
