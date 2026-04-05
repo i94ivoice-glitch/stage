@@ -5,8 +5,14 @@
     "start_ms": 0,
     "title_sec": 0,
     "dur_sec": 37.4,
-    "bg": "bg_28c3432b.png",
-    "bg_segments": null
+    "bg": "bg_cd03c80e.png",
+    "bg_segments": [
+      {
+        "file": "bg_cd03c80e.png",
+        "start_ms": 0,
+        "dur_sec": 37.4
+      }
+    ]
   },
   {
     "name": "五十年前的秘密交易",
@@ -14,8 +20,14 @@
     "start_ms": 37399,
     "title_sec": 0,
     "dur_sec": 75.94,
-    "bg": "bg_8c4e44aa.png",
-    "bg_segments": null
+    "bg": "bg_66c791e3.png",
+    "bg_segments": [
+      {
+        "file": "bg_66c791e3.png",
+        "start_ms": 37399,
+        "dur_sec": 75.94
+      }
+    ]
   },
   {
     "name": "霍爾木茲的人民幣收費站",
@@ -23,8 +35,14 @@
     "start_ms": 113343,
     "title_sec": 0,
     "dur_sec": 79.86,
-    "bg": "bg_9e826bb2.png",
-    "bg_segments": null
+    "bg": "bg_112a7a7c.png",
+    "bg_segments": [
+      {
+        "file": "bg_112a7a7c.png",
+        "start_ms": 113343,
+        "dur_sec": 79.86
+      }
+    ]
   },
   {
     "name": "三波衝擊，傳到你這裡",
@@ -32,8 +50,14 @@
     "start_ms": 193199,
     "title_sec": 0,
     "dur_sec": 135.03,
-    "bg": "bg_7c540f2f.png",
-    "bg_segments": null
+    "bg": "bg_d71235ef.png",
+    "bg_segments": [
+      {
+        "file": "bg_d71235ef.png",
+        "start_ms": 193199,
+        "dur_sec": 135.03
+      }
+    ]
   },
   {
     "name": "美國的蘇伊士時刻",
@@ -41,8 +65,14 @@
     "start_ms": 328231,
     "title_sec": 0,
     "dur_sec": 98.77,
-    "bg": "bg_e476bce4.png",
-    "bg_segments": null
+    "bg": "bg_758d6969.png",
+    "bg_segments": [
+      {
+        "file": "bg_758d6969.png",
+        "start_ms": 328231,
+        "dur_sec": 98.77
+      }
+    ]
   },
   {
     "name": "去美元化，數字已經在說話",
@@ -50,8 +80,14 @@
     "start_ms": 426999,
     "title_sec": 0,
     "dur_sec": 72.15,
-    "bg": "bg_4cc44c0b.png",
-    "bg_segments": null
+    "bg": "bg_a2ad2525.png",
+    "bg_segments": [
+      {
+        "file": "bg_a2ad2525.png",
+        "start_ms": 426999,
+        "dur_sec": 72.15
+      }
+    ]
   },
   {
     "name": "三個信號，現在就能追蹤",
@@ -59,7 +95,13 @@
     "start_ms": 499151,
     "title_sec": 0,
     "dur_sec": 257.04,
-    "bg": "bg_9f445ff3.png",
-    "bg_segments": null
+    "bg": "bg_5fa831c9.png",
+    "bg_segments": [
+      {
+        "file": "bg_5fa831c9.png",
+        "start_ms": 499151,
+        "dur_sec": 257.04
+      }
+    ]
   }
 ]
