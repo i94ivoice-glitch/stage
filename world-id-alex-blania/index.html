@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>94iVoice — world-id-alex-blania</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: #eee; margin: 0; padding: 20px; }
+.container { max-width: 960px; margin: 0 auto; }
+a { color: #4ea8de; }
+h1 { font-size: 1.4em; color: #fff; border-bottom: 2px solid #222; padding-bottom: 12px; margin-bottom: 24px; }
+.badge { font-size: 0.68em; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; font-weight: 600; }
+.badge.draft   { background: #9333ea; color: white; }
+.badge.making  { background: #2563eb; color: white; }
+.badge.stage   { background: #e63946; color: white; }
+.badge.private { background: #f4a261; color: #111; }
+.badge.live    { background: #22c55e; color: #fff; }
+.section { margin: 32px 0; }
+.section-title { font-size: 0.75em; color: #555; text-transform: uppercase; letter-spacing: 1.8px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: #222; }
+.notice { background: #1a1200; border: 1px solid #3a3000; border-radius: 10px; padding: 16px 20px; font-size: 0.88em; color: #d4a017; margin-bottom: 24px; line-height: 1.8; }
+.notice strong { color: #ffd700; }
+.chip { background: #1e1e1e; border: 1px solid #2a2a2a; padding: 4px 12px; border-radius: 20px; font-size: 0.78em; color: #999; }
+.video-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.source-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; }
+.source-thumb { width: 140px; flex-shrink: 0; border-radius: 8px; overflow: hidden; }
+.source-thumb img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.source-info h3 { margin: 0 0 6px; font-size: 0.95em; color: #fff; }
+.source-meta { font-size: 0.78em; color: #888; display: flex; flex-wrap: wrap; gap: 8px; }
+.thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 700px) { .thumb-grid { grid-template-columns: 1fr; } }
+.thumb-proposal { background: #141414; border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+.thumb-proposal.selected { border-color: #ffd700; }
+.thumb-proposal img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.proposal-label { font-size: 0.7em; font-weight: 700; letter-spacing: 1.5px; color: #111; background: #FFD700; padding: 4px 12px; display: inline-block; margin: 10px 12px 4px; border-radius: 4px; }
+.proposal-desc { padding: 0 12px 12px; font-size: 0.75em; color: #888; }
+.bg-plan-grid { display: flex; flex-direction: column; gap: 12px; }
+.bg-plan-item { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 16px 18px; display: flex; gap: 16px; align-items: flex-start; }
+.bg-plan-num { font-size: 0.68em; font-weight: 700; letter-spacing: 1.2px; color: #555; min-width: 36px; padding-top: 2px; text-transform: uppercase; }
+.bg-plan-body { flex: 1; }
+.bg-plan-title { font-size: 0.88em; color: #ddd; font-weight: 600; margin-bottom: 8px; }
+.bg-plan-prompt { font-size: 0.78em; color: #888; line-height: 1.7; background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 6px; padding: 8px 12px; white-space: pre-wrap; }
+.bg-plan-scenes { display: flex; flex-direction: column; gap: 8px; }
+.bg-plan-scene { display: flex; gap: 10px; align-items: flex-start; }
+.bg-plan-scene-idx { font-size: 0.65em; font-weight: 700; color: #444; min-width: 22px; padding-top: 10px; text-align: center; }
+.chapter-groups { display: flex; flex-direction: column; gap: 14px; }
+.chapter-group { border: 1px solid #222; border-radius: 10px; overflow: hidden; }
+.chapter-group-header { display: flex; align-items: center; gap: 10px; padding: 8px 14px; background: #1a1a1a; border-bottom: 1px solid #222; }
+.chapter-group-num  { font-size: 0.65em; font-weight: 700; color: #555; letter-spacing: 1px; text-transform: uppercase; min-width: 24px; }
+.chapter-group-name { font-size: 0.85em; color: #ddd; font-weight: 600; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chapter-group-time { font-size: 0.72em; color: #555; }
+.chapter-bg-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; padding: 10px; background: #0d0d0d; }
+.chapter-bg-card { background: #141414; border: 1px solid #1e1e1e; border-radius: 8px; overflow: hidden; }
+.chapter-bg-card:hover { border-color: #444; }
+.chapter-bg-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.chapter-bg-placeholder { width: 100%; aspect-ratio: 16/9; background: #1a1a1a; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #444; font-size: 0.75em; text-align: center; padding: 10px; box-sizing: border-box; }
+.chapter-bg-placeholder .ph-icon { font-size: 1.6em; }
+.chapter-bg-placeholder .ph-label { color: #555; font-size: 0.85em; line-height: 1.4; }
+.chapter-bg-card.is-done    { border-color: #1a3a1a; }
+.chapter-bg-card.is-pending { border-color: #3a3000; border-style: dashed; }
+.chapter-bg-card.is-title   { border-color: #2a1e3a; }
+.bg-badge { display: inline-block; font-size: 0.6em; padding: 1px 6px; border-radius: 3px; margin-left: 4px; font-weight: 700; vertical-align: middle; }
+.bg-badge.ok      { background: #1a3a1a; color: #4ade80; }
+.bg-badge.pending { background: #3a3000; color: #f4a261; }
+.bg-badge.title   { background: #2a1e3a; color: #a78bfa; }
+.chapter-bg-info { padding: 8px 10px; }
+.chapter-bg-label { font-size: 0.65em; font-weight: 700; color: #555; letter-spacing: 0.8px; }
+.chapter-bg-scene { font-size: 0.75em; color: #888; margin-top: 3px; line-height: 1.4; }
+.files { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+.files a { display: block; padding: 10px 14px; background: #141414; border: 1px solid #222; border-radius: 8px; color: #4ea8de; text-decoration: none; font-size: 0.85em; }
+.files a:hover { background: #1e1e1e; }
+.yt-section { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; }
+.yt-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.yt-logo { color: #ff0000; font-size: 1.5em; }
+.yt-header h2 { margin: 0; font-size: 1em; color: #fff; font-weight: 600; }
+.yt-pill { font-size: 0.75em; padding: 3px 10px; border-radius: 20px; background: #2a2015; color: #f4a261; border: 1px solid #3a3020; margin-left: auto; }
+.yt-field { margin-bottom: 16px; }
+.yt-field label { display: block; font-size: 0.72em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.2px; }
+.yt-field .val { background: #0d0d0d; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: #ddd; line-height: 1.7; white-space: pre-wrap; }
+.yt-field .val.title-val { font-size: 1em; font-weight: 600; color: #fff; }
+.yt-tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; background: #0d0d0d; border: 1px solid #222; border-radius: 6px; }
+.yt-tag { background: #1e1e1e; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; color: #bbb; }
+.script-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; line-height: 1.9; font-size: 0.88em; color: #ccc; white-space: pre-wrap; max-height: 500px; overflow-y: auto; }
+.copy-btn { margin-top: 10px; padding: 7px 16px; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; color: #aaa; font-size: 0.8em; cursor: pointer; }
+.copy-btn:hover { background: #2a2a2a; }
+.srt-block { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 0.78em; color: #bbb; white-space: pre; max-height: 400px; overflow-y: auto; line-height: 1.7; }
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #1a1a1a; font-size: 0.75em; color: #555; text-align: center; }
+footer a { color: #3a5a7a; }
+.pod-dl-btn { display: inline-block; padding: 7px 16px; background: #0d2a1a; border: 1px solid #1a4a2a; border-radius: 6px; color: #1DB954; text-decoration: none; font-size: 0.82em; }
+.pod-dl-btn:hover { background: #0f3a22; }
+.pod-dl-disabled { background: #1a1a1a; border: 1px solid #2a2a2a; color: #555; cursor: not-allowed; }
+</style>
+</head>
+<body>
+<div class="container">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px;"><a href="../" style="color:#ccc;text-decoration:none;font-size:0.82em;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#1e1e1e;border:1px solid #444;border-radius:6px;">← Stage 索引</a><span style="font-size:0.75em;color:#aaa;">更新：<span id="page-updated"></span></span></div>
+<h1>94iVoice — world-id-alex-blania <span class="badge stage">🎬 Stage 審閱中</span></h1>
+<div class="notice"><strong>🎬 Stage 審閱</strong><br>請確認影片、封面、YouTube 文案，沒問題後告知「確認上傳」。<br>如需修改腳本 → 告知，重跑 TTS 後重建。如只改文案 → 直接說明。</div>
+<div class="section">
+  <div class="section-title">📺 原始影片</div>
+  <div class="source-card">
+    <div class="source-thumb">
+      <a href="https://www.youtube.com/watch?v=0_NGsljlo3o" target="_blank"><img src="https://img.youtube.com/vi/0_NGsljlo3o/mqdefault.jpg" alt="thumbnail" loading="lazy"></a>
+    </div>
+    <div class="source-info">
+      <h3><a href="https://www.youtube.com/watch?v=0_NGsljlo3o" target="_blank">Alex Blania: Proof of Humanity, World ID, and the Orb | a16z Podcast</a></h3>
+      <div class="source-meta">
+        <span class="chip">👤 a16z</span>
+        <span class="chip">⏱ 47:12</span>
+        <span class="chip">🌐 English</span>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="transcript_en.txt" style="font-size:0.78em;">📄 英文逐字稿</a>
+        <a href="transcript_zh.txt" style="font-size:0.78em;">📄 中文翻譯</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">🖼 YouTube 封面</div>
+  <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;align-items:start;">
+    <div>
+      <a href="thumbnail.jpg" target="_blank">
+        <img src="thumbnail.jpg" style="width:100%;border-radius:8px;border:1px solid #2a2a2a;" loading="lazy">
+      </a>
+      <a href="thumbnail.jpg" download="thumbnail.jpg"
+         style="display:inline-block;margin-top:10px;padding:8px 18px;background:#1e1e1e;border:1px solid #333;border-radius:6px;color:#aaa;text-decoration:none;font-size:0.82em;">
+        ⬇ 下載封面
+      </a>
+    </div>
+    <div style="background:#111;border:1px solid #222;border-radius:10px;padding:18px;font-size:0.82em;line-height:2;">
+      <div style="color:#555;font-size:0.72em;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;">設計說明</div>
+      <div><span style="color:#555;">Speaker</span> Alex Blania</div>
+      <div><span style="color:#555;">大標</span> <span style="color:#fff;font-weight:700;">你在跟誰</span> 說話？</div>
+      <div><span style="color:#555;">主文</span> AI時代的 <span style="color:#FFD700;font-weight:700;">身份危機</span></div>
+      <div><span style="color:#555;">副標</span> World ID 創辦人深度訪談</div>
+      <div><span style="color:#555;">時長</span> 12 分鐘精華解析</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">🖼 章節背景圖</div>
+  <div class="chapter-groups">
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">00</span><span class="chapter-group-name">開場</span><span class="chapter-group-time">0:00 → 0:59</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ Twitter上</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-done"><img src="bg_472fac6f.png" loading="lazy" alt="bg_472fac6f.png"><div class="chapter-bg-info"><div class="chapter-bg-label">0:00 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">深夜手機螢幕上滿是社群通知，一隻手懸在螢幕上方猶豫，冷藍燈光映照臉龐剪影</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_baec839c.png" loading="lazy" alt="bg_baec839c.png"><div class="chapter-bg-info"><div class="chapter-bg-label">0:10 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">數百個機器人帳號的頭像牆，每個頭像都是AI生成的逼真人臉，密密麻麻排列，冷色調</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">01</span><span class="chapter-group-name">網路上的三種角色</span><span class="chapter-group-time">0:59 → 2:00</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ Alex說</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_01_card.png" loading="lazy" alt="title_01_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">0:59 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【網路上的三種角色】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_eb7eafb5.png" loading="lazy" alt="bg_eb7eafb5.png"><div class="chapter-bg-info"><div class="chapter-bg-label">1:01 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">三個剪影站在數位世界的十字路口，一個是真人、一個半透明代理、一個純機器人，霓虹光線區分三者</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_cfe751fe.png" loading="lazy" alt="bg_cfe751fe.png"><div class="chapter-bg-info"><div class="chapter-bg-label">1:31 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">一面巨大的社群媒體動態牆，混雜真人貼文和AI生成貼文，觀看者無法分辨，困惑表情側面剪影</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">02</span><span class="chapter-group-name">三條路，兩條走不通</span><span class="chapter-group-time">2:00 → 3:22</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ World團隊一開始考慮了 三種方法來證明你是人類</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_02_card.png" loading="lazy" alt="title_02_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">2:00 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【三條路，兩條走不通】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_ea194e45.png" loading="lazy" alt="bg_ea194e45.png"><div class="chapter-bg-info"><div class="chapter-bg-label">2:02 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">三條岔路在荒漠中分開，黃昏金光照射，中間那條路通往遠方光芒，兩側路逐漸消失在黑暗沙丘中</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_a1000a71.png" loading="lazy" alt="bg_a1000a71.png"><div class="chapter-bg-info"><div class="chapter-bg-label">2:23 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">AI機器人坐在電腦前，螢幕上同時打開五個不同社群帳號，綠色程式碼光映照鍵盤</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_b9713888.png" loading="lazy" alt="bg_b9713888.png"><div class="chapter-bg-info"><div class="chapter-bg-label">2:47 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">世界地圖上不同國家的身分證系統用光點表示，大部分是暗的，只有少數亮起，全球視角俯瞰</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">03</span><span class="chapter-group-name">為什麼是虹膜，不是你的臉</span><span class="chapter-group-time">3:22 → 4:47</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ 先說一個你每天在用的東西</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_03_card.png" loading="lazy" alt="title_03_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">3:22 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【為什麼是虹膜，不是你的臉】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_356ed8d7.png" loading="lazy" alt="bg_356ed8d7.png"><div class="chapter-bg-info"><div class="chapter-bg-label">3:24 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">Face ID解鎖的抽象示意，一張臉對應一支手機，箭頭表示一對一比對，簡潔科技風格</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_b1ebb616.png" loading="lazy" alt="bg_b1ebb616.png"><div class="chapter-bg-info"><div class="chapter-bg-label">3:49 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">數學公式和資訊熵的視覺化，指數曲線急遽上升，背景是密密麻麻的資料節點</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_88f7599a.png" loading="lazy" alt="bg_88f7599a.png"><div class="chapter-bg-info"><div class="chapter-bg-label">4:10 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">巨大的虹膜特寫，瞳孔纖維紋理清晰可見，光線從側面打入，微觀攝影風格</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">04</span><span class="chapter-group-name">Orb：那顆來自未來的銀色球體</span><span class="chapter-group-time">4:47 → 6:23</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ 所以World造了一個專用硬體</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_04_card.png" loading="lazy" alt="title_04_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">4:47 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【Orb：那顆來自未來的銀色球體】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_2ba7a6cd.png" loading="lazy" alt="bg_2ba7a6cd.png"><div class="chapter-bg-info"><div class="chapter-bg-label">4:49 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">World的Orb裝置在明亮展示空間中，銀色球體反射周圍環境，一個人正把臉湊近掃描，未來科技感</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_3b3e3337.png" loading="lazy" alt="bg_3b3e3337.png"><div class="chapter-bg-info"><div class="chapter-bg-label">5:18 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">加密資料在多台伺服器之間傳輸的示意圖，每台伺服器只持有一小塊拼圖，藍色光束連接</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_fdf0d4d6.png" loading="lazy" alt="bg_fdf0d4d6.png"><div class="chapter-bg-info"><div class="chapter-bg-label">5:50 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">手機螢幕上顯示World ID驗證成功的介面，綠色勾勾，背景是模糊的咖啡廳日常場景</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">05</span><span class="chapter-group-name">深度造假時代，誰是真的</span><span class="chapter-group-time">6:23 → 7:48</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ 你可能覺得</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_05_card.png" loading="lazy" alt="title_05_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">6:23 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【深度造假時代，誰是真的】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_d1f8fe60.png" loading="lazy" alt="bg_d1f8fe60.png"><div class="chapter-bg-info"><div class="chapter-bg-label">6:25 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">視訊會議畫面中，一半是真人，一半是深度造假的影像，兩者幾乎無法區分，分割線微微閃爍</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_190bf7b5.png" loading="lazy" alt="bg_190bf7b5.png"><div class="chapter-bg-info"><div class="chapter-bg-label">6:49 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">高級會議室裡的大螢幕視訊通話，對面的人臉部微微扭曲透露出深度造假的痕跡，緊張氛圍</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_39fbcb25.png" loading="lazy" alt="bg_39fbcb25.png"><div class="chapter-bg-info"><div class="chapter-bg-label">7:14 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">社群媒體平台的後台監控室，牆上巨型螢幕顯示數百萬筆帳號活動，紅色標記不斷增加</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">06</span><span class="chapter-group-name">民主的基礎正在被動搖</span><span class="chapter-group-time">7:48 → 9:03</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ Alex提到了一件讓人不安的事</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_06_card.png" loading="lazy" alt="title_06_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">7:48 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【民主的基礎正在被動搖】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_cffac0a4.png" loading="lazy" alt="bg_cffac0a4.png"><div class="chapter-bg-info"><div class="chapter-bg-label">7:50 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">美國郵寄選票的特寫，信封堆疊在桌上，背景是國旗和投票箱，嚴肅冷色調</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_fae83140.png" loading="lazy" alt="bg_fae83140.png"><div class="chapter-bg-info"><div class="chapter-bg-label">8:16 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">國會投票廳的莊嚴空間，投票機器排列整齊，空蕩蕩的座位，冷藍燈光</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">07</span><span class="chapter-group-name">六年前的賭注</span><span class="chapter-group-time">9:03 → 10:12</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ 這家公司不是最近才成立的</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_07_card.png" loading="lazy" alt="title_07_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">9:03 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【六年前的賭注】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_b2702331.png" loading="lazy" alt="bg_b2702331.png"><div class="chapter-bg-info"><div class="chapter-bg-label">9:05 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">早期新創辦公室，白板上畫滿架構圖，一個年輕創業者背對鏡頭看著白板思考，溫暖昏黃燈光</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_fa14456d.png" loading="lazy" alt="bg_fa14456d.png"><div class="chapter-bg-info"><div class="chapter-bg-label">9:25 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">時間軸視覺化，從2020年到2026年，每個年份標記一個AI里程碑，節點越來越密集越來越亮</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">08</span><span class="chapter-group-name">五萬顆球，怎麼鋪到全世界</span><span class="chapter-group-time">10:12 → 11:26</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ World目前有一千八 百萬人完成了Orb驗證</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_08_card.png" loading="lazy" alt="title_08_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">10:12 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【五萬顆球，怎麼鋪到全世界】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_201b6f05.png" loading="lazy" alt="bg_201b6f05.png"><div class="chapter-bg-info"><div class="chapter-bg-label">10:14 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">工廠生產線上排列整齊的Orb裝置，銀色球體反射燈光，工人在背景中忙碌，工業感場景</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_bba8d1d1.png" loading="lazy" alt="bg_bba8d1d1.png"><div class="chapter-bg-info"><div class="chapter-bg-label">10:37 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">摩托車騎士載著一顆銀色Orb穿越城市街道，背景是紐約天際線，黃昏光線</div></div></div>
+      </div>
+    </div>
+    <div class="chapter-group">
+      <div class="chapter-group-header"><span class="chapter-group-num">09</span><span class="chapter-group-name">結語</span><span class="chapter-group-time">11:26 → 12:14</span><div class="chapter-bg-scene" style="color:#aaa;font-size:0.75em;margin-top:2px;">▶ Alex說了一句話</div></div>
+      <div class="chapter-bg-row">
+        <div class="chapter-bg-card is-title"><img src="title_09_card.png" loading="lazy" alt="title_09_card.png"><div class="chapter-bg-info"><div class="chapter-bg-label">11:26 <span class="bg-badge title">📌 標題卡</span></div><div class="chapter-bg-scene">【結語】標題卡</div></div></div>
+        <div class="chapter-bg-card is-done"><img src="bg_896e37c3.png" loading="lazy" alt="bg_896e37c3.png"><div class="chapter-bg-info"><div class="chapter-bg-label">11:28 <span class="bg-badge ok">✓ 已生成</span></div><div class="chapter-bg-scene">清晨的城市天際線，陽光穿透薄霧照射高樓，一個人站在天台遠眺，溫暖金光，開闊構圖</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">🎬 Stage 影片</div>
+  <video controls preload="metadata" poster="thumbnail.jpg" style="width:100%;border-radius:8px;">
+    <source src="world-id-alex-blania_stage.mp4" type="video/mp4">
+    <track kind="subtitles" src="subtitles.srt" srclang="zh" label="中文字幕" default>
+  </video>
+  <div class="video-meta">
+    <span class="chip">🎙 YunjianNeural</span>
+    <span class="chip">🖼 背景圖 × 32（10 章節）</span>
+    <span class="chip">📝 FontSize 135</span>
+    <span class="chip">🎬 Logo 片尾</span>
+    <span class="chip">📺 1920×1080 · 30fps</span>
+  </div>
+</div>
+<div class="section"><div class="section-title">✍️ 中文腳本</div><div class="script-block" id="scriptContent">載入中...</div><button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('scriptContent').textContent)">📋 複製腳本</button></div><div class="section"><div class="section-title">🔊 TTS 發音稿</div><audio controls preload="none" style="width:100%;margin-bottom:12px;border-radius:6px;"><source src="audio.mp3" type="audio/mpeg"></audio><div class="script-block" id="ttsContent" style="font-size:0.82em;color:#aaa;">載入中...</div><button class="copy-btn" style="margin-top:10px;" onclick="navigator.clipboard.writeText(document.getElementById('ttsContent').textContent)">📋 複製發音稿</button></div>
+<div class="section"><div class="section-title">💬 SRT 字幕預覽</div><div class="srt-block" id="srtContent">載入中...</div></div>
+<div class="section"><div class="section-title">📦 素材檔案</div><div class="files">
+  <a href="world-id-alex-blania_stage.mp4">🎬 Stage 影片</a>
+  <a href="thumbnail.jpg">🖼 YouTube 封面</a>
+  <a href="audio.mp3">🎙 TTS 音檔</a>
+  <a href="audio_spotify.mp3">🎵 Spotify 音訊</a>
+  <a href="cover_spotify.jpg">🟢 Spotify 封面</a>
+  <a href="script_clean.txt">✍️ 中文腳本</a>
+  <a href="script_tts.txt">🔊 TTS 發音稿</a>
+  <a href="subtitles.srt">💬 SRT 字幕</a>
+  <a href="transcript_en.txt">📄 英文逐字稿</a>
+  <a href="transcript_zh.txt">📄 中文翻譯</a>
+  <a href="youtube_meta.json" style="opacity:0.35;pointer-events:none;">📋 YouTube 文案</a>
+</div></div>
+<footer>94iVoice 愛播客 Stage 預覽頁 &nbsp;·&nbsp; 來源：<a href="https://www.youtube.com/watch?v=0_NGsljlo3o" target="_blank">Alex Blania: Proof of Humanity, World ID, and the Orb | a16z Podcast</a></footer>
+</div>
+<script>
+const lm = new Date(document.lastModified);
+document.getElementById('page-updated').textContent = isNaN(lm) ? '—' : lm.toLocaleString('zh-TW');
+fetch('script_clean.txt?v=' + Date.now()).then(r=>r.text()).then(t=>{
+  document.getElementById('scriptContent').textContent = t;
+}).catch(()=>{ document.getElementById('scriptContent').textContent = '（尚未產生）'; });
+const ttsEl = document.getElementById('ttsContent');
+if (ttsEl) fetch('script_tts.txt?v=' + Date.now()).then(r=>r.text()).then(t=>{ ttsEl.textContent = t; }).catch(()=>{ ttsEl.textContent = '（尚未產生）'; });
+const srtEl = document.getElementById('srtContent');
+if (srtEl) fetch('subtitles.srt').then(r=>r.text()).then(t=>{ srtEl.textContent = t; }).catch(()=>{});
+</script>
+</body>
+</html>
